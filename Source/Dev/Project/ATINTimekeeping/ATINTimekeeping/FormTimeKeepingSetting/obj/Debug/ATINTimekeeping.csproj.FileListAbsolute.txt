@@ -1,0 +1,336 @@
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ATINTimekeeping.exe.config
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ATINTimekeeping.exe
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ATINTimekeeping.pdb
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.BonusSkins.v19.2.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Data.v19.2.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Printing.v19.2.Core.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Sparkline.v19.2.Core.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Utils.v19.2.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraEditors.v19.2.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Pdf.v19.2.Core.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Data.v19.2.xml
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Utils.v19.2.xml
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Sparkline.v19.2.Core.xml
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraEditors.v19.2.xml
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Printing.v19.2.Core.xml
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Pdf.v19.2.Core.xml
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.Data.v19.2.resources.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.Data.v19.2.resources.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.Data.v19.2.resources.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.Data.v19.2.resources.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.Utils.v19.2.resources.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.Utils.v19.2.resources.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.Utils.v19.2.resources.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.Utils.v19.2.resources.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.Sparkline.v19.2.Core.resources.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.Sparkline.v19.2.Core.resources.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.Sparkline.v19.2.Core.resources.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.Sparkline.v19.2.Core.resources.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.XtraEditors.v19.2.resources.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.XtraEditors.v19.2.resources.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.XtraEditors.v19.2.resources.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.XtraEditors.v19.2.resources.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.Printing.v19.2.Core.resources.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.Printing.v19.2.Core.resources.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.Printing.v19.2.Core.resources.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.Printing.v19.2.Core.resources.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.Pdf.v19.2.Core.resources.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.Pdf.v19.2.Core.resources.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.Pdf.v19.2.Core.resources.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.Pdf.v19.2.Core.resources.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.Properties.Resources.resources
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.csproj.GenerateResource.Cache
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.exe
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.pdb
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraBars.v19.2.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraBars.v19.2.xml
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.XtraBars.v19.2.resources.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.XtraBars.v19.2.resources.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.XtraBars.v19.2.resources.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.XtraBars.v19.2.resources.dll
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.csprojResolveAssemblyReference.cache
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.MainForm.resources
+c:\users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.exe.licenses
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Charts.v19.2.Core.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.DataAccess.v19.2.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.DataAccess.v19.2.UI.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Office.v19.2.Core.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.RichEdit.v19.2.Core.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Spreadsheet.v19.2.Core.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Utils.v19.2.UI.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraCharts.v19.2.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraGrid.v19.2.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraLayout.v19.2.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraNavBar.v19.2.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraPrinting.v19.2.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraRichEdit.v19.2.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraSpreadsheet.v19.2.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraTreeList.v19.2.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Xpo.v19.2.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.CodeParser.v19.2.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraDiagram.v19.2.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Diagram.v19.2.Core.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Images.v19.2.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraVerticalGrid.v19.2.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.DataAccess.v19.2.xml
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.DataAccess.v19.2.UI.xml
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Office.v19.2.Core.xml
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.RichEdit.v19.2.Core.xml
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Spreadsheet.v19.2.Core.xml
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Utils.v19.2.UI.xml
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraCharts.v19.2.xml
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraGrid.v19.2.xml
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraLayout.v19.2.xml
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraNavBar.v19.2.xml
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraPrinting.v19.2.xml
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraRichEdit.v19.2.xml
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraSpreadsheet.v19.2.xml
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraTreeList.v19.2.xml
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Xpo.v19.2.xml
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraDiagram.v19.2.xml
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Diagram.v19.2.Core.xml
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraVerticalGrid.v19.2.xml
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.DataAccess.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.DataAccess.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.DataAccess.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.DataAccess.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.DataAccess.v19.2.UI.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.DataAccess.v19.2.UI.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.DataAccess.v19.2.UI.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.DataAccess.v19.2.UI.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.Office.v19.2.Core.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.Office.v19.2.Core.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.Office.v19.2.Core.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.Office.v19.2.Core.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.RichEdit.v19.2.Core.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.RichEdit.v19.2.Core.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.RichEdit.v19.2.Core.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.RichEdit.v19.2.Core.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.Spreadsheet.v19.2.Core.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.Spreadsheet.v19.2.Core.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.Spreadsheet.v19.2.Core.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.Spreadsheet.v19.2.Core.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.Utils.v19.2.UI.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.Utils.v19.2.UI.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.Utils.v19.2.UI.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.Utils.v19.2.UI.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.XtraCharts.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.XtraCharts.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.XtraCharts.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.XtraCharts.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.XtraGrid.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.XtraGrid.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.XtraGrid.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.XtraGrid.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.XtraLayout.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.XtraLayout.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.XtraLayout.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.XtraLayout.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.XtraNavBar.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.XtraNavBar.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.XtraNavBar.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.XtraNavBar.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.XtraPrinting.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.XtraPrinting.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.XtraPrinting.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.XtraPrinting.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.XtraRichEdit.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.XtraRichEdit.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.XtraRichEdit.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.XtraRichEdit.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.XtraSpreadsheet.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.XtraSpreadsheet.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.XtraSpreadsheet.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.XtraSpreadsheet.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.XtraTreeList.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.XtraTreeList.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.XtraTreeList.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.XtraTreeList.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.Xpo.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.Xpo.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.Xpo.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.Xpo.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.Diagram.v19.2.Core.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.Diagram.v19.2.Core.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.Diagram.v19.2.Core.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.Diagram.v19.2.Core.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.XtraVerticalGrid.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.XtraVerticalGrid.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.XtraVerticalGrid.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.XtraVerticalGrid.v19.2.resources.dll
+C:\Users\dodan\documents\visual studio 2017\Projects\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.EmployeeManagementForm.resources
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.csprojResolveAssemblyReference.cache
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.Properties.Resources.resources
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.MainForm.resources
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.csproj.GenerateResource.Cache
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.exe.licenses
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.exe
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.pdb
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.FormEmployeeManagement.EmployeeManagement.resources
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.FormTimeKeepingSetting.DeclareTheShift.resources
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.FormTimeKeepingSetting.SelectTime.resources
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.KhaiBaoMayChamCongFrm.resources
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.TaiDuLieuChamCongFrm.resources
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.TaiNhanVienTuMayTinhLenFrm.resources
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.TaiNhanVienVeMayTinhFrm.resources
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ATINTimekeeping.exe.config
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ATINTimekeeping.exe
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ATINTimekeeping.pdb
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.BonusSkins.v19.2.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Charts.v19.2.Core.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Data.v19.2.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.DataAccess.v19.2.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.DataAccess.v19.2.UI.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Office.v19.2.Core.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Printing.v19.2.Core.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.RichEdit.v19.2.Core.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Sparkline.v19.2.Core.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Spreadsheet.v19.2.Core.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Utils.v19.2.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Utils.v19.2.UI.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraBars.v19.2.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraCharts.v19.2.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraDiagram.v19.2.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraDialogs.v19.2.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraEditors.v19.2.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraGrid.v19.2.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraLayout.v19.2.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraNavBar.v19.2.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraPrinting.v19.2.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraRichEdit.v19.2.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraSpreadsheet.v19.2.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraTreeList.v19.2.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Xpo.v19.2.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.CodeParser.v19.2.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Diagram.v19.2.Core.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Pdf.v19.2.Core.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Images.v19.2.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraVerticalGrid.v19.2.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Dialogs.v19.2.Core.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Data.v19.2.xml
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.DataAccess.v19.2.xml
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.DataAccess.v19.2.UI.xml
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Office.v19.2.Core.xml
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.RichEdit.v19.2.Core.xml
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Spreadsheet.v19.2.Core.xml
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Utils.v19.2.xml
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Sparkline.v19.2.Core.xml
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Utils.v19.2.UI.xml
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraBars.v19.2.xml
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraCharts.v19.2.xml
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraDiagram.v19.2.xml
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraDialogs.v19.2.xml
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraEditors.v19.2.xml
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Printing.v19.2.Core.xml
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraGrid.v19.2.xml
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraLayout.v19.2.xml
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraNavBar.v19.2.xml
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraPrinting.v19.2.xml
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraRichEdit.v19.2.xml
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraSpreadsheet.v19.2.xml
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraTreeList.v19.2.xml
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Xpo.v19.2.xml
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Diagram.v19.2.Core.xml
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.Pdf.v19.2.Core.xml
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\DevExpress.XtraVerticalGrid.v19.2.xml
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.Data.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.Data.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.Data.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.Data.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.DataAccess.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.DataAccess.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.DataAccess.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.DataAccess.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.DataAccess.v19.2.UI.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.DataAccess.v19.2.UI.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.DataAccess.v19.2.UI.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.DataAccess.v19.2.UI.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.Office.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.Office.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.Office.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.Office.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.RichEdit.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.RichEdit.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.RichEdit.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.RichEdit.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.Spreadsheet.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.Spreadsheet.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.Spreadsheet.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.Spreadsheet.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.Utils.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.Utils.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.Utils.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.Utils.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.Sparkline.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.Sparkline.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.Sparkline.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.Sparkline.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.Utils.v19.2.UI.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.Utils.v19.2.UI.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.Utils.v19.2.UI.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.Utils.v19.2.UI.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.XtraBars.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.XtraBars.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.XtraBars.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.XtraBars.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.XtraCharts.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.XtraCharts.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.XtraCharts.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.XtraCharts.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.XtraEditors.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.XtraEditors.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.XtraEditors.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.XtraEditors.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.Printing.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.Printing.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.Printing.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.Printing.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.XtraGrid.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.XtraGrid.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.XtraGrid.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.XtraGrid.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.XtraLayout.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.XtraLayout.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.XtraLayout.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.XtraLayout.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.XtraNavBar.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.XtraNavBar.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.XtraNavBar.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.XtraNavBar.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.XtraPrinting.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.XtraPrinting.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.XtraPrinting.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.XtraPrinting.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.XtraRichEdit.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.XtraRichEdit.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.XtraRichEdit.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.XtraRichEdit.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.XtraSpreadsheet.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.XtraSpreadsheet.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.XtraSpreadsheet.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.XtraSpreadsheet.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.XtraTreeList.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.XtraTreeList.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.XtraTreeList.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.XtraTreeList.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.Xpo.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.Xpo.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.Xpo.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.Xpo.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.Diagram.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.Diagram.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.Diagram.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.Diagram.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.Pdf.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.Pdf.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.Pdf.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.Pdf.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.XtraVerticalGrid.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.XtraVerticalGrid.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.XtraVerticalGrid.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.XtraVerticalGrid.v19.2.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\de\DevExpress.Dialogs.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\es\DevExpress.Dialogs.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ja\DevExpress.Dialogs.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\bin\Debug\ru\DevExpress.Dialogs.v19.2.Core.resources.dll
+D:\Source\ATInnovation\SVN\ATINTimekeeping\branches\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.FormSystem.TaiKhoanDangNhap.resources

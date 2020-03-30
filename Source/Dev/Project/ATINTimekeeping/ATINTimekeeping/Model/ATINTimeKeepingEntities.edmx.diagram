@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="04de3d1fa81a4bdd87be46ca8be815eb" Name="Diagram1">
+        <EntityTypeShape EntityType="ATINChamCongModel.AspNetRole" Width="1.5" PointX="5.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.AspNetUserClaim" Width="1.5" PointX="10.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.AspNetUserLogin" Width="1.5" PointX="10.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.AspNetUser" Width="1.5" PointX="8" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.BaoCaoChiTiet" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.CaLamViec" Width="1.5" PointX="8.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.ChucVu" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.CongTyKhuVuc" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.DangKyNghiPhep" Width="1.5" PointX="6" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.DangKyTangCa" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.DanToc" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.HopDongLaoDong" Width="1.5" PointX="5.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.KhaiBaoThoiGian" Width="1.5" PointX="10.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.KhuonMat" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.LichTrinhLamViec" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.LoaiHopDong" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.LoaiNghiPhep" Width="1.5" PointX="3.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.LoaiThamSo" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.MayNhanDang" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.NgayNghiLe" Width="1.5" PointX="12.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.NgayPhepNhanVien" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.Nguoi" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.NhatKy" Width="1.5" PointX="3" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.PhanQuyenNhanDang" Width="1.5" PointX="14.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.PhongBan" Width="1.5" PointX="5.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.PhuCap" Width="1.5" PointX="14.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.sysdiagram" Width="1.5" PointX="14.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.ThamSo" Width="1.5" PointX="14.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.TheTu" Width="1.5" PointX="3" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.TonGiao" Width="1.5" PointX="7.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.TrinhDoHocVan" Width="1.5" PointX="9.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.VanTay" Width="1.5" PointX="3" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.BaoCao" Width="1.5" PointX="11.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.MATHANG_KHO" Width="1.5" PointX="13.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.SP_Status" Width="1.5" PointX="15.75" PointY="15.75" IsExpanded="true" />
+        <AssociationConnector Association="ATINChamCongModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="ATINChamCongModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="ATINChamCongModel.FK_dbo_DangKyNghiPhep_MaLoaiNghiPhep" ManuallyRouted="false" />
+        <AssociationConnector Association="ATINChamCongModel.FK_dbo_DangKyNghiPhep_MaNhanVien" ManuallyRouted="false" />
+        <AssociationConnector Association="ATINChamCongModel.FK_dbo_DangKyTangCa_MaNhanVien" ManuallyRouted="false" />
+        <AssociationConnector Association="ATINChamCongModel.FK_dbo_KhuonMat_MaNguoi" ManuallyRouted="false" />
+        <AssociationConnector Association="ATINChamCongModel.FK_dbo_NhatKy_MaNguoi" ManuallyRouted="false" />
+        <AssociationConnector Association="ATINChamCongModel.FK_dbo_TheTu_MaNguoi" ManuallyRouted="false" />
+        <AssociationConnector Association="ATINChamCongModel.FK_dbo_VanTay_MaNguoi" ManuallyRouted="false" />
+        <AssociationConnector Association="ATINChamCongModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

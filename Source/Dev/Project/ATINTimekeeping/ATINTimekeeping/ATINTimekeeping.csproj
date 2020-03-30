@@ -1,0 +1,540 @@
+﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{76281961-26B8-4B73-B79C-0167DB9C7295}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ATINTimekeeping</RootNamespace>
+    <AssemblyName>ATINTimekeeping</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v19.2" />
+    <Reference Include="DevExpress.Charts.v19.2.Core, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.CodeParser.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v19.2" />
+    <Reference Include="DevExpress.DataAccess.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v19.2.UI, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dialogs.v19.2.Core, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v19.2.Core, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v19.2.Core, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v19.2.Core, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Spreadsheet.v19.2.Core, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v19.2" />
+    <Reference Include="DevExpress.Sparkline.v19.2.Core" />
+    <Reference Include="DevExpress.Utils.v19.2.UI, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v19.2.Extensions, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v19.2.Wizard, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraDialogs.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v19.2" />
+    <Reference Include="DevExpress.Printing.v19.2.Core" />
+    <Reference Include="DevExpress.XtraGauges.v19.2.Core, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraLayout.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v19.2.Extensions, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v19.2.Core, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraSpreadsheet.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ChamCongVaBaoBieu\ChamCongTheoCa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChamCongVaBaoBieu\ChamCongTheoCa.Designer.cs">
+      <DependentUpon>ChamCongTheoCa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChamCongVaBaoBieu\DiemDanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChamCongVaBaoBieu\DiemDanh.Designer.cs">
+      <DependentUpon>DiemDanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeManagementForm.Designer.cs">
+      <DependentUpon>EmployeeManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEmployeeManagement\EmployeeManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEmployeeManagement\EmployeeManagement.Designer.cs">
+      <DependentUpon>EmployeeManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormServerActivity\CommandLogs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormServerActivity\CommandLogs.Designer.cs">
+      <DependentUpon>CommandLogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormServerActivity\CreateCommand.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormServerActivity\CreateCommand.Designer.cs">
+      <DependentUpon>CreateCommand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormServerActivity\Server.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormServerActivity\Server.Designer.cs">
+      <DependentUpon>Server.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormServerActivity\ServerEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormServerActivity\ServerEvent.Designer.cs">
+      <DependentUpon>ServerEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTimeKeepingSetting\ChooseWeekends.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTimeKeepingSetting\ChooseWeekends.Designer.cs">
+      <DependentUpon>ChooseWeekends.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTimeKeepingSetting\DeclareTheShift.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTimeKeepingSetting\DeclareTheShift.Designer.cs">
+      <DependentUpon>DeclareTheShift.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTimeKeepingSetting\DeclareWorkCalenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTimeKeepingSetting\DeclareWorkCalenda.Designer.cs">
+      <DependentUpon>DeclareWorkCalenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTimeKeepingSetting\LayDaySmbol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTimeKeepingSetting\LayDaySmbol.Designer.cs">
+      <DependentUpon>LayDaySmbol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTimeKeepingSetting\PrepareEmployeeCalenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTimeKeepingSetting\PrepareEmployeeCalenda.Designer.cs">
+      <DependentUpon>PrepareEmployeeCalenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTimeKeepingSetting\Rounding.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTimeKeepingSetting\Rounding.Designer.cs">
+      <DependentUpon>Rounding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTimeKeepingSetting\SelectTIme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTimeKeepingSetting\SelectTIme.Designer.cs">
+      <DependentUpon>SelectTIme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTimeKeepingSetting\TimeKeepingSymbolcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTimeKeepingSetting\TimeKeepingSymbolcs.Designer.cs">
+      <DependentUpon>TimeKeepingSymbolcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AspNetRole.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AspNetUser.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AspNetUserClaim.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AspNetUserLogin.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ATINTimeKeepingEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ATINTimeKeepingEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ATINTimeKeepingEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ATINTimeKeepingEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ATINTimeKeepingEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BaoCao.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BaoCaoChiTiet.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CaLamViec.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ChucVu.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CongTyKhuVuc.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DangKyNghiPhep.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DangKyTangCa.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DanToc.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\fn_Split_Result.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\HopDongLaoDong.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\KhaiBaoThoiGian.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\KhuonMat.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LichTrinhLamViec.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LoaiHopDong.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LoaiNghiPhep.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LoaiThamSo.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MATHANG_KHO.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MayNhanDang.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\NgayNghiLe.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\NgayPhepNhanVien.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Nguoi.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\NhatKy.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PhanQuyenNhanDang.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PhongBan.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PhuCap.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\sp_helpdiagrams_Result.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SP_Status.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\sysdiagram.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ThamSo.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TheTu.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TonGiao.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TrinhDoHocVan.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\VanTay.cs">
+      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanlymaychamcongFrm\KhaiBaoMayChamCongFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanlymaychamcongFrm\KhaiBaoMayChamCongFrm.Designer.cs">
+      <DependentUpon>KhaiBaoMayChamCongFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanlymaychamcongFrm\TaiDuLieuChamCongFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanlymaychamcongFrm\TaiDuLieuChamCongFrm.Designer.cs">
+      <DependentUpon>TaiDuLieuChamCongFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanlymaychamcongFrm\TaiNhanVienTuMayTinhLenFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanlymaychamcongFrm\TaiNhanVienTuMayTinhLenFrm.Designer.cs">
+      <DependentUpon>TaiNhanVienTuMayTinhLenFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanlymaychamcongFrm\TaiNhanVienVeMayTinhFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanlymaychamcongFrm\TaiNhanVienVeMayTinhFrm.Designer.cs">
+      <DependentUpon>TaiNhanVienVeMayTinhFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanlymaychamcongFrm\Temp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanlymaychamcongFrm\Temp.Designer.cs">
+      <DependentUpon>Temp.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ChamCongVaBaoBieu\ChamCongTheoCa.resx">
+      <DependentUpon>ChamCongTheoCa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChamCongVaBaoBieu\DiemDanh.resx">
+      <DependentUpon>DiemDanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeManagementForm.resx">
+      <DependentUpon>EmployeeManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEmployeeManagement\EmployeeManagement.resx">
+      <DependentUpon>EmployeeManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormServerActivity\CommandLogs.resx">
+      <DependentUpon>CommandLogs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormServerActivity\CreateCommand.resx">
+      <DependentUpon>CreateCommand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormServerActivity\Server.resx">
+      <DependentUpon>Server.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormServerActivity\ServerEvent.resx">
+      <DependentUpon>ServerEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTimeKeepingSetting\ChooseWeekends.resx">
+      <DependentUpon>ChooseWeekends.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTimeKeepingSetting\DeclareTheShift.resx">
+      <DependentUpon>DeclareTheShift.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTimeKeepingSetting\DeclareWorkCalenda.resx">
+      <DependentUpon>DeclareWorkCalenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTimeKeepingSetting\LayDaySmbol.resx">
+      <DependentUpon>LayDaySmbol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTimeKeepingSetting\PrepareEmployeeCalenda.resx">
+      <DependentUpon>PrepareEmployeeCalenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTimeKeepingSetting\Rounding.resx">
+      <DependentUpon>Rounding.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTimeKeepingSetting\SelectTIme.resx">
+      <DependentUpon>SelectTIme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTimeKeepingSetting\TimeKeepingSymbolcs.resx">
+      <DependentUpon>TimeKeepingSymbolcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanlymaychamcongFrm\KhaiBaoMayChamCongFrm.resx">
+      <DependentUpon>KhaiBaoMayChamCongFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanlymaychamcongFrm\TaiDuLieuChamCongFrm.resx">
+      <DependentUpon>TaiDuLieuChamCongFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanlymaychamcongFrm\TaiNhanVienTuMayTinhLenFrm.resx">
+      <DependentUpon>TaiNhanVienTuMayTinhLenFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanlymaychamcongFrm\TaiNhanVienVeMayTinhFrm.resx">
+      <DependentUpon>TaiNhanVienVeMayTinhFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanlymaychamcongFrm\Temp.resx">
+      <DependentUpon>Temp.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <EntityDeploy Include="Model\ATINTimeKeepingEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ATINTimeKeepingEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\ATINTimeKeepingEntities.edmx.diagram">
+      <DependentUpon>ATINTimeKeepingEntities.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usergroup_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usergroup_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reviewprotectworkbook_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reviewprotectworkbook_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\encryptdocument_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\encryptdocument_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bouser_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bouser_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_16x161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reviewers_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reviewers_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoom_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoom_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\ATINTimeKeepingEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ATINTimeKeepingEntities.edmx</DependentUpon>
+      <LastGenOutput>ATINTimeKeepingEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\ATINTimeKeepingEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ATINTimeKeepingEntities.edmx</DependentUpon>
+      <LastGenOutput>ATINTimeKeepingEntities.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

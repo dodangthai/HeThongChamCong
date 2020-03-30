@@ -1,0 +1,16 @@
+1: Chay file QuanLyNhanSu.sln bang Visual 2012 tro len (Neu chay voi phien ban thap hon thi 
+	mo file QuanLyNhanSu.sln bang Notepad sua: Microsoft Visual Studio Solution File, Format Version 12.00
+						   # Visual Studio 2013
+						   VisualStudioVersion = 12.0.21005.1
+	Tuong ung voi version cua ban.
+2: Trong thu muc SQL chay 3 file theo thu tu: Table.sql -> Data.sql -> Query.sql
+3: trong form KetNoi (Luc chay chuong trinh) sua lai ten server tuong ung voi ten server trong sql.
+4: Tai khoan dang nhap: admin
+	      Mat khau: admin
+=========================================================================================
+= 											=
+=		Moi thac mac vui long gui Mail ve: zezobi94@gmail.com 			=
+=		Face book: facebook.com/CungTT						=
+=		Demo phan mem: https://www.youtube.com/watch?v=6BFIBRioggY&t=7s		=
+=											=
+=========================================================================================
