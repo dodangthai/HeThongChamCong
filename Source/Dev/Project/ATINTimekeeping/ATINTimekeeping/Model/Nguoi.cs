@@ -32,7 +32,10 @@ namespace ATINTimekeeping.Model
         public Nullable<int> ChucVu { get; set; }
         public Nullable<int> KhuVuc { get; set; }
         public Nullable<System.DateTime> NgaySinh { get; set; }
-        public string GioiTinh { get; set; }
+        public int GioiTinh { get; set; }
+        public string SoDienThoai { get; set; }
+        public string Email { get; set; }
+        public string AnhDaiDien { get; set; }
         public Nullable<int> TrinhDo { get; set; }
         public string SoTheCanCuoc { get; set; }
         public Nullable<System.DateTime> NgayCapTCC { get; set; }
@@ -49,17 +52,14 @@ namespace ATINTimekeeping.Model
         public string NoiCapBLXO { get; set; }
         public string DiaChiThuongTru { get; set; }
         public string DiaChiTamTru { get; set; }
-        public string Email { get; set; }
-        public string Zalo { get; set; }
-        public string AnhDaiDien { get; set; }
         public Nullable<System.DateTime> NgayNhanViec { get; set; }
         public Nullable<System.DateTime> NgayThoiViec { get; set; }
-        public Nullable<int> SuDungVanTay { get; set; }
-        public Nullable<int> SuDungTheTu { get; set; }
-        public Nullable<int> SuDungKhuonMat { get; set; }
+        public Nullable<bool> SuDungVanTay { get; set; }
+        public Nullable<bool> SuDungTheTu { get; set; }
+        public Nullable<bool> SuDungKhuonMat { get; set; }
         public Nullable<System.DateTime> ThoiGianDangKy { get; set; }
         public Nullable<System.DateTime> ThoiGianCapNhat { get; set; }
-        public Nullable<int> GhiChu { get; set; }
+        public string GhiChu { get; set; }
         public Nullable<int> TrangThaiHoatDong { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

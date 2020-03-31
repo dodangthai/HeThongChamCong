@@ -33,6 +33,8 @@ namespace ATINTimekeeping.Model
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<BaoCaoChiTiet> BaoCaoChiTiets { get; set; }
         public virtual DbSet<CaLamViec> CaLamViecs { get; set; }
+        public virtual DbSet<ChamCong> ChamCongs { get; set; }
+        public virtual DbSet<ChamCongChiTiet> ChamCongChiTiets { get; set; }
         public virtual DbSet<ChucVu> ChucVus { get; set; }
         public virtual DbSet<CongTyKhuVuc> CongTyKhuVucs { get; set; }
         public virtual DbSet<DangKyNghiPhep> DangKyNghiPheps { get; set; }
@@ -41,6 +43,8 @@ namespace ATINTimekeeping.Model
         public virtual DbSet<HopDongLaoDong> HopDongLaoDongs { get; set; }
         public virtual DbSet<KhaiBaoThoiGian> KhaiBaoThoiGians { get; set; }
         public virtual DbSet<KhuonMat> KhuonMats { get; set; }
+        public virtual DbSet<KyHieuCacLoaiVang> KyHieuCacLoaiVangs { get; set; }
+        public virtual DbSet<KyHieuChamCong> KyHieuChamCongs { get; set; }
         public virtual DbSet<LichTrinhLamViec> LichTrinhLamViecs { get; set; }
         public virtual DbSet<LoaiHopDong> LoaiHopDongs { get; set; }
         public virtual DbSet<LoaiNghiPhep> LoaiNghiPheps { get; set; }
@@ -178,6 +182,268 @@ namespace ATINTimekeeping.Model
         public virtual int sp_upgraddiagrams()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
+        }
+    
+        public virtual int spDeleteCaLamViec(string maCaLamViec)
+        {
+            var maCaLamViecParameter = maCaLamViec != null ?
+                new ObjectParameter("MaCaLamViec", maCaLamViec) :
+                new ObjectParameter("MaCaLamViec", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spDeleteCaLamViec", maCaLamViecParameter);
+        }
+    
+        public virtual ObjectResult<spGetAllCaLamViec_Result> spGetAllCaLamViec()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetAllCaLamViec_Result>("spGetAllCaLamViec");
+        }
+    
+        public virtual ObjectResult<spGetCaLamViec_Result> spGetCaLamViec(Nullable<int> maCaLamViec)
+        {
+            var maCaLamViecParameter = maCaLamViec.HasValue ?
+                new ObjectParameter("MaCaLamViec", maCaLamViec) :
+                new ObjectParameter("MaCaLamViec", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetCaLamViec_Result>("spGetCaLamViec", maCaLamViecParameter);
+        }
+    
+
+        public virtual int spInsertCaLamViec(string tenCaLamViec, Nullable<System.TimeSpan> gioBatDauCa, Nullable<System.TimeSpan> gioKetThucCa, Nullable<System.TimeSpan> gioBatDauGiaiLao, Nullable<System.TimeSpan> gioKetThucGiaiLao, Nullable<int> tongGio, Nullable<int> diemCong, Nullable<System.TimeSpan> gioVaoSomNhatDuocTinhCa, Nullable<System.TimeSpan> gioVaoMuonNhatDuocTinhCa, Nullable<System.TimeSpan> gioRaMuonNhatDuocTinhCa, Nullable<System.TimeSpan> gioRaSomNhatDuocTinhCa, Nullable<int> khongCoGioRa, Nullable<int> khongCoGioVao, Nullable<bool> truGioDiTre, Nullable<int> thoiGianDiTreChoPhep, Nullable<bool> truGioVeSom, Nullable<int> thoiGianVeSomChoPhep, Nullable<int> gioiHanTCMucMot, Nullable<int> gioiHanTCMucHai, Nullable<bool> sDMucTangCaCuaTangCaCuoiTuan, Nullable<int> mucTangCaCuaTangCaCuoiTuan, Nullable<bool> sDMucTangCaCuaTangCaNgayLe, Nullable<int> mucTangCaCuaTangCaNgayLe, Nullable<int> gioiHanTCTruocGLV, Nullable<int> gioiHanTCSauGLV, Nullable<bool> caQuaDem, Nullable<System.TimeSpan> tachGioCaDemTu, Nullable<System.TimeSpan> tachGioCaDemDen)
+        {
+            var tenCaLamViecParameter = tenCaLamViec != null ?
+                new ObjectParameter("TenCaLamViec", tenCaLamViec) :
+                new ObjectParameter("TenCaLamViec", typeof(string));
+    
+            var gioBatDauCaParameter = gioBatDauCa.HasValue ?
+                new ObjectParameter("GioBatDauCa", gioBatDauCa) :
+                new ObjectParameter("GioBatDauCa", typeof(System.TimeSpan));
+    
+            var gioKetThucCaParameter = gioKetThucCa.HasValue ?
+                new ObjectParameter("GioKetThucCa", gioKetThucCa) :
+                new ObjectParameter("GioKetThucCa", typeof(System.TimeSpan));
+    
+            var gioBatDauGiaiLaoParameter = gioBatDauGiaiLao.HasValue ?
+                new ObjectParameter("GioBatDauGiaiLao", gioBatDauGiaiLao) :
+                new ObjectParameter("GioBatDauGiaiLao", typeof(System.TimeSpan));
+    
+            var gioKetThucGiaiLaoParameter = gioKetThucGiaiLao.HasValue ?
+                new ObjectParameter("GioKetThucGiaiLao", gioKetThucGiaiLao) :
+                new ObjectParameter("GioKetThucGiaiLao", typeof(System.TimeSpan));
+    
+            var tongGioParameter = tongGio.HasValue ?
+                new ObjectParameter("TongGio", tongGio) :
+                new ObjectParameter("TongGio", typeof(int));
+    
+            var diemCongParameter = diemCong.HasValue ?
+                new ObjectParameter("DiemCong", diemCong) :
+                new ObjectParameter("DiemCong", typeof(int));
+    
+            var gioVaoSomNhatDuocTinhCaParameter = gioVaoSomNhatDuocTinhCa.HasValue ?
+                new ObjectParameter("GioVaoSomNhatDuocTinhCa", gioVaoSomNhatDuocTinhCa) :
+                new ObjectParameter("GioVaoSomNhatDuocTinhCa", typeof(System.TimeSpan));
+    
+            var gioVaoMuonNhatDuocTinhCaParameter = gioVaoMuonNhatDuocTinhCa.HasValue ?
+                new ObjectParameter("GioVaoMuonNhatDuocTinhCa", gioVaoMuonNhatDuocTinhCa) :
+                new ObjectParameter("GioVaoMuonNhatDuocTinhCa", typeof(System.TimeSpan));
+    
+            var gioRaMuonNhatDuocTinhCaParameter = gioRaMuonNhatDuocTinhCa.HasValue ?
+                new ObjectParameter("GioRaMuonNhatDuocTinhCa", gioRaMuonNhatDuocTinhCa) :
+                new ObjectParameter("GioRaMuonNhatDuocTinhCa", typeof(System.TimeSpan));
+    
+            var gioRaSomNhatDuocTinhCaParameter = gioRaSomNhatDuocTinhCa.HasValue ?
+                new ObjectParameter("GioRaSomNhatDuocTinhCa", gioRaSomNhatDuocTinhCa) :
+                new ObjectParameter("GioRaSomNhatDuocTinhCa", typeof(System.TimeSpan));
+    
+            var khongCoGioRaParameter = khongCoGioRa.HasValue ?
+                new ObjectParameter("KhongCoGioRa", khongCoGioRa) :
+                new ObjectParameter("KhongCoGioRa", typeof(int));
+    
+            var khongCoGioVaoParameter = khongCoGioVao.HasValue ?
+                new ObjectParameter("KhongCoGioVao", khongCoGioVao) :
+                new ObjectParameter("KhongCoGioVao", typeof(int));
+    
+            var truGioDiTreParameter = truGioDiTre.HasValue ?
+                new ObjectParameter("TruGioDiTre", truGioDiTre) :
+                new ObjectParameter("TruGioDiTre", typeof(bool));
+    
+            var thoiGianDiTreChoPhepParameter = thoiGianDiTreChoPhep.HasValue ?
+                new ObjectParameter("ThoiGianDiTreChoPhep", thoiGianDiTreChoPhep) :
+                new ObjectParameter("ThoiGianDiTreChoPhep", typeof(int));
+    
+            var truGioVeSomParameter = truGioVeSom.HasValue ?
+                new ObjectParameter("TruGioVeSom", truGioVeSom) :
+                new ObjectParameter("TruGioVeSom", typeof(bool));
+    
+            var thoiGianVeSomChoPhepParameter = thoiGianVeSomChoPhep.HasValue ?
+                new ObjectParameter("ThoiGianVeSomChoPhep", thoiGianVeSomChoPhep) :
+                new ObjectParameter("ThoiGianVeSomChoPhep", typeof(int));
+    
+            var gioiHanTCMucMotParameter = gioiHanTCMucMot.HasValue ?
+                new ObjectParameter("GioiHanTCMucMot", gioiHanTCMucMot) :
+                new ObjectParameter("GioiHanTCMucMot", typeof(int));
+    
+            var gioiHanTCMucHaiParameter = gioiHanTCMucHai.HasValue ?
+                new ObjectParameter("GioiHanTCMucHai", gioiHanTCMucHai) :
+                new ObjectParameter("GioiHanTCMucHai", typeof(int));
+    
+            var sDMucTangCaCuaTangCaCuoiTuanParameter = sDMucTangCaCuaTangCaCuoiTuan.HasValue ?
+                new ObjectParameter("SDMucTangCaCuaTangCaCuoiTuan", sDMucTangCaCuaTangCaCuoiTuan) :
+                new ObjectParameter("SDMucTangCaCuaTangCaCuoiTuan", typeof(bool));
+    
+            var mucTangCaCuaTangCaCuoiTuanParameter = mucTangCaCuaTangCaCuoiTuan.HasValue ?
+                new ObjectParameter("MucTangCaCuaTangCaCuoiTuan", mucTangCaCuaTangCaCuoiTuan) :
+                new ObjectParameter("MucTangCaCuaTangCaCuoiTuan", typeof(int));
+    
+            var sDMucTangCaCuaTangCaNgayLeParameter = sDMucTangCaCuaTangCaNgayLe.HasValue ?
+                new ObjectParameter("SDMucTangCaCuaTangCaNgayLe", sDMucTangCaCuaTangCaNgayLe) :
+                new ObjectParameter("SDMucTangCaCuaTangCaNgayLe", typeof(bool));
+    
+            var mucTangCaCuaTangCaNgayLeParameter = mucTangCaCuaTangCaNgayLe.HasValue ?
+                new ObjectParameter("MucTangCaCuaTangCaNgayLe", mucTangCaCuaTangCaNgayLe) :
+                new ObjectParameter("MucTangCaCuaTangCaNgayLe", typeof(int));
+    
+            var gioiHanTCTruocGLVParameter = gioiHanTCTruocGLV.HasValue ?
+                new ObjectParameter("GioiHanTCTruocGLV", gioiHanTCTruocGLV) :
+                new ObjectParameter("GioiHanTCTruocGLV", typeof(int));
+    
+            var gioiHanTCSauGLVParameter = gioiHanTCSauGLV.HasValue ?
+                new ObjectParameter("GioiHanTCSauGLV", gioiHanTCSauGLV) :
+                new ObjectParameter("GioiHanTCSauGLV", typeof(int));
+    
+            var caQuaDemParameter = caQuaDem.HasValue ?
+                new ObjectParameter("CaQuaDem", caQuaDem) :
+                new ObjectParameter("CaQuaDem", typeof(bool));
+    
+            var tachGioCaDemTuParameter = tachGioCaDemTu.HasValue ?
+                new ObjectParameter("TachGioCaDemTu", tachGioCaDemTu) :
+                new ObjectParameter("TachGioCaDemTu", typeof(System.TimeSpan));
+    
+            var tachGioCaDemDenParameter = tachGioCaDemDen.HasValue ?
+                new ObjectParameter("TachGioCaDemDen", tachGioCaDemDen) :
+                new ObjectParameter("TachGioCaDemDen", typeof(System.TimeSpan));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertCaLamViec", tenCaLamViecParameter, gioBatDauCaParameter, gioKetThucCaParameter, gioBatDauGiaiLaoParameter, gioKetThucGiaiLaoParameter, tongGioParameter, diemCongParameter, gioVaoSomNhatDuocTinhCaParameter, gioVaoMuonNhatDuocTinhCaParameter, gioRaMuonNhatDuocTinhCaParameter, gioRaSomNhatDuocTinhCaParameter, khongCoGioRaParameter, khongCoGioVaoParameter, truGioDiTreParameter, thoiGianDiTreChoPhepParameter, truGioVeSomParameter, thoiGianVeSomChoPhepParameter, gioiHanTCMucMotParameter, gioiHanTCMucHaiParameter, sDMucTangCaCuaTangCaCuoiTuanParameter, mucTangCaCuaTangCaCuoiTuanParameter, sDMucTangCaCuaTangCaNgayLeParameter, mucTangCaCuaTangCaNgayLeParameter, gioiHanTCTruocGLVParameter, gioiHanTCSauGLVParameter, caQuaDemParameter, tachGioCaDemTuParameter, tachGioCaDemDenParameter);
+        }
+    
+        public virtual int spUpdateCaLamViec(Nullable<int> maCaLamViec, string tenCaLamViec, Nullable<System.TimeSpan> gioBatDauCa, Nullable<System.TimeSpan> gioKetThucCa, Nullable<System.TimeSpan> gioBatDauGiaiLao, Nullable<System.TimeSpan> gioKetThucGiaiLao, Nullable<int> tongGio, Nullable<int> diemCong, Nullable<System.TimeSpan> gioVaoSomNhatDuocTinhCa, Nullable<System.TimeSpan> gioVaoMuonNhatDuocTinhCa, Nullable<System.TimeSpan> gioRaMuonNhatDuocTinhCa, Nullable<System.TimeSpan> gioRaSomNhatDuocTinhCa, Nullable<int> khongCoGioRa, Nullable<int> khongCoGioVao, Nullable<bool> truGioDiTre, Nullable<int> thoiGianDiTreChoPhep, Nullable<bool> truGioVeSom, Nullable<int> thoiGianVeSomChoPhep, Nullable<int> gioiHanTCMucMot, Nullable<int> gioiHanTCMucHai, Nullable<bool> sDMucTangCaCuaTangCaCuoiTuan, Nullable<int> mucTangCaCuaTangCaCuoiTuan, Nullable<bool> sDMucTangCaCuaTangCaNgayLe, Nullable<int> mucTangCaCuaTangCaNgayLe, Nullable<int> gioiHanTCTruocGLV, Nullable<int> gioiHanTCSauGLV, Nullable<bool> caQuaDem, Nullable<System.TimeSpan> tachGioCaDemTu, Nullable<System.TimeSpan> tachGioCaDemDen)
+        {
+            var maCaLamViecParameter = maCaLamViec.HasValue ?
+                new ObjectParameter("MaCaLamViec", maCaLamViec) :
+                new ObjectParameter("MaCaLamViec", typeof(int));
+    
+            var tenCaLamViecParameter = tenCaLamViec != null ?
+                new ObjectParameter("TenCaLamViec", tenCaLamViec) :
+                new ObjectParameter("TenCaLamViec", typeof(string));
+    
+            var gioBatDauCaParameter = gioBatDauCa.HasValue ?
+                new ObjectParameter("GioBatDauCa", gioBatDauCa) :
+                new ObjectParameter("GioBatDauCa", typeof(System.TimeSpan));
+    
+            var gioKetThucCaParameter = gioKetThucCa.HasValue ?
+                new ObjectParameter("GioKetThucCa", gioKetThucCa) :
+                new ObjectParameter("GioKetThucCa", typeof(System.TimeSpan));
+    
+            var gioBatDauGiaiLaoParameter = gioBatDauGiaiLao.HasValue ?
+                new ObjectParameter("GioBatDauGiaiLao", gioBatDauGiaiLao) :
+                new ObjectParameter("GioBatDauGiaiLao", typeof(System.TimeSpan));
+    
+            var gioKetThucGiaiLaoParameter = gioKetThucGiaiLao.HasValue ?
+                new ObjectParameter("GioKetThucGiaiLao", gioKetThucGiaiLao) :
+                new ObjectParameter("GioKetThucGiaiLao", typeof(System.TimeSpan));
+    
+            var tongGioParameter = tongGio.HasValue ?
+                new ObjectParameter("TongGio", tongGio) :
+                new ObjectParameter("TongGio", typeof(int));
+    
+            var diemCongParameter = diemCong.HasValue ?
+                new ObjectParameter("DiemCong", diemCong) :
+                new ObjectParameter("DiemCong", typeof(int));
+    
+            var gioVaoSomNhatDuocTinhCaParameter = gioVaoSomNhatDuocTinhCa.HasValue ?
+                new ObjectParameter("GioVaoSomNhatDuocTinhCa", gioVaoSomNhatDuocTinhCa) :
+                new ObjectParameter("GioVaoSomNhatDuocTinhCa", typeof(System.TimeSpan));
+    
+            var gioVaoMuonNhatDuocTinhCaParameter = gioVaoMuonNhatDuocTinhCa.HasValue ?
+                new ObjectParameter("GioVaoMuonNhatDuocTinhCa", gioVaoMuonNhatDuocTinhCa) :
+                new ObjectParameter("GioVaoMuonNhatDuocTinhCa", typeof(System.TimeSpan));
+    
+            var gioRaMuonNhatDuocTinhCaParameter = gioRaMuonNhatDuocTinhCa.HasValue ?
+                new ObjectParameter("GioRaMuonNhatDuocTinhCa", gioRaMuonNhatDuocTinhCa) :
+                new ObjectParameter("GioRaMuonNhatDuocTinhCa", typeof(System.TimeSpan));
+    
+            var gioRaSomNhatDuocTinhCaParameter = gioRaSomNhatDuocTinhCa.HasValue ?
+                new ObjectParameter("GioRaSomNhatDuocTinhCa", gioRaSomNhatDuocTinhCa) :
+                new ObjectParameter("GioRaSomNhatDuocTinhCa", typeof(System.TimeSpan));
+    
+            var khongCoGioRaParameter = khongCoGioRa.HasValue ?
+                new ObjectParameter("KhongCoGioRa", khongCoGioRa) :
+                new ObjectParameter("KhongCoGioRa", typeof(int));
+    
+            var khongCoGioVaoParameter = khongCoGioVao.HasValue ?
+                new ObjectParameter("KhongCoGioVao", khongCoGioVao) :
+                new ObjectParameter("KhongCoGioVao", typeof(int));
+    
+            var truGioDiTreParameter = truGioDiTre.HasValue ?
+                new ObjectParameter("TruGioDiTre", truGioDiTre) :
+                new ObjectParameter("TruGioDiTre", typeof(bool));
+    
+            var thoiGianDiTreChoPhepParameter = thoiGianDiTreChoPhep.HasValue ?
+                new ObjectParameter("ThoiGianDiTreChoPhep", thoiGianDiTreChoPhep) :
+                new ObjectParameter("ThoiGianDiTreChoPhep", typeof(int));
+    
+            var truGioVeSomParameter = truGioVeSom.HasValue ?
+                new ObjectParameter("TruGioVeSom", truGioVeSom) :
+                new ObjectParameter("TruGioVeSom", typeof(bool));
+    
+            var thoiGianVeSomChoPhepParameter = thoiGianVeSomChoPhep.HasValue ?
+                new ObjectParameter("ThoiGianVeSomChoPhep", thoiGianVeSomChoPhep) :
+                new ObjectParameter("ThoiGianVeSomChoPhep", typeof(int));
+    
+            var gioiHanTCMucMotParameter = gioiHanTCMucMot.HasValue ?
+                new ObjectParameter("GioiHanTCMucMot", gioiHanTCMucMot) :
+                new ObjectParameter("GioiHanTCMucMot", typeof(int));
+    
+            var gioiHanTCMucHaiParameter = gioiHanTCMucHai.HasValue ?
+                new ObjectParameter("GioiHanTCMucHai", gioiHanTCMucHai) :
+                new ObjectParameter("GioiHanTCMucHai", typeof(int));
+    
+            var sDMucTangCaCuaTangCaCuoiTuanParameter = sDMucTangCaCuaTangCaCuoiTuan.HasValue ?
+                new ObjectParameter("SDMucTangCaCuaTangCaCuoiTuan", sDMucTangCaCuaTangCaCuoiTuan) :
+                new ObjectParameter("SDMucTangCaCuaTangCaCuoiTuan", typeof(bool));
+    
+            var mucTangCaCuaTangCaCuoiTuanParameter = mucTangCaCuaTangCaCuoiTuan.HasValue ?
+                new ObjectParameter("MucTangCaCuaTangCaCuoiTuan", mucTangCaCuaTangCaCuoiTuan) :
+                new ObjectParameter("MucTangCaCuaTangCaCuoiTuan", typeof(int));
+    
+            var sDMucTangCaCuaTangCaNgayLeParameter = sDMucTangCaCuaTangCaNgayLe.HasValue ?
+                new ObjectParameter("SDMucTangCaCuaTangCaNgayLe", sDMucTangCaCuaTangCaNgayLe) :
+                new ObjectParameter("SDMucTangCaCuaTangCaNgayLe", typeof(bool));
+    
+            var mucTangCaCuaTangCaNgayLeParameter = mucTangCaCuaTangCaNgayLe.HasValue ?
+                new ObjectParameter("MucTangCaCuaTangCaNgayLe", mucTangCaCuaTangCaNgayLe) :
+                new ObjectParameter("MucTangCaCuaTangCaNgayLe", typeof(int));
+    
+            var gioiHanTCTruocGLVParameter = gioiHanTCTruocGLV.HasValue ?
+                new ObjectParameter("GioiHanTCTruocGLV", gioiHanTCTruocGLV) :
+                new ObjectParameter("GioiHanTCTruocGLV", typeof(int));
+    
+            var gioiHanTCSauGLVParameter = gioiHanTCSauGLV.HasValue ?
+                new ObjectParameter("GioiHanTCSauGLV", gioiHanTCSauGLV) :
+                new ObjectParameter("GioiHanTCSauGLV", typeof(int));
+    
+            var caQuaDemParameter = caQuaDem.HasValue ?
+                new ObjectParameter("CaQuaDem", caQuaDem) :
+                new ObjectParameter("CaQuaDem", typeof(bool));
+    
+            var tachGioCaDemTuParameter = tachGioCaDemTu.HasValue ?
+                new ObjectParameter("TachGioCaDemTu", tachGioCaDemTu) :
+                new ObjectParameter("TachGioCaDemTu", typeof(System.TimeSpan));
+    
+            var tachGioCaDemDenParameter = tachGioCaDemDen.HasValue ?
+                new ObjectParameter("TachGioCaDemDen", tachGioCaDemDen) :
+                new ObjectParameter("TachGioCaDemDen", typeof(System.TimeSpan));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUpdateCaLamViec", maCaLamViecParameter, tenCaLamViecParameter, gioBatDauCaParameter, gioKetThucCaParameter, gioBatDauGiaiLaoParameter, gioKetThucGiaiLaoParameter, tongGioParameter, diemCongParameter, gioVaoSomNhatDuocTinhCaParameter, gioVaoMuonNhatDuocTinhCaParameter, gioRaMuonNhatDuocTinhCaParameter, gioRaSomNhatDuocTinhCaParameter, khongCoGioRaParameter, khongCoGioVaoParameter, truGioDiTreParameter, thoiGianDiTreChoPhepParameter, truGioVeSomParameter, thoiGianVeSomChoPhepParameter, gioiHanTCMucMotParameter, gioiHanTCMucHaiParameter, sDMucTangCaCuaTangCaCuoiTuanParameter, mucTangCaCuaTangCaCuoiTuanParameter, sDMucTangCaCuaTangCaNgayLeParameter, mucTangCaCuaTangCaNgayLeParameter, gioiHanTCTruocGLVParameter, gioiHanTCSauGLVParameter, caQuaDemParameter, tachGioCaDemTuParameter, tachGioCaDemDenParameter);
         }
     }
 }

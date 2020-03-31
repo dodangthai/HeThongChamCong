@@ -99,6 +99,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ATINChamCongDataSet.Designer.cs" />
     <Compile Include="ChamCongVaBaoBieu\ChamCongTheoCa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +135,66 @@
     </Compile>
     <Compile Include="FormServerActivity\ServerEvent.Designer.cs">
       <DependentUpon>ServerEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSystem\ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSystem\ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSystem\CompanyInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSystem\CompanyInformation.Designer.cs">
+      <DependentUpon>CompanyInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSystem\DeclareDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSystem\DeclareDepartment.Designer.cs">
+      <DependentUpon>DeclareDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSystem\DeclareHoliday.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSystem\DeclareHoliday.Designer.cs">
+      <DependentUpon>DeclareHoliday.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSystem\DeclareLiteracy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSystem\DeclareLiteracy.Designer.cs">
+      <DependentUpon>DeclareLiteracy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSystem\DeclareNation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSystem\DeclareNation.Designer.cs">
+      <DependentUpon>DeclareNation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSystem\DeclarePosition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSystem\DeclarePosition.Designer.cs">
+      <DependentUpon>DeclarePosition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSystem\DeclareReligion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSystem\DeclareReligion.Designer.cs">
+      <DependentUpon>DeclareReligion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSystem\ManagerAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSystem\ManagerAccount.Designer.cs">
+      <DependentUpon>ManagerAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSystem\ManagerEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSystem\ManagerEmployee.Designer.cs">
+      <DependentUpon>ManagerEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="FormTimeKeepingSetting\ChooseWeekends.cs">
       <SubType>Form</SubType>
@@ -184,133 +245,151 @@
       <DependentUpon>TimeKeepingSymbolcs.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\AspNetRole.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\AspNetUser.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\AspNetUserClaim.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\AspNetUserLogin.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\ATINTimeKeepingEntities.Context.cs">
+    <Compile Include="Model\ATINTimekeepingEntities.Context.cs" />
+    <Compile Include="Model\ATINTimekeepingEntities.cs" />
+    <Compile Include="Model\ATINTimekeepingEntities.Designer.cs">
+      <DependentUpon>ATINTimekeepingEntities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ATINTimekeepingEntities1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ATINTimeKeepingEntities.Context.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\ATINTimeKeepingEntities.cs">
+    <Compile Include="Model\ATINTimekeepingEntities1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\ATINTimeKeepingEntities.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ATINTimeKeepingEntities.edmx</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\BaoCao.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\BaoCaoChiTiet.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\CaLamViec.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ChamCong.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ChamCongChiTiet.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ChucVu.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\CongTyKhuVuc.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DangKyNghiPhep.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DangKyTangCa.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DanToc.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\fn_Split_Result.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\HopDongLaoDong.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\KhaiBaoThoiGian.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\KhuonMat.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\KyHieuCacLoaiVang.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\KyHieuChamCong.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\LichTrinhLamViec.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\LoaiHopDong.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\LoaiNghiPhep.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\LoaiThamSo.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\MATHANG_KHO.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\MayNhanDang.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\NgayNghiLe.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\NgayPhepNhanVien.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Nguoi.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\NhatKy.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PhanQuyenNhanDang.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PhongBan.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PhuCap.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\spGetAllCaLamViec_Result.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\spGetCaLamViec_Result.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\sp_helpdiagrams_Result.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\SP_Status.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\sysdiagram.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ThamSo.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\TheTu.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\TonGiao.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\TrinhDoHocVan.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\VanTay.cs">
-      <DependentUpon>ATINTimeKeepingEntities.tt</DependentUpon>
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -368,6 +447,36 @@
     <EmbeddedResource Include="FormServerActivity\ServerEvent.resx">
       <DependentUpon>ServerEvent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSystem\ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSystem\CompanyInformation.resx">
+      <DependentUpon>CompanyInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSystem\DeclareDepartment.resx">
+      <DependentUpon>DeclareDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSystem\DeclareHoliday.resx">
+      <DependentUpon>DeclareHoliday.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSystem\DeclareLiteracy.resx">
+      <DependentUpon>DeclareLiteracy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSystem\DeclareNation.resx">
+      <DependentUpon>DeclareNation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSystem\DeclarePosition.resx">
+      <DependentUpon>DeclarePosition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSystem\DeclareReligion.resx">
+      <DependentUpon>DeclareReligion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSystem\ManagerAccount.resx">
+      <DependentUpon>ManagerAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSystem\ManagerEmployee.resx">
+      <DependentUpon>ManagerEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormTimeKeepingSetting\ChooseWeekends.resx">
       <DependentUpon>ChooseWeekends.cs</DependentUpon>
     </EmbeddedResource>
@@ -422,12 +531,19 @@
       <DependentUpon>Temp.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
-    <EntityDeploy Include="Model\ATINTimeKeepingEntities.edmx">
+    <None Include="ATINChamCongDataSet.xsc">
+      <DependentUpon>ATINChamCongDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ATINChamCongDataSet.xsd" />
+    <None Include="ATINChamCongDataSet.xss">
+      <DependentUpon>ATINChamCongDataSet.xsd</DependentUpon>
+    </None>
+    <EntityDeploy Include="Model\ATINTimekeepingEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ATINTimeKeepingEntities.Designer.cs</LastGenOutput>
+      <LastGenOutput>ATINTimekeepingEntities1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\ATINTimeKeepingEntities.edmx.diagram">
-      <DependentUpon>ATINTimeKeepingEntities.edmx</DependentUpon>
+    <None Include="Model\ATINTimekeepingEntities.edmx.diagram">
+      <DependentUpon>ATINTimekeepingEntities.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -489,19 +605,13 @@
     <None Include="Resources\zoom_32x321.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\ATINTimeKeepingEntities.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ATINTimeKeepingEntities.edmx</DependentUpon>
-      <LastGenOutput>ATINTimeKeepingEntities.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model\ATINTimeKeepingEntities.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ATINTimeKeepingEntities.edmx</DependentUpon>
-      <LastGenOutput>ATINTimeKeepingEntities.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="Model\ATINTimekeepingEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ATINTimekeepingEntities1.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

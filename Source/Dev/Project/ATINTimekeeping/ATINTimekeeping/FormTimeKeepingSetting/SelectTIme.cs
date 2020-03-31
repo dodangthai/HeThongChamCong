@@ -18,11 +18,11 @@ namespace ATINTimekeeping.FormTimeKeepingSetting
         {
             InitializeComponent();
             this.Dock = DockStyle.Fill;
-            using (ATINChamCongEntities db = new ATINChamCongEntities())
-            {
-                DanToc dan = db.DanTocs.Where((x) => x.MaDanToc == 2).FirstOrDefault();
-                textEdit1.Text = dan.DanToc1;
-            }
+            //using (ATINChamCongEntities db = new ATINChamCongEntities())
+            //{
+            //    DanToc dan = db.DanTocs.Where((x) => x.MaDanToc == 2).FirstOrDefault();
+            //    textEdit1.Text = dan.DanToc1;
+            //}
         }
         public static SelectTime CreateInstance()
         {
