@@ -36,16 +36,18 @@
             this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonImageCollection = new DevExpress.Utils.ImageCollection(this.components);
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemAddNew = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonSave = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonDelete = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonRefresh = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.numericUpDown25 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown26 = new System.Windows.Forms.NumericUpDown();
             this.textBox42 = new System.Windows.Forms.TextBox();
             this.textBox41 = new System.Windows.Forms.TextBox();
             this.textBox40 = new System.Windows.Forms.TextBox();
@@ -83,23 +85,23 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
-            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
             this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
             this.textBox23 = new System.Windows.Forms.TextBox();
+            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.textBox17 = new System.Windows.Forms.TextBox();
             this.textBox24 = new System.Windows.Forms.TextBox();
             this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
             this.textBox33 = new System.Windows.Forms.TextBox();
@@ -148,17 +150,17 @@
             this.textBox43 = new System.Windows.Forms.TextBox();
             this.checkBox13 = new System.Windows.Forms.CheckBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numericUpDown25 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown26 = new System.Windows.Forms.NumericUpDown();
+            this.tenCa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CheckIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CheckOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown25)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown26)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeSpanEdit8.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
@@ -175,12 +177,12 @@
             this.xtraTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
             this.xtraTabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown22)).BeginInit();
@@ -202,8 +204,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.timeSpanEdit9.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeSpanEdit10.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown25)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown26)).BeginInit();
             this.SuspendLayout();
             // 
             // barButtonItem5
@@ -251,51 +251,51 @@
             // 
             this.ribbonStatusBar.BackColor = System.Drawing.SystemColors.Highlight;
             this.ribbonStatusBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItem1);
-            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItem2);
-            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItem3);
-            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItem4);
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemAddNew);
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonSave);
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonDelete);
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonRefresh);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 0);
             this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonControl1;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1209, 33);
             // 
-            // barButtonItem1
+            // barButtonItemAddNew
             // 
-            this.barButtonItem1.Caption = "Thêm mới";
-            this.barButtonItem1.Id = 5;
-            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
-            this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            this.barButtonItemAddNew.Caption = "Thêm mới";
+            this.barButtonItemAddNew.Id = 5;
+            this.barButtonItemAddNew.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.barButtonItemAddNew.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.barButtonItemAddNew.Name = "barButtonItemAddNew";
+            this.barButtonItemAddNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemAddNew_ItemClick);
             // 
-            // barButtonItem2
+            // barButtonSave
             // 
-            this.barButtonItem2.Caption = "Lưu";
-            this.barButtonItem2.Id = 6;
-            this.barButtonItem2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
-            this.barButtonItem2.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
-            this.barButtonItem2.Name = "barButtonItem2";
-            this.barButtonItem2.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            this.barButtonSave.Caption = "Lưu";
+            this.barButtonSave.Id = 6;
+            this.barButtonSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
+            this.barButtonSave.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
+            this.barButtonSave.Name = "barButtonSave";
+            this.barButtonSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonSave_ItemClick);
             // 
-            // barButtonItem3
+            // barButtonDelete
             // 
-            this.barButtonItem3.Caption = "Xóa";
-            this.barButtonItem3.Id = 7;
-            this.barButtonItem3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.Image")));
-            this.barButtonItem3.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.LargeImage")));
-            this.barButtonItem3.Name = "barButtonItem3";
-            this.barButtonItem3.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            this.barButtonDelete.Caption = "Xóa";
+            this.barButtonDelete.Id = 7;
+            this.barButtonDelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.Image")));
+            this.barButtonDelete.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.LargeImage")));
+            this.barButtonDelete.Name = "barButtonDelete";
+            this.barButtonDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonDelete_ItemClick);
             // 
-            // barButtonItem4
+            // barButtonRefresh
             // 
-            this.barButtonItem4.Caption = "Làm mới";
-            this.barButtonItem4.Id = 8;
-            this.barButtonItem4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
-            this.barButtonItem4.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage")));
-            this.barButtonItem4.Name = "barButtonItem4";
-            this.barButtonItem4.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            this.barButtonRefresh.Caption = "Làm mới";
+            this.barButtonRefresh.Id = 8;
+            this.barButtonRefresh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
+            this.barButtonRefresh.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage")));
+            this.barButtonRefresh.Name = "barButtonRefresh";
+            this.barButtonRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonRefresh_ItemClick);
             // 
             // ribbonControl1
             // 
@@ -399,6 +399,30 @@
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.Size = new System.Drawing.Size(851, 599);
             this.xtraTabPage1.Text = "Khai báo chung";
+            // 
+            // numericUpDown25
+            // 
+            this.numericUpDown25.Location = new System.Drawing.Point(223, 184);
+            this.numericUpDown25.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.numericUpDown25.Name = "numericUpDown25";
+            this.numericUpDown25.Size = new System.Drawing.Size(116, 23);
+            this.numericUpDown25.TabIndex = 47;
+            // 
+            // numericUpDown26
+            // 
+            this.numericUpDown26.Location = new System.Drawing.Point(223, 155);
+            this.numericUpDown26.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.numericUpDown26.Name = "numericUpDown26";
+            this.numericUpDown26.Size = new System.Drawing.Size(116, 23);
+            this.numericUpDown26.TabIndex = 46;
             // 
             // textBox42
             // 
@@ -830,19 +854,6 @@
             this.xtraTabPage2.Size = new System.Drawing.Size(851, 599);
             this.xtraTabPage2.Text = "Đi trễ về sớm";
             // 
-            // groupControl2
-            // 
-            this.groupControl2.Controls.Add(this.checkBox4);
-            this.groupControl2.Controls.Add(this.numericUpDown8);
-            this.groupControl2.Controls.Add(this.textBox16);
-            this.groupControl2.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.groupControl2.Location = new System.Drawing.Point(383, 15);
-            this.groupControl2.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
-            this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(360, 117);
-            this.groupControl2.TabIndex = 13;
-            this.groupControl2.Text = "Về sớm";
-            // 
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
@@ -854,6 +865,18 @@
             this.radioButton3.Text = "Làm tròn lùi";
             this.radioButton3.UseVisualStyleBackColor = true;
             this.radioButton3.Visible = false;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(564, 203);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(101, 21);
+            this.radioButton2.TabIndex = 24;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Làm tròn lùi";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.Visible = false;
             // 
             // radioButton4
             // 
@@ -867,24 +890,18 @@
             this.radioButton4.UseVisualStyleBackColor = true;
             this.radioButton4.Visible = false;
             // 
-            // numericUpDown7
+            // groupControl2
             // 
-            this.numericUpDown7.Location = new System.Drawing.Point(191, 163);
-            this.numericUpDown7.Name = "numericUpDown7";
-            this.numericUpDown7.Size = new System.Drawing.Size(61, 23);
-            this.numericUpDown7.TabIndex = 22;
-            this.numericUpDown7.Visible = false;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(10, 138);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(188, 21);
-            this.checkBox3.TabIndex = 21;
-            this.checkBox3.Text = "Tính về sớm thời gian này";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            this.checkBox3.Visible = false;
+            this.groupControl2.Controls.Add(this.checkBox4);
+            this.groupControl2.Controls.Add(this.numericUpDown8);
+            this.groupControl2.Controls.Add(this.textBox16);
+            this.groupControl2.GroupStyle = DevExpress.Utils.GroupStyle.Light;
+            this.groupControl2.Location = new System.Drawing.Point(383, 15);
+            this.groupControl2.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.Size = new System.Drawing.Size(360, 117);
+            this.groupControl2.TabIndex = 13;
+            this.groupControl2.Text = "Về sớm";
             // 
             // checkBox4
             // 
@@ -918,41 +935,13 @@
             this.textBox16.TabIndex = 6;
             this.textBox16.Text = "Cho về sớm(phút)";
             // 
-            // textBox17
+            // numericUpDown7
             // 
-            this.textBox17.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox17.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox17.Location = new System.Drawing.Point(10, 165);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(175, 16);
-            this.textBox17.TabIndex = 7;
-            this.textBox17.Text = "Mức làm tròn về trễ(phút)";
-            this.textBox17.Visible = false;
-            // 
-            // groupControl1
-            // 
-            this.groupControl1.Controls.Add(this.checkBox1);
-            this.groupControl1.Controls.Add(this.numericUpDown5);
-            this.groupControl1.Controls.Add(this.textBox23);
-            this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.groupControl1.Location = new System.Drawing.Point(10, 15);
-            this.groupControl1.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(360, 117);
-            this.groupControl1.TabIndex = 12;
-            this.groupControl1.Text = "Đi trễ";
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(564, 203);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(101, 21);
-            this.radioButton2.TabIndex = 24;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Làm tròn lùi";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.Visible = false;
+            this.numericUpDown7.Location = new System.Drawing.Point(191, 163);
+            this.numericUpDown7.Name = "numericUpDown7";
+            this.numericUpDown7.Size = new System.Drawing.Size(61, 23);
+            this.numericUpDown7.TabIndex = 22;
+            this.numericUpDown7.Visible = false;
             // 
             // radioButton1
             // 
@@ -966,24 +955,29 @@
             this.radioButton1.UseVisualStyleBackColor = true;
             this.radioButton1.Visible = false;
             // 
-            // numericUpDown6
+            // checkBox3
             // 
-            this.numericUpDown6.Location = new System.Drawing.Point(564, 163);
-            this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(61, 23);
-            this.numericUpDown6.TabIndex = 22;
-            this.numericUpDown6.Visible = false;
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(10, 138);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(188, 21);
+            this.checkBox3.TabIndex = 21;
+            this.checkBox3.Text = "Tính về sớm thời gian này";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.Visible = false;
             // 
-            // checkBox2
+            // groupControl1
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(383, 138);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(174, 21);
-            this.checkBox2.TabIndex = 21;
-            this.checkBox2.Text = "Tính đi trễ thời gian này";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.Visible = false;
+            this.groupControl1.Controls.Add(this.checkBox1);
+            this.groupControl1.Controls.Add(this.numericUpDown5);
+            this.groupControl1.Controls.Add(this.textBox23);
+            this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
+            this.groupControl1.Location = new System.Drawing.Point(10, 15);
+            this.groupControl1.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(360, 117);
+            this.groupControl1.TabIndex = 12;
+            this.groupControl1.Text = "Đi trễ";
             // 
             // checkBox1
             // 
@@ -1016,6 +1010,36 @@
             this.textBox23.Size = new System.Drawing.Size(175, 16);
             this.textBox23.TabIndex = 6;
             this.textBox23.Text = "Cho phép đi làm trễ(phút)";
+            // 
+            // numericUpDown6
+            // 
+            this.numericUpDown6.Location = new System.Drawing.Point(564, 163);
+            this.numericUpDown6.Name = "numericUpDown6";
+            this.numericUpDown6.Size = new System.Drawing.Size(61, 23);
+            this.numericUpDown6.TabIndex = 22;
+            this.numericUpDown6.Visible = false;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(383, 138);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(174, 21);
+            this.checkBox2.TabIndex = 21;
+            this.checkBox2.Text = "Tính đi trễ thời gian này";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.Visible = false;
+            // 
+            // textBox17
+            // 
+            this.textBox17.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox17.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox17.Location = new System.Drawing.Point(10, 165);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(175, 16);
+            this.textBox17.TabIndex = 7;
+            this.textBox17.Text = "Mức làm tròn về trễ(phút)";
+            this.textBox17.Visible = false;
             // 
             // textBox24
             // 
@@ -1512,68 +1536,53 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Code,
-            this.Description,
-            this.Column1});
+            this.tenCa,
+            this.CheckIn,
+            this.CheckOut});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(10, 3);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(337, 630);
             this.dataGridView1.TabIndex = 13;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
-            // Code
+            // tenCa
             // 
-            this.Code.HeaderText = "Mã Ca";
-            this.Code.MinimumWidth = 6;
-            this.Code.Name = "Code";
-            this.Code.Width = 80;
+            this.tenCa.DataPropertyName = "TenCaLamViec";
+            this.tenCa.HeaderText = "Mã Ca";
+            this.tenCa.MinimumWidth = 6;
+            this.tenCa.Name = "tenCa";
+            this.tenCa.ReadOnly = true;
+            this.tenCa.Width = 80;
             // 
-            // Description
+            // CheckIn
             // 
-            this.Description.HeaderText = "Vào";
-            this.Description.MinimumWidth = 6;
-            this.Description.Name = "Description";
-            this.Description.Width = 80;
+            this.CheckIn.DataPropertyName = "GioBatDauCa";
+            this.CheckIn.HeaderText = "Vào";
+            this.CheckIn.MinimumWidth = 6;
+            this.CheckIn.Name = "CheckIn";
+            this.CheckIn.ReadOnly = true;
+            this.CheckIn.Width = 80;
             // 
-            // Column1
+            // CheckOut
             // 
-            this.Column1.HeaderText = "Ra";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 80;
-            // 
-            // numericUpDown25
-            // 
-            this.numericUpDown25.Enabled = false;
-            this.numericUpDown25.Location = new System.Drawing.Point(223, 184);
-            this.numericUpDown25.Maximum = new decimal(new int[] {
-            999,
-            0,
-            0,
-            0});
-            this.numericUpDown25.Name = "numericUpDown25";
-            this.numericUpDown25.Size = new System.Drawing.Size(116, 23);
-            this.numericUpDown25.TabIndex = 47;
-            // 
-            // numericUpDown26
-            // 
-            this.numericUpDown26.Enabled = false;
-            this.numericUpDown26.Location = new System.Drawing.Point(223, 155);
-            this.numericUpDown26.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.numericUpDown26.Name = "numericUpDown26";
-            this.numericUpDown26.ReadOnly = true;
-            this.numericUpDown26.Size = new System.Drawing.Size(116, 23);
-            this.numericUpDown26.TabIndex = 46;
+            this.CheckOut.DataPropertyName = "GioKetThucCa";
+            this.CheckOut.HeaderText = "Ra";
+            this.CheckOut.MinimumWidth = 6;
+            this.CheckOut.Name = "CheckOut";
+            this.CheckOut.ReadOnly = true;
+            this.CheckOut.Width = 80;
             // 
             // DeclareTheShift
             // 
@@ -1587,6 +1596,7 @@
             this.Name = "DeclareTheShift";
             this.Text = "DeclareTheShift";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DeclareTheShift_FormClosing);
+            this.Load += new System.EventHandler(this.DeclareTheShift_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollection)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -1594,6 +1604,8 @@
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
             this.xtraTabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown25)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown26)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeSpanEdit8.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
@@ -1612,13 +1624,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
             this.xtraTabPage3.ResumeLayout(false);
             this.xtraTabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown21)).EndInit();
@@ -1642,8 +1654,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.timeSpanEdit9.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeSpanEdit10.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown25)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown26)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1656,18 +1666,14 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem8;
         private DevExpress.Utils.ImageCollection ribbonImageCollection;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemAddNew;
+        private DevExpress.XtraBars.BarButtonItem barButtonSave;
+        private DevExpress.XtraBars.BarButtonItem barButtonDelete;
+        private DevExpress.XtraBars.BarButtonItem barButtonRefresh;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
@@ -1773,5 +1779,9 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.NumericUpDown numericUpDown25;
         private System.Windows.Forms.NumericUpDown numericUpDown26;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tenCa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CheckIn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CheckOut;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
