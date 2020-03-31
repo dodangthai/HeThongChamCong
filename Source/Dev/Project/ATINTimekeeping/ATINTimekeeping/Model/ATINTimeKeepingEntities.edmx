@@ -96,34 +96,76 @@ warning 6002: The table/view 'ATINChamCong.dbo.BaoCao' does not have a primary k
           </Key>
           <Property Name="MaCaLamViec" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenCaLamViec" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="GioVaoLamViec" Type="time" Precision="7" Nullable="false" />
-          <Property Name="GioBatDauGiaiLao" Type="time" Precision="7" Nullable="false" />
-          <Property Name="GioKetThucGiaiLao" Type="time" Precision="7" Nullable="false" />
+          <Property Name="GioBatDauCa" Type="time" Precision="7" Nullable="false" />
+          <Property Name="GioKetThucCa" Type="time" Precision="7" Nullable="false" />
+          <Property Name="GioBatDauGiaiLao" Type="time" Precision="7" />
+          <Property Name="GioKetThucGiaiLao" Type="time" Precision="7" />
+          <Property Name="TongGio" Type="int" Nullable="false" />
           <Property Name="DiemCong" Type="int" Nullable="false" />
-          <Property Name="GioBatDauVaoDuocTinhCa" Type="time" Precision="7" Nullable="false" />
-          <Property Name="GioKetThucDuocTinhCa" Type="time" Precision="7" Nullable="false" />
+          <Property Name="GioVaoSomNhatDuocTinhCa" Type="time" Precision="7" Nullable="false" />
+          <Property Name="GioVaoMuonNhatDuocTinhCa" Type="time" Precision="7" Nullable="false" />
+          <Property Name="GioRaSomNhatDuocTinhCa" Type="time" Precision="7" Nullable="false" />
+          <Property Name="GioRaMuonNhatDuocTinhCa" Type="time" Precision="7" Nullable="false" />
           <Property Name="KhongCoGioVao" Type="int" Nullable="false" />
           <Property Name="KhongCoGioRa" Type="int" Nullable="false" />
-          <Property Name="TruGioDiTre" Type="int" />
+          <Property Name="TruGioDiTre" Type="bit" />
           <Property Name="ThoiGianDiTreChoPhep" Type="int" />
-          <Property Name="TinhThoiGianDiTre" Type="int" />
-          <Property Name="TruGioVeSom" Type="int" />
+          <Property Name="TruGioVeSom" Type="bit" />
           <Property Name="ThoiGianVeSomChoPhep" Type="int" />
-          <Property Name="TinhThoiGianVeSom" Type="int" />
+          <Property Name="SDMucTangCaHienTai" Type="bit" />
           <Property Name="MucTangCaHienTai" Type="int" />
+          <Property Name="SDMucTangCaCuoiTuan" Type="bit" />
           <Property Name="MucTangCaCuoiTuan" Type="int" />
+          <Property Name="SDMucTangCaNgayLe" Type="bit" />
           <Property Name="MucTangCaNgayLe" Type="int" />
-          <Property Name="TangCaTruocGioLamViec" Type="int" />
-          <Property Name="TangCaSauGioLamViec" Type="int" />
-          <Property Name="TongGioLamViecSeTinhTangCa" Type="int" />
-          <Property Name="GioiHanTangCaMucMot" Type="int" />
-          <Property Name="GioiHanTangCaMucHai" Type="int" />
-          <Property Name="GioiHanToiDaTangCaTruocGioLamViec" Type="int" />
-          <Property Name="GioiHanToiDaTangCaSauGioLamViec" Type="int" />
+          <Property Name="SDMucTangCaCuaTangCaCuoiTuan" Type="bit" />
+          <Property Name="MucTangCaCuaTangCaCuoiTuan" Type="int" />
+          <Property Name="SDMucTangCaCuaTangCaNgayLe" Type="bit" />
+          <Property Name="MucTangCaCuaTangCaNgayLe" Type="int" />
+          <Property Name="TangCaTruocGLV" Type="int" />
+          <Property Name="TangCaSauGLV" Type="int" />
+          <Property Name="TongGLVTinhTangCa" Type="int" />
+          <Property Name="GioiHanTCMucMot" Type="int" />
+          <Property Name="GioiHanTCMucHai" Type="int" />
+          <Property Name="GioiHanTCTruocGLV" Type="int" />
+          <Property Name="GioiHanTCSauGLV" Type="int" />
+          <Property Name="CaQuaDem" Type="bit" />
           <Property Name="TachGioCaDemTu" Type="time" Precision="7" />
           <Property Name="TachGioCaDemDen" Type="time" Precision="7" />
-          <Property Name="BuGioDiTreBangVeTre" Type="int" />
-          <Property Name="BuGioVeSomBangDiSom" Type="int" />
+        </EntityType>
+        <EntityType Name="ChamCong">
+          <Key>
+            <PropertyRef Name="MaChamCong" />
+          </Key>
+          <Property Name="MaChamCong" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaNhanVien" Type="int" Nullable="false" />
+          <Property Name="MaDinhDanh" Type="int" />
+          <Property Name="NgayChamCong" Type="date" Nullable="false" />
+          <Property Name="MaCaLamViec" Type="int" Nullable="false" />
+          <Property Name="GioVaoDauTien" Type="datetime" />
+          <Property Name="GioRaCuoiCung" Type="datetime" />
+          <Property Name="SoGioLamViec" Type="float" Nullable="false" />
+          <Property Name="SoCongLamViec" Type="float" Nullable="false" />
+          <Property Name="SoPhutDiTre" Type="int" Nullable="false" />
+          <Property Name="SoPhutVeSom" Type="int" Nullable="false" />
+          <Property Name="SoPhutBuGio" Type="float" Nullable="false" />
+          <Property Name="TangCa1" Type="int" Nullable="false" />
+          <Property Name="TangCa2" Type="int" Nullable="false" />
+          <Property Name="TangCa3" Type="int" Nullable="false" />
+          <Property Name="TongSoGioLamViec" Type="float" Nullable="false" />
+          <Property Name="TongSoCongLamViec" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ChamCongChiTiet">
+          <Key>
+            <PropertyRef Name="MaChamCongChiTiet" />
+          </Key>
+          <Property Name="MaChamCongChiTiet" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaChamCong" Type="int" Nullable="false" />
+          <Property Name="NgayChamCong" Type="date" Nullable="false" />
+          <Property Name="GioChamCong" Type="datetime" Nullable="false" />
+          <Property Name="LoaiChamCong" Type="int" Nullable="false" />
+          <Property Name="NguonThucHien" Type="int" Nullable="false" />
+          <Property Name="MaThietBi" Type="int" />
         </EntityType>
         <EntityType Name="ChucVu">
           <Key>
@@ -207,6 +249,27 @@ warning 6002: The table/view 'ATINChamCong.dbo.BaoCao' does not have a primary k
           <Property Name="ThuocTinhKhuonMat" Type="varbinary(max)" />
           <Property Name="ThoiGianDangKy" Type="datetime" Nullable="false" />
           <Property Name="TrangThai" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KyHieuCacLoaiVang">
+          <Key>
+            <PropertyRef Name="MaLoaiVang" />
+            <PropertyRef Name="KyHieu" />
+          </Key>
+          <Property Name="MaLoaiVang" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TenLoaiVang" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="KyHieu" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TrangThai" Type="bit" />
+          <Property Name="TinhCong" Type="bit" />
+        </EntityType>
+        <EntityType Name="KyHieuChamCong">
+          <Key>
+            <PropertyRef Name="MaKyHieuChamCong" />
+            <PropertyRef Name="KyHieu" />
+          </Key>
+          <Property Name="MaKyHieuChamCong" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TenKyHieuChamCong" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="KyHieu" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TrangThai" Type="int" />
         </EntityType>
         <EntityType Name="LichTrinhLamViec">
           <Key>
@@ -294,7 +357,10 @@ warning 6002: The table/view 'ATINChamCong.dbo.BaoCao' does not have a primary k
           <Property Name="ChucVu" Type="int" />
           <Property Name="KhuVuc" Type="int" />
           <Property Name="NgaySinh" Type="date" />
-          <Property Name="GioiTinh" Type="nvarchar" MaxLength="6" />
+          <Property Name="GioiTinh" Type="int" Nullable="false" />
+          <Property Name="SoDienThoai" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="AnhDaiDien" Type="varchar" MaxLength="200" />
           <Property Name="TrinhDo" Type="int" />
           <Property Name="SoTheCanCuoc" Type="varchar" MaxLength="50" />
           <Property Name="NgayCapTCC" Type="date" />
@@ -311,17 +377,14 @@ warning 6002: The table/view 'ATINChamCong.dbo.BaoCao' does not have a primary k
           <Property Name="NoiCapBLXO" Type="nvarchar" MaxLength="150" />
           <Property Name="DiaChiThuongTru" Type="nvarchar" MaxLength="150" />
           <Property Name="DiaChiTamTru" Type="varchar" MaxLength="20" />
-          <Property Name="Email" Type="varchar" MaxLength="50" />
-          <Property Name="Zalo" Type="varchar" MaxLength="50" />
-          <Property Name="AnhDaiDien" Type="varchar" MaxLength="200" />
           <Property Name="NgayNhanViec" Type="date" />
           <Property Name="NgayThoiViec" Type="date" />
-          <Property Name="SuDungVanTay" Type="int" />
-          <Property Name="SuDungTheTu" Type="int" />
-          <Property Name="SuDungKhuonMat" Type="int" />
+          <Property Name="SuDungVanTay" Type="bit" />
+          <Property Name="SuDungTheTu" Type="bit" />
+          <Property Name="SuDungKhuonMat" Type="bit" />
           <Property Name="ThoiGianDangKy" Type="datetime" />
           <Property Name="ThoiGianCapNhat" Type="datetime" />
-          <Property Name="GhiChu" Type="int" />
+          <Property Name="GhiChu" Type="nvarchar" MaxLength="150" />
           <Property Name="TrangThaiHoatDong" Type="int" />
         </EntityType>
         <EntityType Name="NhatKy">
@@ -693,6 +756,74 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spDeleteCaLamViec" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaCaLamViec" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spGetAllCaLamViec" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spGetCaLamViec" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaCaLamViec" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spInsertCaLamViec" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TenCaLamViec" Type="nvarchar" Mode="In" />
+          <Parameter Name="GioBatDauCa" Type="time" Mode="In" />
+          <Parameter Name="GioKetThucCa" Type="time" Mode="In" />
+          <Parameter Name="GioBatDauGiaiLao" Type="time" Mode="In" />
+          <Parameter Name="GioKetThucGiaiLao" Type="time" Mode="In" />
+          <Parameter Name="TongGio" Type="int" Mode="In" />
+          <Parameter Name="DiemCong" Type="int" Mode="In" />
+          <Parameter Name="GioVaoSomNhatDuocTinhCa" Type="time" Mode="In" />
+          <Parameter Name="GioVaoMuonNhatDuocTinhCa" Type="time" Mode="In" />
+          <Parameter Name="GioRaMuonNhatDuocTinhCa" Type="time" Mode="In" />
+          <Parameter Name="GioRaSomNhatDuocTinhCa" Type="time" Mode="In" />
+          <Parameter Name="KhongCoGioRa" Type="int" Mode="In" />
+          <Parameter Name="KhongCoGioVao" Type="int" Mode="In" />
+          <Parameter Name="TruGioDiTre" Type="bit" Mode="In" />
+          <Parameter Name="ThoiGianDiTreChoPhep" Type="int" Mode="In" />
+          <Parameter Name="TruGioVeSom" Type="bit" Mode="In" />
+          <Parameter Name="ThoiGianVeSomChoPhep" Type="int" Mode="In" />
+          <Parameter Name="GioiHanTCMucMot" Type="int" Mode="In" />
+          <Parameter Name="GioiHanTCMucHai" Type="int" Mode="In" />
+          <Parameter Name="SDMucTangCaCuaTangCaCuoiTuan" Type="bit" Mode="In" />
+          <Parameter Name="MucTangCaCuaTangCaCuoiTuan" Type="int" Mode="In" />
+          <Parameter Name="SDMucTangCaCuaTangCaNgayLe" Type="bit" Mode="In" />
+          <Parameter Name="MucTangCaCuaTangCaNgayLe" Type="int" Mode="In" />
+          <Parameter Name="GioiHanTCTruocGLV" Type="int" Mode="In" />
+          <Parameter Name="GioiHanTCSauGLV" Type="int" Mode="In" />
+          <Parameter Name="CaQuaDem" Type="bit" Mode="In" />
+          <Parameter Name="TachGioCaDemTu" Type="time" Mode="In" />
+          <Parameter Name="TachGioCaDemDen" Type="time" Mode="In" />
+        </Function>
+        <Function Name="spUpdateCaLamViec" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaCaLamViec" Type="int" Mode="In" />
+          <Parameter Name="TenCaLamViec" Type="nvarchar" Mode="In" />
+          <Parameter Name="GioBatDauCa" Type="time" Mode="In" />
+          <Parameter Name="GioKetThucCa" Type="time" Mode="In" />
+          <Parameter Name="GioBatDauGiaiLao" Type="time" Mode="In" />
+          <Parameter Name="GioKetThucGiaiLao" Type="time" Mode="In" />
+          <Parameter Name="TongGio" Type="int" Mode="In" />
+          <Parameter Name="DiemCong" Type="int" Mode="In" />
+          <Parameter Name="GioVaoSomNhatDuocTinhCa" Type="time" Mode="In" />
+          <Parameter Name="GioVaoMuonNhatDuocTinhCa" Type="time" Mode="In" />
+          <Parameter Name="GioRaMuonNhatDuocTinhCa" Type="time" Mode="In" />
+          <Parameter Name="GioRaSomNhatDuocTinhCa" Type="time" Mode="In" />
+          <Parameter Name="KhongCoGioRa" Type="int" Mode="In" />
+          <Parameter Name="KhongCoGioVao" Type="int" Mode="In" />
+          <Parameter Name="TruGioDiTre" Type="bit" Mode="In" />
+          <Parameter Name="ThoiGianDiTreChoPhep" Type="int" Mode="In" />
+          <Parameter Name="TruGioVeSom" Type="bit" Mode="In" />
+          <Parameter Name="ThoiGianVeSomChoPhep" Type="int" Mode="In" />
+          <Parameter Name="GioiHanTCMucMot" Type="int" Mode="In" />
+          <Parameter Name="GioiHanTCMucHai" Type="int" Mode="In" />
+          <Parameter Name="SDMucTangCaCuaTangCaCuoiTuan" Type="bit" Mode="In" />
+          <Parameter Name="MucTangCaCuaTangCaCuoiTuan" Type="int" Mode="In" />
+          <Parameter Name="SDMucTangCaCuaTangCaNgayLe" Type="bit" Mode="In" />
+          <Parameter Name="MucTangCaCuaTangCaNgayLe" Type="int" Mode="In" />
+          <Parameter Name="GioiHanTCTruocGLV" Type="int" Mode="In" />
+          <Parameter Name="GioiHanTCSauGLV" Type="int" Mode="In" />
+          <Parameter Name="CaQuaDem" Type="bit" Mode="In" />
+          <Parameter Name="TachGioCaDemTu" Type="time" Mode="In" />
+          <Parameter Name="TachGioCaDemDen" Type="time" Mode="In" />
+        </Function>
         <EntityContainer Name="ATINChamCongModelStoreContainer">
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
@@ -701,6 +832,8 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BaoCaoChiTiet" EntityType="Self.BaoCaoChiTiet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CaLamViec" EntityType="Self.CaLamViec" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChamCong" EntityType="Self.ChamCong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChamCongChiTiet" EntityType="Self.ChamCongChiTiet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ChucVu" EntityType="Self.ChucVu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CongTyKhuVuc" EntityType="Self.CongTyKhuVuc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DangKyNghiPhep" EntityType="Self.DangKyNghiPhep" Schema="dbo" store:Type="Tables" />
@@ -709,6 +842,8 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
           <EntitySet Name="HopDongLaoDong" EntityType="Self.HopDongLaoDong" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KhaiBaoThoiGian" EntityType="Self.KhaiBaoThoiGian" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KhuonMat" EntityType="Self.KhuonMat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KyHieuCacLoaiVang" EntityType="Self.KyHieuCacLoaiVang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KyHieuChamCong" EntityType="Self.KyHieuChamCong" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LichTrinhLamViec" EntityType="Self.LichTrinhLamViec" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LoaiHopDong" EntityType="Self.LoaiHopDong" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LoaiNghiPhep" EntityType="Self.LoaiNghiPhep" Schema="dbo" store:Type="Tables" />
@@ -900,34 +1035,76 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
           </Key>
           <Property Name="MaCaLamViec" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenCaLamViec" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="GioVaoLamViec" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="GioBatDauGiaiLao" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="GioKetThucGiaiLao" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="GioBatDauCa" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="GioKetThucCa" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="GioBatDauGiaiLao" Type="Time" Precision="7" />
+          <Property Name="GioKetThucGiaiLao" Type="Time" Precision="7" />
+          <Property Name="TongGio" Type="Int32" Nullable="false" />
           <Property Name="DiemCong" Type="Int32" Nullable="false" />
-          <Property Name="GioBatDauVaoDuocTinhCa" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="GioKetThucDuocTinhCa" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="GioVaoSomNhatDuocTinhCa" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="GioVaoMuonNhatDuocTinhCa" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="GioRaSomNhatDuocTinhCa" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="GioRaMuonNhatDuocTinhCa" Type="Time" Nullable="false" Precision="7" />
           <Property Name="KhongCoGioVao" Type="Int32" Nullable="false" />
           <Property Name="KhongCoGioRa" Type="Int32" Nullable="false" />
-          <Property Name="TruGioDiTre" Type="Int32" />
+          <Property Name="TruGioDiTre" Type="Boolean" />
           <Property Name="ThoiGianDiTreChoPhep" Type="Int32" />
-          <Property Name="TinhThoiGianDiTre" Type="Int32" />
-          <Property Name="TruGioVeSom" Type="Int32" />
+          <Property Name="TruGioVeSom" Type="Boolean" />
           <Property Name="ThoiGianVeSomChoPhep" Type="Int32" />
-          <Property Name="TinhThoiGianVeSom" Type="Int32" />
+          <Property Name="SDMucTangCaHienTai" Type="Boolean" />
           <Property Name="MucTangCaHienTai" Type="Int32" />
+          <Property Name="SDMucTangCaCuoiTuan" Type="Boolean" />
           <Property Name="MucTangCaCuoiTuan" Type="Int32" />
+          <Property Name="SDMucTangCaNgayLe" Type="Boolean" />
           <Property Name="MucTangCaNgayLe" Type="Int32" />
-          <Property Name="TangCaTruocGioLamViec" Type="Int32" />
-          <Property Name="TangCaSauGioLamViec" Type="Int32" />
-          <Property Name="TongGioLamViecSeTinhTangCa" Type="Int32" />
-          <Property Name="GioiHanTangCaMucMot" Type="Int32" />
-          <Property Name="GioiHanTangCaMucHai" Type="Int32" />
-          <Property Name="GioiHanToiDaTangCaTruocGioLamViec" Type="Int32" />
-          <Property Name="GioiHanToiDaTangCaSauGioLamViec" Type="Int32" />
+          <Property Name="SDMucTangCaCuaTangCaCuoiTuan" Type="Boolean" />
+          <Property Name="MucTangCaCuaTangCaCuoiTuan" Type="Int32" />
+          <Property Name="SDMucTangCaCuaTangCaNgayLe" Type="Boolean" />
+          <Property Name="MucTangCaCuaTangCaNgayLe" Type="Int32" />
+          <Property Name="TangCaTruocGLV" Type="Int32" />
+          <Property Name="TangCaSauGLV" Type="Int32" />
+          <Property Name="TongGLVTinhTangCa" Type="Int32" />
+          <Property Name="GioiHanTCMucMot" Type="Int32" />
+          <Property Name="GioiHanTCMucHai" Type="Int32" />
+          <Property Name="GioiHanTCTruocGLV" Type="Int32" />
+          <Property Name="GioiHanTCSauGLV" Type="Int32" />
+          <Property Name="CaQuaDem" Type="Boolean" />
           <Property Name="TachGioCaDemTu" Type="Time" Precision="7" />
           <Property Name="TachGioCaDemDen" Type="Time" Precision="7" />
-          <Property Name="BuGioDiTreBangVeTre" Type="Int32" />
-          <Property Name="BuGioVeSomBangDiSom" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ChamCong">
+          <Key>
+            <PropertyRef Name="MaChamCong" />
+          </Key>
+          <Property Name="MaChamCong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaNhanVien" Type="Int32" Nullable="false" />
+          <Property Name="MaDinhDanh" Type="Int32" />
+          <Property Name="NgayChamCong" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MaCaLamViec" Type="Int32" Nullable="false" />
+          <Property Name="GioVaoDauTien" Type="DateTime" Precision="3" />
+          <Property Name="GioRaCuoiCung" Type="DateTime" Precision="3" />
+          <Property Name="SoGioLamViec" Type="Double" Nullable="false" />
+          <Property Name="SoCongLamViec" Type="Double" Nullable="false" />
+          <Property Name="SoPhutDiTre" Type="Int32" Nullable="false" />
+          <Property Name="SoPhutVeSom" Type="Int32" Nullable="false" />
+          <Property Name="SoPhutBuGio" Type="Double" Nullable="false" />
+          <Property Name="TangCa1" Type="Int32" Nullable="false" />
+          <Property Name="TangCa2" Type="Int32" Nullable="false" />
+          <Property Name="TangCa3" Type="Int32" Nullable="false" />
+          <Property Name="TongSoGioLamViec" Type="Double" Nullable="false" />
+          <Property Name="TongSoCongLamViec" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ChamCongChiTiet">
+          <Key>
+            <PropertyRef Name="MaChamCongChiTiet" />
+          </Key>
+          <Property Name="MaChamCongChiTiet" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaChamCong" Type="Int32" Nullable="false" />
+          <Property Name="NgayChamCong" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="GioChamCong" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LoaiChamCong" Type="Int32" Nullable="false" />
+          <Property Name="NguonThucHien" Type="Int32" Nullable="false" />
+          <Property Name="MaThietBi" Type="Int32" />
         </EntityType>
         <EntityType Name="ChucVu">
           <Key>
@@ -1016,6 +1193,27 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
           <Property Name="TrangThai" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Nguoi" Relationship="Self.FK_dbo_KhuonMat_MaNguoi" FromRole="KhuonMat" ToRole="Nguoi" />
         </EntityType>
+        <EntityType Name="KyHieuCacLoaiVang">
+          <Key>
+            <PropertyRef Name="MaLoaiVang" />
+            <PropertyRef Name="KyHieu" />
+          </Key>
+          <Property Name="MaLoaiVang" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TenLoaiVang" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KyHieu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TrangThai" Type="Boolean" />
+          <Property Name="TinhCong" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="KyHieuChamCong">
+          <Key>
+            <PropertyRef Name="MaKyHieuChamCong" />
+            <PropertyRef Name="KyHieu" />
+          </Key>
+          <Property Name="MaKyHieuChamCong" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TenKyHieuChamCong" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KyHieu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TrangThai" Type="Int32" />
+        </EntityType>
         <EntityType Name="LichTrinhLamViec">
           <Key>
             <PropertyRef Name="Id" />
@@ -1103,7 +1301,10 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
           <Property Name="ChucVu" Type="Int32" />
           <Property Name="KhuVuc" Type="Int32" />
           <Property Name="NgaySinh" Type="DateTime" Precision="0" />
-          <Property Name="GioiTinh" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="GioiTinh" Type="Int32" Nullable="false" />
+          <Property Name="SoDienThoai" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AnhDaiDien" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="TrinhDo" Type="Int32" />
           <Property Name="SoTheCanCuoc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="NgayCapTCC" Type="DateTime" Precision="0" />
@@ -1120,17 +1321,14 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
           <Property Name="NoiCapBLXO" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="DiaChiThuongTru" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="DiaChiTamTru" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Zalo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="AnhDaiDien" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="NgayNhanViec" Type="DateTime" Precision="0" />
           <Property Name="NgayThoiViec" Type="DateTime" Precision="0" />
-          <Property Name="SuDungVanTay" Type="Int32" />
-          <Property Name="SuDungTheTu" Type="Int32" />
-          <Property Name="SuDungKhuonMat" Type="Int32" />
+          <Property Name="SuDungVanTay" Type="Boolean" />
+          <Property Name="SuDungTheTu" Type="Boolean" />
+          <Property Name="SuDungKhuonMat" Type="Boolean" />
           <Property Name="ThoiGianDangKy" Type="DateTime" Precision="3" />
           <Property Name="ThoiGianCapNhat" Type="DateTime" Precision="3" />
-          <Property Name="GhiChu" Type="Int32" />
+          <Property Name="GhiChu" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="TrangThaiHoatDong" Type="Int32" />
           <NavigationProperty Name="DangKyNghiPheps" Relationship="Self.FK_dbo_DangKyNghiPhep_MaNhanVien" FromRole="Nguoi" ToRole="DangKyNghiPhep" />
           <NavigationProperty Name="DangKyTangCas" Relationship="Self.FK_dbo_DangKyTangCa_MaNhanVien" FromRole="Nguoi" ToRole="DangKyTangCa" />
@@ -1438,6 +1636,8 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
           <EntitySet Name="BaoCaoChiTiets" EntityType="Self.BaoCaoChiTiet" />
           <EntitySet Name="CaLamViecs" EntityType="Self.CaLamViec" />
+          <EntitySet Name="ChamCongs" EntityType="Self.ChamCong" />
+          <EntitySet Name="ChamCongChiTiets" EntityType="Self.ChamCongChiTiet" />
           <EntitySet Name="ChucVus" EntityType="Self.ChucVu" />
           <EntitySet Name="CongTyKhuVucs" EntityType="Self.CongTyKhuVuc" />
           <EntitySet Name="DangKyNghiPheps" EntityType="Self.DangKyNghiPhep" />
@@ -1446,6 +1646,8 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
           <EntitySet Name="HopDongLaoDongs" EntityType="Self.HopDongLaoDong" />
           <EntitySet Name="KhaiBaoThoiGians" EntityType="Self.KhaiBaoThoiGian" />
           <EntitySet Name="KhuonMats" EntityType="Self.KhuonMat" />
+          <EntitySet Name="KyHieuCacLoaiVangs" EntityType="Self.KyHieuCacLoaiVang" />
+          <EntitySet Name="KyHieuChamCongs" EntityType="Self.KyHieuChamCong" />
           <EntitySet Name="LichTrinhLamViecs" EntityType="Self.LichTrinhLamViec" />
           <EntitySet Name="LoaiHopDongs" EntityType="Self.LoaiHopDong" />
           <EntitySet Name="LoaiNghiPheps" EntityType="Self.LoaiNghiPhep" />
@@ -1541,6 +1743,74 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="spDeleteCaLamViec">
+            <Parameter Name="MaCaLamViec" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spGetAllCaLamViec" ReturnType="Collection(ATINChamCongModel.spGetAllCaLamViec_Result)" />
+          <FunctionImport Name="spGetCaLamViec" ReturnType="Collection(ATINChamCongModel.spGetCaLamViec_Result)">
+            <Parameter Name="MaCaLamViec" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spInsertCaLamViec">
+            <Parameter Name="TenCaLamViec" Mode="In" Type="String" />
+            <Parameter Name="GioBatDauCa" Mode="In" Type="Time" />
+            <Parameter Name="GioKetThucCa" Mode="In" Type="Time" />
+            <Parameter Name="GioBatDauGiaiLao" Mode="In" Type="Time" />
+            <Parameter Name="GioKetThucGiaiLao" Mode="In" Type="Time" />
+            <Parameter Name="TongGio" Mode="In" Type="Int32" />
+            <Parameter Name="DiemCong" Mode="In" Type="Int32" />
+            <Parameter Name="GioVaoSomNhatDuocTinhCa" Mode="In" Type="Time" />
+            <Parameter Name="GioVaoMuonNhatDuocTinhCa" Mode="In" Type="Time" />
+            <Parameter Name="GioRaMuonNhatDuocTinhCa" Mode="In" Type="Time" />
+            <Parameter Name="GioRaSomNhatDuocTinhCa" Mode="In" Type="Time" />
+            <Parameter Name="KhongCoGioRa" Mode="In" Type="Int32" />
+            <Parameter Name="KhongCoGioVao" Mode="In" Type="Int32" />
+            <Parameter Name="TruGioDiTre" Mode="In" Type="Boolean" />
+            <Parameter Name="ThoiGianDiTreChoPhep" Mode="In" Type="Int32" />
+            <Parameter Name="TruGioVeSom" Mode="In" Type="Boolean" />
+            <Parameter Name="ThoiGianVeSomChoPhep" Mode="In" Type="Int32" />
+            <Parameter Name="GioiHanTCMucMot" Mode="In" Type="Int32" />
+            <Parameter Name="GioiHanTCMucHai" Mode="In" Type="Int32" />
+            <Parameter Name="SDMucTangCaCuaTangCaCuoiTuan" Mode="In" Type="Boolean" />
+            <Parameter Name="MucTangCaCuaTangCaCuoiTuan" Mode="In" Type="Int32" />
+            <Parameter Name="SDMucTangCaCuaTangCaNgayLe" Mode="In" Type="Boolean" />
+            <Parameter Name="MucTangCaCuaTangCaNgayLe" Mode="In" Type="Int32" />
+            <Parameter Name="GioiHanTCTruocGLV" Mode="In" Type="Int32" />
+            <Parameter Name="GioiHanTCSauGLV" Mode="In" Type="Int32" />
+            <Parameter Name="CaQuaDem" Mode="In" Type="Boolean" />
+            <Parameter Name="TachGioCaDemTu" Mode="In" Type="Time" />
+            <Parameter Name="TachGioCaDemDen" Mode="In" Type="Time" />
+          </FunctionImport>
+          <FunctionImport Name="spUpdateCaLamViec">
+            <Parameter Name="MaCaLamViec" Mode="In" Type="Int32" />
+            <Parameter Name="TenCaLamViec" Mode="In" Type="String" />
+            <Parameter Name="GioBatDauCa" Mode="In" Type="Time" />
+            <Parameter Name="GioKetThucCa" Mode="In" Type="Time" />
+            <Parameter Name="GioBatDauGiaiLao" Mode="In" Type="Time" />
+            <Parameter Name="GioKetThucGiaiLao" Mode="In" Type="Time" />
+            <Parameter Name="TongGio" Mode="In" Type="Int32" />
+            <Parameter Name="DiemCong" Mode="In" Type="Int32" />
+            <Parameter Name="GioVaoSomNhatDuocTinhCa" Mode="In" Type="Time" />
+            <Parameter Name="GioVaoMuonNhatDuocTinhCa" Mode="In" Type="Time" />
+            <Parameter Name="GioRaMuonNhatDuocTinhCa" Mode="In" Type="Time" />
+            <Parameter Name="GioRaSomNhatDuocTinhCa" Mode="In" Type="Time" />
+            <Parameter Name="KhongCoGioRa" Mode="In" Type="Int32" />
+            <Parameter Name="KhongCoGioVao" Mode="In" Type="Int32" />
+            <Parameter Name="TruGioDiTre" Mode="In" Type="Boolean" />
+            <Parameter Name="ThoiGianDiTreChoPhep" Mode="In" Type="Int32" />
+            <Parameter Name="TruGioVeSom" Mode="In" Type="Boolean" />
+            <Parameter Name="ThoiGianVeSomChoPhep" Mode="In" Type="Int32" />
+            <Parameter Name="GioiHanTCMucMot" Mode="In" Type="Int32" />
+            <Parameter Name="GioiHanTCMucHai" Mode="In" Type="Int32" />
+            <Parameter Name="SDMucTangCaCuaTangCaCuoiTuan" Mode="In" Type="Boolean" />
+            <Parameter Name="MucTangCaCuaTangCaCuoiTuan" Mode="In" Type="Int32" />
+            <Parameter Name="SDMucTangCaCuaTangCaNgayLe" Mode="In" Type="Boolean" />
+            <Parameter Name="MucTangCaCuaTangCaNgayLe" Mode="In" Type="Int32" />
+            <Parameter Name="GioiHanTCTruocGLV" Mode="In" Type="Int32" />
+            <Parameter Name="GioiHanTCSauGLV" Mode="In" Type="Int32" />
+            <Parameter Name="CaQuaDem" Mode="In" Type="Boolean" />
+            <Parameter Name="TachGioCaDemTu" Mode="In" Type="Time" />
+            <Parameter Name="TachGioCaDemDen" Mode="In" Type="Time" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -1552,6 +1822,86 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
           <Property Type="Int32" Name="ID" Nullable="false" />
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="spGetAllCaLamViec_Result">
+          <Property Type="Int32" Name="MaCaLamViec" Nullable="false" />
+          <Property Type="String" Name="TenCaLamViec" Nullable="false" MaxLength="50" />
+          <Property Type="Time" Name="GioBatDauCa" Nullable="false" />
+          <Property Type="Time" Name="GioKetThucCa" Nullable="false" />
+          <Property Type="Time" Name="GioBatDauGiaiLao" Nullable="true" />
+          <Property Type="Time" Name="GioKetThucGiaiLao" Nullable="true" />
+          <Property Type="Int32" Name="TongGio" Nullable="false" />
+          <Property Type="Int32" Name="DiemCong" Nullable="false" />
+          <Property Type="Time" Name="GioVaoSomNhatDuocTinhCa" Nullable="false" />
+          <Property Type="Time" Name="GioVaoMuonNhatDuocTinhCa" Nullable="false" />
+          <Property Type="Time" Name="GioRaSomNhatDuocTinhCa" Nullable="false" />
+          <Property Type="Time" Name="GioRaMuonNhatDuocTinhCa" Nullable="false" />
+          <Property Type="Int32" Name="KhongCoGioVao" Nullable="false" />
+          <Property Type="Int32" Name="KhongCoGioRa" Nullable="false" />
+          <Property Type="Boolean" Name="TruGioDiTre" Nullable="true" />
+          <Property Type="Int32" Name="ThoiGianDiTreChoPhep" Nullable="true" />
+          <Property Type="Boolean" Name="TruGioVeSom" Nullable="true" />
+          <Property Type="Int32" Name="ThoiGianVeSomChoPhep" Nullable="true" />
+          <Property Type="Boolean" Name="SDMucTangCaHienTai" Nullable="true" />
+          <Property Type="Int32" Name="MucTangCaHienTai" Nullable="true" />
+          <Property Type="Boolean" Name="SDMucTangCaCuoiTuan" Nullable="true" />
+          <Property Type="Int32" Name="MucTangCaCuoiTuan" Nullable="true" />
+          <Property Type="Boolean" Name="SDMucTangCaNgayLe" Nullable="true" />
+          <Property Type="Int32" Name="MucTangCaNgayLe" Nullable="true" />
+          <Property Type="Boolean" Name="SDMucTangCaCuaTangCaCuoiTuan" Nullable="true" />
+          <Property Type="Int32" Name="MucTangCaCuaTangCaCuoiTuan" Nullable="true" />
+          <Property Type="Boolean" Name="SDMucTangCaCuaTangCaNgayLe" Nullable="true" />
+          <Property Type="Int32" Name="MucTangCaCuaTangCaNgayLe" Nullable="true" />
+          <Property Type="Int32" Name="TangCaTruocGLV" Nullable="true" />
+          <Property Type="Int32" Name="TangCaSauGLV" Nullable="true" />
+          <Property Type="Int32" Name="TongGLVTinhTangCa" Nullable="true" />
+          <Property Type="Int32" Name="GioiHanTCMucMot" Nullable="true" />
+          <Property Type="Int32" Name="GioiHanTCMucHai" Nullable="true" />
+          <Property Type="Int32" Name="GioiHanTCTruocGLV" Nullable="true" />
+          <Property Type="Int32" Name="GioiHanTCSauGLV" Nullable="true" />
+          <Property Type="Boolean" Name="CaQuaDem" Nullable="true" />
+          <Property Type="Time" Name="TachGioCaDemTu" Nullable="true" />
+          <Property Type="Time" Name="TachGioCaDemDen" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spGetCaLamViec_Result">
+          <Property Type="Int32" Name="MaCaLamViec" Nullable="false" />
+          <Property Type="String" Name="TenCaLamViec" Nullable="false" MaxLength="50" />
+          <Property Type="Time" Name="GioBatDauCa" Nullable="false" />
+          <Property Type="Time" Name="GioKetThucCa" Nullable="false" />
+          <Property Type="Time" Name="GioBatDauGiaiLao" Nullable="true" />
+          <Property Type="Time" Name="GioKetThucGiaiLao" Nullable="true" />
+          <Property Type="Int32" Name="TongGio" Nullable="false" />
+          <Property Type="Int32" Name="DiemCong" Nullable="false" />
+          <Property Type="Time" Name="GioVaoSomNhatDuocTinhCa" Nullable="false" />
+          <Property Type="Time" Name="GioVaoMuonNhatDuocTinhCa" Nullable="false" />
+          <Property Type="Time" Name="GioRaSomNhatDuocTinhCa" Nullable="false" />
+          <Property Type="Time" Name="GioRaMuonNhatDuocTinhCa" Nullable="false" />
+          <Property Type="Int32" Name="KhongCoGioVao" Nullable="false" />
+          <Property Type="Int32" Name="KhongCoGioRa" Nullable="false" />
+          <Property Type="Boolean" Name="TruGioDiTre" Nullable="true" />
+          <Property Type="Int32" Name="ThoiGianDiTreChoPhep" Nullable="true" />
+          <Property Type="Boolean" Name="TruGioVeSom" Nullable="true" />
+          <Property Type="Int32" Name="ThoiGianVeSomChoPhep" Nullable="true" />
+          <Property Type="Boolean" Name="SDMucTangCaHienTai" Nullable="true" />
+          <Property Type="Int32" Name="MucTangCaHienTai" Nullable="true" />
+          <Property Type="Boolean" Name="SDMucTangCaCuoiTuan" Nullable="true" />
+          <Property Type="Int32" Name="MucTangCaCuoiTuan" Nullable="true" />
+          <Property Type="Boolean" Name="SDMucTangCaNgayLe" Nullable="true" />
+          <Property Type="Int32" Name="MucTangCaNgayLe" Nullable="true" />
+          <Property Type="Boolean" Name="SDMucTangCaCuaTangCaCuoiTuan" Nullable="true" />
+          <Property Type="Int32" Name="MucTangCaCuaTangCaCuoiTuan" Nullable="true" />
+          <Property Type="Boolean" Name="SDMucTangCaCuaTangCaNgayLe" Nullable="true" />
+          <Property Type="Int32" Name="MucTangCaCuaTangCaNgayLe" Nullable="true" />
+          <Property Type="Int32" Name="TangCaTruocGLV" Nullable="true" />
+          <Property Type="Int32" Name="TangCaSauGLV" Nullable="true" />
+          <Property Type="Int32" Name="TongGLVTinhTangCa" Nullable="true" />
+          <Property Type="Int32" Name="GioiHanTCMucMot" Nullable="true" />
+          <Property Type="Int32" Name="GioiHanTCMucHai" Nullable="true" />
+          <Property Type="Int32" Name="GioiHanTCTruocGLV" Nullable="true" />
+          <Property Type="Int32" Name="GioiHanTCSauGLV" Nullable="true" />
+          <Property Type="Boolean" Name="CaQuaDem" Nullable="true" />
+          <Property Type="Time" Name="TachGioCaDemTu" Nullable="true" />
+          <Property Type="Time" Name="TachGioCaDemDen" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1630,34 +1980,78 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
               <MappingFragment StoreEntitySet="CaLamViec">
                 <ScalarProperty Name="MaCaLamViec" ColumnName="MaCaLamViec" />
                 <ScalarProperty Name="TenCaLamViec" ColumnName="TenCaLamViec" />
-                <ScalarProperty Name="GioVaoLamViec" ColumnName="GioVaoLamViec" />
+                <ScalarProperty Name="GioBatDauCa" ColumnName="GioBatDauCa" />
+                <ScalarProperty Name="GioKetThucCa" ColumnName="GioKetThucCa" />
                 <ScalarProperty Name="GioBatDauGiaiLao" ColumnName="GioBatDauGiaiLao" />
                 <ScalarProperty Name="GioKetThucGiaiLao" ColumnName="GioKetThucGiaiLao" />
+                <ScalarProperty Name="TongGio" ColumnName="TongGio" />
                 <ScalarProperty Name="DiemCong" ColumnName="DiemCong" />
-                <ScalarProperty Name="GioBatDauVaoDuocTinhCa" ColumnName="GioBatDauVaoDuocTinhCa" />
-                <ScalarProperty Name="GioKetThucDuocTinhCa" ColumnName="GioKetThucDuocTinhCa" />
+                <ScalarProperty Name="GioVaoSomNhatDuocTinhCa" ColumnName="GioVaoSomNhatDuocTinhCa" />
+                <ScalarProperty Name="GioVaoMuonNhatDuocTinhCa" ColumnName="GioVaoMuonNhatDuocTinhCa" />
+                <ScalarProperty Name="GioRaSomNhatDuocTinhCa" ColumnName="GioRaSomNhatDuocTinhCa" />
+                <ScalarProperty Name="GioRaMuonNhatDuocTinhCa" ColumnName="GioRaMuonNhatDuocTinhCa" />
                 <ScalarProperty Name="KhongCoGioVao" ColumnName="KhongCoGioVao" />
                 <ScalarProperty Name="KhongCoGioRa" ColumnName="KhongCoGioRa" />
                 <ScalarProperty Name="TruGioDiTre" ColumnName="TruGioDiTre" />
                 <ScalarProperty Name="ThoiGianDiTreChoPhep" ColumnName="ThoiGianDiTreChoPhep" />
-                <ScalarProperty Name="TinhThoiGianDiTre" ColumnName="TinhThoiGianDiTre" />
                 <ScalarProperty Name="TruGioVeSom" ColumnName="TruGioVeSom" />
                 <ScalarProperty Name="ThoiGianVeSomChoPhep" ColumnName="ThoiGianVeSomChoPhep" />
-                <ScalarProperty Name="TinhThoiGianVeSom" ColumnName="TinhThoiGianVeSom" />
+                <ScalarProperty Name="SDMucTangCaHienTai" ColumnName="SDMucTangCaHienTai" />
                 <ScalarProperty Name="MucTangCaHienTai" ColumnName="MucTangCaHienTai" />
+                <ScalarProperty Name="SDMucTangCaCuoiTuan" ColumnName="SDMucTangCaCuoiTuan" />
                 <ScalarProperty Name="MucTangCaCuoiTuan" ColumnName="MucTangCaCuoiTuan" />
+                <ScalarProperty Name="SDMucTangCaNgayLe" ColumnName="SDMucTangCaNgayLe" />
                 <ScalarProperty Name="MucTangCaNgayLe" ColumnName="MucTangCaNgayLe" />
-                <ScalarProperty Name="TangCaTruocGioLamViec" ColumnName="TangCaTruocGioLamViec" />
-                <ScalarProperty Name="TangCaSauGioLamViec" ColumnName="TangCaSauGioLamViec" />
-                <ScalarProperty Name="TongGioLamViecSeTinhTangCa" ColumnName="TongGioLamViecSeTinhTangCa" />
-                <ScalarProperty Name="GioiHanTangCaMucMot" ColumnName="GioiHanTangCaMucMot" />
-                <ScalarProperty Name="GioiHanTangCaMucHai" ColumnName="GioiHanTangCaMucHai" />
-                <ScalarProperty Name="GioiHanToiDaTangCaTruocGioLamViec" ColumnName="GioiHanToiDaTangCaTruocGioLamViec" />
-                <ScalarProperty Name="GioiHanToiDaTangCaSauGioLamViec" ColumnName="GioiHanToiDaTangCaSauGioLamViec" />
+                <ScalarProperty Name="SDMucTangCaCuaTangCaCuoiTuan" ColumnName="SDMucTangCaCuaTangCaCuoiTuan" />
+                <ScalarProperty Name="MucTangCaCuaTangCaCuoiTuan" ColumnName="MucTangCaCuaTangCaCuoiTuan" />
+                <ScalarProperty Name="SDMucTangCaCuaTangCaNgayLe" ColumnName="SDMucTangCaCuaTangCaNgayLe" />
+                <ScalarProperty Name="MucTangCaCuaTangCaNgayLe" ColumnName="MucTangCaCuaTangCaNgayLe" />
+                <ScalarProperty Name="TangCaTruocGLV" ColumnName="TangCaTruocGLV" />
+                <ScalarProperty Name="TangCaSauGLV" ColumnName="TangCaSauGLV" />
+                <ScalarProperty Name="TongGLVTinhTangCa" ColumnName="TongGLVTinhTangCa" />
+                <ScalarProperty Name="GioiHanTCMucMot" ColumnName="GioiHanTCMucMot" />
+                <ScalarProperty Name="GioiHanTCMucHai" ColumnName="GioiHanTCMucHai" />
+                <ScalarProperty Name="GioiHanTCTruocGLV" ColumnName="GioiHanTCTruocGLV" />
+                <ScalarProperty Name="GioiHanTCSauGLV" ColumnName="GioiHanTCSauGLV" />
+                <ScalarProperty Name="CaQuaDem" ColumnName="CaQuaDem" />
                 <ScalarProperty Name="TachGioCaDemTu" ColumnName="TachGioCaDemTu" />
                 <ScalarProperty Name="TachGioCaDemDen" ColumnName="TachGioCaDemDen" />
-                <ScalarProperty Name="BuGioDiTreBangVeTre" ColumnName="BuGioDiTreBangVeTre" />
-                <ScalarProperty Name="BuGioVeSomBangDiSom" ColumnName="BuGioVeSomBangDiSom" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChamCongs">
+            <EntityTypeMapping TypeName="ATINChamCongModel.ChamCong">
+              <MappingFragment StoreEntitySet="ChamCong">
+                <ScalarProperty Name="MaChamCong" ColumnName="MaChamCong" />
+                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+                <ScalarProperty Name="MaDinhDanh" ColumnName="MaDinhDanh" />
+                <ScalarProperty Name="NgayChamCong" ColumnName="NgayChamCong" />
+                <ScalarProperty Name="MaCaLamViec" ColumnName="MaCaLamViec" />
+                <ScalarProperty Name="GioVaoDauTien" ColumnName="GioVaoDauTien" />
+                <ScalarProperty Name="GioRaCuoiCung" ColumnName="GioRaCuoiCung" />
+                <ScalarProperty Name="SoGioLamViec" ColumnName="SoGioLamViec" />
+                <ScalarProperty Name="SoCongLamViec" ColumnName="SoCongLamViec" />
+                <ScalarProperty Name="SoPhutDiTre" ColumnName="SoPhutDiTre" />
+                <ScalarProperty Name="SoPhutVeSom" ColumnName="SoPhutVeSom" />
+                <ScalarProperty Name="SoPhutBuGio" ColumnName="SoPhutBuGio" />
+                <ScalarProperty Name="TangCa1" ColumnName="TangCa1" />
+                <ScalarProperty Name="TangCa2" ColumnName="TangCa2" />
+                <ScalarProperty Name="TangCa3" ColumnName="TangCa3" />
+                <ScalarProperty Name="TongSoGioLamViec" ColumnName="TongSoGioLamViec" />
+                <ScalarProperty Name="TongSoCongLamViec" ColumnName="TongSoCongLamViec" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChamCongChiTiets">
+            <EntityTypeMapping TypeName="ATINChamCongModel.ChamCongChiTiet">
+              <MappingFragment StoreEntitySet="ChamCongChiTiet">
+                <ScalarProperty Name="MaChamCongChiTiet" ColumnName="MaChamCongChiTiet" />
+                <ScalarProperty Name="MaChamCong" ColumnName="MaChamCong" />
+                <ScalarProperty Name="NgayChamCong" ColumnName="NgayChamCong" />
+                <ScalarProperty Name="GioChamCong" ColumnName="GioChamCong" />
+                <ScalarProperty Name="LoaiChamCong" ColumnName="LoaiChamCong" />
+                <ScalarProperty Name="NguonThucHien" ColumnName="NguonThucHien" />
+                <ScalarProperty Name="MaThietBi" ColumnName="MaThietBi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1745,6 +2139,27 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
                 <ScalarProperty Name="AnhKhuonMat" ColumnName="AnhKhuonMat" />
                 <ScalarProperty Name="ThuocTinhKhuonMat" ColumnName="ThuocTinhKhuonMat" />
                 <ScalarProperty Name="ThoiGianDangKy" ColumnName="ThoiGianDangKy" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KyHieuCacLoaiVangs">
+            <EntityTypeMapping TypeName="ATINChamCongModel.KyHieuCacLoaiVang">
+              <MappingFragment StoreEntitySet="KyHieuCacLoaiVang">
+                <ScalarProperty Name="MaLoaiVang" ColumnName="MaLoaiVang" />
+                <ScalarProperty Name="TenLoaiVang" ColumnName="TenLoaiVang" />
+                <ScalarProperty Name="KyHieu" ColumnName="KyHieu" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="TinhCong" ColumnName="TinhCong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KyHieuChamCongs">
+            <EntityTypeMapping TypeName="ATINChamCongModel.KyHieuChamCong">
+              <MappingFragment StoreEntitySet="KyHieuChamCong">
+                <ScalarProperty Name="MaKyHieuChamCong" ColumnName="MaKyHieuChamCong" />
+                <ScalarProperty Name="TenKyHieuChamCong" ColumnName="TenKyHieuChamCong" />
+                <ScalarProperty Name="KyHieu" ColumnName="KyHieu" />
                 <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1842,6 +2257,9 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
                 <ScalarProperty Name="KhuVuc" ColumnName="KhuVuc" />
                 <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
                 <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="AnhDaiDien" ColumnName="AnhDaiDien" />
                 <ScalarProperty Name="TrinhDo" ColumnName="TrinhDo" />
                 <ScalarProperty Name="SoTheCanCuoc" ColumnName="SoTheCanCuoc" />
                 <ScalarProperty Name="NgayCapTCC" ColumnName="NgayCapTCC" />
@@ -1858,9 +2276,6 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
                 <ScalarProperty Name="NoiCapBLXO" ColumnName="NoiCapBLXO" />
                 <ScalarProperty Name="DiaChiThuongTru" ColumnName="DiaChiThuongTru" />
                 <ScalarProperty Name="DiaChiTamTru" ColumnName="DiaChiTamTru" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Zalo" ColumnName="Zalo" />
-                <ScalarProperty Name="AnhDaiDien" ColumnName="AnhDaiDien" />
                 <ScalarProperty Name="NgayNhanViec" ColumnName="NgayNhanViec" />
                 <ScalarProperty Name="NgayThoiViec" ColumnName="NgayThoiViec" />
                 <ScalarProperty Name="SuDungVanTay" ColumnName="SuDungVanTay" />
@@ -2077,6 +2492,97 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="ATINChamCongModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="ATINChamCongModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="spDeleteCaLamViec" FunctionName="ATINChamCongModel.Store.spDeleteCaLamViec" />
+          <FunctionImportMapping FunctionImportName="spGetAllCaLamViec" FunctionName="ATINChamCongModel.Store.spGetAllCaLamViec">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ATINChamCongModel.spGetAllCaLamViec_Result">
+                <ScalarProperty Name="MaCaLamViec" ColumnName="MaCaLamViec" />
+                <ScalarProperty Name="TenCaLamViec" ColumnName="TenCaLamViec" />
+                <ScalarProperty Name="GioBatDauCa" ColumnName="GioBatDauCa" />
+                <ScalarProperty Name="GioKetThucCa" ColumnName="GioKetThucCa" />
+                <ScalarProperty Name="GioBatDauGiaiLao" ColumnName="GioBatDauGiaiLao" />
+                <ScalarProperty Name="GioKetThucGiaiLao" ColumnName="GioKetThucGiaiLao" />
+                <ScalarProperty Name="TongGio" ColumnName="TongGio" />
+                <ScalarProperty Name="DiemCong" ColumnName="DiemCong" />
+                <ScalarProperty Name="GioVaoSomNhatDuocTinhCa" ColumnName="GioVaoSomNhatDuocTinhCa" />
+                <ScalarProperty Name="GioVaoMuonNhatDuocTinhCa" ColumnName="GioVaoMuonNhatDuocTinhCa" />
+                <ScalarProperty Name="GioRaSomNhatDuocTinhCa" ColumnName="GioRaSomNhatDuocTinhCa" />
+                <ScalarProperty Name="GioRaMuonNhatDuocTinhCa" ColumnName="GioRaMuonNhatDuocTinhCa" />
+                <ScalarProperty Name="KhongCoGioVao" ColumnName="KhongCoGioVao" />
+                <ScalarProperty Name="KhongCoGioRa" ColumnName="KhongCoGioRa" />
+                <ScalarProperty Name="TruGioDiTre" ColumnName="TruGioDiTre" />
+                <ScalarProperty Name="ThoiGianDiTreChoPhep" ColumnName="ThoiGianDiTreChoPhep" />
+                <ScalarProperty Name="TruGioVeSom" ColumnName="TruGioVeSom" />
+                <ScalarProperty Name="ThoiGianVeSomChoPhep" ColumnName="ThoiGianVeSomChoPhep" />
+                <ScalarProperty Name="SDMucTangCaHienTai" ColumnName="SDMucTangCaHienTai" />
+                <ScalarProperty Name="MucTangCaHienTai" ColumnName="MucTangCaHienTai" />
+                <ScalarProperty Name="SDMucTangCaCuoiTuan" ColumnName="SDMucTangCaCuoiTuan" />
+                <ScalarProperty Name="MucTangCaCuoiTuan" ColumnName="MucTangCaCuoiTuan" />
+                <ScalarProperty Name="SDMucTangCaNgayLe" ColumnName="SDMucTangCaNgayLe" />
+                <ScalarProperty Name="MucTangCaNgayLe" ColumnName="MucTangCaNgayLe" />
+                <ScalarProperty Name="SDMucTangCaCuaTangCaCuoiTuan" ColumnName="SDMucTangCaCuaTangCaCuoiTuan" />
+                <ScalarProperty Name="MucTangCaCuaTangCaCuoiTuan" ColumnName="MucTangCaCuaTangCaCuoiTuan" />
+                <ScalarProperty Name="SDMucTangCaCuaTangCaNgayLe" ColumnName="SDMucTangCaCuaTangCaNgayLe" />
+                <ScalarProperty Name="MucTangCaCuaTangCaNgayLe" ColumnName="MucTangCaCuaTangCaNgayLe" />
+                <ScalarProperty Name="TangCaTruocGLV" ColumnName="TangCaTruocGLV" />
+                <ScalarProperty Name="TangCaSauGLV" ColumnName="TangCaSauGLV" />
+                <ScalarProperty Name="TongGLVTinhTangCa" ColumnName="TongGLVTinhTangCa" />
+                <ScalarProperty Name="GioiHanTCMucMot" ColumnName="GioiHanTCMucMot" />
+                <ScalarProperty Name="GioiHanTCMucHai" ColumnName="GioiHanTCMucHai" />
+                <ScalarProperty Name="GioiHanTCTruocGLV" ColumnName="GioiHanTCTruocGLV" />
+                <ScalarProperty Name="GioiHanTCSauGLV" ColumnName="GioiHanTCSauGLV" />
+                <ScalarProperty Name="CaQuaDem" ColumnName="CaQuaDem" />
+                <ScalarProperty Name="TachGioCaDemTu" ColumnName="TachGioCaDemTu" />
+                <ScalarProperty Name="TachGioCaDemDen" ColumnName="TachGioCaDemDen" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetCaLamViec" FunctionName="ATINChamCongModel.Store.spGetCaLamViec">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ATINChamCongModel.spGetCaLamViec_Result">
+                <ScalarProperty Name="MaCaLamViec" ColumnName="MaCaLamViec" />
+                <ScalarProperty Name="TenCaLamViec" ColumnName="TenCaLamViec" />
+                <ScalarProperty Name="GioBatDauCa" ColumnName="GioBatDauCa" />
+                <ScalarProperty Name="GioKetThucCa" ColumnName="GioKetThucCa" />
+                <ScalarProperty Name="GioBatDauGiaiLao" ColumnName="GioBatDauGiaiLao" />
+                <ScalarProperty Name="GioKetThucGiaiLao" ColumnName="GioKetThucGiaiLao" />
+                <ScalarProperty Name="TongGio" ColumnName="TongGio" />
+                <ScalarProperty Name="DiemCong" ColumnName="DiemCong" />
+                <ScalarProperty Name="GioVaoSomNhatDuocTinhCa" ColumnName="GioVaoSomNhatDuocTinhCa" />
+                <ScalarProperty Name="GioVaoMuonNhatDuocTinhCa" ColumnName="GioVaoMuonNhatDuocTinhCa" />
+                <ScalarProperty Name="GioRaSomNhatDuocTinhCa" ColumnName="GioRaSomNhatDuocTinhCa" />
+                <ScalarProperty Name="GioRaMuonNhatDuocTinhCa" ColumnName="GioRaMuonNhatDuocTinhCa" />
+                <ScalarProperty Name="KhongCoGioVao" ColumnName="KhongCoGioVao" />
+                <ScalarProperty Name="KhongCoGioRa" ColumnName="KhongCoGioRa" />
+                <ScalarProperty Name="TruGioDiTre" ColumnName="TruGioDiTre" />
+                <ScalarProperty Name="ThoiGianDiTreChoPhep" ColumnName="ThoiGianDiTreChoPhep" />
+                <ScalarProperty Name="TruGioVeSom" ColumnName="TruGioVeSom" />
+                <ScalarProperty Name="ThoiGianVeSomChoPhep" ColumnName="ThoiGianVeSomChoPhep" />
+                <ScalarProperty Name="SDMucTangCaHienTai" ColumnName="SDMucTangCaHienTai" />
+                <ScalarProperty Name="MucTangCaHienTai" ColumnName="MucTangCaHienTai" />
+                <ScalarProperty Name="SDMucTangCaCuoiTuan" ColumnName="SDMucTangCaCuoiTuan" />
+                <ScalarProperty Name="MucTangCaCuoiTuan" ColumnName="MucTangCaCuoiTuan" />
+                <ScalarProperty Name="SDMucTangCaNgayLe" ColumnName="SDMucTangCaNgayLe" />
+                <ScalarProperty Name="MucTangCaNgayLe" ColumnName="MucTangCaNgayLe" />
+                <ScalarProperty Name="SDMucTangCaCuaTangCaCuoiTuan" ColumnName="SDMucTangCaCuaTangCaCuoiTuan" />
+                <ScalarProperty Name="MucTangCaCuaTangCaCuoiTuan" ColumnName="MucTangCaCuaTangCaCuoiTuan" />
+                <ScalarProperty Name="SDMucTangCaCuaTangCaNgayLe" ColumnName="SDMucTangCaCuaTangCaNgayLe" />
+                <ScalarProperty Name="MucTangCaCuaTangCaNgayLe" ColumnName="MucTangCaCuaTangCaNgayLe" />
+                <ScalarProperty Name="TangCaTruocGLV" ColumnName="TangCaTruocGLV" />
+                <ScalarProperty Name="TangCaSauGLV" ColumnName="TangCaSauGLV" />
+                <ScalarProperty Name="TongGLVTinhTangCa" ColumnName="TongGLVTinhTangCa" />
+                <ScalarProperty Name="GioiHanTCMucMot" ColumnName="GioiHanTCMucMot" />
+                <ScalarProperty Name="GioiHanTCMucHai" ColumnName="GioiHanTCMucHai" />
+                <ScalarProperty Name="GioiHanTCTruocGLV" ColumnName="GioiHanTCTruocGLV" />
+                <ScalarProperty Name="GioiHanTCSauGLV" ColumnName="GioiHanTCSauGLV" />
+                <ScalarProperty Name="CaQuaDem" ColumnName="CaQuaDem" />
+                <ScalarProperty Name="TachGioCaDemTu" ColumnName="TachGioCaDemTu" />
+                <ScalarProperty Name="TachGioCaDemDen" ColumnName="TachGioCaDemDen" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spInsertCaLamViec" FunctionName="ATINChamCongModel.Store.spInsertCaLamViec" />
+          <FunctionImportMapping FunctionImportName="spUpdateCaLamViec" FunctionName="ATINChamCongModel.Store.spUpdateCaLamViec" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -16,33 +16,41 @@ namespace ATINTimekeeping.Model
     {
         public int MaCaLamViec { get; set; }
         public string TenCaLamViec { get; set; }
-        public System.TimeSpan GioVaoLamViec { get; set; }
-        public System.TimeSpan GioBatDauGiaiLao { get; set; }
-        public System.TimeSpan GioKetThucGiaiLao { get; set; }
+        public System.TimeSpan GioBatDauCa { get; set; }
+        public System.TimeSpan GioKetThucCa { get; set; }
+        public Nullable<System.TimeSpan> GioBatDauGiaiLao { get; set; }
+        public Nullable<System.TimeSpan> GioKetThucGiaiLao { get; set; }
+        public int TongGio { get; set; }
         public int DiemCong { get; set; }
-        public System.TimeSpan GioBatDauVaoDuocTinhCa { get; set; }
-        public System.TimeSpan GioKetThucDuocTinhCa { get; set; }
+        public System.TimeSpan GioVaoSomNhatDuocTinhCa { get; set; }
+        public System.TimeSpan GioVaoMuonNhatDuocTinhCa { get; set; }
+        public System.TimeSpan GioRaSomNhatDuocTinhCa { get; set; }
+        public System.TimeSpan GioRaMuonNhatDuocTinhCa { get; set; }
         public int KhongCoGioVao { get; set; }
         public int KhongCoGioRa { get; set; }
-        public Nullable<int> TruGioDiTre { get; set; }
+        public Nullable<bool> TruGioDiTre { get; set; }
         public Nullable<int> ThoiGianDiTreChoPhep { get; set; }
-        public Nullable<int> TinhThoiGianDiTre { get; set; }
-        public Nullable<int> TruGioVeSom { get; set; }
+        public Nullable<bool> TruGioVeSom { get; set; }
         public Nullable<int> ThoiGianVeSomChoPhep { get; set; }
-        public Nullable<int> TinhThoiGianVeSom { get; set; }
+        public Nullable<bool> SDMucTangCaHienTai { get; set; }
         public Nullable<int> MucTangCaHienTai { get; set; }
+        public Nullable<bool> SDMucTangCaCuoiTuan { get; set; }
         public Nullable<int> MucTangCaCuoiTuan { get; set; }
+        public Nullable<bool> SDMucTangCaNgayLe { get; set; }
         public Nullable<int> MucTangCaNgayLe { get; set; }
-        public Nullable<int> TangCaTruocGioLamViec { get; set; }
-        public Nullable<int> TangCaSauGioLamViec { get; set; }
-        public Nullable<int> TongGioLamViecSeTinhTangCa { get; set; }
-        public Nullable<int> GioiHanTangCaMucMot { get; set; }
-        public Nullable<int> GioiHanTangCaMucHai { get; set; }
-        public Nullable<int> GioiHanToiDaTangCaTruocGioLamViec { get; set; }
-        public Nullable<int> GioiHanToiDaTangCaSauGioLamViec { get; set; }
+        public Nullable<bool> SDMucTangCaCuaTangCaCuoiTuan { get; set; }
+        public Nullable<int> MucTangCaCuaTangCaCuoiTuan { get; set; }
+        public Nullable<bool> SDMucTangCaCuaTangCaNgayLe { get; set; }
+        public Nullable<int> MucTangCaCuaTangCaNgayLe { get; set; }
+        public Nullable<int> TangCaTruocGLV { get; set; }
+        public Nullable<int> TangCaSauGLV { get; set; }
+        public Nullable<int> TongGLVTinhTangCa { get; set; }
+        public Nullable<int> GioiHanTCMucMot { get; set; }
+        public Nullable<int> GioiHanTCMucHai { get; set; }
+        public Nullable<int> GioiHanTCTruocGLV { get; set; }
+        public Nullable<int> GioiHanTCSauGLV { get; set; }
+        public Nullable<bool> CaQuaDem { get; set; }
         public Nullable<System.TimeSpan> TachGioCaDemTu { get; set; }
         public Nullable<System.TimeSpan> TachGioCaDemDen { get; set; }
-        public Nullable<int> BuGioDiTreBangVeTre { get; set; }
-        public Nullable<int> BuGioVeSomBangDiSom { get; set; }
     }
 }

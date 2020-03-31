@@ -1,0 +1,949 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ATINChamCongModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="50" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="256" />
+    <Property Name="AnhDaiDien" Type="nvarchar" MaxLength="256" />
+    <Property Name="TinhId" Type="int" />
+    <Property Name="TenTinh" Type="nvarchar" MaxLength="256" />
+    <Property Name="QuanHuyenId" Type="int" />
+    <Property Name="TenQuanHuyen" Type="nvarchar" MaxLength="256" />
+    <Property Name="GioiTinh" Type="int" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="256" />
+    <Property Name="UserType" Type="int" Nullable="false" />
+    <Property Name="HieuLuc" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ATINChamCong.dbo.BaoCao' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="BaoCao">
+    <Key>
+      <PropertyRef Name="MaBaoCao" />
+      <PropertyRef Name="NgayBaoCao" />
+      <PropertyRef Name="MaNguoi" />
+    </Key>
+    <Property Name="MaBaoCao" Type="int" Nullable="false" />
+    <Property Name="NgayBaoCao" Type="date" Nullable="false" />
+    <Property Name="MaNguoi" Type="int" Nullable="false" />
+    <Property Name="ThoiGianIn" Type="datetime" />
+    <Property Name="ThoiGianOut" Type="datetime" />
+  </EntityType>
+  <EntityType Name="BaoCaoChiTiet">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="reportDate" Type="datetime" />
+    <Property Name="checkInTime" Type="date" />
+    <Property Name="checkOutTime" Type="datetime" />
+    <Property Name="status" Type="int" />
+  </EntityType>
+  <EntityType Name="CaLamViec">
+    <Key>
+      <PropertyRef Name="MaCaLamViec" />
+    </Key>
+    <Property Name="MaCaLamViec" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenCaLamViec" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="GioBatDauCa" Type="time" Precision="7" Nullable="false" />
+    <Property Name="GioKetThucCa" Type="time" Precision="7" Nullable="false" />
+    <Property Name="GioBatDauGiaiLao" Type="time" Precision="7" />
+    <Property Name="GioKetThucGiaiLao" Type="time" Precision="7" />
+    <Property Name="TongGio" Type="int" Nullable="false" />
+    <Property Name="DiemCong" Type="int" Nullable="false" />
+    <Property Name="GioVaoSomNhatDuocTinhCa" Type="time" Precision="7" Nullable="false" />
+    <Property Name="GioVaoMuonNhatDuocTinhCa" Type="time" Precision="7" Nullable="false" />
+    <Property Name="GioRaSomNhatDuocTinhCa" Type="time" Precision="7" Nullable="false" />
+    <Property Name="GioRaMuonNhatDuocTinhCa" Type="time" Precision="7" Nullable="false" />
+    <Property Name="KhongCoGioVao" Type="int" Nullable="false" />
+    <Property Name="KhongCoGioRa" Type="int" Nullable="false" />
+    <Property Name="TruGioDiTre" Type="bit" />
+    <Property Name="ThoiGianDiTreChoPhep" Type="int" />
+    <Property Name="TruGioVeSom" Type="bit" />
+    <Property Name="ThoiGianVeSomChoPhep" Type="int" />
+    <Property Name="SDMucTangCaHienTai" Type="bit" />
+    <Property Name="MucTangCaHienTai" Type="int" />
+    <Property Name="SDMucTangCaCuoiTuan" Type="bit" />
+    <Property Name="MucTangCaCuoiTuan" Type="int" />
+    <Property Name="SDMucTangCaNgayLe" Type="bit" />
+    <Property Name="MucTangCaNgayLe" Type="int" />
+    <Property Name="SDMucTangCaCuaTangCaCuoiTuan" Type="bit" />
+    <Property Name="MucTangCaCuaTangCaCuoiTuan" Type="int" />
+    <Property Name="SDMucTangCaCuaTangCaNgayLe" Type="bit" />
+    <Property Name="MucTangCaCuaTangCaNgayLe" Type="int" />
+    <Property Name="TangCaTruocGLV" Type="int" />
+    <Property Name="TangCaSauGLV" Type="int" />
+    <Property Name="TongGLVTinhTangCa" Type="int" />
+    <Property Name="GioiHanTCMucMot" Type="int" />
+    <Property Name="GioiHanTCMucHai" Type="int" />
+    <Property Name="GioiHanTCTruocGLV" Type="int" />
+    <Property Name="GioiHanTCSauGLV" Type="int" />
+    <Property Name="CaQuaDem" Type="bit" />
+    <Property Name="TachGioCaDemTu" Type="time" Precision="7" />
+    <Property Name="TachGioCaDemDen" Type="time" Precision="7" />
+  </EntityType>
+  <EntityType Name="ChamCong">
+    <Key>
+      <PropertyRef Name="MaChamCong" />
+    </Key>
+    <Property Name="MaChamCong" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaNhanVien" Type="int" Nullable="false" />
+    <Property Name="MaDinhDanh" Type="int" />
+    <Property Name="NgayChamCong" Type="date" Nullable="false" />
+    <Property Name="MaCaLamViec" Type="int" Nullable="false" />
+    <Property Name="GioVaoDauTien" Type="datetime" />
+    <Property Name="GioRaCuoiCung" Type="datetime" />
+    <Property Name="SoGioLamViec" Type="float" Nullable="false" />
+    <Property Name="SoCongLamViec" Type="float" Nullable="false" />
+    <Property Name="SoPhutDiTre" Type="int" Nullable="false" />
+    <Property Name="SoPhutVeSom" Type="int" Nullable="false" />
+    <Property Name="SoPhutBuGio" Type="float" Nullable="false" />
+    <Property Name="TangCa1" Type="int" Nullable="false" />
+    <Property Name="TangCa2" Type="int" Nullable="false" />
+    <Property Name="TangCa3" Type="int" Nullable="false" />
+    <Property Name="TongSoGioLamViec" Type="float" Nullable="false" />
+    <Property Name="TongSoCongLamViec" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ChamCongChiTiet">
+    <Key>
+      <PropertyRef Name="MaChamCongChiTiet" />
+    </Key>
+    <Property Name="MaChamCongChiTiet" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaChamCong" Type="int" Nullable="false" />
+    <Property Name="NgayChamCong" Type="date" Nullable="false" />
+    <Property Name="GioChamCong" Type="datetime" Nullable="false" />
+    <Property Name="LoaiChamCong" Type="int" Nullable="false" />
+    <Property Name="NguonThucHien" Type="int" Nullable="false" />
+    <Property Name="MaThietBi" Type="int" />
+  </EntityType>
+  <EntityType Name="ChucVu">
+    <Key>
+      <PropertyRef Name="MaChucVu" />
+    </Key>
+    <Property Name="MaChucVu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ChucVu" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="TrangThai" Type="int" />
+  </EntityType>
+  <EntityType Name="CongTyKhuVuc">
+    <Key>
+      <PropertyRef Name="MaKhuVuc" />
+    </Key>
+    <Property Name="MaKhuVuc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KhuVuc" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="TrangThai" Type="int" />
+  </EntityType>
+  <EntityType Name="DangKyNghiPhep">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="MaNhanVien" />
+      <PropertyRef Name="MaLoaiNghiPhep" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="MaNhanVien" Type="int" Nullable="false" />
+    <Property Name="MaDinhDanh" Type="varchar" MaxLength="50" />
+    <Property Name="MaLoaiNghiPhep" Type="int" Nullable="false" />
+    <Property Name="NgayDangKy" Type="date" Nullable="false" />
+    <Property Name="LyDo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DangKyTangCa">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaNhanVien" Type="int" Nullable="false" />
+    <Property Name="MaDinhDanh" Type="varchar" MaxLength="50" />
+    <Property Name="NgayDangKy" Type="date" Nullable="false" />
+    <Property Name="GioBD" Type="int" Nullable="false" />
+    <Property Name="PhutBD" Type="int" Nullable="false" />
+    <Property Name="GioKT" Type="int" Nullable="false" />
+    <Property Name="PhutKT" Type="int" Nullable="false" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
+    <Property Name="DK" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DanToc">
+    <Key>
+      <PropertyRef Name="MaDanToc" />
+    </Key>
+    <Property Name="MaDanToc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DanToc" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="HopDongLaoDong">
+    <Key>
+      <PropertyRef Name="MaHopDong" />
+    </Key>
+    <Property Name="MaHopDong" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaNhanVien" Type="int" Nullable="false" />
+    <Property Name="SoHopDong" Type="varchar" MaxLength="50" />
+    <Property Name="LoaiHopDong" Type="varchar" MaxLength="10" />
+    <Property Name="NgayKyHopDong" Type="date" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="KhaiBaoThoiGian">
+    <Key>
+      <PropertyRef Name="MaThoiGian" />
+    </Key>
+    <Property Name="MaThoiGian" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="ThoiGian" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="NhomThoiGian" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="SapXep" Type="int" />
+  </EntityType>
+  <EntityType Name="KhuonMat">
+    <Key>
+      <PropertyRef Name="MaKhuonMat" />
+      <PropertyRef Name="MaNguoi" />
+    </Key>
+    <Property Name="MaKhuonMat" Type="int" Nullable="false" />
+    <Property Name="MaNguoi" Type="int" Nullable="false" />
+    <Property Name="AnhKhuonMat" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ThuocTinhKhuonMat" Type="varbinary(max)" />
+    <Property Name="ThoiGianDangKy" Type="datetime" Nullable="false" />
+    <Property Name="TrangThai" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KyHieuCacLoaiVang">
+    <Key>
+      <PropertyRef Name="MaLoaiVang" />
+      <PropertyRef Name="KyHieu" />
+    </Key>
+    <Property Name="MaLoaiVang" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TenLoaiVang" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="KyHieu" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="TrangThai" Type="bit" />
+    <Property Name="TinhCong" Type="bit" />
+  </EntityType>
+  <EntityType Name="KyHieuChamCong">
+    <Key>
+      <PropertyRef Name="MaKyHieuChamCong" />
+      <PropertyRef Name="KyHieu" />
+    </Key>
+    <Property Name="MaKyHieuChamCong" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TenKyHieuChamCong" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="KyHieu" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="TrangThai" Type="int" />
+  </EntityType>
+  <EntityType Name="LichTrinhLamViec">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaThoiGian" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="MaCaLamViec" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoaiHopDong">
+    <Key>
+      <PropertyRef Name="MaLoaiHopDong" />
+    </Key>
+    <Property Name="MaLoaiHopDong" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LoaiHopDong" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LoaiNghiPhep">
+    <Key>
+      <PropertyRef Name="MaLoaiNghiPhep" />
+    </Key>
+    <Property Name="MaLoaiNghiPhep" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LoaiNghiPhep" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LoaiThamSo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LoaiThamSo" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="TenLoaiThamSo" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="MoTa" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="MayNhanDang">
+    <Key>
+      <PropertyRef Name="MaMay" />
+    </Key>
+    <Property Name="MaMay" Type="int" Nullable="false" />
+    <Property Name="TenMay" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="SoSerial" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="LoaiMay" Type="int" Nullable="false" />
+    <Property Name="DiaChiIP" Type="nvarchar" MaxLength="50" />
+    <Property Name="DiaChiMac" Type="nvarchar" MaxLength="50" />
+    <Property Name="NhaSanXuat" Type="nvarchar" MaxLength="100" />
+    <Property Name="AnhThietBi" Type="nvarchar" MaxLength="200" />
+    <Property Name="TongBoNho" Type="float" />
+    <Property Name="BoNhoHienTai" Type="float" />
+    <Property Name="SoLuongDangKy" Type="int" />
+    <Property Name="ThoiGianKichHoat" Type="datetime" />
+    <Property Name="ThoiGianCapNhat" Type="datetime" />
+    <Property Name="TuDongDongBo" Type="int" />
+    <Property Name="ThoiGianDongBo" Type="int" />
+    <Property Name="LuuAnhNhanDang" Type="int" />
+    <Property Name="TaiKhoanDangNhap" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MatKhauDangNhap" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MaKichHoat" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="TrangThaiKetNoi" Type="int" />
+    <Property Name="TrangThaiHoatDong" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NgayNghiLe">
+    <Key>
+      <PropertyRef Name="MaNgayNghiLe" />
+    </Key>
+    <Property Name="MaNgayNghiLe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NgayNghiLe" Type="date" Nullable="false" />
+    <Property Name="MoTa" Type="nvarchar" MaxLength="150" />
+    <Property Name="status" Type="int" />
+  </EntityType>
+  <EntityType Name="NgayPhepNhanVien">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaNhanVien" Type="int" />
+    <Property Name="SoNgayPhep" Type="float" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Nguoi">
+    <Key>
+      <PropertyRef Name="MaNguoi" />
+    </Key>
+    <Property Name="MaNguoi" Type="int" Nullable="false" />
+    <Property Name="MaDinhDanh" Type="varchar" MaxLength="50" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="100" />
+    <Property Name="PhongBan" Type="int" />
+    <Property Name="ChucVu" Type="int" />
+    <Property Name="KhuVuc" Type="int" />
+    <Property Name="NgaySinh" Type="date" />
+    <Property Name="GioiTinh" Type="int" Nullable="false" />
+    <Property Name="SoDienThoai" Type="varchar" MaxLength="20" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="AnhDaiDien" Type="varchar" MaxLength="200" />
+    <Property Name="TrinhDo" Type="int" />
+    <Property Name="SoTheCanCuoc" Type="varchar" MaxLength="50" />
+    <Property Name="NgayCapTCC" Type="date" />
+    <Property Name="NoiCapTCC" Type="nvarchar" MaxLength="150" />
+    <Property Name="DanToc" Type="int" />
+    <Property Name="TonGiao" Type="int" />
+    <Property Name="QuocTich" Type="int" />
+    <Property Name="TinhTrangHonNhan" Type="int" />
+    <Property Name="SoBangLaiXeMay" Type="varchar" MaxLength="50" />
+    <Property Name="NgayCapBLXM" Type="date" />
+    <Property Name="NoiCapBLXM" Type="nvarchar" MaxLength="150" />
+    <Property Name="SoBangLaiOto" Type="varchar" MaxLength="50" />
+    <Property Name="NgayCapBLXO" Type="date" />
+    <Property Name="NoiCapBLXO" Type="nvarchar" MaxLength="150" />
+    <Property Name="DiaChiThuongTru" Type="nvarchar" MaxLength="150" />
+    <Property Name="DiaChiTamTru" Type="varchar" MaxLength="20" />
+    <Property Name="NgayNhanViec" Type="date" />
+    <Property Name="NgayThoiViec" Type="date" />
+    <Property Name="SuDungVanTay" Type="bit" />
+    <Property Name="SuDungTheTu" Type="bit" />
+    <Property Name="SuDungKhuonMat" Type="bit" />
+    <Property Name="ThoiGianDangKy" Type="datetime" />
+    <Property Name="ThoiGianCapNhat" Type="datetime" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="150" />
+    <Property Name="TrangThaiHoatDong" Type="int" />
+  </EntityType>
+  <EntityType Name="NhatKy">
+    <Key>
+      <PropertyRef Name="MaNhatKy" />
+      <PropertyRef Name="MaNguoi" />
+    </Key>
+    <Property Name="MaNhatKy" Type="int" Nullable="false" />
+    <Property Name="MaNguoi" Type="int" Nullable="false" />
+    <Property Name="MaKhuonMat" Type="int" Nullable="false" />
+    <Property Name="MaTheTu" Type="int" Nullable="false" />
+    <Property Name="MaVanTay" Type="int" Nullable="false" />
+    <Property Name="AnhKhuonMat" Type="nvarchar" MaxLength="200" />
+    <Property Name="ThuocTinhKhuonMat" Type="varbinary(max)" />
+    <Property Name="DiemSoSanh" Type="float" />
+    <Property Name="Tuoi" Type="int" />
+    <Property Name="GioiTinh" Type="int" />
+    <Property Name="ThoiGianDienRa" Type="datetime" />
+    <Property Name="MaThietBi" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ThongBao" Type="nvarchar" MaxLength="250" />
+    <Property Name="LoaiHoatDong" Type="int" />
+    <Property Name="TrangThai" Type="int" />
+  </EntityType>
+  <EntityType Name="PhanQuyenNhanDang">
+    <Key>
+      <PropertyRef Name="MaPhanQuyenNhanDang" />
+    </Key>
+    <Property Name="MaPhanQuyenNhanDang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KhuVuc" Type="int" />
+    <Property Name="PhongBan" Type="int" />
+    <Property Name="ChucVu" Type="int" />
+    <Property Name="Nguoi" Type="int" />
+    <Property Name="MaThietBiNhanDang" Type="int" />
+  </EntityType>
+  <EntityType Name="PhongBan">
+    <Key>
+      <PropertyRef Name="MaPhongBan" />
+    </Key>
+    <Property Name="MaPhongBan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PhongBan" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="TrangThai" Type="int" />
+  </EntityType>
+  <EntityType Name="PhuCap">
+    <Key>
+      <PropertyRef Name="MaPhuCap" />
+    </Key>
+    <Property Name="MaPhuCap" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PhuCap" Type="float" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="ThamSo">
+    <Key>
+      <PropertyRef Name="MaThamSo" />
+    </Key>
+    <Property Name="MaThamSo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LoaiThamSo" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="TenThamSo" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="GiaTriThamSo" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="TrangThai" Type="int" />
+  </EntityType>
+  <EntityType Name="TheTu">
+    <Key>
+      <PropertyRef Name="MaTheTu" />
+      <PropertyRef Name="MaNguoi" />
+    </Key>
+    <Property Name="MaTheTu" Type="int" Nullable="false" />
+    <Property Name="MaNguoi" Type="int" Nullable="false" />
+    <Property Name="LoaiTheTu" Type="int" />
+    <Property Name="ThuocTinhThe" Type="varbinary(max)" />
+    <Property Name="ThoiGianDangKy" Type="datetime" Nullable="false" />
+    <Property Name="TrangThai" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TonGiao">
+    <Key>
+      <PropertyRef Name="MaTonGiao" />
+    </Key>
+    <Property Name="MaTonGiao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenTonGiao" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="TrangThai" Type="int" />
+  </EntityType>
+  <EntityType Name="TrinhDoHocVan">
+    <Key>
+      <PropertyRef Name="MaTrinhDoHocVan" />
+    </Key>
+    <Property Name="MaTrinhDoHocVan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TrinhDoHocVan" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="TrangThai" Type="int" />
+  </EntityType>
+  <EntityType Name="VanTay">
+    <Key>
+      <PropertyRef Name="MaVanTay" />
+      <PropertyRef Name="MaNguoi" />
+    </Key>
+    <Property Name="MaVanTay" Type="int" Nullable="false" />
+    <Property Name="MaNguoi" Type="int" Nullable="false" />
+    <Property Name="NgonTay" Type="int" />
+    <Property Name="ThuocTinhVanTay" Type="varbinary(max)" />
+    <Property Name="ThoiGianDangKy" Type="datetime" />
+    <Property Name="TrangThai" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ATINChamCong.dbo.MATHANG_KHO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="MATHANG_KHO">
+    <Key>
+      <PropertyRef Name="KHOID" />
+      <PropertyRef Name="MHID" />
+      <PropertyRef Name="SOLUONG" />
+    </Key>
+    <Property Name="MHTEN" Type="nvarchar" MaxLength="255" />
+    <Property Name="MHCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="KHOCODE" Type="nvarchar" MaxLength="12" />
+    <Property Name="KHOTEN" Type="nvarchar" MaxLength="50" />
+    <Property Name="KHOID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="MHID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SOLUONG" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="GIANHAP" Type="money" />
+    <Property Name="GIABANLE" Type="money" />
+    <Property Name="GIABANBUON" Type="money" />
+    <Property Name="GIABAN1" Type="money" />
+    <Property Name="GIABAN2" Type="money" />
+    <Property Name="GIABAN3" Type="money" />
+    <Property Name="SLONORDER" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="SLTONDAU" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="GVTONDAU" Type="money" />
+    <Property Name="CREATEDDATE" Type="datetime" />
+    <Property Name="UPDATEDDATE" Type="datetime" />
+    <Property Name="CREATEBY" Type="nvarchar" MaxLength="12" />
+    <Property Name="SLTANG" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="SLGIAM" Type="decimal" Precision="18" Scale="4" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SP_Status">
+    <Key>
+      <PropertyRef Name="statusupdate" />
+      <PropertyRef Name="trangthaimoi" />
+    </Key>
+    <Property Name="SOLUONG" Type="decimal" Precision="38" Scale="4" />
+    <Property Name="statusupdate" Type="int" Nullable="false" />
+    <Property Name="SP_CODE" Type="varchar" MaxLength="50" />
+    <Property Name="TrangThai" Type="int" />
+    <Property Name="TieuDe" Type="nvarchar" MaxLength="256" />
+    <Property Name="trangthaimoi" Type="nvarchar" MaxLength="8" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_DangKyNghiPhep_MaLoaiNghiPhep">
+    <End Role="LoaiNghiPhep" Type="Self.LoaiNghiPhep" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DangKyNghiPhep" Type="Self.DangKyNghiPhep" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiNghiPhep">
+        <PropertyRef Name="MaLoaiNghiPhep" />
+      </Principal>
+      <Dependent Role="DangKyNghiPhep">
+        <PropertyRef Name="MaLoaiNghiPhep" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_DangKyNghiPhep_MaNhanVien">
+    <End Role="Nguoi" Type="Self.Nguoi" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DangKyNghiPhep" Type="Self.DangKyNghiPhep" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nguoi">
+        <PropertyRef Name="MaNguoi" />
+      </Principal>
+      <Dependent Role="DangKyNghiPhep">
+        <PropertyRef Name="MaNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_DangKyTangCa_MaNhanVien">
+    <End Role="Nguoi" Type="Self.Nguoi" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DangKyTangCa" Type="Self.DangKyTangCa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nguoi">
+        <PropertyRef Name="MaNguoi" />
+      </Principal>
+      <Dependent Role="DangKyTangCa">
+        <PropertyRef Name="MaNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_KhuonMat_MaNguoi">
+    <End Role="Nguoi" Type="Self.Nguoi" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="KhuonMat" Type="Self.KhuonMat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nguoi">
+        <PropertyRef Name="MaNguoi" />
+      </Principal>
+      <Dependent Role="KhuonMat">
+        <PropertyRef Name="MaNguoi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_NhatKy_MaNguoi">
+    <End Role="Nguoi" Type="Self.Nguoi" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="NhatKy" Type="Self.NhatKy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nguoi">
+        <PropertyRef Name="MaNguoi" />
+      </Principal>
+      <Dependent Role="NhatKy">
+        <PropertyRef Name="MaNguoi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TheTu_MaNguoi">
+    <End Role="Nguoi" Type="Self.Nguoi" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TheTu" Type="Self.TheTu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nguoi">
+        <PropertyRef Name="MaNguoi" />
+      </Principal>
+      <Dependent Role="TheTu">
+        <PropertyRef Name="MaNguoi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_VanTay_MaNguoi">
+    <End Role="Nguoi" Type="Self.Nguoi" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="VanTay" Type="Self.VanTay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nguoi">
+        <PropertyRef Name="MaNguoi" />
+      </Principal>
+      <Dependent Role="VanTay">
+        <PropertyRef Name="MaNguoi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="fn_Split" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="p_SourceText" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="p_Delimeter" Type="nvarchar" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Position" Type="int" Nullable="false" />
+          <Property Name="txt_value" Type="nvarchar" MaxLength="2000" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="fnCharToAscii" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
+    <Parameter Name="Char" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetCamNameByCamCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
+    <Parameter Name="cameraCode" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetGateNameByCamCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
+    <Parameter Name="cameraCode" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetPNameByPType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
+    <Parameter Name="paramType" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetPNameByPValue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
+    <Parameter Name="paramValue" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetRangeAges" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar(max)">
+    <Parameter Name="Name" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="GetUnsignString" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
+    <Parameter Name="strInput" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spDeleteCaLamViec" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaCaLamViec" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spGetAllCaLamViec" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetCaLamViec" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaCaLamViec" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spInsertCaLamViec" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TenCaLamViec" Type="nvarchar" Mode="In" />
+    <Parameter Name="GioBatDauCa" Type="time" Mode="In" />
+    <Parameter Name="GioKetThucCa" Type="time" Mode="In" />
+    <Parameter Name="GioBatDauGiaiLao" Type="time" Mode="In" />
+    <Parameter Name="GioKetThucGiaiLao" Type="time" Mode="In" />
+    <Parameter Name="TongGio" Type="int" Mode="In" />
+    <Parameter Name="DiemCong" Type="int" Mode="In" />
+    <Parameter Name="GioVaoSomNhatDuocTinhCa" Type="time" Mode="In" />
+    <Parameter Name="GioVaoMuonNhatDuocTinhCa" Type="time" Mode="In" />
+    <Parameter Name="GioRaMuonNhatDuocTinhCa" Type="time" Mode="In" />
+    <Parameter Name="GioRaSomNhatDuocTinhCa" Type="time" Mode="In" />
+    <Parameter Name="KhongCoGioRa" Type="int" Mode="In" />
+    <Parameter Name="KhongCoGioVao" Type="int" Mode="In" />
+    <Parameter Name="TruGioDiTre" Type="bit" Mode="In" />
+    <Parameter Name="ThoiGianDiTreChoPhep" Type="int" Mode="In" />
+    <Parameter Name="TruGioVeSom" Type="bit" Mode="In" />
+    <Parameter Name="ThoiGianVeSomChoPhep" Type="int" Mode="In" />
+    <Parameter Name="GioiHanTCMucMot" Type="int" Mode="In" />
+    <Parameter Name="GioiHanTCMucHai" Type="int" Mode="In" />
+    <Parameter Name="SDMucTangCaCuaTangCaCuoiTuan" Type="bit" Mode="In" />
+    <Parameter Name="MucTangCaCuaTangCaCuoiTuan" Type="int" Mode="In" />
+    <Parameter Name="SDMucTangCaCuaTangCaNgayLe" Type="bit" Mode="In" />
+    <Parameter Name="MucTangCaCuaTangCaNgayLe" Type="int" Mode="In" />
+    <Parameter Name="GioiHanTCTruocGLV" Type="int" Mode="In" />
+    <Parameter Name="GioiHanTCSauGLV" Type="int" Mode="In" />
+    <Parameter Name="CaQuaDem" Type="bit" Mode="In" />
+    <Parameter Name="TachGioCaDemTu" Type="time" Mode="In" />
+    <Parameter Name="TachGioCaDemDen" Type="time" Mode="In" />
+  </Function>
+  <Function Name="spUpdateCaLamViec" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaCaLamViec" Type="int" Mode="In" />
+    <Parameter Name="TenCaLamViec" Type="nvarchar" Mode="In" />
+    <Parameter Name="GioBatDauCa" Type="time" Mode="In" />
+    <Parameter Name="GioKetThucCa" Type="time" Mode="In" />
+    <Parameter Name="GioBatDauGiaiLao" Type="time" Mode="In" />
+    <Parameter Name="GioKetThucGiaiLao" Type="time" Mode="In" />
+    <Parameter Name="TongGio" Type="int" Mode="In" />
+    <Parameter Name="DiemCong" Type="int" Mode="In" />
+    <Parameter Name="GioVaoSomNhatDuocTinhCa" Type="time" Mode="In" />
+    <Parameter Name="GioVaoMuonNhatDuocTinhCa" Type="time" Mode="In" />
+    <Parameter Name="GioRaMuonNhatDuocTinhCa" Type="time" Mode="In" />
+    <Parameter Name="GioRaSomNhatDuocTinhCa" Type="time" Mode="In" />
+    <Parameter Name="KhongCoGioRa" Type="int" Mode="In" />
+    <Parameter Name="KhongCoGioVao" Type="int" Mode="In" />
+    <Parameter Name="TruGioDiTre" Type="bit" Mode="In" />
+    <Parameter Name="ThoiGianDiTreChoPhep" Type="int" Mode="In" />
+    <Parameter Name="TruGioVeSom" Type="bit" Mode="In" />
+    <Parameter Name="ThoiGianVeSomChoPhep" Type="int" Mode="In" />
+    <Parameter Name="GioiHanTCMucMot" Type="int" Mode="In" />
+    <Parameter Name="GioiHanTCMucHai" Type="int" Mode="In" />
+    <Parameter Name="SDMucTangCaCuaTangCaCuoiTuan" Type="bit" Mode="In" />
+    <Parameter Name="MucTangCaCuaTangCaCuoiTuan" Type="int" Mode="In" />
+    <Parameter Name="SDMucTangCaCuaTangCaNgayLe" Type="bit" Mode="In" />
+    <Parameter Name="MucTangCaCuaTangCaNgayLe" Type="int" Mode="In" />
+    <Parameter Name="GioiHanTCTruocGLV" Type="int" Mode="In" />
+    <Parameter Name="GioiHanTCSauGLV" Type="int" Mode="In" />
+    <Parameter Name="CaQuaDem" Type="bit" Mode="In" />
+    <Parameter Name="TachGioCaDemTu" Type="time" Mode="In" />
+    <Parameter Name="TachGioCaDemDen" Type="time" Mode="In" />
+  </Function>
+  <EntityContainer Name="ATINChamCongModelStoreContainer">
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BaoCaoChiTiet" EntityType="Self.BaoCaoChiTiet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CaLamViec" EntityType="Self.CaLamViec" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChamCong" EntityType="Self.ChamCong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChamCongChiTiet" EntityType="Self.ChamCongChiTiet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChucVu" EntityType="Self.ChucVu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CongTyKhuVuc" EntityType="Self.CongTyKhuVuc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DangKyNghiPhep" EntityType="Self.DangKyNghiPhep" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DangKyTangCa" EntityType="Self.DangKyTangCa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DanToc" EntityType="Self.DanToc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HopDongLaoDong" EntityType="Self.HopDongLaoDong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KhaiBaoThoiGian" EntityType="Self.KhaiBaoThoiGian" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KhuonMat" EntityType="Self.KhuonMat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KyHieuCacLoaiVang" EntityType="Self.KyHieuCacLoaiVang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KyHieuChamCong" EntityType="Self.KyHieuChamCong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LichTrinhLamViec" EntityType="Self.LichTrinhLamViec" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiHopDong" EntityType="Self.LoaiHopDong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiNghiPhep" EntityType="Self.LoaiNghiPhep" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiThamSo" EntityType="Self.LoaiThamSo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MayNhanDang" EntityType="Self.MayNhanDang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NgayNghiLe" EntityType="Self.NgayNghiLe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NgayPhepNhanVien" EntityType="Self.NgayPhepNhanVien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Nguoi" EntityType="Self.Nguoi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhatKy" EntityType="Self.NhatKy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhanQuyenNhanDang" EntityType="Self.PhanQuyenNhanDang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhongBan" EntityType="Self.PhongBan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhuCap" EntityType="Self.PhuCap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ThamSo" EntityType="Self.ThamSo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TheTu" EntityType="Self.TheTu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TonGiao" EntityType="Self.TonGiao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TrinhDoHocVan" EntityType="Self.TrinhDoHocVan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VanTay" EntityType="Self.VanTay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BaoCao" EntityType="Self.BaoCao" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [BaoCao].[MaBaoCao] AS [MaBaoCao], 
+    [BaoCao].[NgayBaoCao] AS [NgayBaoCao], 
+    [BaoCao].[MaNguoi] AS [MaNguoi], 
+    [BaoCao].[ThoiGianIn] AS [ThoiGianIn], 
+    [BaoCao].[ThoiGianOut] AS [ThoiGianOut]
+    FROM [dbo].[BaoCao] AS [BaoCao]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="MATHANG_KHO" EntityType="Self.MATHANG_KHO" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [MATHANG_KHO].[MHTEN] AS [MHTEN], 
+    [MATHANG_KHO].[MHCODE] AS [MHCODE], 
+    [MATHANG_KHO].[KHOCODE] AS [KHOCODE], 
+    [MATHANG_KHO].[KHOTEN] AS [KHOTEN], 
+    [MATHANG_KHO].[KHOID] AS [KHOID], 
+    [MATHANG_KHO].[MHID] AS [MHID], 
+    [MATHANG_KHO].[SOLUONG] AS [SOLUONG], 
+    [MATHANG_KHO].[GIANHAP] AS [GIANHAP], 
+    [MATHANG_KHO].[GIABANLE] AS [GIABANLE], 
+    [MATHANG_KHO].[GIABANBUON] AS [GIABANBUON], 
+    [MATHANG_KHO].[GIABAN1] AS [GIABAN1], 
+    [MATHANG_KHO].[GIABAN2] AS [GIABAN2], 
+    [MATHANG_KHO].[GIABAN3] AS [GIABAN3], 
+    [MATHANG_KHO].[SLONORDER] AS [SLONORDER], 
+    [MATHANG_KHO].[SLTONDAU] AS [SLTONDAU], 
+    [MATHANG_KHO].[GVTONDAU] AS [GVTONDAU], 
+    [MATHANG_KHO].[CREATEDDATE] AS [CREATEDDATE], 
+    [MATHANG_KHO].[UPDATEDDATE] AS [UPDATEDDATE], 
+    [MATHANG_KHO].[CREATEBY] AS [CREATEBY], 
+    [MATHANG_KHO].[SLTANG] AS [SLTANG], 
+    [MATHANG_KHO].[SLGIAM] AS [SLGIAM]
+    FROM [dbo].[MATHANG_KHO] AS [MATHANG_KHO]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="SP_Status" EntityType="Self.SP_Status" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [SP_Status].[SOLUONG] AS [SOLUONG], 
+    [SP_Status].[statusupdate] AS [statusupdate], 
+    [SP_Status].[SP_CODE] AS [SP_CODE], 
+    [SP_Status].[TrangThai] AS [TrangThai], 
+    [SP_Status].[TieuDe] AS [TieuDe], 
+    [SP_Status].[trangthaimoi] AS [trangthaimoi]
+    FROM [dbo].[SP_Status] AS [SP_Status]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_DangKyNghiPhep_MaLoaiNghiPhep" Association="Self.FK_dbo_DangKyNghiPhep_MaLoaiNghiPhep">
+      <End Role="LoaiNghiPhep" EntitySet="LoaiNghiPhep" />
+      <End Role="DangKyNghiPhep" EntitySet="DangKyNghiPhep" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_DangKyNghiPhep_MaNhanVien" Association="Self.FK_dbo_DangKyNghiPhep_MaNhanVien">
+      <End Role="Nguoi" EntitySet="Nguoi" />
+      <End Role="DangKyNghiPhep" EntitySet="DangKyNghiPhep" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_DangKyTangCa_MaNhanVien" Association="Self.FK_dbo_DangKyTangCa_MaNhanVien">
+      <End Role="Nguoi" EntitySet="Nguoi" />
+      <End Role="DangKyTangCa" EntitySet="DangKyTangCa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_KhuonMat_MaNguoi" Association="Self.FK_dbo_KhuonMat_MaNguoi">
+      <End Role="Nguoi" EntitySet="Nguoi" />
+      <End Role="KhuonMat" EntitySet="KhuonMat" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_NhatKy_MaNguoi" Association="Self.FK_dbo_NhatKy_MaNguoi">
+      <End Role="Nguoi" EntitySet="Nguoi" />
+      <End Role="NhatKy" EntitySet="NhatKy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TheTu_MaNguoi" Association="Self.FK_dbo_TheTu_MaNguoi">
+      <End Role="Nguoi" EntitySet="Nguoi" />
+      <End Role="TheTu" EntitySet="TheTu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_VanTay_MaNguoi" Association="Self.FK_dbo_VanTay_MaNguoi">
+      <End Role="Nguoi" EntitySet="Nguoi" />
+      <End Role="VanTay" EntitySet="VanTay" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
