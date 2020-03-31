@@ -1,3 +1,4 @@
+
 Create proc spGetAllCaLamViec
 as
 Select * 
@@ -14,15 +15,53 @@ Where MaCaLamViec = @MaCaLamViec
 end
 go
 
-Alter proc spInsertCaLamViec
-@TenCaLamViec nvarchar(50), @GioBatDauCa time(7), @GioKetThucCa time(7), @GioBatDauGiaiLao time(7), @GioKetThucGiaiLao time(7),
-@TongGio int,  @DiemCong int, @GioVaoSomNhatDuocTinhCa time(7), @GioVaoMuonNhatDuocTinhCa time(7), @GioRaMuonNhatDuocTinhCa time(7), 
-@GioRaSomNhatDuocTinhCa time(7), @KhongCoGioRa int, @KhongCoGioVao int, @TruGioDiTre bit, @ThoiGianDiTreChoPhep int, @TruGioVeSom bit, @ThoiGianVeSomChoPhep int,
-@GioiHanTCMucMot int,@GioiHanTCMucHai int,@SDMucTangCaCuaTangCaCuoiTuan bit, @MucTangCaCuaTangCaCuoiTuan int, @SDMucTangCaCuaTangCaNgayLe bit, @MucTangCaCuaTangCaNgayLe int, @GioiHanTCTruocGLV int,
-@GioiHanTCSauGLV int, @CaQuaDem bit, @TachGioCaDemTu time(7), @TachGioCaDemDen time(7)
+Create proc spInsertCaLamViec
+@TenCaLamViec nvarchar(50), 
+@GioBatDauCa time(7), 
+@GioKetThucCa time(7), 
+@GioBatDauGiaiLao time(7), 
+@GioKetThucGiaiLao time(7),
+@TongGio int,  
+@DiemCong int, 
+@GioVaoSomNhatDuocTinhCa time(7), 
+@GioVaoMuonNhatDuocTinhCa time(7), 
+@GioRaMuonNhatDuocTinhCa time(7), 
+@GioRaSomNhatDuocTinhCa time(7),
+@KhongCoGioRa int,
+@KhongCoGioVao int, 
+@TruGioDiTre bit, 
+@ThoiGianDiTreChoPhep int, 
+@TruGioVeSom bit, 
+@ThoiGianVeSomChoPhep int,
+
+@SDMucTangCaHienTai bit,
+@MucTangCaHienTai int,
+@SDMucTangCaCuoiTuan bit,
+@MucTangCaCuoiTuan int,
+@SDMucTangCaNgayLe bit,
+@MucTangCaNgayLe int,
+@SDTangCaTruocGLV bit,
+@TangCaTruocGLV int,
+@SDTangCaSauGLV bit,
+@TangCaSauGLV int,
+@SDTongGLVTinhTangCa bit,
+@TongGLVTinhTangCa int,
+
+@GioiHanTCMucMot int,
+@GioiHanTCMucHai int,
+@SDMucTangCaCuaTangCaCuoiTuan bit, 
+@MucTangCaCuaTangCaCuoiTuan int, 
+@SDMucTangCaCuaTangCaNgayLe bit, 
+@MucTangCaCuaTangCaNgayLe int, 
+@GioiHanTCTruocGLV int,
+@GioiHanTCSauGLV int, 
+@CaQuaDem bit, 
+@TachGioCaDemTu time(7), 
+@TachGioCaDemDen time(7)
 as
 begin
-insert into CaLamViec(TenCaLamViec, 
+insert into CaLamViec(
+TenCaLamViec, 
 GioBatDauCa, 
 GioKetThucCa, 
 GioBatDauGiaiLao, 
@@ -39,6 +78,20 @@ TruGioDiTre,
 ThoiGianDiTreChoPhep, 
 TruGioVeSom, 
 ThoiGianVeSomChoPhep, 
+
+SDMucTangCaHienTai,
+MucTangCaHienTai,
+SDMucTangCaCuoiTuan,
+MucTangCaCuoiTuan,
+SDMucTangCaNgayLe,
+MucTangCaNgayLe,
+SDTangCaTruocGLV,
+TangCaTruocGLV,
+SDTangCaSauGLV,
+TangCaSauGLV,
+SDTongGLVTinhTangCa,
+TongGLVTinhTangCa,
+
 GioiHanTCMucMot, 
 GioiHanTCMucHai,
 SDMucTangCaCuaTangCaCuoiTuan, 
@@ -67,6 +120,20 @@ values (@TenCaLamViec,
 @ThoiGianDiTreChoPhep, 
 @TruGioVeSom, 
 @ThoiGianVeSomChoPhep,
+
+@SDMucTangCaHienTai,
+@MucTangCaHienTai,
+@SDMucTangCaCuoiTuan,
+@MucTangCaCuoiTuan,
+@SDMucTangCaNgayLe,
+@MucTangCaNgayLe,
+@SDTangCaTruocGLV,
+@TangCaTruocGLV,
+@SDTangCaSauGLV,
+@TangCaSauGLV,
+@SDTongGLVTinhTangCa,
+@TongGLVTinhTangCa,
+
 @GioiHanTCMucMot,
 @GioiHanTCMucHai,
 @SDMucTangCaCuaTangCaCuoiTuan, 
@@ -82,7 +149,7 @@ end
 go
 
 Create proc spDeleteCaLamViec
-@MaCaLamViec nvarchar(50)
+@MaCaLamViec int
 as
 begin
 delete from CaLamViec
@@ -90,7 +157,7 @@ where MaCaLamViec = @MaCaLamViec;
 end
 go
 
-Alter proc spUpdateCaLamViec
+Create proc spUpdateCaLamViec
 @MaCaLamViec int,
 @TenCaLamViec nvarchar(50), 
 @GioBatDauCa time(7), 
@@ -109,6 +176,21 @@ Alter proc spUpdateCaLamViec
 @ThoiGianDiTreChoPhep int, 
 @TruGioVeSom bit, 
 @ThoiGianVeSomChoPhep int,
+
+@SDMucTangCaHienTai bit,
+@MucTangCaHienTai int,
+@SDMucTangCaCuoiTuan bit,
+@MucTangCaCuoiTuan int,
+@SDMucTangCaNgayLe bit,
+@MucTangCaNgayLe int,
+@SDTangCaTruocGLV bit,
+@TangCaTruocGLV int,
+@SDTangCaSauGLV bit,
+@TangCaSauGLV int,
+@SDTongGLVTinhTangCa bit,
+@TongGLVTinhTangCa int,
+
+
 @GioiHanTCMucMot int,
 @GioiHanTCMucHai int,
 @SDMucTangCaCuaTangCaCuoiTuan bit, 
@@ -141,6 +223,23 @@ TruGioDiTre=@TruGioDiTre,
 ThoiGianDiTreChoPhep=@ThoiGianDiTreChoPhep, 
 TruGioVeSom=@TruGioVeSom, 
 ThoiGianVeSomChoPhep=@ThoiGianVeSomChoPhep, 
+
+
+SDMucTangCaHienTai = @SDMucTangCaHienTai,
+MucTangCaHienTai = @MucTangCaHienTai,
+SDMucTangCaCuoiTuan = @SDMucTangCaCuoiTuan,
+MucTangCaCuoiTuan = @MucTangCaCuoiTuan,
+SDMucTangCaNgayLe = @SDMucTangCaNgayLe,
+MucTangCaNgayLe = @MucTangCaNgayLe,
+SDTangCaTruocGLV = @SDTangCaTruocGLV,
+TangCaTruocGLV = @TangCaTruocGLV,
+SDTangCaSauGLV = @SDTangCaSauGLV,
+TangCaSauGLV = @TangCaSauGLV,
+SDTongGLVTinhTangCa = @SDTongGLVTinhTangCa,
+TongGLVTinhTangCa = @TongGLVTinhTangCa,
+
+
+
 GioiHanTCMucMot=@GioiHanTCMucMot, 
 GioiHanTCMucHai=@GioiHanTCMucHai,
 SDMucTangCaCuaTangCaCuoiTuan=@SDMucTangCaCuaTangCaCuoiTuan, 
