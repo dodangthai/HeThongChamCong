@@ -39,7 +39,8 @@ namespace ATINTimekeeping.FormTimeKeepingSetting
 
         private void SetCaLamViec(CaLamViec caLamViec)
         {
-            textEdit1.Text = caLamViec.TenCaLamViec;
+            textEdit1.Text = caLamViec.MaCaLamViec;
+            textEdit2.Text = caLamViec.TenCaLamViec;
             timeSpanEdit1.TimeSpan = caLamViec.GioBatDauCa;
             timeSpanEdit2.TimeSpan = caLamViec.GioKetThucCa;
             timeSpanEdit3.TimeSpan = caLamViec.GioBatDauGiaiLao == null ? TimeSpan.Zero : (TimeSpan)caLamViec.GioBatDauGiaiLao;
@@ -84,7 +85,8 @@ namespace ATINTimekeeping.FormTimeKeepingSetting
         {
             CaLamViec caLamViec = new CaLamViec();
 
-            caLamViec.TenCaLamViec = textEdit1.Text;
+            caLamViec.MaCaLamViec = textEdit1.Text;
+            caLamViec.TenCaLamViec = textEdit2.Text;
             caLamViec.GioBatDauCa = timeSpanEdit1.TimeSpan;
             caLamViec.GioKetThucCa = timeSpanEdit2.TimeSpan;
             caLamViec.GioBatDauGiaiLao = timeSpanEdit3.TimeSpan;
@@ -127,7 +129,7 @@ namespace ATINTimekeeping.FormTimeKeepingSetting
 
             return caLamViec;
         }
-        private void DeleteCaLamViec(int? MaCaLamViec)
+        private void DeleteCaLamViec(string MaCaLamViec)
         {
             try
             {
@@ -141,104 +143,104 @@ namespace ATINTimekeeping.FormTimeKeepingSetting
 
         }
 
-        private void Save(int? MaCaLamViec, CaLamViec caLamViec, ref bool allowInsert)
+        private void Save(string MaCaLamViecChon, CaLamViec caLamViec, ref bool allowInsert)
         {
             try
             {
-                using (var context = new ATINChamCongEntities())
+                if (allowInsert)
                 {
-                    if (allowInsert)
-                    {
-                        context.spInsertCaLamViec(
-                         caLamViec.TenCaLamViec,
-                         caLamViec.GioBatDauCa,
-                         caLamViec.GioKetThucCa,
-                         caLamViec.GioBatDauGiaiLao,
-                         caLamViec.GioKetThucGiaiLao,
-                         caLamViec.TongGio,
-                         caLamViec.DiemCong,
-                         caLamViec.GioVaoSomNhatDuocTinhCa,
-                         caLamViec.GioVaoMuonNhatDuocTinhCa,
-                         caLamViec.GioRaMuonNhatDuocTinhCa,
-                         caLamViec.GioRaSomNhatDuocTinhCa,
-                         caLamViec.KhongCoGioRa,
-                         caLamViec.KhongCoGioVao,
-                         caLamViec.TruGioDiTre,
-                         caLamViec.ThoiGianDiTreChoPhep,
-                         caLamViec.TruGioVeSom,
-                         caLamViec.ThoiGianVeSomChoPhep,
-                         caLamViec.SDMucTangCaHienTai,
-                         caLamViec.MucTangCaHienTai,
-                         caLamViec.SDMucTangCaCuoiTuan,
-                         caLamViec.MucTangCaCuoiTuan,
-                         caLamViec.SDMucTangCaNgayLe,
-                         caLamViec.MucTangCaNgayLe,
-                         caLamViec.SDTangCaTruocGLV,
-                         caLamViec.TangCaTruocGLV,
-                         caLamViec.SDTangCaSauGLV,
-                         caLamViec.TangCaSauGLV,
-                         caLamViec.SDTongGLVTinhTangCa,
-                         caLamViec.TongGLVTinhTangCa,
-                         caLamViec.GioiHanTCMucMot,
-                         caLamViec.GioiHanTCMucHai,
-                         caLamViec.SDMucTangCaCuaTangCaCuoiTuan,
-                         caLamViec.MucTangCaCuaTangCaCuoiTuan,
-                         caLamViec.SDMucTangCaCuaTangCaNgayLe,
-                         caLamViec.MucTangCaCuaTangCaNgayLe,
-                         caLamViec.GioiHanTCTruocGLV,
-                         caLamViec.GioiHanTCSauGLV,
-                         caLamViec.CaQuaDem,
-                         caLamViec.TachGioCaDemTu,
-                         caLamViec.TachGioCaDemDen
-                         );
-                    }
-                    else
-                    {
-                        context.spUpdateCaLamViec(
-                         MaCaLamViec,
-                         caLamViec.TenCaLamViec,
-                         caLamViec.GioBatDauCa,
-                         caLamViec.GioKetThucCa,
-                         caLamViec.GioBatDauGiaiLao,
-                         caLamViec.GioKetThucGiaiLao,
-                         caLamViec.TongGio,
-                         caLamViec.DiemCong,
-                         caLamViec.GioVaoSomNhatDuocTinhCa,
-                         caLamViec.GioVaoMuonNhatDuocTinhCa,
-                         caLamViec.GioRaMuonNhatDuocTinhCa,
-                         caLamViec.GioRaSomNhatDuocTinhCa,
-                         caLamViec.KhongCoGioRa,
-                         caLamViec.KhongCoGioVao,
-                         caLamViec.TruGioDiTre,
-                         caLamViec.ThoiGianDiTreChoPhep,
-                         caLamViec.TruGioVeSom,
-                         caLamViec.ThoiGianVeSomChoPhep,
-                         caLamViec.SDMucTangCaHienTai,
-                         caLamViec.MucTangCaHienTai,
-                         caLamViec.SDMucTangCaCuoiTuan,
-                         caLamViec.MucTangCaCuoiTuan,
-                         caLamViec.SDMucTangCaNgayLe,
-                         caLamViec.MucTangCaNgayLe,
-                         caLamViec.SDTangCaTruocGLV,
-                         caLamViec.TangCaTruocGLV,
-                         caLamViec.SDTangCaSauGLV,
-                         caLamViec.TangCaSauGLV,
-                         caLamViec.SDTongGLVTinhTangCa,
-                         caLamViec.TongGLVTinhTangCa,
-                         caLamViec.GioiHanTCMucMot,
-                         caLamViec.GioiHanTCMucHai,
-                         caLamViec.SDMucTangCaCuaTangCaCuoiTuan,
-                         caLamViec.MucTangCaCuaTangCaCuoiTuan,
-                         caLamViec.SDMucTangCaCuaTangCaNgayLe,
-                         caLamViec.MucTangCaCuaTangCaNgayLe,
-                         caLamViec.GioiHanTCTruocGLV,
-                         caLamViec.GioiHanTCSauGLV,
-                         caLamViec.CaQuaDem,
-                         caLamViec.TachGioCaDemTu,
-                         caLamViec.TachGioCaDemDen
-                         );
-                    }
-
+                    ATINChamCongEntities context = new ATINChamCongEntities();
+                    context.spInsertCaLamViec(
+                     caLamViec.MaCaLamViec,
+                     caLamViec.TenCaLamViec,
+                     caLamViec.GioBatDauCa,
+                     caLamViec.GioKetThucCa,
+                     caLamViec.GioBatDauGiaiLao,
+                     caLamViec.GioKetThucGiaiLao,
+                     caLamViec.TongGio,
+                     caLamViec.DiemCong,
+                     caLamViec.GioVaoSomNhatDuocTinhCa,
+                     caLamViec.GioVaoMuonNhatDuocTinhCa,
+                     caLamViec.GioRaMuonNhatDuocTinhCa,
+                     caLamViec.GioRaSomNhatDuocTinhCa,
+                     caLamViec.KhongCoGioRa,
+                     caLamViec.KhongCoGioVao,
+                     caLamViec.TruGioDiTre,
+                     caLamViec.ThoiGianDiTreChoPhep,
+                     caLamViec.TruGioVeSom,
+                     caLamViec.ThoiGianVeSomChoPhep,
+                     caLamViec.SDMucTangCaHienTai,
+                     caLamViec.MucTangCaHienTai,
+                     caLamViec.SDMucTangCaCuoiTuan,
+                     caLamViec.MucTangCaCuoiTuan,
+                     caLamViec.SDMucTangCaNgayLe,
+                     caLamViec.MucTangCaNgayLe,
+                     caLamViec.SDTangCaTruocGLV,
+                     caLamViec.TangCaTruocGLV,
+                     caLamViec.SDTangCaSauGLV,
+                     caLamViec.TangCaSauGLV,
+                     caLamViec.SDTongGLVTinhTangCa,
+                     caLamViec.TongGLVTinhTangCa,
+                     caLamViec.GioiHanTCMucMot,
+                     caLamViec.GioiHanTCMucHai,
+                     caLamViec.SDMucTangCaCuaTangCaCuoiTuan,
+                     caLamViec.MucTangCaCuaTangCaCuoiTuan,
+                     caLamViec.SDMucTangCaCuaTangCaNgayLe,
+                     caLamViec.MucTangCaCuaTangCaNgayLe,
+                     caLamViec.GioiHanTCTruocGLV,
+                     caLamViec.GioiHanTCSauGLV,
+                     caLamViec.CaQuaDem,
+                     caLamViec.TachGioCaDemTu,
+                     caLamViec.TachGioCaDemDen
+                     );
+                }
+                else
+                {
+                    ATINChamCongEntities context = new ATINChamCongEntities();
+                    context.spUpdateCaLamViec(
+                     MaCaLamViecChon,
+                     caLamViec.MaCaLamViec,
+                     caLamViec.TenCaLamViec,
+                     caLamViec.GioBatDauCa,
+                     caLamViec.GioKetThucCa,
+                     caLamViec.GioBatDauGiaiLao,
+                     caLamViec.GioKetThucGiaiLao,
+                     caLamViec.TongGio,
+                     caLamViec.DiemCong,
+                     caLamViec.GioVaoSomNhatDuocTinhCa,
+                     caLamViec.GioVaoMuonNhatDuocTinhCa,
+                     caLamViec.GioRaMuonNhatDuocTinhCa,
+                     caLamViec.GioRaSomNhatDuocTinhCa,
+                     caLamViec.KhongCoGioRa,
+                     caLamViec.KhongCoGioVao,
+                     caLamViec.TruGioDiTre,
+                     caLamViec.ThoiGianDiTreChoPhep,
+                     caLamViec.TruGioVeSom,
+                     caLamViec.ThoiGianVeSomChoPhep,
+                     caLamViec.SDMucTangCaHienTai,
+                     caLamViec.MucTangCaHienTai,
+                     caLamViec.SDMucTangCaCuoiTuan,
+                     caLamViec.MucTangCaCuoiTuan,
+                     caLamViec.SDMucTangCaNgayLe,
+                     caLamViec.MucTangCaNgayLe,
+                     caLamViec.SDTangCaTruocGLV,
+                     caLamViec.TangCaTruocGLV,
+                     caLamViec.SDTangCaSauGLV,
+                     caLamViec.TangCaSauGLV,
+                     caLamViec.SDTongGLVTinhTangCa,
+                     caLamViec.TongGLVTinhTangCa,
+                     caLamViec.GioiHanTCMucMot,
+                     caLamViec.GioiHanTCMucHai,
+                     caLamViec.SDMucTangCaCuaTangCaCuoiTuan,
+                     caLamViec.MucTangCaCuaTangCaCuoiTuan,
+                     caLamViec.SDMucTangCaCuaTangCaNgayLe,
+                     caLamViec.MucTangCaCuaTangCaNgayLe,
+                     caLamViec.GioiHanTCTruocGLV,
+                     caLamViec.GioiHanTCSauGLV,
+                     caLamViec.CaQuaDem,
+                     caLamViec.TachGioCaDemTu,
+                     caLamViec.TachGioCaDemDen
+                     );
                 }
             }
             catch (Exception e)
@@ -251,11 +253,9 @@ namespace ATINTimekeeping.FormTimeKeepingSetting
             List<CaLamViec> caLamViecs = new List<CaLamViec>();
             try
             {
-                using (var context = new ATINChamCongEntities())
-                {
-                    caLamViecs = context.spGetAllCaLamViec().ToList();
-                    return caLamViecs;
-                }
+                ATINChamCongEntities context = new ATINChamCongEntities();
+                caLamViecs = context.spGetAllCaLamViec().ToList();
+                return caLamViecs;
             }
             catch (Exception e)
             {
@@ -273,8 +273,8 @@ namespace ATINTimekeeping.FormTimeKeepingSetting
         {
             List<CaLamViec> caLamViecs = LoadAllCaLamViec();
             dataGridView1.DataSource = caLamViecs;
-            dataGridView1.Columns["MaCaLamViec"].Visible = false;
-            //dataGridView1.Columns["TenCaLamViec"].Visible = false;
+            //dataGridView1.Columns["MaCaLamViec"].Visible = false;
+            dataGridView1.Columns["TenCaLamViec"].Visible = false;
             //dataGridView1.Columns["GioBatDauCa"].Visible = false;
             //dataGridView1.Columns["GioKetThucCa"].Visible = false;
             dataGridView1.Columns["GioBatDauGiaiLao"].Visible = false;

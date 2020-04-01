@@ -6,7 +6,7 @@ From CaLamViec
 go
 
 Create proc spGetCaLamViec
-@MaCaLamViec int
+@MaCaLamViec varchar(5)
 as
 begin
 Select *
@@ -16,6 +16,7 @@ end
 go
 
 Create proc spInsertCaLamViec
+@MaCaLamViec varchar(5),
 @TenCaLamViec nvarchar(50), 
 @GioBatDauCa time(7), 
 @GioKetThucCa time(7), 
@@ -61,6 +62,7 @@ Create proc spInsertCaLamViec
 as
 begin
 insert into CaLamViec(
+MaCaLamViec,
 TenCaLamViec, 
 GioBatDauCa, 
 GioKetThucCa, 
@@ -103,7 +105,9 @@ GioiHanTCSauGLV,
 CaQuaDem, 
 TachGioCaDemTu, 
 TachGioCaDemDen)
-values (@TenCaLamViec, 
+values (
+@MaCaLamViec,
+@TenCaLamViec, 
 @GioBatDauCa, 
 @GioKetThucCa, 
 @GioBatDauGiaiLao, 
@@ -149,7 +153,7 @@ end
 go
 
 Create proc spDeleteCaLamViec
-@MaCaLamViec int
+@MaCaLamViec varchar(5)
 as
 begin
 delete from CaLamViec
@@ -158,7 +162,8 @@ end
 go
 
 Create proc spUpdateCaLamViec
-@MaCaLamViec int,
+@MaCaLamViecChon varchar(5),
+@MaCaLamViec varchar(5),
 @TenCaLamViec nvarchar(50), 
 @GioBatDauCa time(7), 
 @GioKetThucCa time(7), 
@@ -206,6 +211,7 @@ as
 begin
 update CaLamViec
 set 
+MaCaLamViec = @MaCaLamViec,
 TenCaLamViec = @TenCaLamViec, 
 GioBatDauCa=@GioBatDauCa, 
 GioKetThucCa=@GioKetThucCa, 
@@ -251,7 +257,7 @@ GioiHanTCSauGLV=@GioiHanTCSauGLV,
 CaQuaDem=@CaQuaDem, 
 TachGioCaDemTu=@TachGioCaDemTu, 
 TachGioCaDemDen=@TachGioCaDemDen
-where MaCaLamViec = @MaCaLamViec;
+where MaCaLamViec = @MaCaLamViecChon;
 end
 go
 
