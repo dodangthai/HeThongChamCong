@@ -150,6 +150,8 @@
             this.textBox43 = new System.Windows.Forms.TextBox();
             this.checkBox13 = new System.Windows.Forms.CheckBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.textBox45 = new System.Windows.Forms.TextBox();
             this.tenCa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CheckIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CheckOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -204,6 +206,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.timeSpanEdit9.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeSpanEdit10.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // barButtonItem5
@@ -265,8 +268,8 @@
             // 
             this.barButtonItemAddNew.Caption = "Thêm mới";
             this.barButtonItemAddNew.Id = 5;
-            this.barButtonItemAddNew.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.barButtonItemAddNew.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.barButtonItemAddNew.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemAddNew.ImageOptions.Image")));
+            this.barButtonItemAddNew.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemAddNew.ImageOptions.LargeImage")));
             this.barButtonItemAddNew.Name = "barButtonItemAddNew";
             this.barButtonItemAddNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemAddNew_ItemClick);
             // 
@@ -274,8 +277,8 @@
             // 
             this.barButtonSave.Caption = "Lưu";
             this.barButtonSave.Id = 6;
-            this.barButtonSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
-            this.barButtonSave.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
+            this.barButtonSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonSave.ImageOptions.Image")));
+            this.barButtonSave.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonSave.ImageOptions.LargeImage")));
             this.barButtonSave.Name = "barButtonSave";
             this.barButtonSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonSave_ItemClick);
             // 
@@ -283,8 +286,8 @@
             // 
             this.barButtonDelete.Caption = "Xóa";
             this.barButtonDelete.Id = 7;
-            this.barButtonDelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.Image")));
-            this.barButtonDelete.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.LargeImage")));
+            this.barButtonDelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonDelete.ImageOptions.Image")));
+            this.barButtonDelete.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonDelete.ImageOptions.LargeImage")));
             this.barButtonDelete.Name = "barButtonDelete";
             this.barButtonDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonDelete_ItemClick);
             // 
@@ -292,8 +295,8 @@
             // 
             this.barButtonRefresh.Caption = "Làm mới";
             this.barButtonRefresh.Id = 8;
-            this.barButtonRefresh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
-            this.barButtonRefresh.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage")));
+            this.barButtonRefresh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonRefresh.ImageOptions.Image")));
+            this.barButtonRefresh.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonRefresh.ImageOptions.LargeImage")));
             this.barButtonRefresh.Name = "barButtonRefresh";
             this.barButtonRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonRefresh_ItemClick);
             // 
@@ -358,6 +361,8 @@
             // 
             // xtraTabPage1
             // 
+            this.xtraTabPage1.Controls.Add(this.textEdit2);
+            this.xtraTabPage1.Controls.Add(this.textBox45);
             this.xtraTabPage1.Controls.Add(this.numericUpDown25);
             this.xtraTabPage1.Controls.Add(this.numericUpDown26);
             this.xtraTabPage1.Controls.Add(this.textBox42);
@@ -402,7 +407,7 @@
             // 
             // numericUpDown25
             // 
-            this.numericUpDown25.Location = new System.Drawing.Point(223, 184);
+            this.numericUpDown25.Location = new System.Drawing.Point(223, 212);
             this.numericUpDown25.Maximum = new decimal(new int[] {
             999,
             0,
@@ -414,7 +419,7 @@
             // 
             // numericUpDown26
             // 
-            this.numericUpDown26.Location = new System.Drawing.Point(223, 155);
+            this.numericUpDown26.Location = new System.Drawing.Point(223, 183);
             this.numericUpDown26.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -428,7 +433,7 @@
             // 
             this.textBox42.BackColor = System.Drawing.SystemColors.Control;
             this.textBox42.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox42.Location = new System.Drawing.Point(345, 354);
+            this.textBox42.Location = new System.Drawing.Point(345, 382);
             this.textBox42.Name = "textBox42";
             this.textBox42.Size = new System.Drawing.Size(65, 16);
             this.textBox42.TabIndex = 45;
@@ -438,7 +443,7 @@
             // 
             this.textBox41.BackColor = System.Drawing.SystemColors.Control;
             this.textBox41.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox41.Location = new System.Drawing.Point(345, 325);
+            this.textBox41.Location = new System.Drawing.Point(345, 353);
             this.textBox41.Name = "textBox41";
             this.textBox41.Size = new System.Drawing.Size(65, 16);
             this.textBox41.TabIndex = 44;
@@ -448,7 +453,7 @@
             // 
             this.textBox40.BackColor = System.Drawing.SystemColors.Control;
             this.textBox40.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox40.Location = new System.Drawing.Point(345, 298);
+            this.textBox40.Location = new System.Drawing.Point(345, 326);
             this.textBox40.Name = "textBox40";
             this.textBox40.Size = new System.Drawing.Size(65, 16);
             this.textBox40.TabIndex = 43;
@@ -458,7 +463,7 @@
             // 
             this.textBox39.BackColor = System.Drawing.SystemColors.Control;
             this.textBox39.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox39.Location = new System.Drawing.Point(345, 270);
+            this.textBox39.Location = new System.Drawing.Point(345, 298);
             this.textBox39.Name = "textBox39";
             this.textBox39.Size = new System.Drawing.Size(65, 16);
             this.textBox39.TabIndex = 42;
@@ -468,7 +473,7 @@
             // 
             this.textBox38.BackColor = System.Drawing.SystemColors.Control;
             this.textBox38.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox38.Location = new System.Drawing.Point(345, 242);
+            this.textBox38.Location = new System.Drawing.Point(345, 270);
             this.textBox38.Name = "textBox38";
             this.textBox38.Size = new System.Drawing.Size(65, 16);
             this.textBox38.TabIndex = 41;
@@ -478,7 +483,7 @@
             // 
             this.textBox37.BackColor = System.Drawing.SystemColors.Control;
             this.textBox37.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox37.Location = new System.Drawing.Point(345, 214);
+            this.textBox37.Location = new System.Drawing.Point(345, 242);
             this.textBox37.Name = "textBox37";
             this.textBox37.Size = new System.Drawing.Size(65, 16);
             this.textBox37.TabIndex = 40;
@@ -488,7 +493,7 @@
             // 
             this.textBox35.BackColor = System.Drawing.SystemColors.Control;
             this.textBox35.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox35.Location = new System.Drawing.Point(345, 158);
+            this.textBox35.Location = new System.Drawing.Point(345, 186);
             this.textBox35.Name = "textBox35";
             this.textBox35.Size = new System.Drawing.Size(65, 16);
             this.textBox35.TabIndex = 38;
@@ -498,7 +503,7 @@
             // 
             this.textBox36.BackColor = System.Drawing.SystemColors.Control;
             this.textBox36.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox36.Location = new System.Drawing.Point(345, 186);
+            this.textBox36.Location = new System.Drawing.Point(345, 214);
             this.textBox36.Name = "textBox36";
             this.textBox36.Size = new System.Drawing.Size(65, 16);
             this.textBox36.TabIndex = 39;
@@ -507,7 +512,7 @@
             // timeSpanEdit8
             // 
             this.timeSpanEdit8.EditValue = System.TimeSpan.Parse("00:00:00");
-            this.timeSpanEdit8.Location = new System.Drawing.Point(223, 295);
+            this.timeSpanEdit8.Location = new System.Drawing.Point(223, 323);
             this.timeSpanEdit8.MenuManager = this.ribbonControl1;
             this.timeSpanEdit8.Name = "timeSpanEdit8";
             this.timeSpanEdit8.Properties.AllowEditDays = false;
@@ -531,7 +536,7 @@
             // 
             // numericUpDown3
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(223, 352);
+            this.numericUpDown3.Location = new System.Drawing.Point(223, 380);
             this.numericUpDown3.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -543,7 +548,7 @@
             // 
             // numericUpDown2
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(223, 323);
+            this.numericUpDown2.Location = new System.Drawing.Point(223, 351);
             this.numericUpDown2.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -556,7 +561,7 @@
             // timeSpanEdit7
             // 
             this.timeSpanEdit7.EditValue = System.TimeSpan.Parse("00:00:00");
-            this.timeSpanEdit7.Location = new System.Drawing.Point(223, 267);
+            this.timeSpanEdit7.Location = new System.Drawing.Point(223, 295);
             this.timeSpanEdit7.MenuManager = this.ribbonControl1;
             this.timeSpanEdit7.Name = "timeSpanEdit7";
             this.timeSpanEdit7.Properties.AllowEditDays = false;
@@ -572,7 +577,7 @@
             // timeSpanEdit5
             // 
             this.timeSpanEdit5.EditValue = System.TimeSpan.Parse("00:00:00");
-            this.timeSpanEdit5.Location = new System.Drawing.Point(223, 213);
+            this.timeSpanEdit5.Location = new System.Drawing.Point(223, 241);
             this.timeSpanEdit5.MenuManager = this.ribbonControl1;
             this.timeSpanEdit5.Name = "timeSpanEdit5";
             this.timeSpanEdit5.Properties.AllowEditDays = false;
@@ -588,7 +593,7 @@
             // timeSpanEdit6
             // 
             this.timeSpanEdit6.EditValue = System.TimeSpan.Parse("00:00:00");
-            this.timeSpanEdit6.Location = new System.Drawing.Point(223, 241);
+            this.timeSpanEdit6.Location = new System.Drawing.Point(223, 269);
             this.timeSpanEdit6.MenuManager = this.ribbonControl1;
             this.timeSpanEdit6.Name = "timeSpanEdit6";
             this.timeSpanEdit6.Properties.AllowEditDays = false;
@@ -604,7 +609,7 @@
             // timeSpanEdit3
             // 
             this.timeSpanEdit3.EditValue = System.TimeSpan.Parse("00:00:00");
-            this.timeSpanEdit3.Location = new System.Drawing.Point(223, 99);
+            this.timeSpanEdit3.Location = new System.Drawing.Point(223, 127);
             this.timeSpanEdit3.MenuManager = this.ribbonControl1;
             this.timeSpanEdit3.Name = "timeSpanEdit3";
             this.timeSpanEdit3.Properties.AllowEditDays = false;
@@ -620,7 +625,7 @@
             // timeSpanEdit4
             // 
             this.timeSpanEdit4.EditValue = System.TimeSpan.Parse("00:00:00");
-            this.timeSpanEdit4.Location = new System.Drawing.Point(223, 127);
+            this.timeSpanEdit4.Location = new System.Drawing.Point(223, 155);
             this.timeSpanEdit4.MenuManager = this.ribbonControl1;
             this.timeSpanEdit4.Name = "timeSpanEdit4";
             this.timeSpanEdit4.Properties.AllowEditDays = false;
@@ -645,7 +650,7 @@
             // timeSpanEdit1
             // 
             this.timeSpanEdit1.EditValue = System.TimeSpan.Parse("00:00:00");
-            this.timeSpanEdit1.Location = new System.Drawing.Point(223, 43);
+            this.timeSpanEdit1.Location = new System.Drawing.Point(223, 71);
             this.timeSpanEdit1.MenuManager = this.ribbonControl1;
             this.timeSpanEdit1.Name = "timeSpanEdit1";
             this.timeSpanEdit1.Properties.AllowEditDays = false;
@@ -661,7 +666,7 @@
             // timeSpanEdit2
             // 
             this.timeSpanEdit2.EditValue = System.TimeSpan.Parse("00:00:00");
-            this.timeSpanEdit2.Location = new System.Drawing.Point(223, 71);
+            this.timeSpanEdit2.Location = new System.Drawing.Point(223, 99);
             this.timeSpanEdit2.MenuManager = this.ribbonControl1;
             this.timeSpanEdit2.Name = "timeSpanEdit2";
             this.timeSpanEdit2.Properties.AllowEditDays = false;
@@ -686,7 +691,7 @@
             // 
             this.textBox13.BackColor = System.Drawing.SystemColors.Control;
             this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox13.Location = new System.Drawing.Point(32, 325);
+            this.textBox13.Location = new System.Drawing.Point(32, 353);
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(185, 16);
             this.textBox13.TabIndex = 20;
@@ -696,7 +701,7 @@
             // 
             this.textBox14.BackColor = System.Drawing.SystemColors.Control;
             this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox14.Location = new System.Drawing.Point(32, 354);
+            this.textBox14.Location = new System.Drawing.Point(32, 382);
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(187, 16);
             this.textBox14.TabIndex = 21;
@@ -718,7 +723,7 @@
             // 
             this.textBox10.BackColor = System.Drawing.SystemColors.Control;
             this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox10.Location = new System.Drawing.Point(32, 242);
+            this.textBox10.Location = new System.Drawing.Point(32, 270);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(185, 16);
             this.textBox10.TabIndex = 17;
@@ -728,7 +733,7 @@
             // 
             this.textBox11.BackColor = System.Drawing.SystemColors.Control;
             this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox11.Location = new System.Drawing.Point(34, 270);
+            this.textBox11.Location = new System.Drawing.Point(34, 298);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(185, 16);
             this.textBox11.TabIndex = 18;
@@ -738,7 +743,7 @@
             // 
             this.textBox12.BackColor = System.Drawing.SystemColors.Control;
             this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox12.Location = new System.Drawing.Point(34, 298);
+            this.textBox12.Location = new System.Drawing.Point(34, 326);
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(183, 16);
             this.textBox12.TabIndex = 19;
@@ -748,7 +753,7 @@
             // 
             this.textBox7.BackColor = System.Drawing.SystemColors.Control;
             this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox7.Location = new System.Drawing.Point(32, 158);
+            this.textBox7.Location = new System.Drawing.Point(32, 186);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(185, 16);
             this.textBox7.TabIndex = 14;
@@ -758,7 +763,7 @@
             // 
             this.textBox8.BackColor = System.Drawing.SystemColors.Control;
             this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox8.Location = new System.Drawing.Point(32, 186);
+            this.textBox8.Location = new System.Drawing.Point(32, 214);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(185, 16);
             this.textBox8.TabIndex = 15;
@@ -768,7 +773,7 @@
             // 
             this.textBox9.BackColor = System.Drawing.SystemColors.Control;
             this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox9.Location = new System.Drawing.Point(32, 214);
+            this.textBox9.Location = new System.Drawing.Point(32, 242);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(185, 16);
             this.textBox9.TabIndex = 16;
@@ -790,7 +795,7 @@
             // 
             this.textBox2.BackColor = System.Drawing.SystemColors.Control;
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Location = new System.Drawing.Point(32, 102);
+            this.textBox2.Location = new System.Drawing.Point(32, 130);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(185, 16);
             this.textBox2.TabIndex = 12;
@@ -800,7 +805,7 @@
             // 
             this.textBox3.BackColor = System.Drawing.SystemColors.Control;
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Location = new System.Drawing.Point(32, 130);
+            this.textBox3.Location = new System.Drawing.Point(32, 158);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(185, 16);
             this.textBox3.TabIndex = 13;
@@ -820,7 +825,7 @@
             // 
             this.textBox5.BackColor = System.Drawing.SystemColors.Control;
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Location = new System.Drawing.Point(32, 46);
+            this.textBox5.Location = new System.Drawing.Point(32, 74);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(185, 16);
             this.textBox5.TabIndex = 9;
@@ -830,7 +835,7 @@
             // 
             this.textBox6.BackColor = System.Drawing.SystemColors.Control;
             this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.Location = new System.Drawing.Point(32, 74);
+            this.textBox6.Location = new System.Drawing.Point(32, 102);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(185, 16);
             this.textBox6.TabIndex = 10;
@@ -1557,9 +1562,27 @@
             this.dataGridView1.TabIndex = 13;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
+            // textEdit2
+            // 
+            this.textEdit2.Location = new System.Drawing.Point(223, 43);
+            this.textEdit2.MenuManager = this.ribbonControl1;
+            this.textEdit2.Name = "textEdit2";
+            this.textEdit2.Size = new System.Drawing.Size(160, 22);
+            this.textEdit2.TabIndex = 49;
+            // 
+            // textBox45
+            // 
+            this.textBox45.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox45.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox45.Location = new System.Drawing.Point(32, 46);
+            this.textBox45.Name = "textBox45";
+            this.textBox45.Size = new System.Drawing.Size(185, 16);
+            this.textBox45.TabIndex = 48;
+            this.textBox45.Text = "Tên ca làm việc";
+            // 
             // tenCa
             // 
-            this.tenCa.DataPropertyName = "TenCaLamViec";
+            this.tenCa.DataPropertyName = "MaCaLamViec";
             this.tenCa.HeaderText = "Mã Ca";
             this.tenCa.MinimumWidth = 6;
             this.tenCa.Name = "tenCa";
@@ -1654,6 +1677,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.timeSpanEdit9.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeSpanEdit10.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1779,9 +1803,11 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.NumericUpDown numericUpDown25;
         private System.Windows.Forms.NumericUpDown numericUpDown26;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private System.Windows.Forms.TextBox textBox45;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenCa;
         private System.Windows.Forms.DataGridViewTextBoxColumn CheckIn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CheckOut;
-        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
