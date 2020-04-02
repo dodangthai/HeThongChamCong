@@ -81,7 +81,7 @@ namespace ATINTimekeeping.FormTimeKeepingSetting
             timeSpanEdit10.TimeSpan = caLamViec.TachGioCaDemTu == null ? TimeSpan.Zero : (TimeSpan)caLamViec.TachGioCaDemTu;
             timeSpanEdit9.TimeSpan = caLamViec.TachGioCaDemDen == null ? TimeSpan.Zero : (TimeSpan)caLamViec.TachGioCaDemDen;
         }
-        private CaLamViec GetCaLamViec()
+        private  CaLamViec GetCaLamViec()
         {
             CaLamViec caLamViec = new CaLamViec();
 
@@ -248,7 +248,7 @@ namespace ATINTimekeeping.FormTimeKeepingSetting
                 MessageBox.Show(e.Message);
             }
         }
-        private List<CaLamViec> LoadAllCaLamViec()
+        public static List<CaLamViec> LoadAllCaLamViec()
         {
             List<CaLamViec> caLamViecs = new List<CaLamViec>();
             try
