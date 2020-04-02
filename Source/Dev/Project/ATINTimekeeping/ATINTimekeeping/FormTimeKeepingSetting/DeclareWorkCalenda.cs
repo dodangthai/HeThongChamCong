@@ -40,5 +40,11 @@ namespace ATINTimekeeping.FormTimeKeepingSetting
         {
             obj = null;
         }
+
+        private void barButtonItem5_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form f = new SubDeclareWorkCalendar("month");
+            f.ShowDialog();
+        }
     }
 }

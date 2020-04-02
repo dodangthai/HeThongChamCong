@@ -33,7 +33,7 @@
             DevExpress.Utils.SimpleContextButton simpleContextButton2 = new DevExpress.Utils.SimpleContextButton();
             DevExpress.Utils.SimpleContextButton simpleContextButton3 = new DevExpress.Utils.SimpleContextButton();
             DevExpress.Utils.SimpleContextButton simpleContextButton4 = new DevExpress.Utils.SimpleContextButton();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("!Nhân viên mới");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Nhân viên mới");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Văn phòng");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("ATI", new System.Windows.Forms.TreeNode[] {
             treeNode2});
@@ -233,7 +233,7 @@
             this.repositoryItemTextEdit1,
             this.repositoryItemTextEdit2});
             this.ribbonControl1.Size = new System.Drawing.Size(75, 183);
-            this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
+            this.ribbonControl1.StatusBar = this.ribbonStatusBar;
             this.ribbonControl1.Visible = false;
             // 
             // barStaticItem1
@@ -382,7 +382,7 @@
             this.treeView1.Location = new System.Drawing.Point(2, 28);
             this.treeView1.Name = "treeView1";
             treeNode1.Name = "Node0";
-            treeNode1.Text = "!Nhân viên mới";
+            treeNode1.Text = "Nhân viên mới";
             treeNode2.Name = "Node3";
             treeNode2.Text = "Văn phòng";
             treeNode3.Name = "Node1";
