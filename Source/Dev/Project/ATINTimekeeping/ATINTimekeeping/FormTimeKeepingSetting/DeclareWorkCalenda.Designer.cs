@@ -46,14 +46,12 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.textBox20 = new System.Windows.Forms.TextBox();
             this.textBox18 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
             this.checkBox10 = new System.Windows.Forms.CheckBox();
             this.checkBox7 = new System.Windows.Forms.CheckBox();
             this.checkBox8 = new System.Windows.Forms.CheckBox();
@@ -68,7 +66,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -84,7 +81,7 @@
             this.ribbonStatusBar.ItemLinks.Add(this.barButtonItem3);
             this.ribbonStatusBar.ItemLinks.Add(this.barButtonItem4);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 0);
-            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonControl1;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1085, 33);
@@ -132,13 +129,13 @@
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
             this.ribbonControl1.SearchEditItem});
-            this.ribbonControl1.Location = new System.Drawing.Point(1252, 460);
-            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ribbonControl1.Location = new System.Drawing.Point(1956, 719);
+            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.ribbonControl1.MaxItemId = 1;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
-            this.ribbonControl1.Size = new System.Drawing.Size(94, 183);
+            this.ribbonControl1.Size = new System.Drawing.Size(148, 183);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar;
             this.ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Above;
             this.ribbonControl1.Visible = false;
@@ -160,7 +157,7 @@
             this.ribbonStatusBar1.BackColor = System.Drawing.SystemColors.Highlight;
             this.ribbonStatusBar1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ribbonStatusBar1.ItemLinks.Add(this.barButtonItem5);
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(3, 216);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(3, 196);
             this.ribbonStatusBar1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
@@ -192,6 +189,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -200,10 +199,12 @@
             this.dataGridView1.Location = new System.Drawing.Point(10, 3);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(295, 627);
             this.dataGridView1.TabIndex = 13;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // Code
             // 
@@ -223,31 +224,21 @@
             this.tableLayoutPanel2.Location = new System.Drawing.Point(311, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 220F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(771, 627);
             this.tableLayoutPanel2.TabIndex = 14;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.comboBoxEdit1);
             this.panel1.Controls.Add(this.radioButton3);
             this.panel1.Controls.Add(this.radioButton2);
             this.panel1.Controls.Add(this.radioButton1);
             this.panel1.Controls.Add(this.textEdit1);
             this.panel1.Controls.Add(this.textBox20);
             this.panel1.Controls.Add(this.textBox18);
-            this.panel1.Controls.Add(this.textBox19);
             this.panel1.Controls.Add(this.checkBox10);
             this.panel1.Controls.Add(this.checkBox7);
             this.panel1.Controls.Add(this.checkBox8);
@@ -256,7 +247,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(765, 214);
+            this.panel1.Size = new System.Drawing.Size(765, 194);
             this.panel1.TabIndex = 2;
             // 
             // textBox1
@@ -265,55 +256,48 @@
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.textBox1.Location = new System.Drawing.Point(19, 181);
+            this.textBox1.Location = new System.Drawing.Point(20, 152);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(684, 15);
             this.textBox1.TabIndex = 57;
             this.textBox1.Text = "Khi không xếp ca vào các ngày trong tuần hoặc ngày lễ, có đi làm thì mặc định tín" +
     "h tăng ca mức 1";
             // 
-            // comboBoxEdit1
-            // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(136, 42);
-            this.comboBoxEdit1.MenuManager = this.ribbonControl1;
-            this.comboBoxEdit1.Name = "comboBoxEdit1";
-            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Size = new System.Drawing.Size(160, 22);
-            this.comboBoxEdit1.TabIndex = 56;
-            // 
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(136, 107);
+            this.radioButton3.Location = new System.Drawing.Point(136, 69);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(58, 21);
             this.radioButton3.TabIndex = 55;
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "Năm";
             this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(226, 80);
+            this.radioButton2.Location = new System.Drawing.Point(226, 42);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(70, 21);
             this.radioButton2.TabIndex = 54;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Tháng";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(136, 80);
+            this.radioButton1.Location = new System.Drawing.Point(136, 42);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(62, 21);
             this.radioButton1.TabIndex = 53;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Tuần";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // textEdit1
             // 
@@ -327,7 +311,7 @@
             // 
             this.textBox20.BackColor = System.Drawing.SystemColors.Control;
             this.textBox20.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox20.Location = new System.Drawing.Point(20, 80);
+            this.textBox20.Location = new System.Drawing.Point(20, 42);
             this.textBox20.Name = "textBox20";
             this.textBox20.Size = new System.Drawing.Size(110, 15);
             this.textBox20.TabIndex = 51;
@@ -344,20 +328,10 @@
             this.textBox18.TabIndex = 49;
             this.textBox18.Text = "Tên lịch trình";
             // 
-            // textBox19
-            // 
-            this.textBox19.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox19.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox19.Location = new System.Drawing.Point(19, 49);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(111, 15);
-            this.textBox19.TabIndex = 50;
-            this.textBox19.Text = "Cách chọn vào ra";
-            // 
             // checkBox10
             // 
             this.checkBox10.AutoSize = true;
-            this.checkBox10.Location = new System.Drawing.Point(302, 125);
+            this.checkBox10.Location = new System.Drawing.Point(311, 127);
             this.checkBox10.Name = "checkBox10";
             this.checkBox10.Size = new System.Drawing.Size(180, 21);
             this.checkBox10.TabIndex = 31;
@@ -367,7 +341,7 @@
             // checkBox7
             // 
             this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(302, 97);
+            this.checkBox7.Location = new System.Drawing.Point(311, 99);
             this.checkBox7.Name = "checkBox7";
             this.checkBox7.Size = new System.Drawing.Size(530, 21);
             this.checkBox7.TabIndex = 30;
@@ -377,7 +351,7 @@
             // checkBox8
             // 
             this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(302, 69);
+            this.checkBox8.Location = new System.Drawing.Point(311, 71);
             this.checkBox8.Name = "checkBox8";
             this.checkBox8.Size = new System.Drawing.Size(275, 21);
             this.checkBox8.TabIndex = 29;
@@ -387,7 +361,7 @@
             // checkBox5
             // 
             this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(302, 41);
+            this.checkBox5.Location = new System.Drawing.Point(311, 43);
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(316, 21);
             this.checkBox5.TabIndex = 28;
@@ -397,7 +371,7 @@
             // checkBox6
             // 
             this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(302, 13);
+            this.checkBox6.Location = new System.Drawing.Point(311, 15);
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(310, 21);
             this.checkBox6.TabIndex = 27;
@@ -407,11 +381,11 @@
             // gridControl1
             // 
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(3, 256);
+            this.gridControl1.Location = new System.Drawing.Point(3, 236);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.MenuManager = this.ribbonControl1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(765, 368);
+            this.gridControl1.Size = new System.Drawing.Size(765, 388);
             this.gridControl1.TabIndex = 3;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -451,7 +425,6 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -485,12 +458,10 @@
         private System.Windows.Forms.CheckBox checkBox6;
         private System.Windows.Forms.TextBox textBox20;
         private System.Windows.Forms.TextBox textBox18;
-        private System.Windows.Forms.TextBox textBox19;
         private DevExpress.XtraEditors.TextEdit textEdit1;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
         private System.Windows.Forms.TextBox textBox1;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         private DevExpress.XtraGrid.GridControl gridControl1;
