@@ -341,11 +341,24 @@ namespace ATINTimekeeping.FormTimeKeepingSetting
 
         private void barButtonSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (string.IsNullOrEmpty(textEdit1.Text.Trim()))
+            {
+                MessageBox.Show("Mã ca không được để trống", "Thông báo!");
+                return;
+            }
+            if (string.IsNullOrEmpty(textEdit2.Text.Trim()))
+            {
+                MessageBox.Show("Tên ca không được để trống", "Thông báo!");
+                return;
+            }
             //Update or insert
             if (dataGridView1.Rows.Count > 0)
                 Save((dataGridView1.SelectedRows[0].DataBoundItem as CaLamViec).MaCaLamViec, GetCaLamViec(), ref allowInsert);
             else
+            {
+                allowInsert = true;
                 Save(null, GetCaLamViec(), ref allowInsert);
+            }
             allowInsert = false;
             barButtonItemAddNew.Enabled = true;
             RefreshGrid();

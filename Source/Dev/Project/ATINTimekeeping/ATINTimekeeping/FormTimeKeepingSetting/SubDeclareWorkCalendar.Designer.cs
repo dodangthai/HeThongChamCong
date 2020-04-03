@@ -208,6 +208,7 @@
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(302, 404);
             this.treeView1.TabIndex = 0;
+            this.treeView1.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterCheck);
             // 
             // button4
             // 
@@ -265,7 +266,7 @@
             this.MinimumSize = new System.Drawing.Size(1000, 628);
             this.Name = "SubDeclareWorkCalendar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "d";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SubDeclareWorkCalendar_FormClosing);
             this.Load += new System.EventHandler(this.SubDeclareWorkCalendar_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
