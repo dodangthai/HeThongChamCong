@@ -276,53 +276,61 @@ namespace ATINTimekeeping.FormTimeKeepingSetting
                         dataGridView2.Rows[lichTrinhThang.Date-1].Cells[count2].Value = lichTrinhThang.MaCaLamViec;
                     }
                     break;
-                //case "year":
-                //    dataGridView2.Columns.Add("", "Tháng");
-                //    for (int i = 1; i < 13; i++)
-                //    {
-                //        if (i % 2 == 0)
-                //        {
-                //            dataGridView2.Rows.Add("Tháng " + i);
-                //            dataGridView2.Rows[i - 1].DefaultCellStyle.BackColor = SystemColors.Control;
-                //            continue;
-                //        }
-                //        dataGridView2.Rows.Add("Tháng " + i);
-                //    }
-                //    List<LichTrinhNam> lichTrinhNams = context.spGetLichTrinhNamByLichTrinh(MaLichTrinh).OrderBy(c => c.Month).ThenBy(c=>c.Date).ToList(); ;
-                //    for (int i = 1; i <= 31; i++)
-                //    {
-                //        dataGridView2.Columns.Add("", "Ngày " + i);
-                //    }
-                //    dataGridView2.Columns.Add("", "Ngày Lễ");
-                //    dataGridView2.Columns[31].DefaultCellStyle.ForeColor = Color.Blue;
-                //    int count3 = 0;
-                //    int tmp3 = 0;
-                //    string Ca = "";
-                //    foreach (var lichTrinhNam in lichTrinhNams)
-                //    {
-                //        if (tmp3 != lichTrinhNam.Month)
-                //        {
-                //            foreach(var obj in lichTrinhNams) 
-                //            {
-                //                if (obj.Month == lichTrinhNam.Month && obj.Date == 1)
-                //                    Ca += obj.MaCaLamViec + @"/";
-                //            }
-                //            tmp3 = lichTrinhNam.Month;
-                //            dataGridView2.Rows[lichTrinhNam.Month-1].Cells[1].Value = Ca;
-                //            Ca = "";
-                //            count3 = 1;
-                //            continue;
-                //        }
-                //        count3++;
-                //        foreach (var obj in lichTrinhNams)
-                //        {
-                //            if (obj.Month == lichTrinhNam.Month && obj.Date == count3)
-                //                Ca += obj.MaCaLamViec + @"/";
-                //        }
-                //        dataGridView2.Rows[lichTrinhNam.Date-1].Cells[count3].Value = Ca;
-                //        Ca = "";
-                //    }
-                //    break;
+                case "year":
+                    dataGridView2.Columns.Add("", "Tháng");
+                    for (int i = 1; i < 13; i++)
+                    {
+                        if (i % 2 == 0)
+                        {
+                            dataGridView2.Rows.Add("Tháng " + i);
+                            dataGridView2.Rows[i - 1].DefaultCellStyle.BackColor = SystemColors.Control;
+                            continue;
+                        }
+                        dataGridView2.Rows.Add("Tháng " + i);
+                    }
+                    List<LichTrinhNam> lichTrinhNams = context.spGetLichTrinhNamByLichTrinh(MaLichTrinh).OrderBy(c => c.Month).ThenBy(c => c.Date).ToList(); ;
+                    for (int i = 1; i <= 31; i++)
+                    {
+                        dataGridView2.Columns.Add("", "Ngày " + i);
+                    }
+                    dataGridView2.Columns.Add("", "Ngày Lễ");
+                    dataGridView2.Columns[32].DefaultCellStyle.ForeColor = Color.Blue;
+                    int Date = 0; 
+                    int Month = 0;
+                    int Count = 0; //grid cell count
+
+                    string Ca = "";
+                    foreach (var lichTrinhNam in lichTrinhNams)
+                    {
+                        if (Month != lichTrinhNam.Month && Date != lichTrinhNam.Date)
+                        {
+                            Month = lichTrinhNam.Month;
+                            Date = lichTrinhNam.Date;
+                            foreach (var obj in lichTrinhNams)
+                            {
+                                if (obj.Month == lichTrinhNam.Month && obj.Date == Date)
+                                    Ca += obj.MaCaLamViec + @"/";
+                            }
+                            dataGridView2.Rows[lichTrinhNam.Month - 1].Cells[Date].Value = Ca;
+                            Ca = "";
+                            Count++;
+                            continue;
+                        }
+                        if (Month == lichTrinhNam.Month && Date != lichTrinhNam.Date)
+                        {
+                            Date = lichTrinhNam.Date;
+                            foreach (var obj in lichTrinhNams)
+                            {
+                                if (obj.Month == lichTrinhNam.Month && obj.Date == Date)
+                                    Ca += obj.MaCaLamViec + @"/";
+                            }
+                            dataGridView2.Rows[lichTrinhNam.Month - 1].Cells[Date].Value = Ca;
+                            Ca = "";
+                            Count++;
+                        }
+                    }
+
+                    break;
             }
         }
 

@@ -28,13 +28,6 @@ namespace ATINTimekeeping.FormTimeKeepingSetting
             this.WorkCalendarShowType = WorkCalendarShowType;
             //SetDoubleBuffer(treeView1, true);
             InitializeComponent();
-            listView1.Items.Clear();
-            listView2.Items.Clear();
-            treeView1.Nodes.Clear();
-            LisView1Config();
-            LisView2Config(lichTrinh, DateTime.Now.Month);
-            TreeView1Config(listView2);
-            Combobox1Config();
         }
         
         //prevent treeview flickering
@@ -208,9 +201,10 @@ namespace ATINTimekeeping.FormTimeKeepingSetting
         //Save
         private void button1_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
+            button1.Enabled = false;
             ATINChamCongEntities context = new ATINChamCongEntities();
             //date
-
             switch (WorkCalendarShowType)
             {
                 case "week":
@@ -248,10 +242,14 @@ namespace ATINTimekeeping.FormTimeKeepingSetting
                     break;
             }
             TreeView1Config(listView2);
+            Cursor.Current = Cursors.Default;
+            button1.Enabled = true;
         }
         //delete selected
         private void button2_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
+            button2.Enabled = false;
             ATINChamCongEntities context = new ATINChamCongEntities();
             foreach(TreeNode node in treeView1.Nodes)
             {
@@ -262,22 +260,28 @@ namespace ATINTimekeeping.FormTimeKeepingSetting
                         switch (WorkCalendarShowType)
                         {
                             case "week":
-                                context.spDeleteLichTrinhTuan(lichTrinh.MaLichTrinh, (childNode.Tag as CaLamViec).MaCaLamViec, node.Tag as int?);
+                                context.spDeleteLichTrinhTuan(lichTrinh.MaLichTrinh, (childNode.Tag as LichTrinhTuan).MaCaLamViec, node.Tag as int?);
                                 break;
                             case "month":
-                                context.spDeleteLichTrinhThang(lichTrinh.MaLichTrinh, (childNode.Tag as CaLamViec).MaCaLamViec, node.Tag as int?);
+                                context.spDeleteLichTrinhThang(lichTrinh.MaLichTrinh, (childNode.Tag as LichTrinhThang).MaCaLamViec, node.Tag as int?);
                                 break;
                             case "year":
-                                context.spDeleteLichTrinhNam(lichTrinh.MaLichTrinh, (childNode.Tag as CaLamViec).MaCaLamViec, node.Tag as int?, comboBox1.SelectedIndex+1);
+                                context.spDeleteLichTrinhNam(lichTrinh.MaLichTrinh, (childNode.Tag as LichTrinhNam).MaCaLamViec, node.Tag as int?, comboBox1.SelectedIndex+1);
                                 break;
                         }
                     }
                 }
             }
+            TreeView1Config(listView2);
+            Cursor.Current = Cursors.Default;
+            button2.Enabled = true;
+
         }
         //delete all
         private void button3_Click(object sender, EventArgs e)
         {
+            button3.Enabled = false;
+            Cursor.Current = Cursors.WaitCursor;
             ATINChamCongEntities context = new ATINChamCongEntities();
             switch (WorkCalendarShowType)
             {
@@ -291,6 +295,9 @@ namespace ATINTimekeeping.FormTimeKeepingSetting
                     context.spDeleteAllLichTrinhNamByLichTrinh_Month(lichTrinh.MaLichTrinh, comboBox1.SelectedIndex + 1);
                     break;
             }
+            TreeView1Config(listView2);
+            Cursor.Current = Cursors.Default;
+            button3.Enabled = true;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -305,13 +312,21 @@ namespace ATINTimekeeping.FormTimeKeepingSetting
 
         private void SubDeclareWorkCalendar_Load(object sender, EventArgs e)
         {
- 
+            listView1.Items.Clear();
+            listView2.Items.Clear();
+            treeView1.Nodes.Clear();
+            LisView1Config();
+            LisView2Config(lichTrinh, DateTime.Now.Month);
+            TreeView1Config(listView2);
+            Combobox1Config();
         }
- 
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
+            comboBox1.Enabled = false;
             RefreshMonthChange(comboBox1.SelectedIndex+1);
+            Cursor.Current = Cursors.Default;
+            comboBox1.Enabled = true;
         }
 
         private void SubDeclareWorkCalendar_FormClosing(object sender, FormClosingEventArgs e)
