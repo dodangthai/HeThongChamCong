@@ -61,35 +61,20 @@
     <Property Name="UserType" Type="int" Nullable="false" />
     <Property Name="HieuLuc" Type="bit" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'ATINChamCong.dbo.BaoCao' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="BaoCao">
+  <EntityType Name="CacLoaiVang">
     <Key>
-      <PropertyRef Name="MaBaoCao" />
-      <PropertyRef Name="NgayBaoCao" />
-      <PropertyRef Name="MaNguoi" />
+      <PropertyRef Name="MaLoaiVang" />
     </Key>
-    <Property Name="MaBaoCao" Type="int" Nullable="false" />
-    <Property Name="NgayBaoCao" Type="date" Nullable="false" />
-    <Property Name="MaNguoi" Type="int" Nullable="false" />
-    <Property Name="ThoiGianIn" Type="datetime" />
-    <Property Name="ThoiGianOut" Type="datetime" />
-  </EntityType>
-  <EntityType Name="BaoCaoChiTiet">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="reportDate" Type="datetime" />
-    <Property Name="checkInTime" Type="date" />
-    <Property Name="checkOutTime" Type="datetime" />
-    <Property Name="status" Type="int" />
+    <Property Name="MaLoaiVang" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TenLoaiVang" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="TrangThai" Type="bit" />
+    <Property Name="TinhCong" Type="bit" />
   </EntityType>
   <EntityType Name="CaLamViec">
     <Key>
       <PropertyRef Name="MaCaLamViec" />
     </Key>
-    <Property Name="MaCaLamViec" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaCaLamViec" Type="varchar" MaxLength="5" Nullable="false" />
     <Property Name="TenCaLamViec" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="GioBatDauCa" Type="time" Precision="7" Nullable="false" />
     <Property Name="GioKetThucCa" Type="time" Precision="7" Nullable="false" />
@@ -117,7 +102,9 @@ warning 6002: The table/view 'ATINChamCong.dbo.BaoCao' does not have a primary k
     <Property Name="MucTangCaCuaTangCaCuoiTuan" Type="int" />
     <Property Name="SDMucTangCaCuaTangCaNgayLe" Type="bit" />
     <Property Name="MucTangCaCuaTangCaNgayLe" Type="int" />
+    <Property Name="SDTangCaTruocGLV" Type="bit" />
     <Property Name="TangCaTruocGLV" Type="int" />
+    <Property Name="SDTangCaSauGLV" Type="bit" />
     <Property Name="TangCaSauGLV" Type="int" />
     <Property Name="TongGLVTinhTangCa" Type="int" />
     <Property Name="GioiHanTCMucMot" Type="int" />
@@ -127,6 +114,7 @@ warning 6002: The table/view 'ATINChamCong.dbo.BaoCao' does not have a primary k
     <Property Name="CaQuaDem" Type="bit" />
     <Property Name="TachGioCaDemTu" Type="time" Precision="7" />
     <Property Name="TachGioCaDemDen" Type="time" Precision="7" />
+    <Property Name="SDTongGLVTinhTangCa" Type="bit" />
   </EntityType>
   <EntityType Name="ChamCong">
     <Key>
@@ -136,7 +124,7 @@ warning 6002: The table/view 'ATINChamCong.dbo.BaoCao' does not have a primary k
     <Property Name="MaNhanVien" Type="int" Nullable="false" />
     <Property Name="MaDinhDanh" Type="int" />
     <Property Name="NgayChamCong" Type="date" Nullable="false" />
-    <Property Name="MaCaLamViec" Type="int" Nullable="false" />
+    <Property Name="MaCaLamViec" Type="varchar" MaxLength="5" Nullable="false" />
     <Property Name="GioVaoDauTien" Type="datetime" />
     <Property Name="GioRaCuoiCung" Type="datetime" />
     <Property Name="SoGioLamViec" Type="float" Nullable="false" />
@@ -147,8 +135,11 @@ warning 6002: The table/view 'ATINChamCong.dbo.BaoCao' does not have a primary k
     <Property Name="TangCa1" Type="int" Nullable="false" />
     <Property Name="TangCa2" Type="int" Nullable="false" />
     <Property Name="TangCa3" Type="int" Nullable="false" />
+    <Property Name="MaLoaiVang" Type="varchar" MaxLength="10" />
+    <Property Name="LyDoVang" Type="nvarchar" MaxLength="100" />
     <Property Name="TongSoGioLamViec" Type="float" Nullable="false" />
     <Property Name="TongSoCongLamViec" Type="float" Nullable="false" />
+    <Property Name="MaXepLoaiChamCong" Type="varchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="ChamCongChiTiet">
     <Key>
@@ -158,17 +149,17 @@ warning 6002: The table/view 'ATINChamCong.dbo.BaoCao' does not have a primary k
     <Property Name="MaChamCong" Type="int" Nullable="false" />
     <Property Name="NgayChamCong" Type="date" Nullable="false" />
     <Property Name="GioChamCong" Type="datetime" Nullable="false" />
-    <Property Name="LoaiChamCong" Type="int" Nullable="false" />
+    <Property Name="MaLoaiChamCong" Type="varchar" MaxLength="3" Nullable="false" />
     <Property Name="NguonThucHien" Type="int" Nullable="false" />
     <Property Name="MaThietBi" Type="int" />
+    <Property Name="HinhChamCong" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="ChucVu">
     <Key>
       <PropertyRef Name="MaChucVu" />
     </Key>
     <Property Name="MaChucVu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ChucVu" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="TrangThai" Type="int" />
+    <Property Name="TenChucVu" Type="nvarchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <EntityType Name="CongTyKhuVuc">
     <Key>
@@ -211,27 +202,7 @@ warning 6002: The table/view 'ATINChamCong.dbo.BaoCao' does not have a primary k
       <PropertyRef Name="MaDanToc" />
     </Key>
     <Property Name="MaDanToc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="DanToc" Type="nvarchar" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="HopDongLaoDong">
-    <Key>
-      <PropertyRef Name="MaHopDong" />
-    </Key>
-    <Property Name="MaHopDong" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MaNhanVien" Type="int" Nullable="false" />
-    <Property Name="SoHopDong" Type="varchar" MaxLength="50" />
-    <Property Name="LoaiHopDong" Type="varchar" MaxLength="10" />
-    <Property Name="NgayKyHopDong" Type="date" />
-    <Property Name="GhiChu" Type="nvarchar" MaxLength="100" />
-  </EntityType>
-  <EntityType Name="KhaiBaoThoiGian">
-    <Key>
-      <PropertyRef Name="MaThoiGian" />
-    </Key>
-    <Property Name="MaThoiGian" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="ThoiGian" Type="nvarchar" MaxLength="30" Nullable="false" />
-    <Property Name="NhomThoiGian" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="SapXep" Type="int" />
+    <Property Name="TenDanToc" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="KhuonMat">
     <Key>
@@ -245,34 +216,68 @@ warning 6002: The table/view 'ATINChamCong.dbo.BaoCao' does not have a primary k
     <Property Name="ThoiGianDangKy" Type="datetime" Nullable="false" />
     <Property Name="TrangThai" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="KyHieuCacLoaiVang">
+  <EntityType Name="LichSuSuaDuLieuChamCong">
     <Key>
-      <PropertyRef Name="MaLoaiVang" />
-      <PropertyRef Name="KyHieu" />
+      <PropertyRef Name="MaLichSuSuaDLCC" />
     </Key>
-    <Property Name="MaLoaiVang" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="TenLoaiVang" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="KyHieu" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="TrangThai" Type="bit" />
-    <Property Name="TinhCong" Type="bit" />
+    <Property Name="MaLichSuSuaDLCC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ThoiGianThucHien" Type="datetime" Nullable="false" />
+    <Property Name="GioCu" Type="datetime" />
+    <Property Name="GioMoi" Type="datetime" />
+    <Property Name="MaLoaiChamCongCu" Type="varchar" MaxLength="3" />
+    <Property Name="MaLoaiChamCongMoi" Type="varchar" MaxLength="3" />
+    <Property Name="NguoiThucHien" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <EntityType Name="KyHieuChamCong">
+  <EntityType Name="LichTrinh">
     <Key>
-      <PropertyRef Name="MaKyHieuChamCong" />
-      <PropertyRef Name="KyHieu" />
+      <PropertyRef Name="MaLichTrinh" />
     </Key>
-    <Property Name="MaKyHieuChamCong" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="TenKyHieuChamCong" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="KyHieu" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="TrangThai" Type="int" />
+    <Property Name="MaLichTrinh" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="TenLichTrinh" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="LoaiChuKy" Type="varchar" MaxLength="5" Nullable="false" />
   </EntityType>
-  <EntityType Name="LichTrinhLamViec">
+  <EntityType Name="LichTrinhNam">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="MaLichTrinhNam" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MaThoiGian" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="MaCaLamViec" Type="int" Nullable="false" />
+    <Property Name="MaLichTrinhNam" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaCaLamViec" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="MaLichTrinh" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="Date" Type="int" Nullable="false" />
+    <Property Name="Month" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LichTrinhNangCao">
+    <Key>
+      <PropertyRef Name="MaLichTrinhNangCao" />
+    </Key>
+    <Property Name="MaLichTrinhNangCao" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="TenLichTrinhNangCao" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="SuDung" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LichTrinhThang">
+    <Key>
+      <PropertyRef Name="MaLichTrinhThang" />
+    </Key>
+    <Property Name="MaLichTrinhThang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaCaLamViec" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="MaLichTrinh" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="Date" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LichTrinhTuan">
+    <Key>
+      <PropertyRef Name="MaLichTrinhTuan" />
+    </Key>
+    <Property Name="MaLichTrinhTuan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaCaLamViec" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="MaLichTrinh" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="DateInWeek" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoaiChamCong">
+    <Key>
+      <PropertyRef Name="MaLoaiChamCong" />
+    </Key>
+    <Property Name="MaLoaiChamCong" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="TenLoaiChamCong" Type="nvarchar" MaxLength="30" Nullable="false" />
   </EntityType>
   <EntityType Name="LoaiHopDong">
     <Key>
@@ -288,14 +293,14 @@ warning 6002: The table/view 'ATINChamCong.dbo.BaoCao' does not have a primary k
     <Property Name="MaLoaiNghiPhep" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="LoaiNghiPhep" Type="nvarchar" MaxLength="50" />
   </EntityType>
-  <EntityType Name="LoaiThamSo">
+  <EntityType Name="MapLichTrinhNangCao">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="MaLichTrinh" />
+      <PropertyRef Name="MaLichTrinhNangCao" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="LoaiThamSo" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="TenLoaiThamSo" Type="nvarchar" MaxLength="150" Nullable="false" />
-    <Property Name="MoTa" Type="nvarchar" MaxLength="250" />
+    <Property Name="MaLichTrinh" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="MaLichTrinhNangCao" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="EmptyColumn" Type="varchar" MaxLength="1" />
   </EntityType>
   <EntityType Name="MayNhanDang">
     <Key>
@@ -419,15 +424,25 @@ warning 6002: The table/view 'ATINChamCong.dbo.BaoCao' does not have a primary k
       <PropertyRef Name="MaPhongBan" />
     </Key>
     <Property Name="MaPhongBan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="PhongBan" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="TrangThai" Type="int" />
+    <Property Name="TenPhongBan" Type="nvarchar" MaxLength="100" Nullable="false" />
   </EntityType>
-  <EntityType Name="PhuCap">
+  <EntityType Name="SapXepLichTrinh">
     <Key>
-      <PropertyRef Name="MaPhuCap" />
+      <PropertyRef Name="MaSapXep" />
     </Key>
-    <Property Name="MaPhuCap" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="PhuCap" Type="float" />
+    <Property Name="MaSapXep" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaNguoi" Type="int" Nullable="false" />
+    <Property Name="MaLichTrinh" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="SapXepLichTrinhTam">
+    <Key>
+      <PropertyRef Name="MaLichTrinhTam" />
+    </Key>
+    <Property Name="MaLichTrinhTam" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TuNgay" Type="date" Nullable="false" />
+    <Property Name="DenNgay" Type="date" Nullable="false" />
+    <Property Name="MaLichTrinh" Type="varchar" MaxLength="5" />
+    <Property Name="MaNguoi" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -438,16 +453,6 @@ warning 6002: The table/view 'ATINChamCong.dbo.BaoCao' does not have a primary k
     <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
-  </EntityType>
-  <EntityType Name="ThamSo">
-    <Key>
-      <PropertyRef Name="MaThamSo" />
-    </Key>
-    <Property Name="MaThamSo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="LoaiThamSo" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="TenThamSo" Type="nvarchar" MaxLength="150" Nullable="false" />
-    <Property Name="GiaTriThamSo" Type="nvarchar" MaxLength="150" Nullable="false" />
-    <Property Name="TrangThai" Type="int" />
   </EntityType>
   <EntityType Name="TheTu">
     <Key>
@@ -474,7 +479,7 @@ warning 6002: The table/view 'ATINChamCong.dbo.BaoCao' does not have a primary k
       <PropertyRef Name="MaTrinhDoHocVan" />
     </Key>
     <Property Name="MaTrinhDoHocVan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="TrinhDoHocVan" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="TenTrinhDoHocVan" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="TrangThai" Type="int" />
   </EntityType>
   <EntityType Name="VanTay">
@@ -489,49 +494,24 @@ warning 6002: The table/view 'ATINChamCong.dbo.BaoCao' does not have a primary k
     <Property Name="ThoiGianDangKy" Type="datetime" />
     <Property Name="TrangThai" Type="int" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'ATINChamCong.dbo.MATHANG_KHO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="MATHANG_KHO">
+  <EntityType Name="XepLoaiChamCong">
     <Key>
-      <PropertyRef Name="KHOID" />
-      <PropertyRef Name="MHID" />
-      <PropertyRef Name="SOLUONG" />
+      <PropertyRef Name="MaXepLoaiChamCong" />
     </Key>
-    <Property Name="MHTEN" Type="nvarchar" MaxLength="255" />
-    <Property Name="MHCODE" Type="nvarchar" MaxLength="30" />
-    <Property Name="KHOCODE" Type="nvarchar" MaxLength="12" />
-    <Property Name="KHOTEN" Type="nvarchar" MaxLength="50" />
-    <Property Name="KHOID" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="MHID" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="SOLUONG" Type="decimal" Precision="18" Scale="4" Nullable="false" />
-    <Property Name="GIANHAP" Type="money" />
-    <Property Name="GIABANLE" Type="money" />
-    <Property Name="GIABANBUON" Type="money" />
-    <Property Name="GIABAN1" Type="money" />
-    <Property Name="GIABAN2" Type="money" />
-    <Property Name="GIABAN3" Type="money" />
-    <Property Name="SLONORDER" Type="decimal" Precision="18" Scale="4" />
-    <Property Name="SLTONDAU" Type="decimal" Precision="18" Scale="4" />
-    <Property Name="GVTONDAU" Type="money" />
-    <Property Name="CREATEDDATE" Type="datetime" />
-    <Property Name="UPDATEDDATE" Type="datetime" />
-    <Property Name="CREATEBY" Type="nvarchar" MaxLength="12" />
-    <Property Name="SLTANG" Type="decimal" Precision="18" Scale="4" />
-    <Property Name="SLGIAM" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="MaXepLoaiChamCong" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TenKyHieuChamCong" Type="nvarchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="SP_Status">
+warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ViewSapXepLichTrinh">
     <Key>
-      <PropertyRef Name="statusupdate" />
-      <PropertyRef Name="trangthaimoi" />
+      <PropertyRef Name="MaNguoi" />
     </Key>
-    <Property Name="SOLUONG" Type="decimal" Precision="38" Scale="4" />
-    <Property Name="statusupdate" Type="int" Nullable="false" />
-    <Property Name="SP_CODE" Type="varchar" MaxLength="50" />
-    <Property Name="TrangThai" Type="int" />
-    <Property Name="TieuDe" Type="nvarchar" MaxLength="256" />
-    <Property Name="trangthaimoi" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="MaNguoi" Type="int" Nullable="false" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="100" />
+    <Property Name="MaChamCong" Type="int" />
+    <Property Name="MaLichTrinh" Type="varchar" MaxLength="5" />
+    <Property Name="MaSapXep" Type="int" />
   </EntityType>
   <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -589,7 +569,91 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_dbo_DangKyNghiPhep_MaLoaiNghiPhep">
+  <Association Name="FK_dbo_ChamCong_CacLoaiVang">
+    <End Role="CacLoaiVang" Type="Self.CacLoaiVang" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ChamCong" Type="Self.ChamCong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CacLoaiVang">
+        <PropertyRef Name="MaLoaiVang" />
+      </Principal>
+      <Dependent Role="ChamCong">
+        <PropertyRef Name="MaLoaiVang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ChamCong_CaLamViec">
+    <End Role="CaLamViec" Type="Self.CaLamViec" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ChamCong" Type="Self.ChamCong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CaLamViec">
+        <PropertyRef Name="MaCaLamViec" />
+      </Principal>
+      <Dependent Role="ChamCong">
+        <PropertyRef Name="MaCaLamViec" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ChamCong_Nguoi">
+    <End Role="Nguoi" Type="Self.Nguoi" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ChamCong" Type="Self.ChamCong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nguoi">
+        <PropertyRef Name="MaNguoi" />
+      </Principal>
+      <Dependent Role="ChamCong">
+        <PropertyRef Name="MaNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ChamCong_XepLoaiChamCong">
+    <End Role="XepLoaiChamCong" Type="Self.XepLoaiChamCong" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ChamCong" Type="Self.ChamCong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="XepLoaiChamCong">
+        <PropertyRef Name="MaXepLoaiChamCong" />
+      </Principal>
+      <Dependent Role="ChamCong">
+        <PropertyRef Name="MaXepLoaiChamCong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ChamCongChiTiet_ChamCong">
+    <End Role="ChamCong" Type="Self.ChamCong" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ChamCongChiTiet" Type="Self.ChamCongChiTiet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChamCong">
+        <PropertyRef Name="MaChamCong" />
+      </Principal>
+      <Dependent Role="ChamCongChiTiet">
+        <PropertyRef Name="MaChamCong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ChamCongChiTiet_LoaiChamCong">
+    <End Role="LoaiChamCong" Type="Self.LoaiChamCong" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ChamCongChiTiet" Type="Self.ChamCongChiTiet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiChamCong">
+        <PropertyRef Name="MaLoaiChamCong" />
+      </Principal>
+      <Dependent Role="ChamCongChiTiet">
+        <PropertyRef Name="MaLoaiChamCong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_DangKyNghiPhep_LoaiNghiPhep">
     <End Role="LoaiNghiPhep" Type="Self.LoaiNghiPhep" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
@@ -603,7 +667,7 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_dbo_DangKyNghiPhep_MaNhanVien">
+  <Association Name="FK_dbo_DangKyNghiPhep_Nguoi">
     <End Role="Nguoi" Type="Self.Nguoi" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
@@ -645,6 +709,104 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_dbo_LichTrinhNam_CaLamViec">
+    <End Role="CaLamViec" Type="Self.CaLamViec" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LichTrinhNam" Type="Self.LichTrinhNam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CaLamViec">
+        <PropertyRef Name="MaCaLamViec" />
+      </Principal>
+      <Dependent Role="LichTrinhNam">
+        <PropertyRef Name="MaCaLamViec" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_LichTrinhThang_CaLamViec">
+    <End Role="CaLamViec" Type="Self.CaLamViec" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LichTrinhThang" Type="Self.LichTrinhThang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CaLamViec">
+        <PropertyRef Name="MaCaLamViec" />
+      </Principal>
+      <Dependent Role="LichTrinhThang">
+        <PropertyRef Name="MaCaLamViec" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_LichTrinhTuan_CaLamViec">
+    <End Role="CaLamViec" Type="Self.CaLamViec" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LichTrinhTuan" Type="Self.LichTrinhTuan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CaLamViec">
+        <PropertyRef Name="MaCaLamViec" />
+      </Principal>
+      <Dependent Role="LichTrinhTuan">
+        <PropertyRef Name="MaCaLamViec" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_MapLichTrinhNangCao_LichTrinh">
+    <End Role="LichTrinh" Type="Self.LichTrinh" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MapLichTrinhNangCao" Type="Self.MapLichTrinhNangCao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LichTrinh">
+        <PropertyRef Name="MaLichTrinh" />
+      </Principal>
+      <Dependent Role="MapLichTrinhNangCao">
+        <PropertyRef Name="MaLichTrinh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_MapLichTrinhNangCao_LichTrinhNangCao">
+    <End Role="LichTrinhNangCao" Type="Self.LichTrinhNangCao" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MapLichTrinhNangCao" Type="Self.MapLichTrinhNangCao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LichTrinhNangCao">
+        <PropertyRef Name="MaLichTrinhNangCao" />
+      </Principal>
+      <Dependent Role="MapLichTrinhNangCao">
+        <PropertyRef Name="MaLichTrinhNangCao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Nguoi_ChucVu">
+    <End Role="ChucVu" Type="Self.ChucVu" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Nguoi" Type="Self.Nguoi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChucVu">
+        <PropertyRef Name="MaChucVu" />
+      </Principal>
+      <Dependent Role="Nguoi">
+        <PropertyRef Name="ChucVu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Nguoi_PhongBan">
+    <End Role="PhongBan" Type="Self.PhongBan" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Nguoi" Type="Self.Nguoi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhongBan">
+        <PropertyRef Name="MaPhongBan" />
+      </Principal>
+      <Dependent Role="Nguoi">
+        <PropertyRef Name="PhongBan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_dbo_NhatKy_MaNguoi">
     <End Role="Nguoi" Type="Self.Nguoi" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -656,6 +818,48 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
       </Principal>
       <Dependent Role="NhatKy">
         <PropertyRef Name="MaNguoi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_SapXepLichTrinh_LichTrinh">
+    <End Role="LichTrinh" Type="Self.LichTrinh" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SapXepLichTrinh" Type="Self.SapXepLichTrinh" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LichTrinh">
+        <PropertyRef Name="MaLichTrinh" />
+      </Principal>
+      <Dependent Role="SapXepLichTrinh">
+        <PropertyRef Name="MaLichTrinh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_SapXepLichTrinh_Nguoi">
+    <End Role="Nguoi" Type="Self.Nguoi" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SapXepLichTrinh" Type="Self.SapXepLichTrinh" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nguoi">
+        <PropertyRef Name="MaNguoi" />
+      </Principal>
+      <Dependent Role="SapXepLichTrinh">
+        <PropertyRef Name="MaNguoi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_SapXepLichTrinhTam_LichTrinh">
+    <End Role="LichTrinh" Type="Self.LichTrinh" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SapXepLichTrinhTam" Type="Self.SapXepLichTrinhTam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LichTrinh">
+        <PropertyRef Name="MaLichTrinh" />
+      </Principal>
+      <Dependent Role="SapXepLichTrinhTam">
+        <PropertyRef Name="MaLichTrinh" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -687,40 +891,55 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_LichTrinhNam_LichTrinh">
+    <End Role="LichTrinh" Type="Self.LichTrinh" Multiplicity="1" />
+    <End Role="LichTrinhNam" Type="Self.LichTrinhNam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LichTrinh">
+        <PropertyRef Name="MaLichTrinh" />
+      </Principal>
+      <Dependent Role="LichTrinhNam">
+        <PropertyRef Name="MaLichTrinh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LichTrinhThang_LichTrinh">
+    <End Role="LichTrinh" Type="Self.LichTrinh" Multiplicity="1" />
+    <End Role="LichTrinhThang" Type="Self.LichTrinhThang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LichTrinh">
+        <PropertyRef Name="MaLichTrinh" />
+      </Principal>
+      <Dependent Role="LichTrinhThang">
+        <PropertyRef Name="MaLichTrinh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LichTrinhTuan_LichTrinh">
+    <End Role="LichTrinh" Type="Self.LichTrinh" Multiplicity="1" />
+    <End Role="LichTrinhTuan" Type="Self.LichTrinhTuan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LichTrinh">
+        <PropertyRef Name="MaLichTrinh" />
+      </Principal>
+      <Dependent Role="LichTrinhTuan">
+        <PropertyRef Name="MaLichTrinh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SapXepLichTrinhTam_Nguoi">
+    <End Role="Nguoi" Type="Self.Nguoi" Multiplicity="1" />
+    <End Role="SapXepLichTrinhTam" Type="Self.SapXepLichTrinhTam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nguoi">
+        <PropertyRef Name="MaNguoi" />
+      </Principal>
+      <Dependent Role="SapXepLichTrinhTam">
+        <PropertyRef Name="MaNguoi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
-  <Function Name="fn_Split" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="p_SourceText" Type="nvarchar(max)" Mode="In" />
-    <Parameter Name="p_Delimeter" Type="nvarchar" Mode="In" />
-    <ReturnType>
-      <CollectionType>
-        <RowType>
-          <Property Name="Position" Type="int" Nullable="false" />
-          <Property Name="txt_value" Type="nvarchar" MaxLength="2000" />
-        </RowType>
-      </CollectionType>
-    </ReturnType>
-  </Function>
-  <Function Name="fnCharToAscii" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
-    <Parameter Name="Char" Type="varchar" Mode="In" />
-  </Function>
-  <Function Name="GetCamNameByCamCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
-    <Parameter Name="cameraCode" Type="nvarchar" Mode="In" />
-  </Function>
-  <Function Name="GetGateNameByCamCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
-    <Parameter Name="cameraCode" Type="nvarchar" Mode="In" />
-  </Function>
-  <Function Name="GetPNameByPType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
-    <Parameter Name="paramType" Type="nvarchar" Mode="In" />
-  </Function>
-  <Function Name="GetPNameByPValue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
-    <Parameter Name="paramValue" Type="nvarchar" Mode="In" />
-  </Function>
-  <Function Name="GetRangeAges" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar(max)">
-    <Parameter Name="Name" Type="nvarchar(max)" Mode="In" />
-  </Function>
-  <Function Name="GetUnsignString" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
-    <Parameter Name="strInput" Type="nvarchar" Mode="In" />
-  </Function>
   <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
     <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -751,14 +970,90 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
     <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spDeleteAllLichTrinhNamByLichTrinh_Month" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaLichTrinh" Type="varchar" Mode="In" />
+    <Parameter Name="Month" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spDeleteAllLichTrinhThangByLichTrinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaLichTrinh" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spDeleteAllLichTrinhTuanByLichTrinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaLichTrinh" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="spDeleteCaLamViec" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="MaCaLamViec" Type="nvarchar" Mode="In" />
+    <Parameter Name="MaCaLamViec" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spDeleteLichTrinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaLichTrinh" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spDeleteLichTrinhNam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaLichTrinh" Type="varchar" Mode="In" />
+    <Parameter Name="MaCaLamViec" Type="varchar" Mode="In" />
+    <Parameter Name="Date" Type="int" Mode="In" />
+    <Parameter Name="Month" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spDeleteLichTrinhThang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaLichTrinh" Type="varchar" Mode="In" />
+    <Parameter Name="MaCaLamViec" Type="varchar" Mode="In" />
+    <Parameter Name="Date" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spDeleteLichTrinhTuan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaLichTrinh" Type="varchar" Mode="In" />
+    <Parameter Name="MaCaLamViec" Type="varchar" Mode="In" />
+    <Parameter Name="DateInWeek" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spDeleteMapLichTrinhNangCao" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaLichTrinh" Type="varchar" Mode="In" />
+    <Parameter Name="MaLichTrinhNangCao" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spDeletePhongBan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaPhongBan" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spDeleteSapXepLichTrinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaSapXep" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spDeleteSapXepLichTrinhTam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaLichTrinhTam" Type="int" Mode="In" />
   </Function>
   <Function Name="spGetAllCaLamViec" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetAllChucVu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetAllLichTrinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetAllNguoi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetAllPhongBan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetAllSapXepLichTrinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetAllSapXepLichTrinhTam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="spGetCaLamViec" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="MaCaLamViec" Type="int" Mode="In" />
+    <Parameter Name="MaCaLamViec" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spGetLichTrinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaCaLamViec" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spGetLichTrinhNamByLichTrinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaLichTrinh" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spGetLichTrinhThangByLichTrinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaLichTrinh" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spGetLichTrinhTuanByLichTrinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaLichTrinh" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spGetMapLichTrinhNangCaoByLichTrinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaLichTrinh" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spGetPhongBan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaPhongBan" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetSapXepLichTrinhByNguoi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaNguoi" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetSapXepLichTrinhTamByNguoi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaNguoi" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetViewSapXepLichTrinhByNguoi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaNguoi" Type="int" Mode="In" />
   </Function>
   <Function Name="spInsertCaLamViec" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaCaLamViec" Type="varchar" Mode="In" />
     <Parameter Name="TenCaLamViec" Type="nvarchar" Mode="In" />
     <Parameter Name="GioBatDauCa" Type="time" Mode="In" />
     <Parameter Name="GioKetThucCa" Type="time" Mode="In" />
@@ -776,6 +1071,18 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
     <Parameter Name="ThoiGianDiTreChoPhep" Type="int" Mode="In" />
     <Parameter Name="TruGioVeSom" Type="bit" Mode="In" />
     <Parameter Name="ThoiGianVeSomChoPhep" Type="int" Mode="In" />
+    <Parameter Name="SDMucTangCaHienTai" Type="bit" Mode="In" />
+    <Parameter Name="MucTangCaHienTai" Type="int" Mode="In" />
+    <Parameter Name="SDMucTangCaCuoiTuan" Type="bit" Mode="In" />
+    <Parameter Name="MucTangCaCuoiTuan" Type="int" Mode="In" />
+    <Parameter Name="SDMucTangCaNgayLe" Type="bit" Mode="In" />
+    <Parameter Name="MucTangCaNgayLe" Type="int" Mode="In" />
+    <Parameter Name="SDTangCaTruocGLV" Type="bit" Mode="In" />
+    <Parameter Name="TangCaTruocGLV" Type="int" Mode="In" />
+    <Parameter Name="SDTangCaSauGLV" Type="bit" Mode="In" />
+    <Parameter Name="TangCaSauGLV" Type="int" Mode="In" />
+    <Parameter Name="SDTongGLVTinhTangCa" Type="bit" Mode="In" />
+    <Parameter Name="TongGLVTinhTangCa" Type="int" Mode="In" />
     <Parameter Name="GioiHanTCMucMot" Type="int" Mode="In" />
     <Parameter Name="GioiHanTCMucHai" Type="int" Mode="In" />
     <Parameter Name="SDMucTangCaCuaTangCaCuoiTuan" Type="bit" Mode="In" />
@@ -788,8 +1095,51 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
     <Parameter Name="TachGioCaDemTu" Type="time" Mode="In" />
     <Parameter Name="TachGioCaDemDen" Type="time" Mode="In" />
   </Function>
+  <Function Name="spInsertChucVu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TenChucVu" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spInsertLichTrinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaLichTrinh" Type="varchar" Mode="In" />
+    <Parameter Name="TenLichTrinh" Type="nvarchar" Mode="In" />
+    <Parameter Name="LoaiChuKy" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spInsertLichTrinhNam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaLichTrinh" Type="varchar" Mode="In" />
+    <Parameter Name="MaCaLamViec" Type="varchar" Mode="In" />
+    <Parameter Name="Date" Type="int" Mode="In" />
+    <Parameter Name="Month" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spInsertLichTrinhThang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaLichTrinh" Type="varchar" Mode="In" />
+    <Parameter Name="MaCaLamViec" Type="varchar" Mode="In" />
+    <Parameter Name="Date" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spInsertLichTrinhTuan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaLichTrinh" Type="varchar" Mode="In" />
+    <Parameter Name="MaCaLamViec" Type="varchar" Mode="In" />
+    <Parameter Name="DateInWeek" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spInsertMapLichTrinhNangCao" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaLichTrinh" Type="varchar" Mode="In" />
+    <Parameter Name="MaLichTrinhNangCao" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spInsertPhongBan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaPhongBan" Type="int" Mode="In" />
+    <Parameter Name="TenPhongBan" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spInsertSapXepLichTrinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaNguoi" Type="int" Mode="In" />
+    <Parameter Name="MaLichTrinh" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spInsertSapxepLichTrinhTam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TuNgay" Type="date" Mode="In" />
+    <Parameter Name="DenNgay" Type="date" Mode="In" />
+    <Parameter Name="MaLichTrinh" Type="varchar" Mode="In" />
+    <Parameter Name="MaNguoi" Type="int" Mode="In" />
+  </Function>
   <Function Name="spUpdateCaLamViec" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="MaCaLamViec" Type="int" Mode="In" />
+    <Parameter Name="MaCaLamViecChon" Type="varchar" Mode="In" />
+    <Parameter Name="MaCaLamViec" Type="varchar" Mode="In" />
     <Parameter Name="TenCaLamViec" Type="nvarchar" Mode="In" />
     <Parameter Name="GioBatDauCa" Type="time" Mode="In" />
     <Parameter Name="GioKetThucCa" Type="time" Mode="In" />
@@ -807,6 +1157,18 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
     <Parameter Name="ThoiGianDiTreChoPhep" Type="int" Mode="In" />
     <Parameter Name="TruGioVeSom" Type="bit" Mode="In" />
     <Parameter Name="ThoiGianVeSomChoPhep" Type="int" Mode="In" />
+    <Parameter Name="SDMucTangCaHienTai" Type="bit" Mode="In" />
+    <Parameter Name="MucTangCaHienTai" Type="int" Mode="In" />
+    <Parameter Name="SDMucTangCaCuoiTuan" Type="bit" Mode="In" />
+    <Parameter Name="MucTangCaCuoiTuan" Type="int" Mode="In" />
+    <Parameter Name="SDMucTangCaNgayLe" Type="bit" Mode="In" />
+    <Parameter Name="MucTangCaNgayLe" Type="int" Mode="In" />
+    <Parameter Name="SDTangCaTruocGLV" Type="bit" Mode="In" />
+    <Parameter Name="TangCaTruocGLV" Type="int" Mode="In" />
+    <Parameter Name="SDTangCaSauGLV" Type="bit" Mode="In" />
+    <Parameter Name="TangCaSauGLV" Type="int" Mode="In" />
+    <Parameter Name="SDTongGLVTinhTangCa" Type="bit" Mode="In" />
+    <Parameter Name="TongGLVTinhTangCa" Type="int" Mode="In" />
     <Parameter Name="GioiHanTCMucMot" Type="int" Mode="In" />
     <Parameter Name="GioiHanTCMucHai" Type="int" Mode="In" />
     <Parameter Name="SDMucTangCaCuaTangCaCuoiTuan" Type="bit" Mode="In" />
@@ -818,6 +1180,28 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
     <Parameter Name="CaQuaDem" Type="bit" Mode="In" />
     <Parameter Name="TachGioCaDemTu" Type="time" Mode="In" />
     <Parameter Name="TachGioCaDemDen" Type="time" Mode="In" />
+  </Function>
+  <Function Name="spUpdateLichTrinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaLichTrinhChon" Type="varchar" Mode="In" />
+    <Parameter Name="MaLichTrinh" Type="varchar" Mode="In" />
+    <Parameter Name="TenLichTrinh" Type="nvarchar" Mode="In" />
+    <Parameter Name="LoaiChuKy" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spUpdatePhongBan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaPhongBan" Type="int" Mode="In" />
+    <Parameter Name="TenPhongBan" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spUpdateSapXepLichTrinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaSapXep" Type="int" Mode="In" />
+    <Parameter Name="MaNguoi" Type="int" Mode="In" />
+    <Parameter Name="MaLichTrinh" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spUpdateSapxepLichTrinhTam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaLichTrinhTam" Type="int" Mode="In" />
+    <Parameter Name="TuNgay" Type="date" Mode="In" />
+    <Parameter Name="DenNgay" Type="date" Mode="In" />
+    <Parameter Name="MaLichTrinh" Type="varchar" Mode="In" />
+    <Parameter Name="MaNguoi" Type="int" Mode="In" />
   </Function>
   <EntityContainer Name="ATINChamCongModelStoreContainer">
     <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
@@ -825,7 +1209,7 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
     <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="BaoCaoChiTiet" EntityType="Self.BaoCaoChiTiet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CacLoaiVang" EntityType="Self.CacLoaiVang" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CaLamViec" EntityType="Self.CaLamViec" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ChamCong" EntityType="Self.ChamCong" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ChamCongChiTiet" EntityType="Self.ChamCongChiTiet" Schema="dbo" store:Type="Tables" />
@@ -834,15 +1218,17 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
     <EntitySet Name="DangKyNghiPhep" EntityType="Self.DangKyNghiPhep" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DangKyTangCa" EntityType="Self.DangKyTangCa" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DanToc" EntityType="Self.DanToc" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="HopDongLaoDong" EntityType="Self.HopDongLaoDong" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="KhaiBaoThoiGian" EntityType="Self.KhaiBaoThoiGian" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KhuonMat" EntityType="Self.KhuonMat" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="KyHieuCacLoaiVang" EntityType="Self.KyHieuCacLoaiVang" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="KyHieuChamCong" EntityType="Self.KyHieuChamCong" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="LichTrinhLamViec" EntityType="Self.LichTrinhLamViec" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LichSuSuaDuLieuChamCong" EntityType="Self.LichSuSuaDuLieuChamCong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LichTrinh" EntityType="Self.LichTrinh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LichTrinhNam" EntityType="Self.LichTrinhNam" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LichTrinhNangCao" EntityType="Self.LichTrinhNangCao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LichTrinhThang" EntityType="Self.LichTrinhThang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LichTrinhTuan" EntityType="Self.LichTrinhTuan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiChamCong" EntityType="Self.LoaiChamCong" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LoaiHopDong" EntityType="Self.LoaiHopDong" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LoaiNghiPhep" EntityType="Self.LoaiNghiPhep" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="LoaiThamSo" EntityType="Self.LoaiThamSo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MapLichTrinhNangCao" EntityType="Self.MapLichTrinhNangCao" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MayNhanDang" EntityType="Self.MayNhanDang" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NgayNghiLe" EntityType="Self.NgayNghiLe" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NgayPhepNhanVien" EntityType="Self.NgayPhepNhanVien" Schema="dbo" store:Type="Tables" />
@@ -850,56 +1236,22 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
     <EntitySet Name="NhatKy" EntityType="Self.NhatKy" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PhanQuyenNhanDang" EntityType="Self.PhanQuyenNhanDang" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PhongBan" EntityType="Self.PhongBan" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="PhuCap" EntityType="Self.PhuCap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SapXepLichTrinh" EntityType="Self.SapXepLichTrinh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SapXepLichTrinhTam" EntityType="Self.SapXepLichTrinhTam" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="ThamSo" EntityType="Self.ThamSo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TheTu" EntityType="Self.TheTu" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TonGiao" EntityType="Self.TonGiao" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TrinhDoHocVan" EntityType="Self.TrinhDoHocVan" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VanTay" EntityType="Self.VanTay" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="BaoCao" EntityType="Self.BaoCao" store:Type="Tables" store:Schema="dbo">
+    <EntitySet Name="XepLoaiChamCong" EntityType="Self.XepLoaiChamCong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ViewSapXepLichTrinh" EntityType="Self.ViewSapXepLichTrinh" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
-    [BaoCao].[MaBaoCao] AS [MaBaoCao], 
-    [BaoCao].[NgayBaoCao] AS [NgayBaoCao], 
-    [BaoCao].[MaNguoi] AS [MaNguoi], 
-    [BaoCao].[ThoiGianIn] AS [ThoiGianIn], 
-    [BaoCao].[ThoiGianOut] AS [ThoiGianOut]
-    FROM [dbo].[BaoCao] AS [BaoCao]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="MATHANG_KHO" EntityType="Self.MATHANG_KHO" store:Type="Views" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [MATHANG_KHO].[MHTEN] AS [MHTEN], 
-    [MATHANG_KHO].[MHCODE] AS [MHCODE], 
-    [MATHANG_KHO].[KHOCODE] AS [KHOCODE], 
-    [MATHANG_KHO].[KHOTEN] AS [KHOTEN], 
-    [MATHANG_KHO].[KHOID] AS [KHOID], 
-    [MATHANG_KHO].[MHID] AS [MHID], 
-    [MATHANG_KHO].[SOLUONG] AS [SOLUONG], 
-    [MATHANG_KHO].[GIANHAP] AS [GIANHAP], 
-    [MATHANG_KHO].[GIABANLE] AS [GIABANLE], 
-    [MATHANG_KHO].[GIABANBUON] AS [GIABANBUON], 
-    [MATHANG_KHO].[GIABAN1] AS [GIABAN1], 
-    [MATHANG_KHO].[GIABAN2] AS [GIABAN2], 
-    [MATHANG_KHO].[GIABAN3] AS [GIABAN3], 
-    [MATHANG_KHO].[SLONORDER] AS [SLONORDER], 
-    [MATHANG_KHO].[SLTONDAU] AS [SLTONDAU], 
-    [MATHANG_KHO].[GVTONDAU] AS [GVTONDAU], 
-    [MATHANG_KHO].[CREATEDDATE] AS [CREATEDDATE], 
-    [MATHANG_KHO].[UPDATEDDATE] AS [UPDATEDDATE], 
-    [MATHANG_KHO].[CREATEBY] AS [CREATEBY], 
-    [MATHANG_KHO].[SLTANG] AS [SLTANG], 
-    [MATHANG_KHO].[SLGIAM] AS [SLGIAM]
-    FROM [dbo].[MATHANG_KHO] AS [MATHANG_KHO]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="SP_Status" EntityType="Self.SP_Status" store:Type="Views" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [SP_Status].[SOLUONG] AS [SOLUONG], 
-    [SP_Status].[statusupdate] AS [statusupdate], 
-    [SP_Status].[SP_CODE] AS [SP_CODE], 
-    [SP_Status].[TrangThai] AS [TrangThai], 
-    [SP_Status].[TieuDe] AS [TieuDe], 
-    [SP_Status].[trangthaimoi] AS [trangthaimoi]
-    FROM [dbo].[SP_Status] AS [SP_Status]</DefiningQuery>
+    [ViewSapXepLichTrinh].[MaNguoi] AS [MaNguoi], 
+    [ViewSapXepLichTrinh].[HoTen] AS [HoTen], 
+    [ViewSapXepLichTrinh].[MaChamCong] AS [MaChamCong], 
+    [ViewSapXepLichTrinh].[MaLichTrinh] AS [MaLichTrinh], 
+    [ViewSapXepLichTrinh].[MaSapXep] AS [MaSapXep]
+    FROM [dbo].[ViewSapXepLichTrinh] AS [ViewSapXepLichTrinh]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -917,11 +1269,35 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
     </AssociationSet>
-    <AssociationSet Name="FK_dbo_DangKyNghiPhep_MaLoaiNghiPhep" Association="Self.FK_dbo_DangKyNghiPhep_MaLoaiNghiPhep">
+    <AssociationSet Name="FK_dbo_ChamCong_CacLoaiVang" Association="Self.FK_dbo_ChamCong_CacLoaiVang">
+      <End Role="CacLoaiVang" EntitySet="CacLoaiVang" />
+      <End Role="ChamCong" EntitySet="ChamCong" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ChamCong_CaLamViec" Association="Self.FK_dbo_ChamCong_CaLamViec">
+      <End Role="CaLamViec" EntitySet="CaLamViec" />
+      <End Role="ChamCong" EntitySet="ChamCong" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ChamCong_Nguoi" Association="Self.FK_dbo_ChamCong_Nguoi">
+      <End Role="Nguoi" EntitySet="Nguoi" />
+      <End Role="ChamCong" EntitySet="ChamCong" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ChamCong_XepLoaiChamCong" Association="Self.FK_dbo_ChamCong_XepLoaiChamCong">
+      <End Role="XepLoaiChamCong" EntitySet="XepLoaiChamCong" />
+      <End Role="ChamCong" EntitySet="ChamCong" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ChamCongChiTiet_ChamCong" Association="Self.FK_dbo_ChamCongChiTiet_ChamCong">
+      <End Role="ChamCong" EntitySet="ChamCong" />
+      <End Role="ChamCongChiTiet" EntitySet="ChamCongChiTiet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ChamCongChiTiet_LoaiChamCong" Association="Self.FK_dbo_ChamCongChiTiet_LoaiChamCong">
+      <End Role="LoaiChamCong" EntitySet="LoaiChamCong" />
+      <End Role="ChamCongChiTiet" EntitySet="ChamCongChiTiet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_DangKyNghiPhep_LoaiNghiPhep" Association="Self.FK_dbo_DangKyNghiPhep_LoaiNghiPhep">
       <End Role="LoaiNghiPhep" EntitySet="LoaiNghiPhep" />
       <End Role="DangKyNghiPhep" EntitySet="DangKyNghiPhep" />
     </AssociationSet>
-    <AssociationSet Name="FK_dbo_DangKyNghiPhep_MaNhanVien" Association="Self.FK_dbo_DangKyNghiPhep_MaNhanVien">
+    <AssociationSet Name="FK_dbo_DangKyNghiPhep_Nguoi" Association="Self.FK_dbo_DangKyNghiPhep_Nguoi">
       <End Role="Nguoi" EntitySet="Nguoi" />
       <End Role="DangKyNghiPhep" EntitySet="DangKyNghiPhep" />
     </AssociationSet>
@@ -933,9 +1309,49 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
       <End Role="Nguoi" EntitySet="Nguoi" />
       <End Role="KhuonMat" EntitySet="KhuonMat" />
     </AssociationSet>
+    <AssociationSet Name="FK_dbo_LichTrinhNam_CaLamViec" Association="Self.FK_dbo_LichTrinhNam_CaLamViec">
+      <End Role="CaLamViec" EntitySet="CaLamViec" />
+      <End Role="LichTrinhNam" EntitySet="LichTrinhNam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_LichTrinhThang_CaLamViec" Association="Self.FK_dbo_LichTrinhThang_CaLamViec">
+      <End Role="CaLamViec" EntitySet="CaLamViec" />
+      <End Role="LichTrinhThang" EntitySet="LichTrinhThang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_LichTrinhTuan_CaLamViec" Association="Self.FK_dbo_LichTrinhTuan_CaLamViec">
+      <End Role="CaLamViec" EntitySet="CaLamViec" />
+      <End Role="LichTrinhTuan" EntitySet="LichTrinhTuan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_MapLichTrinhNangCao_LichTrinh" Association="Self.FK_dbo_MapLichTrinhNangCao_LichTrinh">
+      <End Role="LichTrinh" EntitySet="LichTrinh" />
+      <End Role="MapLichTrinhNangCao" EntitySet="MapLichTrinhNangCao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_MapLichTrinhNangCao_LichTrinhNangCao" Association="Self.FK_dbo_MapLichTrinhNangCao_LichTrinhNangCao">
+      <End Role="LichTrinhNangCao" EntitySet="LichTrinhNangCao" />
+      <End Role="MapLichTrinhNangCao" EntitySet="MapLichTrinhNangCao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Nguoi_ChucVu" Association="Self.FK_dbo_Nguoi_ChucVu">
+      <End Role="ChucVu" EntitySet="ChucVu" />
+      <End Role="Nguoi" EntitySet="Nguoi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Nguoi_PhongBan" Association="Self.FK_dbo_Nguoi_PhongBan">
+      <End Role="PhongBan" EntitySet="PhongBan" />
+      <End Role="Nguoi" EntitySet="Nguoi" />
+    </AssociationSet>
     <AssociationSet Name="FK_dbo_NhatKy_MaNguoi" Association="Self.FK_dbo_NhatKy_MaNguoi">
       <End Role="Nguoi" EntitySet="Nguoi" />
       <End Role="NhatKy" EntitySet="NhatKy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_SapXepLichTrinh_LichTrinh" Association="Self.FK_dbo_SapXepLichTrinh_LichTrinh">
+      <End Role="LichTrinh" EntitySet="LichTrinh" />
+      <End Role="SapXepLichTrinh" EntitySet="SapXepLichTrinh" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_SapXepLichTrinh_Nguoi" Association="Self.FK_dbo_SapXepLichTrinh_Nguoi">
+      <End Role="Nguoi" EntitySet="Nguoi" />
+      <End Role="SapXepLichTrinh" EntitySet="SapXepLichTrinh" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_SapXepLichTrinhTam_LichTrinh" Association="Self.FK_dbo_SapXepLichTrinhTam_LichTrinh">
+      <End Role="LichTrinh" EntitySet="LichTrinh" />
+      <End Role="SapXepLichTrinhTam" EntitySet="SapXepLichTrinhTam" />
     </AssociationSet>
     <AssociationSet Name="FK_dbo_TheTu_MaNguoi" Association="Self.FK_dbo_TheTu_MaNguoi">
       <End Role="Nguoi" EntitySet="Nguoi" />
@@ -944,6 +1360,22 @@ warning 6002: The table/view 'ATINChamCong.dbo.SP_Status' does not have a primar
     <AssociationSet Name="FK_dbo_VanTay_MaNguoi" Association="Self.FK_dbo_VanTay_MaNguoi">
       <End Role="Nguoi" EntitySet="Nguoi" />
       <End Role="VanTay" EntitySet="VanTay" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LichTrinhNam_LichTrinh" Association="Self.FK_LichTrinhNam_LichTrinh">
+      <End Role="LichTrinh" EntitySet="LichTrinh" />
+      <End Role="LichTrinhNam" EntitySet="LichTrinhNam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LichTrinhThang_LichTrinh" Association="Self.FK_LichTrinhThang_LichTrinh">
+      <End Role="LichTrinh" EntitySet="LichTrinh" />
+      <End Role="LichTrinhThang" EntitySet="LichTrinhThang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LichTrinhTuan_LichTrinh" Association="Self.FK_LichTrinhTuan_LichTrinh">
+      <End Role="LichTrinh" EntitySet="LichTrinh" />
+      <End Role="LichTrinhTuan" EntitySet="LichTrinhTuan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SapXepLichTrinhTam_Nguoi" Association="Self.FK_SapXepLichTrinhTam_Nguoi">
+      <End Role="Nguoi" EntitySet="Nguoi" />
+      <End Role="SapXepLichTrinhTam" EntitySet="SapXepLichTrinhTam" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

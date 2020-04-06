@@ -1,9 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="ATINChamCongModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <ComplexType Name="fn_Split_Result">
-    <Property Name="Position" Type="Int32" Nullable="false" />
-    <Property Name="txt_value" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
-  </ComplexType>
   <EntityType Name="AspNetRole">
     <Key>
       <PropertyRef Name="Id" />
@@ -63,21 +59,21 @@
     <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
     <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
   </EntityType>
-  <EntityType Name="BaoCaoChiTiet">
+  <EntityType Name="CacLoaiVang">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="MaLoaiVang" />
     </Key>
-    <Property Name="id" Type="Guid" Nullable="false" />
-    <Property Name="reportDate" Type="DateTime" Precision="3" />
-    <Property Name="checkInTime" Type="DateTime" Precision="0" />
-    <Property Name="checkOutTime" Type="DateTime" Precision="3" />
-    <Property Name="status" Type="Int32" />
+    <Property Name="MaLoaiVang" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TenLoaiVang" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TrangThai" Type="Boolean" />
+    <Property Name="TinhCong" Type="Boolean" />
+    <NavigationProperty Name="ChamCongs" Relationship="Self.FK_dbo_ChamCong_CacLoaiVang" FromRole="CacLoaiVang" ToRole="ChamCong" />
   </EntityType>
   <EntityType Name="CaLamViec">
     <Key>
       <PropertyRef Name="MaCaLamViec" />
     </Key>
-    <Property Name="MaCaLamViec" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaCaLamViec" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="TenCaLamViec" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="GioBatDauCa" Type="Time" Nullable="false" Precision="7" />
     <Property Name="GioKetThucCa" Type="Time" Nullable="false" Precision="7" />
@@ -105,7 +101,9 @@
     <Property Name="MucTangCaCuaTangCaCuoiTuan" Type="Int32" />
     <Property Name="SDMucTangCaCuaTangCaNgayLe" Type="Boolean" />
     <Property Name="MucTangCaCuaTangCaNgayLe" Type="Int32" />
+    <Property Name="SDTangCaTruocGLV" Type="Boolean" />
     <Property Name="TangCaTruocGLV" Type="Int32" />
+    <Property Name="SDTangCaSauGLV" Type="Boolean" />
     <Property Name="TangCaSauGLV" Type="Int32" />
     <Property Name="TongGLVTinhTangCa" Type="Int32" />
     <Property Name="GioiHanTCMucMot" Type="Int32" />
@@ -115,6 +113,11 @@
     <Property Name="CaQuaDem" Type="Boolean" />
     <Property Name="TachGioCaDemTu" Type="Time" Precision="7" />
     <Property Name="TachGioCaDemDen" Type="Time" Precision="7" />
+    <Property Name="SDTongGLVTinhTangCa" Type="Boolean" />
+    <NavigationProperty Name="ChamCongs" Relationship="Self.FK_dbo_ChamCong_CaLamViec" FromRole="CaLamViec" ToRole="ChamCong" />
+    <NavigationProperty Name="LichTrinhNams" Relationship="Self.FK_dbo_LichTrinhNam_CaLamViec" FromRole="CaLamViec" ToRole="LichTrinhNam" />
+    <NavigationProperty Name="LichTrinhThangs" Relationship="Self.FK_dbo_LichTrinhThang_CaLamViec" FromRole="CaLamViec" ToRole="LichTrinhThang" />
+    <NavigationProperty Name="LichTrinhTuans" Relationship="Self.FK_dbo_LichTrinhTuan_CaLamViec" FromRole="CaLamViec" ToRole="LichTrinhTuan" />
   </EntityType>
   <EntityType Name="ChamCong">
     <Key>
@@ -124,7 +127,7 @@
     <Property Name="MaNhanVien" Type="Int32" Nullable="false" />
     <Property Name="MaDinhDanh" Type="Int32" />
     <Property Name="NgayChamCong" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="MaCaLamViec" Type="Int32" Nullable="false" />
+    <Property Name="MaCaLamViec" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="GioVaoDauTien" Type="DateTime" Precision="3" />
     <Property Name="GioRaCuoiCung" Type="DateTime" Precision="3" />
     <Property Name="SoGioLamViec" Type="Double" Nullable="false" />
@@ -135,8 +138,16 @@
     <Property Name="TangCa1" Type="Int32" Nullable="false" />
     <Property Name="TangCa2" Type="Int32" Nullable="false" />
     <Property Name="TangCa3" Type="Int32" Nullable="false" />
+    <Property Name="MaLoaiVang" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="LyDoVang" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="TongSoGioLamViec" Type="Double" Nullable="false" />
     <Property Name="TongSoCongLamViec" Type="Double" Nullable="false" />
+    <Property Name="MaXepLoaiChamCong" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CacLoaiVang" Relationship="Self.FK_dbo_ChamCong_CacLoaiVang" FromRole="ChamCong" ToRole="CacLoaiVang" />
+    <NavigationProperty Name="CaLamViec" Relationship="Self.FK_dbo_ChamCong_CaLamViec" FromRole="ChamCong" ToRole="CaLamViec" />
+    <NavigationProperty Name="Nguoi" Relationship="Self.FK_dbo_ChamCong_Nguoi" FromRole="ChamCong" ToRole="Nguoi" />
+    <NavigationProperty Name="XepLoaiChamCong" Relationship="Self.FK_dbo_ChamCong_XepLoaiChamCong" FromRole="ChamCong" ToRole="XepLoaiChamCong" />
+    <NavigationProperty Name="ChamCongChiTiets" Relationship="Self.FK_dbo_ChamCongChiTiet_ChamCong" FromRole="ChamCong" ToRole="ChamCongChiTiet" />
   </EntityType>
   <EntityType Name="ChamCongChiTiet">
     <Key>
@@ -146,17 +157,20 @@
     <Property Name="MaChamCong" Type="Int32" Nullable="false" />
     <Property Name="NgayChamCong" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="GioChamCong" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="LoaiChamCong" Type="Int32" Nullable="false" />
+    <Property Name="MaLoaiChamCong" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="NguonThucHien" Type="Int32" Nullable="false" />
     <Property Name="MaThietBi" Type="Int32" />
+    <Property Name="HinhChamCong" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="ChamCong" Relationship="Self.FK_dbo_ChamCongChiTiet_ChamCong" FromRole="ChamCongChiTiet" ToRole="ChamCong" />
+    <NavigationProperty Name="LoaiChamCong" Relationship="Self.FK_dbo_ChamCongChiTiet_LoaiChamCong" FromRole="ChamCongChiTiet" ToRole="LoaiChamCong" />
   </EntityType>
   <EntityType Name="ChucVu">
     <Key>
       <PropertyRef Name="MaChucVu" />
     </Key>
     <Property Name="MaChucVu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ChucVu1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="TrangThai" Type="Int32" />
+    <Property Name="TenChucVu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Nguois" Relationship="Self.FK_dbo_Nguoi_ChucVu" FromRole="ChucVu" ToRole="Nguoi" />
   </EntityType>
   <EntityType Name="CongTyKhuVuc">
     <Key>
@@ -178,8 +192,8 @@
     <Property Name="MaLoaiNghiPhep" Type="Int32" Nullable="false" />
     <Property Name="NgayDangKy" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="LyDo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="LoaiNghiPhep" Relationship="Self.FK_dbo_DangKyNghiPhep_MaLoaiNghiPhep" FromRole="DangKyNghiPhep" ToRole="LoaiNghiPhep" />
-    <NavigationProperty Name="Nguoi" Relationship="Self.FK_dbo_DangKyNghiPhep_MaNhanVien" FromRole="DangKyNghiPhep" ToRole="Nguoi" />
+    <NavigationProperty Name="LoaiNghiPhep" Relationship="Self.FK_dbo_DangKyNghiPhep_LoaiNghiPhep" FromRole="DangKyNghiPhep" ToRole="LoaiNghiPhep" />
+    <NavigationProperty Name="Nguoi" Relationship="Self.FK_dbo_DangKyNghiPhep_Nguoi" FromRole="DangKyNghiPhep" ToRole="Nguoi" />
   </EntityType>
   <EntityType Name="DangKyTangCa">
     <Key>
@@ -202,27 +216,7 @@
       <PropertyRef Name="MaDanToc" />
     </Key>
     <Property Name="MaDanToc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="DanToc1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-  </EntityType>
-  <EntityType Name="HopDongLaoDong">
-    <Key>
-      <PropertyRef Name="MaHopDong" />
-    </Key>
-    <Property Name="MaHopDong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="MaNhanVien" Type="Int32" Nullable="false" />
-    <Property Name="SoHopDong" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="LoaiHopDong" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="NgayKyHopDong" Type="DateTime" Precision="0" />
-    <Property Name="GhiChu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-  </EntityType>
-  <EntityType Name="KhaiBaoThoiGian">
-    <Key>
-      <PropertyRef Name="MaThoiGian" />
-    </Key>
-    <Property Name="MaThoiGian" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ThoiGian" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="NhomThoiGian" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="SapXep" Type="Int32" />
+    <Property Name="TenDanToc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="KhuonMat">
     <Key>
@@ -237,34 +231,73 @@
     <Property Name="TrangThai" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Nguoi" Relationship="Self.FK_dbo_KhuonMat_MaNguoi" FromRole="KhuonMat" ToRole="Nguoi" />
   </EntityType>
-  <EntityType Name="KyHieuCacLoaiVang">
+  <EntityType Name="LichSuSuaDuLieuChamCong">
     <Key>
-      <PropertyRef Name="MaLoaiVang" />
-      <PropertyRef Name="KyHieu" />
+      <PropertyRef Name="MaLichSuSuaDLCC" />
     </Key>
-    <Property Name="MaLoaiVang" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="TenLoaiVang" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="KyHieu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="TrangThai" Type="Boolean" />
-    <Property Name="TinhCong" Type="Boolean" />
+    <Property Name="MaLichSuSuaDLCC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ThoiGianThucHien" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="GioCu" Type="DateTime" Precision="3" />
+    <Property Name="GioMoi" Type="DateTime" Precision="3" />
+    <Property Name="MaLoaiChamCongCu" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="MaLoaiChamCongMoi" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="NguoiThucHien" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
-  <EntityType Name="KyHieuChamCong">
+  <EntityType Name="LichTrinh">
     <Key>
-      <PropertyRef Name="MaKyHieuChamCong" />
-      <PropertyRef Name="KyHieu" />
+      <PropertyRef Name="MaLichTrinh" />
     </Key>
-    <Property Name="MaKyHieuChamCong" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="TenKyHieuChamCong" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="KyHieu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="TrangThai" Type="Int32" />
+    <Property Name="MaLichTrinh" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TenLichTrinh" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LoaiChuKy" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="SapXepLichTrinhs" Relationship="Self.FK_dbo_SapXepLichTrinh_LichTrinh" FromRole="LichTrinh" ToRole="SapXepLichTrinh" />
+    <NavigationProperty Name="SapXepLichTrinhTams" Relationship="Self.FK_dbo_SapXepLichTrinhTam_LichTrinh" FromRole="LichTrinh" ToRole="SapXepLichTrinhTam" />
+    <NavigationProperty Name="LichTrinhNams" Relationship="Self.FK_LichTrinhNam_LichTrinh" FromRole="LichTrinh" ToRole="LichTrinhNam" />
+    <NavigationProperty Name="LichTrinhThangs" Relationship="Self.FK_LichTrinhThang_LichTrinh" FromRole="LichTrinh" ToRole="LichTrinhThang" />
+    <NavigationProperty Name="LichTrinhTuans" Relationship="Self.FK_LichTrinhTuan_LichTrinh" FromRole="LichTrinh" ToRole="LichTrinhTuan" />
+    <NavigationProperty Name="MapLichTrinhNangCaos" Relationship="ATINChamCongModel.FK_dbo_MapLichTrinhNangCao_LichTrinh" FromRole="LichTrinh" ToRole="MapLichTrinhNangCao" />
   </EntityType>
-  <EntityType Name="LichTrinhLamViec">
+  <EntityType Name="LichTrinhNam">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="MaLichTrinhNam" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="MaThoiGian" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="MaCaLamViec" Type="Int32" Nullable="false" />
+    <Property Name="MaLichTrinhNam" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaCaLamViec" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaLichTrinh" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Date" Type="Int32" Nullable="false" />
+    <Property Name="Month" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CaLamViec" Relationship="Self.FK_dbo_LichTrinhNam_CaLamViec" FromRole="LichTrinhNam" ToRole="CaLamViec" />
+    <NavigationProperty Name="LichTrinh" Relationship="Self.FK_LichTrinhNam_LichTrinh" FromRole="LichTrinhNam" ToRole="LichTrinh" />
+  </EntityType>
+  <EntityType Name="LichTrinhThang">
+    <Key>
+      <PropertyRef Name="MaLichTrinhThang" />
+    </Key>
+    <Property Name="MaLichTrinhThang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaCaLamViec" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaLichTrinh" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Date" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CaLamViec" Relationship="Self.FK_dbo_LichTrinhThang_CaLamViec" FromRole="LichTrinhThang" ToRole="CaLamViec" />
+    <NavigationProperty Name="LichTrinh" Relationship="Self.FK_LichTrinhThang_LichTrinh" FromRole="LichTrinhThang" ToRole="LichTrinh" />
+  </EntityType>
+  <EntityType Name="LichTrinhTuan">
+    <Key>
+      <PropertyRef Name="MaLichTrinhTuan" />
+    </Key>
+    <Property Name="MaLichTrinhTuan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaCaLamViec" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaLichTrinh" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DateInWeek" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CaLamViec" Relationship="Self.FK_dbo_LichTrinhTuan_CaLamViec" FromRole="LichTrinhTuan" ToRole="CaLamViec" />
+    <NavigationProperty Name="LichTrinh" Relationship="Self.FK_LichTrinhTuan_LichTrinh" FromRole="LichTrinhTuan" ToRole="LichTrinh" />
+  </EntityType>
+  <EntityType Name="LoaiChamCong">
+    <Key>
+      <PropertyRef Name="MaLoaiChamCong" />
+    </Key>
+    <Property Name="MaLoaiChamCong" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TenLoaiChamCong" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="ChamCongChiTiets" Relationship="Self.FK_dbo_ChamCongChiTiet_LoaiChamCong" FromRole="LoaiChamCong" ToRole="ChamCongChiTiet" />
   </EntityType>
   <EntityType Name="LoaiHopDong">
     <Key>
@@ -279,16 +312,7 @@
     </Key>
     <Property Name="MaLoaiNghiPhep" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="LoaiNghiPhep1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="DangKyNghiPheps" Relationship="Self.FK_dbo_DangKyNghiPhep_MaLoaiNghiPhep" FromRole="LoaiNghiPhep" ToRole="DangKyNghiPhep" />
-  </EntityType>
-  <EntityType Name="LoaiThamSo">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="LoaiThamSo1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="TenLoaiThamSo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="MoTa" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DangKyNghiPheps" Relationship="Self.FK_dbo_DangKyNghiPhep_LoaiNghiPhep" FromRole="LoaiNghiPhep" ToRole="DangKyNghiPhep" />
   </EntityType>
   <EntityType Name="MayNhanDang">
     <Key>
@@ -374,12 +398,17 @@
     <Property Name="ThoiGianCapNhat" Type="DateTime" Precision="3" />
     <Property Name="GhiChu" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="TrangThaiHoatDong" Type="Int32" />
-    <NavigationProperty Name="DangKyNghiPheps" Relationship="Self.FK_dbo_DangKyNghiPhep_MaNhanVien" FromRole="Nguoi" ToRole="DangKyNghiPhep" />
+    <NavigationProperty Name="ChamCongs" Relationship="Self.FK_dbo_ChamCong_Nguoi" FromRole="Nguoi" ToRole="ChamCong" />
+    <NavigationProperty Name="ChucVu1" Relationship="Self.FK_dbo_Nguoi_ChucVu" FromRole="Nguoi" ToRole="ChucVu" />
+    <NavigationProperty Name="DangKyNghiPheps" Relationship="Self.FK_dbo_DangKyNghiPhep_Nguoi" FromRole="Nguoi" ToRole="DangKyNghiPhep" />
     <NavigationProperty Name="DangKyTangCas" Relationship="Self.FK_dbo_DangKyTangCa_MaNhanVien" FromRole="Nguoi" ToRole="DangKyTangCa" />
     <NavigationProperty Name="KhuonMats" Relationship="Self.FK_dbo_KhuonMat_MaNguoi" FromRole="Nguoi" ToRole="KhuonMat" />
+    <NavigationProperty Name="PhongBan1" Relationship="Self.FK_dbo_Nguoi_PhongBan" FromRole="Nguoi" ToRole="PhongBan" />
     <NavigationProperty Name="NhatKies" Relationship="Self.FK_dbo_NhatKy_MaNguoi" FromRole="Nguoi" ToRole="NhatKy" />
+    <NavigationProperty Name="SapXepLichTrinhs" Relationship="Self.FK_dbo_SapXepLichTrinh_Nguoi" FromRole="Nguoi" ToRole="SapXepLichTrinh" />
     <NavigationProperty Name="TheTus" Relationship="Self.FK_dbo_TheTu_MaNguoi" FromRole="Nguoi" ToRole="TheTu" />
     <NavigationProperty Name="VanTays" Relationship="Self.FK_dbo_VanTay_MaNguoi" FromRole="Nguoi" ToRole="VanTay" />
+    <NavigationProperty Name="SapXepLichTrinhTams" Relationship="Self.FK_SapXepLichTrinhTam_Nguoi" FromRole="Nguoi" ToRole="SapXepLichTrinhTam" />
   </EntityType>
   <EntityType Name="NhatKy">
     <Key>
@@ -419,15 +448,30 @@
       <PropertyRef Name="MaPhongBan" />
     </Key>
     <Property Name="MaPhongBan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="PhongBan1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="TrangThai" Type="Int32" />
+    <Property Name="TenPhongBan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Nguois" Relationship="Self.FK_dbo_Nguoi_PhongBan" FromRole="PhongBan" ToRole="Nguoi" />
   </EntityType>
-  <EntityType Name="PhuCap">
+  <EntityType Name="SapXepLichTrinh">
     <Key>
-      <PropertyRef Name="MaPhuCap" />
+      <PropertyRef Name="MaSapXep" />
     </Key>
-    <Property Name="MaPhuCap" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="PhuCap1" Type="Double" />
+    <Property Name="MaSapXep" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaNguoi" Type="Int32" Nullable="false" />
+    <Property Name="MaLichTrinh" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="LichTrinh" Relationship="Self.FK_dbo_SapXepLichTrinh_LichTrinh" FromRole="SapXepLichTrinh" ToRole="LichTrinh" />
+    <NavigationProperty Name="Nguoi" Relationship="Self.FK_dbo_SapXepLichTrinh_Nguoi" FromRole="SapXepLichTrinh" ToRole="Nguoi" />
+  </EntityType>
+  <EntityType Name="SapXepLichTrinhTam">
+    <Key>
+      <PropertyRef Name="MaLichTrinhTam" />
+    </Key>
+    <Property Name="MaLichTrinhTam" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TuNgay" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DenNgay" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="MaLichTrinh" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="MaNguoi" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="LichTrinh" Relationship="Self.FK_dbo_SapXepLichTrinhTam_LichTrinh" FromRole="SapXepLichTrinhTam" ToRole="LichTrinh" />
+    <NavigationProperty Name="Nguoi" Relationship="Self.FK_SapXepLichTrinhTam_Nguoi" FromRole="SapXepLichTrinhTam" ToRole="Nguoi" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>
@@ -438,16 +482,6 @@
     <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
-  <EntityType Name="ThamSo">
-    <Key>
-      <PropertyRef Name="MaThamSo" />
-    </Key>
-    <Property Name="MaThamSo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="LoaiThamSo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="TenThamSo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="GiaTriThamSo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="TrangThai" Type="Int32" />
   </EntityType>
   <EntityType Name="TheTu">
     <Key>
@@ -475,7 +509,7 @@
       <PropertyRef Name="MaTrinhDoHocVan" />
     </Key>
     <Property Name="MaTrinhDoHocVan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="TrinhDoHocVan1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenTrinhDoHocVan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="TrangThai" Type="Int32" />
   </EntityType>
   <EntityType Name="VanTay">
@@ -491,57 +525,13 @@
     <Property Name="TrangThai" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Nguoi" Relationship="Self.FK_dbo_VanTay_MaNguoi" FromRole="VanTay" ToRole="Nguoi" />
   </EntityType>
-  <EntityType Name="BaoCao">
+  <EntityType Name="XepLoaiChamCong">
     <Key>
-      <PropertyRef Name="MaBaoCao" />
-      <PropertyRef Name="NgayBaoCao" />
-      <PropertyRef Name="MaNguoi" />
+      <PropertyRef Name="MaXepLoaiChamCong" />
     </Key>
-    <Property Name="MaBaoCao" Type="Int32" Nullable="false" />
-    <Property Name="NgayBaoCao" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="MaNguoi" Type="Int32" Nullable="false" />
-    <Property Name="ThoiGianIn" Type="DateTime" Precision="3" />
-    <Property Name="ThoiGianOut" Type="DateTime" Precision="3" />
-  </EntityType>
-  <EntityType Name="MATHANG_KHO">
-    <Key>
-      <PropertyRef Name="KHOID" />
-      <PropertyRef Name="MHID" />
-      <PropertyRef Name="SOLUONG" />
-    </Key>
-    <Property Name="MHTEN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="MHCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-    <Property Name="KHOCODE" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
-    <Property Name="KHOTEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="KHOID" Type="Guid" Nullable="false" />
-    <Property Name="MHID" Type="Guid" Nullable="false" />
-    <Property Name="SOLUONG" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
-    <Property Name="GIANHAP" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="GIABANLE" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="GIABANBUON" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="GIABAN1" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="GIABAN2" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="GIABAN3" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="SLONORDER" Type="Decimal" Precision="18" Scale="4" />
-    <Property Name="SLTONDAU" Type="Decimal" Precision="18" Scale="4" />
-    <Property Name="GVTONDAU" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="CREATEDDATE" Type="DateTime" Precision="3" />
-    <Property Name="UPDATEDDATE" Type="DateTime" Precision="3" />
-    <Property Name="CREATEBY" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
-    <Property Name="SLTANG" Type="Decimal" Precision="18" Scale="4" />
-    <Property Name="SLGIAM" Type="Decimal" Precision="18" Scale="4" />
-  </EntityType>
-  <EntityType Name="SP_Status">
-    <Key>
-      <PropertyRef Name="statusupdate" />
-      <PropertyRef Name="trangthaimoi" />
-    </Key>
-    <Property Name="SOLUONG" Type="Decimal" Precision="38" Scale="4" />
-    <Property Name="statusupdate" Type="Int32" Nullable="false" />
-    <Property Name="SP_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="TrangThai" Type="Int32" />
-    <Property Name="TieuDe" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-    <Property Name="trangthaimoi" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaXepLoaiChamCong" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TenKyHieuChamCong" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="ChamCongs" Relationship="Self.FK_dbo_ChamCong_XepLoaiChamCong" FromRole="XepLoaiChamCong" ToRole="ChamCong" />
   </EntityType>
   <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
     <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
@@ -571,7 +561,147 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_dbo_DangKyNghiPhep_MaLoaiNghiPhep">
+  <Association Name="FK_dbo_ChamCong_CacLoaiVang">
+    <End Role="CacLoaiVang" Type="Self.CacLoaiVang" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ChamCong" Type="Self.ChamCong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CacLoaiVang">
+        <PropertyRef Name="MaLoaiVang" />
+      </Principal>
+      <Dependent Role="ChamCong">
+        <PropertyRef Name="MaLoaiVang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ChamCong_CaLamViec">
+    <End Role="CaLamViec" Type="Self.CaLamViec" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ChamCong" Type="Self.ChamCong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CaLamViec">
+        <PropertyRef Name="MaCaLamViec" />
+      </Principal>
+      <Dependent Role="ChamCong">
+        <PropertyRef Name="MaCaLamViec" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_LichTrinhNam_CaLamViec">
+    <End Role="CaLamViec" Type="Self.CaLamViec" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LichTrinhNam" Type="Self.LichTrinhNam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CaLamViec">
+        <PropertyRef Name="MaCaLamViec" />
+      </Principal>
+      <Dependent Role="LichTrinhNam">
+        <PropertyRef Name="MaCaLamViec" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_LichTrinhThang_CaLamViec">
+    <End Role="CaLamViec" Type="Self.CaLamViec" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LichTrinhThang" Type="Self.LichTrinhThang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CaLamViec">
+        <PropertyRef Name="MaCaLamViec" />
+      </Principal>
+      <Dependent Role="LichTrinhThang">
+        <PropertyRef Name="MaCaLamViec" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_LichTrinhTuan_CaLamViec">
+    <End Role="CaLamViec" Type="Self.CaLamViec" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LichTrinhTuan" Type="Self.LichTrinhTuan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CaLamViec">
+        <PropertyRef Name="MaCaLamViec" />
+      </Principal>
+      <Dependent Role="LichTrinhTuan">
+        <PropertyRef Name="MaCaLamViec" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ChamCong_Nguoi">
+    <End Role="Nguoi" Type="Self.Nguoi" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ChamCong" Type="Self.ChamCong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nguoi">
+        <PropertyRef Name="MaNguoi" />
+      </Principal>
+      <Dependent Role="ChamCong">
+        <PropertyRef Name="MaNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ChamCong_XepLoaiChamCong">
+    <End Role="XepLoaiChamCong" Type="Self.XepLoaiChamCong" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ChamCong" Type="Self.ChamCong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="XepLoaiChamCong">
+        <PropertyRef Name="MaXepLoaiChamCong" />
+      </Principal>
+      <Dependent Role="ChamCong">
+        <PropertyRef Name="MaXepLoaiChamCong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ChamCongChiTiet_ChamCong">
+    <End Role="ChamCong" Type="Self.ChamCong" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ChamCongChiTiet" Type="Self.ChamCongChiTiet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChamCong">
+        <PropertyRef Name="MaChamCong" />
+      </Principal>
+      <Dependent Role="ChamCongChiTiet">
+        <PropertyRef Name="MaChamCong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ChamCongChiTiet_LoaiChamCong">
+    <End Role="LoaiChamCong" Type="Self.LoaiChamCong" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ChamCongChiTiet" Type="Self.ChamCongChiTiet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiChamCong">
+        <PropertyRef Name="MaLoaiChamCong" />
+      </Principal>
+      <Dependent Role="ChamCongChiTiet">
+        <PropertyRef Name="MaLoaiChamCong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Nguoi_ChucVu">
+    <End Role="ChucVu" Type="Self.ChucVu" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Nguoi" Type="Self.Nguoi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChucVu">
+        <PropertyRef Name="MaChucVu" />
+      </Principal>
+      <Dependent Role="Nguoi">
+        <PropertyRef Name="ChucVu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_DangKyNghiPhep_LoaiNghiPhep">
     <End Role="LoaiNghiPhep" Type="Self.LoaiNghiPhep" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
@@ -585,7 +715,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_dbo_DangKyNghiPhep_MaNhanVien">
+  <Association Name="FK_dbo_DangKyNghiPhep_Nguoi">
     <End Role="Nguoi" Type="Self.Nguoi" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
@@ -627,6 +757,84 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_dbo_SapXepLichTrinh_LichTrinh">
+    <End Role="LichTrinh" Type="Self.LichTrinh" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SapXepLichTrinh" Type="Self.SapXepLichTrinh" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LichTrinh">
+        <PropertyRef Name="MaLichTrinh" />
+      </Principal>
+      <Dependent Role="SapXepLichTrinh">
+        <PropertyRef Name="MaLichTrinh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_SapXepLichTrinhTam_LichTrinh">
+    <End Role="LichTrinh" Type="Self.LichTrinh" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SapXepLichTrinhTam" Type="Self.SapXepLichTrinhTam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LichTrinh">
+        <PropertyRef Name="MaLichTrinh" />
+      </Principal>
+      <Dependent Role="SapXepLichTrinhTam">
+        <PropertyRef Name="MaLichTrinh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LichTrinhNam_LichTrinh">
+    <End Role="LichTrinh" Type="Self.LichTrinh" Multiplicity="1" />
+    <End Role="LichTrinhNam" Type="Self.LichTrinhNam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LichTrinh">
+        <PropertyRef Name="MaLichTrinh" />
+      </Principal>
+      <Dependent Role="LichTrinhNam">
+        <PropertyRef Name="MaLichTrinh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LichTrinhThang_LichTrinh">
+    <End Role="LichTrinh" Type="Self.LichTrinh" Multiplicity="1" />
+    <End Role="LichTrinhThang" Type="Self.LichTrinhThang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LichTrinh">
+        <PropertyRef Name="MaLichTrinh" />
+      </Principal>
+      <Dependent Role="LichTrinhThang">
+        <PropertyRef Name="MaLichTrinh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LichTrinhTuan_LichTrinh">
+    <End Role="LichTrinh" Type="Self.LichTrinh" Multiplicity="1" />
+    <End Role="LichTrinhTuan" Type="Self.LichTrinhTuan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LichTrinh">
+        <PropertyRef Name="MaLichTrinh" />
+      </Principal>
+      <Dependent Role="LichTrinhTuan">
+        <PropertyRef Name="MaLichTrinh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Nguoi_PhongBan">
+    <End Role="PhongBan" Type="Self.PhongBan" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Nguoi" Type="Self.Nguoi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhongBan">
+        <PropertyRef Name="MaPhongBan" />
+      </Principal>
+      <Dependent Role="Nguoi">
+        <PropertyRef Name="PhongBan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_dbo_NhatKy_MaNguoi">
     <End Role="Nguoi" Type="Self.Nguoi" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -637,6 +845,20 @@
         <PropertyRef Name="MaNguoi" />
       </Principal>
       <Dependent Role="NhatKy">
+        <PropertyRef Name="MaNguoi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_SapXepLichTrinh_Nguoi">
+    <End Role="Nguoi" Type="Self.Nguoi" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SapXepLichTrinh" Type="Self.SapXepLichTrinh" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nguoi">
+        <PropertyRef Name="MaNguoi" />
+      </Principal>
+      <Dependent Role="SapXepLichTrinh">
         <PropertyRef Name="MaNguoi" />
       </Dependent>
     </ReferentialConstraint>
@@ -669,6 +891,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_SapXepLichTrinhTam_Nguoi">
+    <End Role="Nguoi" Type="Self.Nguoi" Multiplicity="1" />
+    <End Role="SapXepLichTrinhTam" Type="Self.SapXepLichTrinhTam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nguoi">
+        <PropertyRef Name="MaNguoi" />
+      </Principal>
+      <Dependent Role="SapXepLichTrinhTam">
+        <PropertyRef Name="MaNguoi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="AspNetUserRoles">
     <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
     <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
@@ -678,7 +912,7 @@
     <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
     <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
     <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
-    <EntitySet Name="BaoCaoChiTiets" EntityType="Self.BaoCaoChiTiet" />
+    <EntitySet Name="CacLoaiVangs" EntityType="Self.CacLoaiVang" />
     <EntitySet Name="CaLamViecs" EntityType="Self.CaLamViec" />
     <EntitySet Name="ChamCongs" EntityType="Self.ChamCong" />
     <EntitySet Name="ChamCongChiTiets" EntityType="Self.ChamCongChiTiet" />
@@ -687,15 +921,15 @@
     <EntitySet Name="DangKyNghiPheps" EntityType="Self.DangKyNghiPhep" />
     <EntitySet Name="DangKyTangCas" EntityType="Self.DangKyTangCa" />
     <EntitySet Name="DanTocs" EntityType="Self.DanToc" />
-    <EntitySet Name="HopDongLaoDongs" EntityType="Self.HopDongLaoDong" />
-    <EntitySet Name="KhaiBaoThoiGians" EntityType="Self.KhaiBaoThoiGian" />
     <EntitySet Name="KhuonMats" EntityType="Self.KhuonMat" />
-    <EntitySet Name="KyHieuCacLoaiVangs" EntityType="Self.KyHieuCacLoaiVang" />
-    <EntitySet Name="KyHieuChamCongs" EntityType="Self.KyHieuChamCong" />
-    <EntitySet Name="LichTrinhLamViecs" EntityType="Self.LichTrinhLamViec" />
+    <EntitySet Name="LichSuSuaDuLieuChamCongs" EntityType="Self.LichSuSuaDuLieuChamCong" />
+    <EntitySet Name="LichTrinhs" EntityType="Self.LichTrinh" />
+    <EntitySet Name="LichTrinhNams" EntityType="Self.LichTrinhNam" />
+    <EntitySet Name="LichTrinhThangs" EntityType="Self.LichTrinhThang" />
+    <EntitySet Name="LichTrinhTuans" EntityType="Self.LichTrinhTuan" />
+    <EntitySet Name="LoaiChamCongs" EntityType="Self.LoaiChamCong" />
     <EntitySet Name="LoaiHopDongs" EntityType="Self.LoaiHopDong" />
     <EntitySet Name="LoaiNghiPheps" EntityType="Self.LoaiNghiPhep" />
-    <EntitySet Name="LoaiThamSoes" EntityType="Self.LoaiThamSo" />
     <EntitySet Name="MayNhanDangs" EntityType="Self.MayNhanDang" />
     <EntitySet Name="NgayNghiLes" EntityType="Self.NgayNghiLe" />
     <EntitySet Name="NgayPhepNhanViens" EntityType="Self.NgayPhepNhanVien" />
@@ -703,16 +937,14 @@
     <EntitySet Name="NhatKies" EntityType="Self.NhatKy" />
     <EntitySet Name="PhanQuyenNhanDangs" EntityType="Self.PhanQuyenNhanDang" />
     <EntitySet Name="PhongBans" EntityType="Self.PhongBan" />
-    <EntitySet Name="PhuCaps" EntityType="Self.PhuCap" />
+    <EntitySet Name="SapXepLichTrinhs" EntityType="Self.SapXepLichTrinh" />
+    <EntitySet Name="SapXepLichTrinhTams" EntityType="Self.SapXepLichTrinhTam" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-    <EntitySet Name="ThamSoes" EntityType="Self.ThamSo" />
     <EntitySet Name="TheTus" EntityType="Self.TheTu" />
     <EntitySet Name="TonGiaos" EntityType="Self.TonGiao" />
     <EntitySet Name="TrinhDoHocVans" EntityType="Self.TrinhDoHocVan" />
     <EntitySet Name="VanTays" EntityType="Self.VanTay" />
-    <EntitySet Name="BaoCaos" EntityType="Self.BaoCao" />
-    <EntitySet Name="MATHANG_KHO" EntityType="Self.MATHANG_KHO" />
-    <EntitySet Name="SP_Status" EntityType="Self.SP_Status" />
+    <EntitySet Name="XepLoaiChamCongs" EntityType="Self.XepLoaiChamCong" />
     <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -721,11 +953,51 @@
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
     </AssociationSet>
-    <AssociationSet Name="FK_dbo_DangKyNghiPhep_MaLoaiNghiPhep" Association="Self.FK_dbo_DangKyNghiPhep_MaLoaiNghiPhep">
+    <AssociationSet Name="FK_dbo_ChamCong_CacLoaiVang" Association="Self.FK_dbo_ChamCong_CacLoaiVang">
+      <End Role="CacLoaiVang" EntitySet="CacLoaiVangs" />
+      <End Role="ChamCong" EntitySet="ChamCongs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ChamCong_CaLamViec" Association="Self.FK_dbo_ChamCong_CaLamViec">
+      <End Role="CaLamViec" EntitySet="CaLamViecs" />
+      <End Role="ChamCong" EntitySet="ChamCongs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_LichTrinhNam_CaLamViec" Association="Self.FK_dbo_LichTrinhNam_CaLamViec">
+      <End Role="CaLamViec" EntitySet="CaLamViecs" />
+      <End Role="LichTrinhNam" EntitySet="LichTrinhNams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_LichTrinhThang_CaLamViec" Association="Self.FK_dbo_LichTrinhThang_CaLamViec">
+      <End Role="CaLamViec" EntitySet="CaLamViecs" />
+      <End Role="LichTrinhThang" EntitySet="LichTrinhThangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_LichTrinhTuan_CaLamViec" Association="Self.FK_dbo_LichTrinhTuan_CaLamViec">
+      <End Role="CaLamViec" EntitySet="CaLamViecs" />
+      <End Role="LichTrinhTuan" EntitySet="LichTrinhTuans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ChamCong_Nguoi" Association="Self.FK_dbo_ChamCong_Nguoi">
+      <End Role="Nguoi" EntitySet="Nguois" />
+      <End Role="ChamCong" EntitySet="ChamCongs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ChamCong_XepLoaiChamCong" Association="Self.FK_dbo_ChamCong_XepLoaiChamCong">
+      <End Role="XepLoaiChamCong" EntitySet="XepLoaiChamCongs" />
+      <End Role="ChamCong" EntitySet="ChamCongs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ChamCongChiTiet_ChamCong" Association="Self.FK_dbo_ChamCongChiTiet_ChamCong">
+      <End Role="ChamCong" EntitySet="ChamCongs" />
+      <End Role="ChamCongChiTiet" EntitySet="ChamCongChiTiets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ChamCongChiTiet_LoaiChamCong" Association="Self.FK_dbo_ChamCongChiTiet_LoaiChamCong">
+      <End Role="LoaiChamCong" EntitySet="LoaiChamCongs" />
+      <End Role="ChamCongChiTiet" EntitySet="ChamCongChiTiets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Nguoi_ChucVu" Association="Self.FK_dbo_Nguoi_ChucVu">
+      <End Role="ChucVu" EntitySet="ChucVus" />
+      <End Role="Nguoi" EntitySet="Nguois" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_DangKyNghiPhep_LoaiNghiPhep" Association="Self.FK_dbo_DangKyNghiPhep_LoaiNghiPhep">
       <End Role="LoaiNghiPhep" EntitySet="LoaiNghiPheps" />
       <End Role="DangKyNghiPhep" EntitySet="DangKyNghiPheps" />
     </AssociationSet>
-    <AssociationSet Name="FK_dbo_DangKyNghiPhep_MaNhanVien" Association="Self.FK_dbo_DangKyNghiPhep_MaNhanVien">
+    <AssociationSet Name="FK_dbo_DangKyNghiPhep_Nguoi" Association="Self.FK_dbo_DangKyNghiPhep_Nguoi">
       <End Role="Nguoi" EntitySet="Nguois" />
       <End Role="DangKyNghiPhep" EntitySet="DangKyNghiPheps" />
     </AssociationSet>
@@ -737,9 +1009,37 @@
       <End Role="Nguoi" EntitySet="Nguois" />
       <End Role="KhuonMat" EntitySet="KhuonMats" />
     </AssociationSet>
+    <AssociationSet Name="FK_dbo_SapXepLichTrinh_LichTrinh" Association="Self.FK_dbo_SapXepLichTrinh_LichTrinh">
+      <End Role="LichTrinh" EntitySet="LichTrinhs" />
+      <End Role="SapXepLichTrinh" EntitySet="SapXepLichTrinhs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_SapXepLichTrinhTam_LichTrinh" Association="Self.FK_dbo_SapXepLichTrinhTam_LichTrinh">
+      <End Role="LichTrinh" EntitySet="LichTrinhs" />
+      <End Role="SapXepLichTrinhTam" EntitySet="SapXepLichTrinhTams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LichTrinhNam_LichTrinh" Association="Self.FK_LichTrinhNam_LichTrinh">
+      <End Role="LichTrinh" EntitySet="LichTrinhs" />
+      <End Role="LichTrinhNam" EntitySet="LichTrinhNams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LichTrinhThang_LichTrinh" Association="Self.FK_LichTrinhThang_LichTrinh">
+      <End Role="LichTrinh" EntitySet="LichTrinhs" />
+      <End Role="LichTrinhThang" EntitySet="LichTrinhThangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LichTrinhTuan_LichTrinh" Association="Self.FK_LichTrinhTuan_LichTrinh">
+      <End Role="LichTrinh" EntitySet="LichTrinhs" />
+      <End Role="LichTrinhTuan" EntitySet="LichTrinhTuans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Nguoi_PhongBan" Association="Self.FK_dbo_Nguoi_PhongBan">
+      <End Role="PhongBan" EntitySet="PhongBans" />
+      <End Role="Nguoi" EntitySet="Nguois" />
+    </AssociationSet>
     <AssociationSet Name="FK_dbo_NhatKy_MaNguoi" Association="Self.FK_dbo_NhatKy_MaNguoi">
       <End Role="Nguoi" EntitySet="Nguois" />
       <End Role="NhatKy" EntitySet="NhatKies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_SapXepLichTrinh_Nguoi" Association="Self.FK_dbo_SapXepLichTrinh_Nguoi">
+      <End Role="Nguoi" EntitySet="Nguois" />
+      <End Role="SapXepLichTrinh" EntitySet="SapXepLichTrinhs" />
     </AssociationSet>
     <AssociationSet Name="FK_dbo_TheTu_MaNguoi" Association="Self.FK_dbo_TheTu_MaNguoi">
       <End Role="Nguoi" EntitySet="Nguois" />
@@ -749,14 +1049,14 @@
       <End Role="Nguoi" EntitySet="Nguois" />
       <End Role="VanTay" EntitySet="VanTays" />
     </AssociationSet>
+    <AssociationSet Name="FK_SapXepLichTrinhTam_Nguoi" Association="Self.FK_SapXepLichTrinhTam_Nguoi">
+      <End Role="Nguoi" EntitySet="Nguois" />
+      <End Role="SapXepLichTrinhTam" EntitySet="SapXepLichTrinhTams" />
+    </AssociationSet>
     <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
       <End Role="AspNetRoles" EntitySet="AspNetRoles" />
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
     </AssociationSet>
-    <FunctionImport Name="fn_Split" IsComposable="true" ReturnType="Collection(ATINChamCongModel.fn_Split_Result)">
-      <Parameter Name="p_SourceText" Mode="In" Type="String" />
-      <Parameter Name="p_Delimeter" Mode="In" Type="String" />
-    </FunctionImport>
     <FunctionImport Name="sp_alterdiagram">
       <Parameter Name="diagramname" Mode="In" Type="String" />
       <Parameter Name="owner_id" Mode="In" Type="Int32" />
@@ -787,14 +1087,79 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="spDeleteAllLichTrinhNamByLichTrinh_Month">
+      <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+      <Parameter Name="Month" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spDeleteAllLichTrinhThangByLichTrinh">
+      <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spDeleteAllLichTrinhTuanByLichTrinh">
+      <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+    </FunctionImport>
     <FunctionImport Name="spDeleteCaLamViec">
       <Parameter Name="MaCaLamViec" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="spGetAllCaLamViec" ReturnType="Collection(ATINChamCongModel.spGetAllCaLamViec_Result)" />
-    <FunctionImport Name="spGetCaLamViec" ReturnType="Collection(ATINChamCongModel.spGetCaLamViec_Result)">
-      <Parameter Name="MaCaLamViec" Mode="In" Type="Int32" />
+    <FunctionImport Name="spDeleteLichTrinh">
+      <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spDeleteLichTrinhNam">
+      <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+      <Parameter Name="MaCaLamViec" Mode="In" Type="String" />
+      <Parameter Name="Date" Mode="In" Type="Int32" />
+      <Parameter Name="Month" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spDeleteLichTrinhThang">
+      <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+      <Parameter Name="MaCaLamViec" Mode="In" Type="String" />
+      <Parameter Name="Date" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spDeleteLichTrinhTuan">
+      <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+      <Parameter Name="MaCaLamViec" Mode="In" Type="String" />
+      <Parameter Name="DateInWeek" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spDeleteMapLichTrinhNangCao">
+      <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+      <Parameter Name="MaLichTrinhNangCao" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spDeleteSapXepLichTrinh">
+      <Parameter Name="MaSapXep" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spDeleteSapXepLichTrinhTam">
+      <Parameter Name="MaLichTrinhTam" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetAllCaLamViec" EntitySet="CaLamViecs" ReturnType="Collection(ATINChamCongModel.CaLamViec)" />
+    <FunctionImport Name="spGetAllChucVu" EntitySet="ChucVus" ReturnType="Collection(ATINChamCongModel.ChucVu)" />
+    <FunctionImport Name="spGetAllLichTrinh" EntitySet="LichTrinhs" ReturnType="Collection(ATINChamCongModel.LichTrinh)" />
+    <FunctionImport Name="spGetAllSapXepLichTrinh" EntitySet="SapXepLichTrinhs" ReturnType="Collection(ATINChamCongModel.SapXepLichTrinh)" />
+    <FunctionImport Name="spGetAllSapXepLichTrinhTam" EntitySet="SapXepLichTrinhTams" ReturnType="Collection(ATINChamCongModel.SapXepLichTrinhTam)" />
+    <FunctionImport Name="spGetCaLamViec" EntitySet="CaLamViecs" ReturnType="Collection(ATINChamCongModel.CaLamViec)">
+      <Parameter Name="MaCaLamViec" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetLichTrinh" EntitySet="LichTrinhs" ReturnType="Collection(ATINChamCongModel.LichTrinh)">
+      <Parameter Name="MaCaLamViec" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetLichTrinhNamByLichTrinh" EntitySet="LichTrinhNams" ReturnType="Collection(ATINChamCongModel.LichTrinhNam)">
+      <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetLichTrinhThangByLichTrinh" EntitySet="LichTrinhThangs" ReturnType="Collection(ATINChamCongModel.LichTrinhThang)">
+      <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetLichTrinhTuanByLichTrinh" EntitySet="LichTrinhTuans" ReturnType="Collection(ATINChamCongModel.LichTrinhTuan)">
+      <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetMapLichTrinhNangCaoByLichTrinh" EntitySet="MapLichTrinhNangCaos" ReturnType="Collection(ATINChamCongModel.MapLichTrinhNangCao)">
+      <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetSapXepLichTrinhByNguoi" EntitySet="SapXepLichTrinhs" ReturnType="Collection(ATINChamCongModel.SapXepLichTrinh)">
+      <Parameter Name="MaNguoi" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetSapXepLichTrinhTamByNguoi" EntitySet="SapXepLichTrinhTams" ReturnType="Collection(ATINChamCongModel.SapXepLichTrinhTam)">
+      <Parameter Name="MaNguoi" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="spInsertCaLamViec">
+      <Parameter Name="MaCaLamViec" Mode="In" Type="String" />
       <Parameter Name="TenCaLamViec" Mode="In" Type="String" />
       <Parameter Name="GioBatDauCa" Mode="In" Type="Time" />
       <Parameter Name="GioKetThucCa" Mode="In" Type="Time" />
@@ -812,6 +1177,18 @@
       <Parameter Name="ThoiGianDiTreChoPhep" Mode="In" Type="Int32" />
       <Parameter Name="TruGioVeSom" Mode="In" Type="Boolean" />
       <Parameter Name="ThoiGianVeSomChoPhep" Mode="In" Type="Int32" />
+      <Parameter Name="SDMucTangCaHienTai" Mode="In" Type="Boolean" />
+      <Parameter Name="MucTangCaHienTai" Mode="In" Type="Int32" />
+      <Parameter Name="SDMucTangCaCuoiTuan" Mode="In" Type="Boolean" />
+      <Parameter Name="MucTangCaCuoiTuan" Mode="In" Type="Int32" />
+      <Parameter Name="SDMucTangCaNgayLe" Mode="In" Type="Boolean" />
+      <Parameter Name="MucTangCaNgayLe" Mode="In" Type="Int32" />
+      <Parameter Name="SDTangCaTruocGLV" Mode="In" Type="Boolean" />
+      <Parameter Name="TangCaTruocGLV" Mode="In" Type="Int32" />
+      <Parameter Name="SDTangCaSauGLV" Mode="In" Type="Boolean" />
+      <Parameter Name="TangCaSauGLV" Mode="In" Type="Int32" />
+      <Parameter Name="SDTongGLVTinhTangCa" Mode="In" Type="Boolean" />
+      <Parameter Name="TongGLVTinhTangCa" Mode="In" Type="Int32" />
       <Parameter Name="GioiHanTCMucMot" Mode="In" Type="Int32" />
       <Parameter Name="GioiHanTCMucHai" Mode="In" Type="Int32" />
       <Parameter Name="SDMucTangCaCuaTangCaCuoiTuan" Mode="In" Type="Boolean" />
@@ -823,9 +1200,48 @@
       <Parameter Name="CaQuaDem" Mode="In" Type="Boolean" />
       <Parameter Name="TachGioCaDemTu" Mode="In" Type="Time" />
       <Parameter Name="TachGioCaDemDen" Mode="In" Type="Time" />
+    </FunctionImport>
+    <FunctionImport Name="spInsertChucVu">
+      <Parameter Name="TenChucVu" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spInsertLichTrinh">
+      <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+      <Parameter Name="TenLichTrinh" Mode="In" Type="String" />
+      <Parameter Name="LoaiChuKy" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spInsertLichTrinhNam">
+      <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+      <Parameter Name="MaCaLamViec" Mode="In" Type="String" />
+      <Parameter Name="Date" Mode="In" Type="Int32" />
+      <Parameter Name="Month" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spInsertLichTrinhThang">
+      <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+      <Parameter Name="MaCaLamViec" Mode="In" Type="String" />
+      <Parameter Name="Date" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spInsertLichTrinhTuan">
+      <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+      <Parameter Name="MaCaLamViec" Mode="In" Type="String" />
+      <Parameter Name="DateInWeek" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spInsertMapLichTrinhNangCao">
+      <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+      <Parameter Name="MaLichTrinhNangCao" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spInsertSapXepLichTrinh">
+      <Parameter Name="MaNguoi" Mode="In" Type="Int32" />
+      <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spInsertSapxepLichTrinhTam">
+      <Parameter Name="TuNgay" Mode="In" Type="DateTime" />
+      <Parameter Name="DenNgay" Mode="In" Type="DateTime" />
+      <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+      <Parameter Name="MaNguoi" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="spUpdateCaLamViec">
-      <Parameter Name="MaCaLamViec" Mode="In" Type="Int32" />
+      <Parameter Name="MaCaLamViecChon" Mode="In" Type="String" />
+      <Parameter Name="MaCaLamViec" Mode="In" Type="String" />
       <Parameter Name="TenCaLamViec" Mode="In" Type="String" />
       <Parameter Name="GioBatDauCa" Mode="In" Type="Time" />
       <Parameter Name="GioKetThucCa" Mode="In" Type="Time" />
@@ -843,6 +1259,18 @@
       <Parameter Name="ThoiGianDiTreChoPhep" Mode="In" Type="Int32" />
       <Parameter Name="TruGioVeSom" Mode="In" Type="Boolean" />
       <Parameter Name="ThoiGianVeSomChoPhep" Mode="In" Type="Int32" />
+      <Parameter Name="SDMucTangCaHienTai" Mode="In" Type="Boolean" />
+      <Parameter Name="MucTangCaHienTai" Mode="In" Type="Int32" />
+      <Parameter Name="SDMucTangCaCuoiTuan" Mode="In" Type="Boolean" />
+      <Parameter Name="MucTangCaCuoiTuan" Mode="In" Type="Int32" />
+      <Parameter Name="SDMucTangCaNgayLe" Mode="In" Type="Boolean" />
+      <Parameter Name="MucTangCaNgayLe" Mode="In" Type="Int32" />
+      <Parameter Name="SDTangCaTruocGLV" Mode="In" Type="Boolean" />
+      <Parameter Name="TangCaTruocGLV" Mode="In" Type="Int32" />
+      <Parameter Name="SDTangCaSauGLV" Mode="In" Type="Boolean" />
+      <Parameter Name="TangCaSauGLV" Mode="In" Type="Int32" />
+      <Parameter Name="SDTongGLVTinhTangCa" Mode="In" Type="Boolean" />
+      <Parameter Name="TongGLVTinhTangCa" Mode="In" Type="Int32" />
       <Parameter Name="GioiHanTCMucMot" Mode="In" Type="Int32" />
       <Parameter Name="GioiHanTCMucHai" Mode="In" Type="Int32" />
       <Parameter Name="SDMucTangCaCuaTangCaCuoiTuan" Mode="In" Type="Boolean" />
@@ -855,6 +1283,54 @@
       <Parameter Name="TachGioCaDemTu" Mode="In" Type="Time" />
       <Parameter Name="TachGioCaDemDen" Mode="In" Type="Time" />
     </FunctionImport>
+    <FunctionImport Name="spUpdateLichTrinh">
+      <Parameter Name="MaLichTrinhChon" Mode="In" Type="String" />
+      <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+      <Parameter Name="TenLichTrinh" Mode="In" Type="String" />
+      <Parameter Name="LoaiChuKy" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spUpdateSapXepLichTrinh">
+      <Parameter Name="MaSapXep" Mode="In" Type="Int32" />
+      <Parameter Name="MaNguoi" Mode="In" Type="Int32" />
+      <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spUpdateSapxepLichTrinhTam">
+      <Parameter Name="MaLichTrinhTam" Mode="In" Type="Int32" />
+      <Parameter Name="TuNgay" Mode="In" Type="DateTime" />
+      <Parameter Name="DenNgay" Mode="In" Type="DateTime" />
+      <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+      <Parameter Name="MaNguoi" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="LichTrinhNangCaos" EntityType="ATINChamCongModel.LichTrinhNangCao" />
+    <EntitySet Name="MapLichTrinhNangCaos" EntityType="ATINChamCongModel.MapLichTrinhNangCao" />
+    <AssociationSet Name="FK_dbo_MapLichTrinhNangCao_LichTrinh" Association="ATINChamCongModel.FK_dbo_MapLichTrinhNangCao_LichTrinh">
+      <End Role="LichTrinh" EntitySet="LichTrinhs" />
+      <End Role="MapLichTrinhNangCao" EntitySet="MapLichTrinhNangCaos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_MapLichTrinhNangCao_LichTrinhNangCao" Association="ATINChamCongModel.FK_dbo_MapLichTrinhNangCao_LichTrinhNangCao">
+      <End Role="LichTrinhNangCao" EntitySet="LichTrinhNangCaos" />
+      <End Role="MapLichTrinhNangCao" EntitySet="MapLichTrinhNangCaos" />
+    </AssociationSet>
+    <FunctionImport Name="spDeletePhongBan">
+      <Parameter Name="MaPhongBan" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetAllPhongBan" EntitySet="PhongBans" ReturnType="Collection(ATINChamCongModel.PhongBan)" />
+    <FunctionImport Name="spGetPhongBan" EntitySet="PhongBans" ReturnType="Collection(ATINChamCongModel.PhongBan)">
+      <Parameter Name="MaPhongBan" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spInsertPhongBan">
+      <Parameter Name="MaPhongBan" Mode="In" Type="Int32" />
+      <Parameter Name="TenPhongBan" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spUpdatePhongBan">
+      <Parameter Name="MaPhongBan" Mode="In" Type="Int32" />
+      <Parameter Name="TenPhongBan" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetAllNguoi" EntitySet="Nguois" ReturnType="Collection(ATINChamCongModel.Nguoi)" />
+    <FunctionImport Name="spGetViewSapXepLichTrinhByNguoi" EntitySet="ViewSapXepLichTrinhs" ReturnType="Collection(ATINChamCongModel.ViewSapXepLichTrinh)">
+      <Parameter Name="MaNguoi" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="ViewSapXepLichTrinhs" EntityType="ATINChamCongModel.ViewSapXepLichTrinh" />
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -868,7 +1344,7 @@
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
   <ComplexType Name="spGetAllCaLamViec_Result">
-    <Property Type="Int32" Name="MaCaLamViec" Nullable="false" />
+    <Property Type="String" Name="MaCaLamViec" Nullable="false" MaxLength="5" />
     <Property Type="String" Name="TenCaLamViec" Nullable="false" MaxLength="50" />
     <Property Type="Time" Name="GioBatDauCa" Nullable="false" />
     <Property Type="Time" Name="GioKetThucCa" Nullable="false" />
@@ -896,7 +1372,9 @@
     <Property Type="Int32" Name="MucTangCaCuaTangCaCuoiTuan" Nullable="true" />
     <Property Type="Boolean" Name="SDMucTangCaCuaTangCaNgayLe" Nullable="true" />
     <Property Type="Int32" Name="MucTangCaCuaTangCaNgayLe" Nullable="true" />
+    <Property Type="Boolean" Name="SDTangCaTruocGLV" Nullable="true" />
     <Property Type="Int32" Name="TangCaTruocGLV" Nullable="true" />
+    <Property Type="Boolean" Name="SDTangCaSauGLV" Nullable="true" />
     <Property Type="Int32" Name="TangCaSauGLV" Nullable="true" />
     <Property Type="Int32" Name="TongGLVTinhTangCa" Nullable="true" />
     <Property Type="Int32" Name="GioiHanTCMucMot" Nullable="true" />
@@ -906,9 +1384,31 @@
     <Property Type="Boolean" Name="CaQuaDem" Nullable="true" />
     <Property Type="Time" Name="TachGioCaDemTu" Nullable="true" />
     <Property Type="Time" Name="TachGioCaDemDen" Nullable="true" />
+    <Property Type="Boolean" Name="SDTongGLVTinhTangCa" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spGetAllChucVu_Result">
+    <Property Type="Int32" Name="MaChucVu" Nullable="false" />
+    <Property Type="String" Name="TenChucVu" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="spGetAllLichTrinh_Result">
+    <Property Type="String" Name="MaLichTrinh" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="TenLichTrinh" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="LoaiChuKy" Nullable="false" MaxLength="5" />
+  </ComplexType>
+  <ComplexType Name="spGetAllSapXepLichTrinh_Result">
+    <Property Type="Int32" Name="MaSapXep" Nullable="false" />
+    <Property Type="Int32" Name="MaNguoi" Nullable="false" />
+    <Property Type="String" Name="MaLichTrinh" Nullable="true" MaxLength="5" />
+  </ComplexType>
+  <ComplexType Name="spGetAllSapXepLichTrinhTam_Result">
+    <Property Type="Int32" Name="MaLichTrinhTam" Nullable="false" />
+    <Property Type="DateTime" Name="TuNgay" Nullable="false" />
+    <Property Type="DateTime" Name="DenNgay" Nullable="false" />
+    <Property Type="String" Name="MaLichTrinh" Nullable="true" MaxLength="5" />
+    <Property Type="Int32" Name="MaNguoi" Nullable="false" />
   </ComplexType>
   <ComplexType Name="spGetCaLamViec_Result">
-    <Property Type="Int32" Name="MaCaLamViec" Nullable="false" />
+    <Property Type="String" Name="MaCaLamViec" Nullable="false" MaxLength="5" />
     <Property Type="String" Name="TenCaLamViec" Nullable="false" MaxLength="50" />
     <Property Type="Time" Name="GioBatDauCa" Nullable="false" />
     <Property Type="Time" Name="GioKetThucCa" Nullable="false" />
@@ -936,7 +1436,9 @@
     <Property Type="Int32" Name="MucTangCaCuaTangCaCuoiTuan" Nullable="true" />
     <Property Type="Boolean" Name="SDMucTangCaCuaTangCaNgayLe" Nullable="true" />
     <Property Type="Int32" Name="MucTangCaCuaTangCaNgayLe" Nullable="true" />
+    <Property Type="Boolean" Name="SDTangCaTruocGLV" Nullable="true" />
     <Property Type="Int32" Name="TangCaTruocGLV" Nullable="true" />
+    <Property Type="Boolean" Name="SDTangCaSauGLV" Nullable="true" />
     <Property Type="Int32" Name="TangCaSauGLV" Nullable="true" />
     <Property Type="Int32" Name="TongGLVTinhTangCa" Nullable="true" />
     <Property Type="Int32" Name="GioiHanTCMucMot" Nullable="true" />
@@ -946,5 +1448,195 @@
     <Property Type="Boolean" Name="CaQuaDem" Nullable="true" />
     <Property Type="Time" Name="TachGioCaDemTu" Nullable="true" />
     <Property Type="Time" Name="TachGioCaDemDen" Nullable="true" />
+    <Property Type="Boolean" Name="SDTongGLVTinhTangCa" Nullable="true" />
   </ComplexType>
+  <ComplexType Name="spGetLichTrinh_Result">
+    <Property Type="String" Name="MaCaLamViec" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="TenCaLamViec" Nullable="false" MaxLength="50" />
+    <Property Type="Time" Name="GioBatDauCa" Nullable="false" />
+    <Property Type="Time" Name="GioKetThucCa" Nullable="false" />
+    <Property Type="Time" Name="GioBatDauGiaiLao" Nullable="true" />
+    <Property Type="Time" Name="GioKetThucGiaiLao" Nullable="true" />
+    <Property Type="Int32" Name="TongGio" Nullable="false" />
+    <Property Type="Int32" Name="DiemCong" Nullable="false" />
+    <Property Type="Time" Name="GioVaoSomNhatDuocTinhCa" Nullable="false" />
+    <Property Type="Time" Name="GioVaoMuonNhatDuocTinhCa" Nullable="false" />
+    <Property Type="Time" Name="GioRaSomNhatDuocTinhCa" Nullable="false" />
+    <Property Type="Time" Name="GioRaMuonNhatDuocTinhCa" Nullable="false" />
+    <Property Type="Int32" Name="KhongCoGioVao" Nullable="false" />
+    <Property Type="Int32" Name="KhongCoGioRa" Nullable="false" />
+    <Property Type="Boolean" Name="TruGioDiTre" Nullable="true" />
+    <Property Type="Int32" Name="ThoiGianDiTreChoPhep" Nullable="true" />
+    <Property Type="Boolean" Name="TruGioVeSom" Nullable="true" />
+    <Property Type="Int32" Name="ThoiGianVeSomChoPhep" Nullable="true" />
+    <Property Type="Boolean" Name="SDMucTangCaHienTai" Nullable="true" />
+    <Property Type="Int32" Name="MucTangCaHienTai" Nullable="true" />
+    <Property Type="Boolean" Name="SDMucTangCaCuoiTuan" Nullable="true" />
+    <Property Type="Int32" Name="MucTangCaCuoiTuan" Nullable="true" />
+    <Property Type="Boolean" Name="SDMucTangCaNgayLe" Nullable="true" />
+    <Property Type="Int32" Name="MucTangCaNgayLe" Nullable="true" />
+    <Property Type="Boolean" Name="SDMucTangCaCuaTangCaCuoiTuan" Nullable="true" />
+    <Property Type="Int32" Name="MucTangCaCuaTangCaCuoiTuan" Nullable="true" />
+    <Property Type="Boolean" Name="SDMucTangCaCuaTangCaNgayLe" Nullable="true" />
+    <Property Type="Int32" Name="MucTangCaCuaTangCaNgayLe" Nullable="true" />
+    <Property Type="Boolean" Name="SDTangCaTruocGLV" Nullable="true" />
+    <Property Type="Int32" Name="TangCaTruocGLV" Nullable="true" />
+    <Property Type="Boolean" Name="SDTangCaSauGLV" Nullable="true" />
+    <Property Type="Int32" Name="TangCaSauGLV" Nullable="true" />
+    <Property Type="Int32" Name="TongGLVTinhTangCa" Nullable="true" />
+    <Property Type="Int32" Name="GioiHanTCMucMot" Nullable="true" />
+    <Property Type="Int32" Name="GioiHanTCMucHai" Nullable="true" />
+    <Property Type="Int32" Name="GioiHanTCTruocGLV" Nullable="true" />
+    <Property Type="Int32" Name="GioiHanTCSauGLV" Nullable="true" />
+    <Property Type="Boolean" Name="CaQuaDem" Nullable="true" />
+    <Property Type="Time" Name="TachGioCaDemTu" Nullable="true" />
+    <Property Type="Time" Name="TachGioCaDemDen" Nullable="true" />
+    <Property Type="Boolean" Name="SDTongGLVTinhTangCa" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spGetLichTrinhNamByLichTrinh_Result">
+    <Property Type="Int32" Name="MaLichTrinhNam" Nullable="false" />
+    <Property Type="String" Name="MaCaLamViec" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="MaLichTrinh" Nullable="false" MaxLength="5" />
+    <Property Type="Int32" Name="Date" Nullable="false" />
+    <Property Type="Int32" Name="Month" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetLichTrinhThangByLichTrinh_Result">
+    <Property Type="Int32" Name="MaLichTrinhThang" Nullable="false" />
+    <Property Type="String" Name="MaCaLamViec" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="MaLichTrinh" Nullable="false" MaxLength="5" />
+    <Property Type="Int32" Name="Date" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetLichTrinhTuanByLichTrinh_Result">
+    <Property Type="Int32" Name="MaLichTrinhTuan" Nullable="false" />
+    <Property Type="String" Name="MaCaLamViec" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="MaLichTrinh" Nullable="false" MaxLength="5" />
+    <Property Type="Int32" Name="DateInWeek" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetMapLichTrinhNangCaoByLichTrinh_Result">
+    <Property Type="String" Name="MaLichTrinh" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="MaLichTrinhNangCao" Nullable="false" MaxLength="5" />
+  </ComplexType>
+  <ComplexType Name="spGetSapXepLichTrinhByNguoi_Result">
+    <Property Type="Int32" Name="MaSapXep" Nullable="false" />
+    <Property Type="Int32" Name="MaNguoi" Nullable="false" />
+    <Property Type="String" Name="MaLichTrinh" Nullable="true" MaxLength="5" />
+  </ComplexType>
+  <ComplexType Name="spGetSapXepLichTrinhTamByNguoi_Result">
+    <Property Type="Int32" Name="MaLichTrinhTam" Nullable="false" />
+    <Property Type="DateTime" Name="TuNgay" Nullable="false" />
+    <Property Type="DateTime" Name="DenNgay" Nullable="false" />
+    <Property Type="String" Name="MaLichTrinh" Nullable="true" MaxLength="5" />
+    <Property Type="Int32" Name="MaNguoi" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="LichTrinhNangCao">
+    <Key>
+      <PropertyRef Name="MaLichTrinhNangCao" />
+    </Key>
+    <Property Name="MaLichTrinhNangCao" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="TenLichTrinhNangCao" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="SuDung" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="MapLichTrinhNangCaos" Relationship="ATINChamCongModel.FK_dbo_MapLichTrinhNangCao_LichTrinhNangCao" FromRole="LichTrinhNangCao" ToRole="MapLichTrinhNangCao" />
+  </EntityType>
+  <EntityType Name="MapLichTrinhNangCao">
+    <Key>
+      <PropertyRef Name="MaLichTrinh" />
+      <PropertyRef Name="MaLichTrinhNangCao" />
+    </Key>
+    <Property Name="MaLichTrinh" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="MaLichTrinhNangCao" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="EmptyColumn" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="LichTrinh" Relationship="ATINChamCongModel.FK_dbo_MapLichTrinhNangCao_LichTrinh" FromRole="MapLichTrinhNangCao" ToRole="LichTrinh" />
+    <NavigationProperty Name="LichTrinhNangCao" Relationship="ATINChamCongModel.FK_dbo_MapLichTrinhNangCao_LichTrinhNangCao" FromRole="MapLichTrinhNangCao" ToRole="LichTrinhNangCao" />
+  </EntityType>
+  <Association Name="FK_dbo_MapLichTrinhNangCao_LichTrinh">
+    <End Type="ATINChamCongModel.LichTrinh" Role="LichTrinh" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ATINChamCongModel.MapLichTrinhNangCao" Role="MapLichTrinhNangCao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LichTrinh">
+        <PropertyRef Name="MaLichTrinh" />
+      </Principal>
+      <Dependent Role="MapLichTrinhNangCao">
+        <PropertyRef Name="MaLichTrinh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_MapLichTrinhNangCao_LichTrinhNangCao">
+    <End Type="ATINChamCongModel.LichTrinhNangCao" Role="LichTrinhNangCao" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ATINChamCongModel.MapLichTrinhNangCao" Role="MapLichTrinhNangCao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LichTrinhNangCao">
+        <PropertyRef Name="MaLichTrinhNangCao" />
+      </Principal>
+      <Dependent Role="MapLichTrinhNangCao">
+        <PropertyRef Name="MaLichTrinhNangCao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="spGetAllPhongBan_Result">
+    <Property Type="Int32" Name="MaPhongBan" Nullable="false" />
+    <Property Type="String" Name="TenPhongBan" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="spGetPhongBan_Result">
+    <Property Type="Int32" Name="MaPhongBan" Nullable="false" />
+    <Property Type="String" Name="TenPhongBan" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="spGetAllNguoi_Result">
+    <Property Type="Int32" Name="MaNguoi" Nullable="false" />
+    <Property Type="String" Name="MaDinhDanh" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="HoTen" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="PhongBan" Nullable="true" />
+    <Property Type="Int32" Name="ChucVu" Nullable="true" />
+    <Property Type="Int32" Name="KhuVuc" Nullable="true" />
+    <Property Type="DateTime" Name="NgaySinh" Nullable="true" />
+    <Property Type="Int32" Name="GioiTinh" Nullable="false" />
+    <Property Type="String" Name="SoDienThoai" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AnhDaiDien" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="TrinhDo" Nullable="true" />
+    <Property Type="String" Name="SoTheCanCuoc" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="NgayCapTCC" Nullable="true" />
+    <Property Type="String" Name="NoiCapTCC" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="DanToc" Nullable="true" />
+    <Property Type="Int32" Name="TonGiao" Nullable="true" />
+    <Property Type="Int32" Name="QuocTich" Nullable="true" />
+    <Property Type="Int32" Name="TinhTrangHonNhan" Nullable="true" />
+    <Property Type="String" Name="SoBangLaiXeMay" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="NgayCapBLXM" Nullable="true" />
+    <Property Type="String" Name="NoiCapBLXM" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="SoBangLaiOto" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="NgayCapBLXO" Nullable="true" />
+    <Property Type="String" Name="NoiCapBLXO" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="DiaChiThuongTru" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="DiaChiTamTru" Nullable="true" MaxLength="20" />
+    <Property Type="DateTime" Name="NgayNhanViec" Nullable="true" />
+    <Property Type="DateTime" Name="NgayThoiViec" Nullable="true" />
+    <Property Type="Boolean" Name="SuDungVanTay" Nullable="true" />
+    <Property Type="Boolean" Name="SuDungTheTu" Nullable="true" />
+    <Property Type="Boolean" Name="SuDungKhuonMat" Nullable="true" />
+    <Property Type="DateTime" Name="ThoiGianDangKy" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="ThoiGianCapNhat" Nullable="true" Precision="23" />
+    <Property Type="String" Name="GhiChu" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="TrangThaiHoatDong" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spGetViewSapXepLichTrinhByNguoi_Result">
+    <Property Type="Int32" Name="MaNguoi" Nullable="false" />
+    <Property Type="String" Name="HoTen" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="MaChamCong" Nullable="true" />
+    <Property Type="String" Name="MaLichTrinh" Nullable="true" MaxLength="5" />
+    <Property Type="Int32" Name="MaSapXep" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="ViewSapXepLichTrinh">
+    <Key>
+      <PropertyRef Name="MaNguoi" />
+    </Key>
+    <Property Name="MaNguoi" Type="Int32" Nullable="false" />
+    <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MaChamCong" Type="Int32" />
+    <Property Name="MaLichTrinh" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="MaSapXep" Type="Int32" />
+  </EntityType>
 </Schema>

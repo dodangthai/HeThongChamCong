@@ -14,8 +14,16 @@ namespace ATINTimekeeping.Model
     
     public partial class ChucVu
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ChucVu()
+        {
+            this.Nguois = new HashSet<Nguoi>();
+        }
+    
         public int MaChucVu { get; set; }
-        public string ChucVu1 { get; set; }
-        public Nullable<int> TrangThai { get; set; }
+        public string TenChucVu { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Nguoi> Nguois { get; set; }
     }
 }

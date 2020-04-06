@@ -18,8 +18,12 @@ namespace ATINTimekeeping.Model
         public int MaChamCong { get; set; }
         public System.DateTime NgayChamCong { get; set; }
         public System.DateTime GioChamCong { get; set; }
-        public int LoaiChamCong { get; set; }
+        public string MaLoaiChamCong { get; set; }
         public int NguonThucHien { get; set; }
         public Nullable<int> MaThietBi { get; set; }
+        public byte[] HinhChamCong { get; set; }
+    
+        public virtual ChamCong ChamCong { get; set; }
+        public virtual LoaiChamCong LoaiChamCong { get; set; }
     }
 }

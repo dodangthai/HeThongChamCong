@@ -249,3 +249,4 @@ D:\AT-Git\HeThongChamCong\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj
 D:\AT-Git\HeThongChamCong\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.FormSystem.DeclareReligion.resources
 D:\AT-Git\HeThongChamCong\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.FormSystem.ManagerAccount.resources
 D:\AT-Git\HeThongChamCong\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.FormSystem.ManagerEmployee.resources
+D:\AT-Git\HeThongChamCong\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.FormTimeKeepingSetting.SubDeclareWorkCalendar.resources

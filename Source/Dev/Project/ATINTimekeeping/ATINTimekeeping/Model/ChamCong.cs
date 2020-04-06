@@ -14,11 +14,17 @@ namespace ATINTimekeeping.Model
     
     public partial class ChamCong
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ChamCong()
+        {
+            this.ChamCongChiTiets = new HashSet<ChamCongChiTiet>();
+        }
+    
         public int MaChamCong { get; set; }
         public int MaNhanVien { get; set; }
         public Nullable<int> MaDinhDanh { get; set; }
         public System.DateTime NgayChamCong { get; set; }
-        public int MaCaLamViec { get; set; }
+        public string MaCaLamViec { get; set; }
         public Nullable<System.DateTime> GioVaoDauTien { get; set; }
         public Nullable<System.DateTime> GioRaCuoiCung { get; set; }
         public double SoGioLamViec { get; set; }
@@ -29,7 +35,17 @@ namespace ATINTimekeeping.Model
         public int TangCa1 { get; set; }
         public int TangCa2 { get; set; }
         public int TangCa3 { get; set; }
+        public string MaLoaiVang { get; set; }
+        public string LyDoVang { get; set; }
         public double TongSoGioLamViec { get; set; }
         public double TongSoCongLamViec { get; set; }
+        public string MaXepLoaiChamCong { get; set; }
+    
+        public virtual CacLoaiVang CacLoaiVang { get; set; }
+        public virtual CaLamViec CaLamViec { get; set; }
+        public virtual Nguoi Nguoi { get; set; }
+        public virtual XepLoaiChamCong XepLoaiChamCong { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ChamCongChiTiet> ChamCongChiTiets { get; set; }
     }
 }

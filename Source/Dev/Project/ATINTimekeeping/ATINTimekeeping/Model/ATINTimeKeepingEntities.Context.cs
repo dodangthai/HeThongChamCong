@@ -31,7 +31,7 @@ namespace ATINTimekeeping.Model
         public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
-        public virtual DbSet<BaoCaoChiTiet> BaoCaoChiTiets { get; set; }
+        public virtual DbSet<CacLoaiVang> CacLoaiVangs { get; set; }
         public virtual DbSet<CaLamViec> CaLamViecs { get; set; }
         public virtual DbSet<ChamCong> ChamCongs { get; set; }
         public virtual DbSet<ChamCongChiTiet> ChamCongChiTiets { get; set; }
@@ -40,15 +40,15 @@ namespace ATINTimekeeping.Model
         public virtual DbSet<DangKyNghiPhep> DangKyNghiPheps { get; set; }
         public virtual DbSet<DangKyTangCa> DangKyTangCas { get; set; }
         public virtual DbSet<DanToc> DanTocs { get; set; }
-        public virtual DbSet<HopDongLaoDong> HopDongLaoDongs { get; set; }
-        public virtual DbSet<KhaiBaoThoiGian> KhaiBaoThoiGians { get; set; }
         public virtual DbSet<KhuonMat> KhuonMats { get; set; }
-        public virtual DbSet<KyHieuCacLoaiVang> KyHieuCacLoaiVangs { get; set; }
-        public virtual DbSet<KyHieuChamCong> KyHieuChamCongs { get; set; }
-        public virtual DbSet<LichTrinhLamViec> LichTrinhLamViecs { get; set; }
+        public virtual DbSet<LichSuSuaDuLieuChamCong> LichSuSuaDuLieuChamCongs { get; set; }
+        public virtual DbSet<LichTrinh> LichTrinhs { get; set; }
+        public virtual DbSet<LichTrinhNam> LichTrinhNams { get; set; }
+        public virtual DbSet<LichTrinhThang> LichTrinhThangs { get; set; }
+        public virtual DbSet<LichTrinhTuan> LichTrinhTuans { get; set; }
+        public virtual DbSet<LoaiChamCong> LoaiChamCongs { get; set; }
         public virtual DbSet<LoaiHopDong> LoaiHopDongs { get; set; }
         public virtual DbSet<LoaiNghiPhep> LoaiNghiPheps { get; set; }
-        public virtual DbSet<LoaiThamSo> LoaiThamSoes { get; set; }
         public virtual DbSet<MayNhanDang> MayNhanDangs { get; set; }
         public virtual DbSet<NgayNghiLe> NgayNghiLes { get; set; }
         public virtual DbSet<NgayPhepNhanVien> NgayPhepNhanViens { get; set; }
@@ -56,30 +56,17 @@ namespace ATINTimekeeping.Model
         public virtual DbSet<NhatKy> NhatKies { get; set; }
         public virtual DbSet<PhanQuyenNhanDang> PhanQuyenNhanDangs { get; set; }
         public virtual DbSet<PhongBan> PhongBans { get; set; }
-        public virtual DbSet<PhuCap> PhuCaps { get; set; }
+        public virtual DbSet<SapXepLichTrinh> SapXepLichTrinhs { get; set; }
+        public virtual DbSet<SapXepLichTrinhTam> SapXepLichTrinhTams { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<ThamSo> ThamSoes { get; set; }
         public virtual DbSet<TheTu> TheTus { get; set; }
         public virtual DbSet<TonGiao> TonGiaos { get; set; }
         public virtual DbSet<TrinhDoHocVan> TrinhDoHocVans { get; set; }
         public virtual DbSet<VanTay> VanTays { get; set; }
-        public virtual DbSet<BaoCao> BaoCaos { get; set; }
-        public virtual DbSet<MATHANG_KHO> MATHANG_KHO { get; set; }
-        public virtual DbSet<SP_Status> SP_Status { get; set; }
-    
-        [DbFunction("ATINChamCongEntities", "fn_Split")]
-        public virtual IQueryable<fn_Split_Result> fn_Split(string p_SourceText, string p_Delimeter)
-        {
-            var p_SourceTextParameter = p_SourceText != null ?
-                new ObjectParameter("p_SourceText", p_SourceText) :
-                new ObjectParameter("p_SourceText", typeof(string));
-    
-            var p_DelimeterParameter = p_Delimeter != null ?
-                new ObjectParameter("p_Delimeter", p_Delimeter) :
-                new ObjectParameter("p_Delimeter", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fn_Split_Result>("[ATINChamCongEntities].[fn_Split](@p_SourceText, @p_Delimeter)", p_SourceTextParameter, p_DelimeterParameter);
-        }
+        public virtual DbSet<XepLoaiChamCong> XepLoaiChamCongs { get; set; }
+        public virtual DbSet<LichTrinhNangCao> LichTrinhNangCaos { get; set; }
+        public virtual DbSet<MapLichTrinhNangCao> MapLichTrinhNangCaos { get; set; }
+        public virtual DbSet<ViewSapXepLichTrinh> ViewSapXepLichTrinhs { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
@@ -184,6 +171,37 @@ namespace ATINTimekeeping.Model
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
     
+        public virtual int spDeleteAllLichTrinhNamByLichTrinh_Month(string maLichTrinh, Nullable<int> month)
+        {
+            var maLichTrinhParameter = maLichTrinh != null ?
+                new ObjectParameter("MaLichTrinh", maLichTrinh) :
+                new ObjectParameter("MaLichTrinh", typeof(string));
+    
+            var monthParameter = month.HasValue ?
+                new ObjectParameter("Month", month) :
+                new ObjectParameter("Month", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spDeleteAllLichTrinhNamByLichTrinh_Month", maLichTrinhParameter, monthParameter);
+        }
+    
+        public virtual int spDeleteAllLichTrinhThangByLichTrinh(string maLichTrinh)
+        {
+            var maLichTrinhParameter = maLichTrinh != null ?
+                new ObjectParameter("MaLichTrinh", maLichTrinh) :
+                new ObjectParameter("MaLichTrinh", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spDeleteAllLichTrinhThangByLichTrinh", maLichTrinhParameter);
+        }
+    
+        public virtual int spDeleteAllLichTrinhTuanByLichTrinh(string maLichTrinh)
+        {
+            var maLichTrinhParameter = maLichTrinh != null ?
+                new ObjectParameter("MaLichTrinh", maLichTrinh) :
+                new ObjectParameter("MaLichTrinh", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spDeleteAllLichTrinhTuanByLichTrinh", maLichTrinhParameter);
+        }
+    
         public virtual int spDeleteCaLamViec(string maCaLamViec)
         {
             var maCaLamViecParameter = maCaLamViec != null ?
@@ -193,23 +211,301 @@ namespace ATINTimekeeping.Model
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spDeleteCaLamViec", maCaLamViecParameter);
         }
     
-        public virtual ObjectResult<spGetAllCaLamViec_Result> spGetAllCaLamViec()
+        public virtual int spDeleteLichTrinh(string maLichTrinh)
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetAllCaLamViec_Result>("spGetAllCaLamViec");
+            var maLichTrinhParameter = maLichTrinh != null ?
+                new ObjectParameter("MaLichTrinh", maLichTrinh) :
+                new ObjectParameter("MaLichTrinh", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spDeleteLichTrinh", maLichTrinhParameter);
         }
     
-        public virtual ObjectResult<spGetCaLamViec_Result> spGetCaLamViec(Nullable<int> maCaLamViec)
+        public virtual int spDeleteLichTrinhNam(string maLichTrinh, string maCaLamViec, Nullable<int> date, Nullable<int> month)
         {
-            var maCaLamViecParameter = maCaLamViec.HasValue ?
+            var maLichTrinhParameter = maLichTrinh != null ?
+                new ObjectParameter("MaLichTrinh", maLichTrinh) :
+                new ObjectParameter("MaLichTrinh", typeof(string));
+    
+            var maCaLamViecParameter = maCaLamViec != null ?
                 new ObjectParameter("MaCaLamViec", maCaLamViec) :
-                new ObjectParameter("MaCaLamViec", typeof(int));
+                new ObjectParameter("MaCaLamViec", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetCaLamViec_Result>("spGetCaLamViec", maCaLamViecParameter);
+            var dateParameter = date.HasValue ?
+                new ObjectParameter("Date", date) :
+                new ObjectParameter("Date", typeof(int));
+    
+            var monthParameter = month.HasValue ?
+                new ObjectParameter("Month", month) :
+                new ObjectParameter("Month", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spDeleteLichTrinhNam", maLichTrinhParameter, maCaLamViecParameter, dateParameter, monthParameter);
         }
     
-
-        public virtual int spInsertCaLamViec(string tenCaLamViec, Nullable<System.TimeSpan> gioBatDauCa, Nullable<System.TimeSpan> gioKetThucCa, Nullable<System.TimeSpan> gioBatDauGiaiLao, Nullable<System.TimeSpan> gioKetThucGiaiLao, Nullable<int> tongGio, Nullable<int> diemCong, Nullable<System.TimeSpan> gioVaoSomNhatDuocTinhCa, Nullable<System.TimeSpan> gioVaoMuonNhatDuocTinhCa, Nullable<System.TimeSpan> gioRaMuonNhatDuocTinhCa, Nullable<System.TimeSpan> gioRaSomNhatDuocTinhCa, Nullable<int> khongCoGioRa, Nullable<int> khongCoGioVao, Nullable<bool> truGioDiTre, Nullable<int> thoiGianDiTreChoPhep, Nullable<bool> truGioVeSom, Nullable<int> thoiGianVeSomChoPhep, Nullable<int> gioiHanTCMucMot, Nullable<int> gioiHanTCMucHai, Nullable<bool> sDMucTangCaCuaTangCaCuoiTuan, Nullable<int> mucTangCaCuaTangCaCuoiTuan, Nullable<bool> sDMucTangCaCuaTangCaNgayLe, Nullable<int> mucTangCaCuaTangCaNgayLe, Nullable<int> gioiHanTCTruocGLV, Nullable<int> gioiHanTCSauGLV, Nullable<bool> caQuaDem, Nullable<System.TimeSpan> tachGioCaDemTu, Nullable<System.TimeSpan> tachGioCaDemDen)
+        public virtual int spDeleteLichTrinhThang(string maLichTrinh, string maCaLamViec, Nullable<int> date)
         {
+            var maLichTrinhParameter = maLichTrinh != null ?
+                new ObjectParameter("MaLichTrinh", maLichTrinh) :
+                new ObjectParameter("MaLichTrinh", typeof(string));
+    
+            var maCaLamViecParameter = maCaLamViec != null ?
+                new ObjectParameter("MaCaLamViec", maCaLamViec) :
+                new ObjectParameter("MaCaLamViec", typeof(string));
+    
+            var dateParameter = date.HasValue ?
+                new ObjectParameter("Date", date) :
+                new ObjectParameter("Date", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spDeleteLichTrinhThang", maLichTrinhParameter, maCaLamViecParameter, dateParameter);
+        }
+    
+        public virtual int spDeleteLichTrinhTuan(string maLichTrinh, string maCaLamViec, Nullable<int> dateInWeek)
+        {
+            var maLichTrinhParameter = maLichTrinh != null ?
+                new ObjectParameter("MaLichTrinh", maLichTrinh) :
+                new ObjectParameter("MaLichTrinh", typeof(string));
+    
+            var maCaLamViecParameter = maCaLamViec != null ?
+                new ObjectParameter("MaCaLamViec", maCaLamViec) :
+                new ObjectParameter("MaCaLamViec", typeof(string));
+    
+            var dateInWeekParameter = dateInWeek.HasValue ?
+                new ObjectParameter("DateInWeek", dateInWeek) :
+                new ObjectParameter("DateInWeek", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spDeleteLichTrinhTuan", maLichTrinhParameter, maCaLamViecParameter, dateInWeekParameter);
+        }
+    
+        public virtual int spDeleteMapLichTrinhNangCao(string maLichTrinh, string maLichTrinhNangCao)
+        {
+            var maLichTrinhParameter = maLichTrinh != null ?
+                new ObjectParameter("MaLichTrinh", maLichTrinh) :
+                new ObjectParameter("MaLichTrinh", typeof(string));
+    
+            var maLichTrinhNangCaoParameter = maLichTrinhNangCao != null ?
+                new ObjectParameter("MaLichTrinhNangCao", maLichTrinhNangCao) :
+                new ObjectParameter("MaLichTrinhNangCao", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spDeleteMapLichTrinhNangCao", maLichTrinhParameter, maLichTrinhNangCaoParameter);
+        }
+    
+        public virtual int spDeleteSapXepLichTrinh(Nullable<int> maSapXep)
+        {
+            var maSapXepParameter = maSapXep.HasValue ?
+                new ObjectParameter("MaSapXep", maSapXep) :
+                new ObjectParameter("MaSapXep", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spDeleteSapXepLichTrinh", maSapXepParameter);
+        }
+    
+        public virtual int spDeleteSapXepLichTrinhTam(Nullable<int> maLichTrinhTam)
+        {
+            var maLichTrinhTamParameter = maLichTrinhTam.HasValue ?
+                new ObjectParameter("MaLichTrinhTam", maLichTrinhTam) :
+                new ObjectParameter("MaLichTrinhTam", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spDeleteSapXepLichTrinhTam", maLichTrinhTamParameter);
+        }
+    
+        public virtual ObjectResult<CaLamViec> spGetAllCaLamViec()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CaLamViec>("spGetAllCaLamViec");
+        }
+    
+        public virtual ObjectResult<CaLamViec> spGetAllCaLamViec(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CaLamViec>("spGetAllCaLamViec", mergeOption);
+        }
+    
+        public virtual ObjectResult<ChucVu> spGetAllChucVu()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ChucVu>("spGetAllChucVu");
+        }
+    
+        public virtual ObjectResult<ChucVu> spGetAllChucVu(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ChucVu>("spGetAllChucVu", mergeOption);
+        }
+    
+        public virtual ObjectResult<LichTrinh> spGetAllLichTrinh()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LichTrinh>("spGetAllLichTrinh");
+        }
+    
+        public virtual ObjectResult<LichTrinh> spGetAllLichTrinh(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LichTrinh>("spGetAllLichTrinh", mergeOption);
+        }
+    
+        public virtual ObjectResult<SapXepLichTrinh> spGetAllSapXepLichTrinh()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SapXepLichTrinh>("spGetAllSapXepLichTrinh");
+        }
+    
+        public virtual ObjectResult<SapXepLichTrinh> spGetAllSapXepLichTrinh(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SapXepLichTrinh>("spGetAllSapXepLichTrinh", mergeOption);
+        }
+    
+        public virtual ObjectResult<SapXepLichTrinhTam> spGetAllSapXepLichTrinhTam()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SapXepLichTrinhTam>("spGetAllSapXepLichTrinhTam");
+        }
+    
+        public virtual ObjectResult<SapXepLichTrinhTam> spGetAllSapXepLichTrinhTam(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SapXepLichTrinhTam>("spGetAllSapXepLichTrinhTam", mergeOption);
+        }
+    
+        public virtual ObjectResult<CaLamViec> spGetCaLamViec(string maCaLamViec)
+        {
+            var maCaLamViecParameter = maCaLamViec != null ?
+                new ObjectParameter("MaCaLamViec", maCaLamViec) :
+                new ObjectParameter("MaCaLamViec", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CaLamViec>("spGetCaLamViec", maCaLamViecParameter);
+        }
+    
+        public virtual ObjectResult<CaLamViec> spGetCaLamViec(string maCaLamViec, MergeOption mergeOption)
+        {
+            var maCaLamViecParameter = maCaLamViec != null ?
+                new ObjectParameter("MaCaLamViec", maCaLamViec) :
+                new ObjectParameter("MaCaLamViec", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CaLamViec>("spGetCaLamViec", mergeOption, maCaLamViecParameter);
+        }
+    
+        public virtual ObjectResult<LichTrinh> spGetLichTrinh(string maCaLamViec)
+        {
+            var maCaLamViecParameter = maCaLamViec != null ?
+                new ObjectParameter("MaCaLamViec", maCaLamViec) :
+                new ObjectParameter("MaCaLamViec", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LichTrinh>("spGetLichTrinh", maCaLamViecParameter);
+        }
+    
+        public virtual ObjectResult<LichTrinh> spGetLichTrinh(string maCaLamViec, MergeOption mergeOption)
+        {
+            var maCaLamViecParameter = maCaLamViec != null ?
+                new ObjectParameter("MaCaLamViec", maCaLamViec) :
+                new ObjectParameter("MaCaLamViec", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LichTrinh>("spGetLichTrinh", mergeOption, maCaLamViecParameter);
+        }
+    
+        public virtual ObjectResult<LichTrinhNam> spGetLichTrinhNamByLichTrinh(string maLichTrinh)
+        {
+            var maLichTrinhParameter = maLichTrinh != null ?
+                new ObjectParameter("MaLichTrinh", maLichTrinh) :
+                new ObjectParameter("MaLichTrinh", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LichTrinhNam>("spGetLichTrinhNamByLichTrinh", maLichTrinhParameter);
+        }
+    
+        public virtual ObjectResult<LichTrinhNam> spGetLichTrinhNamByLichTrinh(string maLichTrinh, MergeOption mergeOption)
+        {
+            var maLichTrinhParameter = maLichTrinh != null ?
+                new ObjectParameter("MaLichTrinh", maLichTrinh) :
+                new ObjectParameter("MaLichTrinh", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LichTrinhNam>("spGetLichTrinhNamByLichTrinh", mergeOption, maLichTrinhParameter);
+        }
+    
+        public virtual ObjectResult<LichTrinhThang> spGetLichTrinhThangByLichTrinh(string maLichTrinh)
+        {
+            var maLichTrinhParameter = maLichTrinh != null ?
+                new ObjectParameter("MaLichTrinh", maLichTrinh) :
+                new ObjectParameter("MaLichTrinh", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LichTrinhThang>("spGetLichTrinhThangByLichTrinh", maLichTrinhParameter);
+        }
+    
+        public virtual ObjectResult<LichTrinhThang> spGetLichTrinhThangByLichTrinh(string maLichTrinh, MergeOption mergeOption)
+        {
+            var maLichTrinhParameter = maLichTrinh != null ?
+                new ObjectParameter("MaLichTrinh", maLichTrinh) :
+                new ObjectParameter("MaLichTrinh", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LichTrinhThang>("spGetLichTrinhThangByLichTrinh", mergeOption, maLichTrinhParameter);
+        }
+    
+        public virtual ObjectResult<LichTrinhTuan> spGetLichTrinhTuanByLichTrinh(string maLichTrinh)
+        {
+            var maLichTrinhParameter = maLichTrinh != null ?
+                new ObjectParameter("MaLichTrinh", maLichTrinh) :
+                new ObjectParameter("MaLichTrinh", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LichTrinhTuan>("spGetLichTrinhTuanByLichTrinh", maLichTrinhParameter);
+        }
+    
+        public virtual ObjectResult<LichTrinhTuan> spGetLichTrinhTuanByLichTrinh(string maLichTrinh, MergeOption mergeOption)
+        {
+            var maLichTrinhParameter = maLichTrinh != null ?
+                new ObjectParameter("MaLichTrinh", maLichTrinh) :
+                new ObjectParameter("MaLichTrinh", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LichTrinhTuan>("spGetLichTrinhTuanByLichTrinh", mergeOption, maLichTrinhParameter);
+        }
+    
+        public virtual ObjectResult<MapLichTrinhNangCao> spGetMapLichTrinhNangCaoByLichTrinh(string maLichTrinh)
+        {
+            var maLichTrinhParameter = maLichTrinh != null ?
+                new ObjectParameter("MaLichTrinh", maLichTrinh) :
+                new ObjectParameter("MaLichTrinh", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<MapLichTrinhNangCao>("spGetMapLichTrinhNangCaoByLichTrinh", maLichTrinhParameter);
+        }
+    
+        public virtual ObjectResult<MapLichTrinhNangCao> spGetMapLichTrinhNangCaoByLichTrinh(string maLichTrinh, MergeOption mergeOption)
+        {
+            var maLichTrinhParameter = maLichTrinh != null ?
+                new ObjectParameter("MaLichTrinh", maLichTrinh) :
+                new ObjectParameter("MaLichTrinh", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<MapLichTrinhNangCao>("spGetMapLichTrinhNangCaoByLichTrinh", mergeOption, maLichTrinhParameter);
+        }
+    
+        public virtual ObjectResult<SapXepLichTrinh> spGetSapXepLichTrinhByNguoi(Nullable<int> maNguoi)
+        {
+            var maNguoiParameter = maNguoi.HasValue ?
+                new ObjectParameter("MaNguoi", maNguoi) :
+                new ObjectParameter("MaNguoi", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SapXepLichTrinh>("spGetSapXepLichTrinhByNguoi", maNguoiParameter);
+        }
+    
+        public virtual ObjectResult<SapXepLichTrinh> spGetSapXepLichTrinhByNguoi(Nullable<int> maNguoi, MergeOption mergeOption)
+        {
+            var maNguoiParameter = maNguoi.HasValue ?
+                new ObjectParameter("MaNguoi", maNguoi) :
+                new ObjectParameter("MaNguoi", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SapXepLichTrinh>("spGetSapXepLichTrinhByNguoi", mergeOption, maNguoiParameter);
+        }
+    
+        public virtual ObjectResult<SapXepLichTrinhTam> spGetSapXepLichTrinhTamByNguoi(Nullable<int> maNguoi)
+        {
+            var maNguoiParameter = maNguoi.HasValue ?
+                new ObjectParameter("MaNguoi", maNguoi) :
+                new ObjectParameter("MaNguoi", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SapXepLichTrinhTam>("spGetSapXepLichTrinhTamByNguoi", maNguoiParameter);
+        }
+    
+        public virtual ObjectResult<SapXepLichTrinhTam> spGetSapXepLichTrinhTamByNguoi(Nullable<int> maNguoi, MergeOption mergeOption)
+        {
+            var maNguoiParameter = maNguoi.HasValue ?
+                new ObjectParameter("MaNguoi", maNguoi) :
+                new ObjectParameter("MaNguoi", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SapXepLichTrinhTam>("spGetSapXepLichTrinhTamByNguoi", mergeOption, maNguoiParameter);
+        }
+    
+        public virtual int spInsertCaLamViec(string maCaLamViec, string tenCaLamViec, Nullable<System.TimeSpan> gioBatDauCa, Nullable<System.TimeSpan> gioKetThucCa, Nullable<System.TimeSpan> gioBatDauGiaiLao, Nullable<System.TimeSpan> gioKetThucGiaiLao, Nullable<int> tongGio, Nullable<int> diemCong, Nullable<System.TimeSpan> gioVaoSomNhatDuocTinhCa, Nullable<System.TimeSpan> gioVaoMuonNhatDuocTinhCa, Nullable<System.TimeSpan> gioRaMuonNhatDuocTinhCa, Nullable<System.TimeSpan> gioRaSomNhatDuocTinhCa, Nullable<int> khongCoGioRa, Nullable<int> khongCoGioVao, Nullable<bool> truGioDiTre, Nullable<int> thoiGianDiTreChoPhep, Nullable<bool> truGioVeSom, Nullable<int> thoiGianVeSomChoPhep, Nullable<bool> sDMucTangCaHienTai, Nullable<int> mucTangCaHienTai, Nullable<bool> sDMucTangCaCuoiTuan, Nullable<int> mucTangCaCuoiTuan, Nullable<bool> sDMucTangCaNgayLe, Nullable<int> mucTangCaNgayLe, Nullable<bool> sDTangCaTruocGLV, Nullable<int> tangCaTruocGLV, Nullable<bool> sDTangCaSauGLV, Nullable<int> tangCaSauGLV, Nullable<bool> sDTongGLVTinhTangCa, Nullable<int> tongGLVTinhTangCa, Nullable<int> gioiHanTCMucMot, Nullable<int> gioiHanTCMucHai, Nullable<bool> sDMucTangCaCuaTangCaCuoiTuan, Nullable<int> mucTangCaCuaTangCaCuoiTuan, Nullable<bool> sDMucTangCaCuaTangCaNgayLe, Nullable<int> mucTangCaCuaTangCaNgayLe, Nullable<int> gioiHanTCTruocGLV, Nullable<int> gioiHanTCSauGLV, Nullable<bool> caQuaDem, Nullable<System.TimeSpan> tachGioCaDemTu, Nullable<System.TimeSpan> tachGioCaDemDen)
+        {
+            var maCaLamViecParameter = maCaLamViec != null ?
+                new ObjectParameter("MaCaLamViec", maCaLamViec) :
+                new ObjectParameter("MaCaLamViec", typeof(string));
+    
             var tenCaLamViecParameter = tenCaLamViec != null ?
                 new ObjectParameter("TenCaLamViec", tenCaLamViec) :
                 new ObjectParameter("TenCaLamViec", typeof(string));
@@ -278,6 +574,54 @@ namespace ATINTimekeeping.Model
                 new ObjectParameter("ThoiGianVeSomChoPhep", thoiGianVeSomChoPhep) :
                 new ObjectParameter("ThoiGianVeSomChoPhep", typeof(int));
     
+            var sDMucTangCaHienTaiParameter = sDMucTangCaHienTai.HasValue ?
+                new ObjectParameter("SDMucTangCaHienTai", sDMucTangCaHienTai) :
+                new ObjectParameter("SDMucTangCaHienTai", typeof(bool));
+    
+            var mucTangCaHienTaiParameter = mucTangCaHienTai.HasValue ?
+                new ObjectParameter("MucTangCaHienTai", mucTangCaHienTai) :
+                new ObjectParameter("MucTangCaHienTai", typeof(int));
+    
+            var sDMucTangCaCuoiTuanParameter = sDMucTangCaCuoiTuan.HasValue ?
+                new ObjectParameter("SDMucTangCaCuoiTuan", sDMucTangCaCuoiTuan) :
+                new ObjectParameter("SDMucTangCaCuoiTuan", typeof(bool));
+    
+            var mucTangCaCuoiTuanParameter = mucTangCaCuoiTuan.HasValue ?
+                new ObjectParameter("MucTangCaCuoiTuan", mucTangCaCuoiTuan) :
+                new ObjectParameter("MucTangCaCuoiTuan", typeof(int));
+    
+            var sDMucTangCaNgayLeParameter = sDMucTangCaNgayLe.HasValue ?
+                new ObjectParameter("SDMucTangCaNgayLe", sDMucTangCaNgayLe) :
+                new ObjectParameter("SDMucTangCaNgayLe", typeof(bool));
+    
+            var mucTangCaNgayLeParameter = mucTangCaNgayLe.HasValue ?
+                new ObjectParameter("MucTangCaNgayLe", mucTangCaNgayLe) :
+                new ObjectParameter("MucTangCaNgayLe", typeof(int));
+    
+            var sDTangCaTruocGLVParameter = sDTangCaTruocGLV.HasValue ?
+                new ObjectParameter("SDTangCaTruocGLV", sDTangCaTruocGLV) :
+                new ObjectParameter("SDTangCaTruocGLV", typeof(bool));
+    
+            var tangCaTruocGLVParameter = tangCaTruocGLV.HasValue ?
+                new ObjectParameter("TangCaTruocGLV", tangCaTruocGLV) :
+                new ObjectParameter("TangCaTruocGLV", typeof(int));
+    
+            var sDTangCaSauGLVParameter = sDTangCaSauGLV.HasValue ?
+                new ObjectParameter("SDTangCaSauGLV", sDTangCaSauGLV) :
+                new ObjectParameter("SDTangCaSauGLV", typeof(bool));
+    
+            var tangCaSauGLVParameter = tangCaSauGLV.HasValue ?
+                new ObjectParameter("TangCaSauGLV", tangCaSauGLV) :
+                new ObjectParameter("TangCaSauGLV", typeof(int));
+    
+            var sDTongGLVTinhTangCaParameter = sDTongGLVTinhTangCa.HasValue ?
+                new ObjectParameter("SDTongGLVTinhTangCa", sDTongGLVTinhTangCa) :
+                new ObjectParameter("SDTongGLVTinhTangCa", typeof(bool));
+    
+            var tongGLVTinhTangCaParameter = tongGLVTinhTangCa.HasValue ?
+                new ObjectParameter("TongGLVTinhTangCa", tongGLVTinhTangCa) :
+                new ObjectParameter("TongGLVTinhTangCa", typeof(int));
+    
             var gioiHanTCMucMotParameter = gioiHanTCMucMot.HasValue ?
                 new ObjectParameter("GioiHanTCMucMot", gioiHanTCMucMot) :
                 new ObjectParameter("GioiHanTCMucMot", typeof(int));
@@ -322,14 +666,146 @@ namespace ATINTimekeeping.Model
                 new ObjectParameter("TachGioCaDemDen", tachGioCaDemDen) :
                 new ObjectParameter("TachGioCaDemDen", typeof(System.TimeSpan));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertCaLamViec", tenCaLamViecParameter, gioBatDauCaParameter, gioKetThucCaParameter, gioBatDauGiaiLaoParameter, gioKetThucGiaiLaoParameter, tongGioParameter, diemCongParameter, gioVaoSomNhatDuocTinhCaParameter, gioVaoMuonNhatDuocTinhCaParameter, gioRaMuonNhatDuocTinhCaParameter, gioRaSomNhatDuocTinhCaParameter, khongCoGioRaParameter, khongCoGioVaoParameter, truGioDiTreParameter, thoiGianDiTreChoPhepParameter, truGioVeSomParameter, thoiGianVeSomChoPhepParameter, gioiHanTCMucMotParameter, gioiHanTCMucHaiParameter, sDMucTangCaCuaTangCaCuoiTuanParameter, mucTangCaCuaTangCaCuoiTuanParameter, sDMucTangCaCuaTangCaNgayLeParameter, mucTangCaCuaTangCaNgayLeParameter, gioiHanTCTruocGLVParameter, gioiHanTCSauGLVParameter, caQuaDemParameter, tachGioCaDemTuParameter, tachGioCaDemDenParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertCaLamViec", maCaLamViecParameter, tenCaLamViecParameter, gioBatDauCaParameter, gioKetThucCaParameter, gioBatDauGiaiLaoParameter, gioKetThucGiaiLaoParameter, tongGioParameter, diemCongParameter, gioVaoSomNhatDuocTinhCaParameter, gioVaoMuonNhatDuocTinhCaParameter, gioRaMuonNhatDuocTinhCaParameter, gioRaSomNhatDuocTinhCaParameter, khongCoGioRaParameter, khongCoGioVaoParameter, truGioDiTreParameter, thoiGianDiTreChoPhepParameter, truGioVeSomParameter, thoiGianVeSomChoPhepParameter, sDMucTangCaHienTaiParameter, mucTangCaHienTaiParameter, sDMucTangCaCuoiTuanParameter, mucTangCaCuoiTuanParameter, sDMucTangCaNgayLeParameter, mucTangCaNgayLeParameter, sDTangCaTruocGLVParameter, tangCaTruocGLVParameter, sDTangCaSauGLVParameter, tangCaSauGLVParameter, sDTongGLVTinhTangCaParameter, tongGLVTinhTangCaParameter, gioiHanTCMucMotParameter, gioiHanTCMucHaiParameter, sDMucTangCaCuaTangCaCuoiTuanParameter, mucTangCaCuaTangCaCuoiTuanParameter, sDMucTangCaCuaTangCaNgayLeParameter, mucTangCaCuaTangCaNgayLeParameter, gioiHanTCTruocGLVParameter, gioiHanTCSauGLVParameter, caQuaDemParameter, tachGioCaDemTuParameter, tachGioCaDemDenParameter);
         }
     
-        public virtual int spUpdateCaLamViec(Nullable<int> maCaLamViec, string tenCaLamViec, Nullable<System.TimeSpan> gioBatDauCa, Nullable<System.TimeSpan> gioKetThucCa, Nullable<System.TimeSpan> gioBatDauGiaiLao, Nullable<System.TimeSpan> gioKetThucGiaiLao, Nullable<int> tongGio, Nullable<int> diemCong, Nullable<System.TimeSpan> gioVaoSomNhatDuocTinhCa, Nullable<System.TimeSpan> gioVaoMuonNhatDuocTinhCa, Nullable<System.TimeSpan> gioRaMuonNhatDuocTinhCa, Nullable<System.TimeSpan> gioRaSomNhatDuocTinhCa, Nullable<int> khongCoGioRa, Nullable<int> khongCoGioVao, Nullable<bool> truGioDiTre, Nullable<int> thoiGianDiTreChoPhep, Nullable<bool> truGioVeSom, Nullable<int> thoiGianVeSomChoPhep, Nullable<int> gioiHanTCMucMot, Nullable<int> gioiHanTCMucHai, Nullable<bool> sDMucTangCaCuaTangCaCuoiTuan, Nullable<int> mucTangCaCuaTangCaCuoiTuan, Nullable<bool> sDMucTangCaCuaTangCaNgayLe, Nullable<int> mucTangCaCuaTangCaNgayLe, Nullable<int> gioiHanTCTruocGLV, Nullable<int> gioiHanTCSauGLV, Nullable<bool> caQuaDem, Nullable<System.TimeSpan> tachGioCaDemTu, Nullable<System.TimeSpan> tachGioCaDemDen)
+        public virtual int spInsertChucVu(string tenChucVu)
         {
-            var maCaLamViecParameter = maCaLamViec.HasValue ?
+            var tenChucVuParameter = tenChucVu != null ?
+                new ObjectParameter("TenChucVu", tenChucVu) :
+                new ObjectParameter("TenChucVu", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertChucVu", tenChucVuParameter);
+        }
+    
+        public virtual int spInsertLichTrinh(string maLichTrinh, string tenLichTrinh, string loaiChuKy)
+        {
+            var maLichTrinhParameter = maLichTrinh != null ?
+                new ObjectParameter("MaLichTrinh", maLichTrinh) :
+                new ObjectParameter("MaLichTrinh", typeof(string));
+    
+            var tenLichTrinhParameter = tenLichTrinh != null ?
+                new ObjectParameter("TenLichTrinh", tenLichTrinh) :
+                new ObjectParameter("TenLichTrinh", typeof(string));
+    
+            var loaiChuKyParameter = loaiChuKy != null ?
+                new ObjectParameter("LoaiChuKy", loaiChuKy) :
+                new ObjectParameter("LoaiChuKy", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertLichTrinh", maLichTrinhParameter, tenLichTrinhParameter, loaiChuKyParameter);
+        }
+    
+        public virtual int spInsertLichTrinhNam(string maLichTrinh, string maCaLamViec, Nullable<int> date, Nullable<int> month)
+        {
+            var maLichTrinhParameter = maLichTrinh != null ?
+                new ObjectParameter("MaLichTrinh", maLichTrinh) :
+                new ObjectParameter("MaLichTrinh", typeof(string));
+    
+            var maCaLamViecParameter = maCaLamViec != null ?
                 new ObjectParameter("MaCaLamViec", maCaLamViec) :
-                new ObjectParameter("MaCaLamViec", typeof(int));
+                new ObjectParameter("MaCaLamViec", typeof(string));
+    
+            var dateParameter = date.HasValue ?
+                new ObjectParameter("Date", date) :
+                new ObjectParameter("Date", typeof(int));
+    
+            var monthParameter = month.HasValue ?
+                new ObjectParameter("Month", month) :
+                new ObjectParameter("Month", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertLichTrinhNam", maLichTrinhParameter, maCaLamViecParameter, dateParameter, monthParameter);
+        }
+    
+        public virtual int spInsertLichTrinhThang(string maLichTrinh, string maCaLamViec, Nullable<int> date)
+        {
+            var maLichTrinhParameter = maLichTrinh != null ?
+                new ObjectParameter("MaLichTrinh", maLichTrinh) :
+                new ObjectParameter("MaLichTrinh", typeof(string));
+    
+            var maCaLamViecParameter = maCaLamViec != null ?
+                new ObjectParameter("MaCaLamViec", maCaLamViec) :
+                new ObjectParameter("MaCaLamViec", typeof(string));
+    
+            var dateParameter = date.HasValue ?
+                new ObjectParameter("Date", date) :
+                new ObjectParameter("Date", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertLichTrinhThang", maLichTrinhParameter, maCaLamViecParameter, dateParameter);
+        }
+    
+        public virtual int spInsertLichTrinhTuan(string maLichTrinh, string maCaLamViec, Nullable<int> dateInWeek)
+        {
+            var maLichTrinhParameter = maLichTrinh != null ?
+                new ObjectParameter("MaLichTrinh", maLichTrinh) :
+                new ObjectParameter("MaLichTrinh", typeof(string));
+    
+            var maCaLamViecParameter = maCaLamViec != null ?
+                new ObjectParameter("MaCaLamViec", maCaLamViec) :
+                new ObjectParameter("MaCaLamViec", typeof(string));
+    
+            var dateInWeekParameter = dateInWeek.HasValue ?
+                new ObjectParameter("DateInWeek", dateInWeek) :
+                new ObjectParameter("DateInWeek", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertLichTrinhTuan", maLichTrinhParameter, maCaLamViecParameter, dateInWeekParameter);
+        }
+    
+        public virtual int spInsertMapLichTrinhNangCao(string maLichTrinh, string maLichTrinhNangCao)
+        {
+            var maLichTrinhParameter = maLichTrinh != null ?
+                new ObjectParameter("MaLichTrinh", maLichTrinh) :
+                new ObjectParameter("MaLichTrinh", typeof(string));
+    
+            var maLichTrinhNangCaoParameter = maLichTrinhNangCao != null ?
+                new ObjectParameter("MaLichTrinhNangCao", maLichTrinhNangCao) :
+                new ObjectParameter("MaLichTrinhNangCao", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertMapLichTrinhNangCao", maLichTrinhParameter, maLichTrinhNangCaoParameter);
+        }
+    
+        public virtual int spInsertSapXepLichTrinh(Nullable<int> maNguoi, string maLichTrinh)
+        {
+            var maNguoiParameter = maNguoi.HasValue ?
+                new ObjectParameter("MaNguoi", maNguoi) :
+                new ObjectParameter("MaNguoi", typeof(int));
+    
+            var maLichTrinhParameter = maLichTrinh != null ?
+                new ObjectParameter("MaLichTrinh", maLichTrinh) :
+                new ObjectParameter("MaLichTrinh", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertSapXepLichTrinh", maNguoiParameter, maLichTrinhParameter);
+        }
+    
+        public virtual int spInsertSapxepLichTrinhTam(Nullable<System.DateTime> tuNgay, Nullable<System.DateTime> denNgay, string maLichTrinh, Nullable<int> maNguoi)
+        {
+            var tuNgayParameter = tuNgay.HasValue ?
+                new ObjectParameter("TuNgay", tuNgay) :
+                new ObjectParameter("TuNgay", typeof(System.DateTime));
+    
+            var denNgayParameter = denNgay.HasValue ?
+                new ObjectParameter("DenNgay", denNgay) :
+                new ObjectParameter("DenNgay", typeof(System.DateTime));
+    
+            var maLichTrinhParameter = maLichTrinh != null ?
+                new ObjectParameter("MaLichTrinh", maLichTrinh) :
+                new ObjectParameter("MaLichTrinh", typeof(string));
+    
+            var maNguoiParameter = maNguoi.HasValue ?
+                new ObjectParameter("MaNguoi", maNguoi) :
+                new ObjectParameter("MaNguoi", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertSapxepLichTrinhTam", tuNgayParameter, denNgayParameter, maLichTrinhParameter, maNguoiParameter);
+        }
+    
+        public virtual int spUpdateCaLamViec(string maCaLamViecChon, string maCaLamViec, string tenCaLamViec, Nullable<System.TimeSpan> gioBatDauCa, Nullable<System.TimeSpan> gioKetThucCa, Nullable<System.TimeSpan> gioBatDauGiaiLao, Nullable<System.TimeSpan> gioKetThucGiaiLao, Nullable<int> tongGio, Nullable<int> diemCong, Nullable<System.TimeSpan> gioVaoSomNhatDuocTinhCa, Nullable<System.TimeSpan> gioVaoMuonNhatDuocTinhCa, Nullable<System.TimeSpan> gioRaMuonNhatDuocTinhCa, Nullable<System.TimeSpan> gioRaSomNhatDuocTinhCa, Nullable<int> khongCoGioRa, Nullable<int> khongCoGioVao, Nullable<bool> truGioDiTre, Nullable<int> thoiGianDiTreChoPhep, Nullable<bool> truGioVeSom, Nullable<int> thoiGianVeSomChoPhep, Nullable<bool> sDMucTangCaHienTai, Nullable<int> mucTangCaHienTai, Nullable<bool> sDMucTangCaCuoiTuan, Nullable<int> mucTangCaCuoiTuan, Nullable<bool> sDMucTangCaNgayLe, Nullable<int> mucTangCaNgayLe, Nullable<bool> sDTangCaTruocGLV, Nullable<int> tangCaTruocGLV, Nullable<bool> sDTangCaSauGLV, Nullable<int> tangCaSauGLV, Nullable<bool> sDTongGLVTinhTangCa, Nullable<int> tongGLVTinhTangCa, Nullable<int> gioiHanTCMucMot, Nullable<int> gioiHanTCMucHai, Nullable<bool> sDMucTangCaCuaTangCaCuoiTuan, Nullable<int> mucTangCaCuaTangCaCuoiTuan, Nullable<bool> sDMucTangCaCuaTangCaNgayLe, Nullable<int> mucTangCaCuaTangCaNgayLe, Nullable<int> gioiHanTCTruocGLV, Nullable<int> gioiHanTCSauGLV, Nullable<bool> caQuaDem, Nullable<System.TimeSpan> tachGioCaDemTu, Nullable<System.TimeSpan> tachGioCaDemDen)
+        {
+            var maCaLamViecChonParameter = maCaLamViecChon != null ?
+                new ObjectParameter("MaCaLamViecChon", maCaLamViecChon) :
+                new ObjectParameter("MaCaLamViecChon", typeof(string));
+    
+            var maCaLamViecParameter = maCaLamViec != null ?
+                new ObjectParameter("MaCaLamViec", maCaLamViec) :
+                new ObjectParameter("MaCaLamViec", typeof(string));
     
             var tenCaLamViecParameter = tenCaLamViec != null ?
                 new ObjectParameter("TenCaLamViec", tenCaLamViec) :
@@ -399,6 +875,54 @@ namespace ATINTimekeeping.Model
                 new ObjectParameter("ThoiGianVeSomChoPhep", thoiGianVeSomChoPhep) :
                 new ObjectParameter("ThoiGianVeSomChoPhep", typeof(int));
     
+            var sDMucTangCaHienTaiParameter = sDMucTangCaHienTai.HasValue ?
+                new ObjectParameter("SDMucTangCaHienTai", sDMucTangCaHienTai) :
+                new ObjectParameter("SDMucTangCaHienTai", typeof(bool));
+    
+            var mucTangCaHienTaiParameter = mucTangCaHienTai.HasValue ?
+                new ObjectParameter("MucTangCaHienTai", mucTangCaHienTai) :
+                new ObjectParameter("MucTangCaHienTai", typeof(int));
+    
+            var sDMucTangCaCuoiTuanParameter = sDMucTangCaCuoiTuan.HasValue ?
+                new ObjectParameter("SDMucTangCaCuoiTuan", sDMucTangCaCuoiTuan) :
+                new ObjectParameter("SDMucTangCaCuoiTuan", typeof(bool));
+    
+            var mucTangCaCuoiTuanParameter = mucTangCaCuoiTuan.HasValue ?
+                new ObjectParameter("MucTangCaCuoiTuan", mucTangCaCuoiTuan) :
+                new ObjectParameter("MucTangCaCuoiTuan", typeof(int));
+    
+            var sDMucTangCaNgayLeParameter = sDMucTangCaNgayLe.HasValue ?
+                new ObjectParameter("SDMucTangCaNgayLe", sDMucTangCaNgayLe) :
+                new ObjectParameter("SDMucTangCaNgayLe", typeof(bool));
+    
+            var mucTangCaNgayLeParameter = mucTangCaNgayLe.HasValue ?
+                new ObjectParameter("MucTangCaNgayLe", mucTangCaNgayLe) :
+                new ObjectParameter("MucTangCaNgayLe", typeof(int));
+    
+            var sDTangCaTruocGLVParameter = sDTangCaTruocGLV.HasValue ?
+                new ObjectParameter("SDTangCaTruocGLV", sDTangCaTruocGLV) :
+                new ObjectParameter("SDTangCaTruocGLV", typeof(bool));
+    
+            var tangCaTruocGLVParameter = tangCaTruocGLV.HasValue ?
+                new ObjectParameter("TangCaTruocGLV", tangCaTruocGLV) :
+                new ObjectParameter("TangCaTruocGLV", typeof(int));
+    
+            var sDTangCaSauGLVParameter = sDTangCaSauGLV.HasValue ?
+                new ObjectParameter("SDTangCaSauGLV", sDTangCaSauGLV) :
+                new ObjectParameter("SDTangCaSauGLV", typeof(bool));
+    
+            var tangCaSauGLVParameter = tangCaSauGLV.HasValue ?
+                new ObjectParameter("TangCaSauGLV", tangCaSauGLV) :
+                new ObjectParameter("TangCaSauGLV", typeof(int));
+    
+            var sDTongGLVTinhTangCaParameter = sDTongGLVTinhTangCa.HasValue ?
+                new ObjectParameter("SDTongGLVTinhTangCa", sDTongGLVTinhTangCa) :
+                new ObjectParameter("SDTongGLVTinhTangCa", typeof(bool));
+    
+            var tongGLVTinhTangCaParameter = tongGLVTinhTangCa.HasValue ?
+                new ObjectParameter("TongGLVTinhTangCa", tongGLVTinhTangCa) :
+                new ObjectParameter("TongGLVTinhTangCa", typeof(int));
+    
             var gioiHanTCMucMotParameter = gioiHanTCMucMot.HasValue ?
                 new ObjectParameter("GioiHanTCMucMot", gioiHanTCMucMot) :
                 new ObjectParameter("GioiHanTCMucMot", typeof(int));
@@ -443,7 +967,161 @@ namespace ATINTimekeeping.Model
                 new ObjectParameter("TachGioCaDemDen", tachGioCaDemDen) :
                 new ObjectParameter("TachGioCaDemDen", typeof(System.TimeSpan));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUpdateCaLamViec", maCaLamViecParameter, tenCaLamViecParameter, gioBatDauCaParameter, gioKetThucCaParameter, gioBatDauGiaiLaoParameter, gioKetThucGiaiLaoParameter, tongGioParameter, diemCongParameter, gioVaoSomNhatDuocTinhCaParameter, gioVaoMuonNhatDuocTinhCaParameter, gioRaMuonNhatDuocTinhCaParameter, gioRaSomNhatDuocTinhCaParameter, khongCoGioRaParameter, khongCoGioVaoParameter, truGioDiTreParameter, thoiGianDiTreChoPhepParameter, truGioVeSomParameter, thoiGianVeSomChoPhepParameter, gioiHanTCMucMotParameter, gioiHanTCMucHaiParameter, sDMucTangCaCuaTangCaCuoiTuanParameter, mucTangCaCuaTangCaCuoiTuanParameter, sDMucTangCaCuaTangCaNgayLeParameter, mucTangCaCuaTangCaNgayLeParameter, gioiHanTCTruocGLVParameter, gioiHanTCSauGLVParameter, caQuaDemParameter, tachGioCaDemTuParameter, tachGioCaDemDenParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUpdateCaLamViec", maCaLamViecChonParameter, maCaLamViecParameter, tenCaLamViecParameter, gioBatDauCaParameter, gioKetThucCaParameter, gioBatDauGiaiLaoParameter, gioKetThucGiaiLaoParameter, tongGioParameter, diemCongParameter, gioVaoSomNhatDuocTinhCaParameter, gioVaoMuonNhatDuocTinhCaParameter, gioRaMuonNhatDuocTinhCaParameter, gioRaSomNhatDuocTinhCaParameter, khongCoGioRaParameter, khongCoGioVaoParameter, truGioDiTreParameter, thoiGianDiTreChoPhepParameter, truGioVeSomParameter, thoiGianVeSomChoPhepParameter, sDMucTangCaHienTaiParameter, mucTangCaHienTaiParameter, sDMucTangCaCuoiTuanParameter, mucTangCaCuoiTuanParameter, sDMucTangCaNgayLeParameter, mucTangCaNgayLeParameter, sDTangCaTruocGLVParameter, tangCaTruocGLVParameter, sDTangCaSauGLVParameter, tangCaSauGLVParameter, sDTongGLVTinhTangCaParameter, tongGLVTinhTangCaParameter, gioiHanTCMucMotParameter, gioiHanTCMucHaiParameter, sDMucTangCaCuaTangCaCuoiTuanParameter, mucTangCaCuaTangCaCuoiTuanParameter, sDMucTangCaCuaTangCaNgayLeParameter, mucTangCaCuaTangCaNgayLeParameter, gioiHanTCTruocGLVParameter, gioiHanTCSauGLVParameter, caQuaDemParameter, tachGioCaDemTuParameter, tachGioCaDemDenParameter);
+        }
+    
+        public virtual int spUpdateLichTrinh(string maLichTrinhChon, string maLichTrinh, string tenLichTrinh, string loaiChuKy)
+        {
+            var maLichTrinhChonParameter = maLichTrinhChon != null ?
+                new ObjectParameter("MaLichTrinhChon", maLichTrinhChon) :
+                new ObjectParameter("MaLichTrinhChon", typeof(string));
+    
+            var maLichTrinhParameter = maLichTrinh != null ?
+                new ObjectParameter("MaLichTrinh", maLichTrinh) :
+                new ObjectParameter("MaLichTrinh", typeof(string));
+    
+            var tenLichTrinhParameter = tenLichTrinh != null ?
+                new ObjectParameter("TenLichTrinh", tenLichTrinh) :
+                new ObjectParameter("TenLichTrinh", typeof(string));
+    
+            var loaiChuKyParameter = loaiChuKy != null ?
+                new ObjectParameter("LoaiChuKy", loaiChuKy) :
+                new ObjectParameter("LoaiChuKy", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUpdateLichTrinh", maLichTrinhChonParameter, maLichTrinhParameter, tenLichTrinhParameter, loaiChuKyParameter);
+        }
+    
+        public virtual int spUpdateSapXepLichTrinh(Nullable<int> maSapXep, Nullable<int> maNguoi, string maLichTrinh)
+        {
+            var maSapXepParameter = maSapXep.HasValue ?
+                new ObjectParameter("MaSapXep", maSapXep) :
+                new ObjectParameter("MaSapXep", typeof(int));
+    
+            var maNguoiParameter = maNguoi.HasValue ?
+                new ObjectParameter("MaNguoi", maNguoi) :
+                new ObjectParameter("MaNguoi", typeof(int));
+    
+            var maLichTrinhParameter = maLichTrinh != null ?
+                new ObjectParameter("MaLichTrinh", maLichTrinh) :
+                new ObjectParameter("MaLichTrinh", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUpdateSapXepLichTrinh", maSapXepParameter, maNguoiParameter, maLichTrinhParameter);
+        }
+    
+        public virtual int spUpdateSapxepLichTrinhTam(Nullable<int> maLichTrinhTam, Nullable<System.DateTime> tuNgay, Nullable<System.DateTime> denNgay, string maLichTrinh, Nullable<int> maNguoi)
+        {
+            var maLichTrinhTamParameter = maLichTrinhTam.HasValue ?
+                new ObjectParameter("MaLichTrinhTam", maLichTrinhTam) :
+                new ObjectParameter("MaLichTrinhTam", typeof(int));
+    
+            var tuNgayParameter = tuNgay.HasValue ?
+                new ObjectParameter("TuNgay", tuNgay) :
+                new ObjectParameter("TuNgay", typeof(System.DateTime));
+    
+            var denNgayParameter = denNgay.HasValue ?
+                new ObjectParameter("DenNgay", denNgay) :
+                new ObjectParameter("DenNgay", typeof(System.DateTime));
+    
+            var maLichTrinhParameter = maLichTrinh != null ?
+                new ObjectParameter("MaLichTrinh", maLichTrinh) :
+                new ObjectParameter("MaLichTrinh", typeof(string));
+    
+            var maNguoiParameter = maNguoi.HasValue ?
+                new ObjectParameter("MaNguoi", maNguoi) :
+                new ObjectParameter("MaNguoi", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUpdateSapxepLichTrinhTam", maLichTrinhTamParameter, tuNgayParameter, denNgayParameter, maLichTrinhParameter, maNguoiParameter);
+        }
+    
+        public virtual int spDeletePhongBan(Nullable<int> maPhongBan)
+        {
+            var maPhongBanParameter = maPhongBan.HasValue ?
+                new ObjectParameter("MaPhongBan", maPhongBan) :
+                new ObjectParameter("MaPhongBan", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spDeletePhongBan", maPhongBanParameter);
+        }
+    
+        public virtual ObjectResult<PhongBan> spGetAllPhongBan()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PhongBan>("spGetAllPhongBan");
+        }
+    
+        public virtual ObjectResult<PhongBan> spGetAllPhongBan(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PhongBan>("spGetAllPhongBan", mergeOption);
+        }
+    
+        public virtual ObjectResult<PhongBan> spGetPhongBan(Nullable<int> maPhongBan)
+        {
+            var maPhongBanParameter = maPhongBan.HasValue ?
+                new ObjectParameter("MaPhongBan", maPhongBan) :
+                new ObjectParameter("MaPhongBan", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PhongBan>("spGetPhongBan", maPhongBanParameter);
+        }
+    
+        public virtual ObjectResult<PhongBan> spGetPhongBan(Nullable<int> maPhongBan, MergeOption mergeOption)
+        {
+            var maPhongBanParameter = maPhongBan.HasValue ?
+                new ObjectParameter("MaPhongBan", maPhongBan) :
+                new ObjectParameter("MaPhongBan", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PhongBan>("spGetPhongBan", mergeOption, maPhongBanParameter);
+        }
+    
+        public virtual int spInsertPhongBan(Nullable<int> maPhongBan, string tenPhongBan)
+        {
+            var maPhongBanParameter = maPhongBan.HasValue ?
+                new ObjectParameter("MaPhongBan", maPhongBan) :
+                new ObjectParameter("MaPhongBan", typeof(int));
+    
+            var tenPhongBanParameter = tenPhongBan != null ?
+                new ObjectParameter("TenPhongBan", tenPhongBan) :
+                new ObjectParameter("TenPhongBan", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertPhongBan", maPhongBanParameter, tenPhongBanParameter);
+        }
+    
+        public virtual int spUpdatePhongBan(Nullable<int> maPhongBan, string tenPhongBan)
+        {
+            var maPhongBanParameter = maPhongBan.HasValue ?
+                new ObjectParameter("MaPhongBan", maPhongBan) :
+                new ObjectParameter("MaPhongBan", typeof(int));
+    
+            var tenPhongBanParameter = tenPhongBan != null ?
+                new ObjectParameter("TenPhongBan", tenPhongBan) :
+                new ObjectParameter("TenPhongBan", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUpdatePhongBan", maPhongBanParameter, tenPhongBanParameter);
+        }
+    
+        public virtual ObjectResult<Nguoi> spGetAllNguoi()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nguoi>("spGetAllNguoi");
+        }
+    
+        public virtual ObjectResult<Nguoi> spGetAllNguoi(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nguoi>("spGetAllNguoi", mergeOption);
+        }
+    
+        public virtual ObjectResult<ViewSapXepLichTrinh> spGetViewSapXepLichTrinhByNguoi(Nullable<int> maNguoi)
+        {
+            var maNguoiParameter = maNguoi.HasValue ?
+                new ObjectParameter("MaNguoi", maNguoi) :
+                new ObjectParameter("MaNguoi", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ViewSapXepLichTrinh>("spGetViewSapXepLichTrinhByNguoi", maNguoiParameter);
+        }
+    
+        public virtual ObjectResult<ViewSapXepLichTrinh> spGetViewSapXepLichTrinhByNguoi(Nullable<int> maNguoi, MergeOption mergeOption)
+        {
+            var maNguoiParameter = maNguoi.HasValue ?
+                new ObjectParameter("MaNguoi", maNguoi) :
+                new ObjectParameter("MaNguoi", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ViewSapXepLichTrinh>("spGetViewSapXepLichTrinhByNguoi", mergeOption, maNguoiParameter);
         }
     }
 }

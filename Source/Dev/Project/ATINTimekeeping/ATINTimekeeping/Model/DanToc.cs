@@ -15,6 +15,6 @@ namespace ATINTimekeeping.Model
     public partial class DanToc
     {
         public int MaDanToc { get; set; }
-        public string DanToc1 { get; set; }
+        public string TenDanToc { get; set; }
     }
 }

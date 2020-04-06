@@ -14,8 +14,16 @@ namespace ATINTimekeeping.Model
     
     public partial class PhongBan
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public PhongBan()
+        {
+            this.Nguois = new HashSet<Nguoi>();
+        }
+    
         public int MaPhongBan { get; set; }
-        public string PhongBan1 { get; set; }
-        public Nullable<int> TrangThai { get; set; }
+        public string TenPhongBan { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Nguoi> Nguois { get; set; }
     }
 }

@@ -238,6 +238,12 @@
     <Compile Include="FormTimeKeepingSetting\SelectTIme.Designer.cs">
       <DependentUpon>SelectTIme.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTimeKeepingSetting\SubDeclareWorkCalendar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTimeKeepingSetting\SubDeclareWorkCalendar.Designer.cs">
+      <DependentUpon>SubDeclareWorkCalendar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTimeKeepingSetting\TimeKeepingSymbolcs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,25 +262,22 @@
     <Compile Include="Model\AspNetUserLogin.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\ATINTimekeepingEntities.Context.cs" />
-    <Compile Include="Model\ATINTimekeepingEntities.cs" />
-    <Compile Include="Model\ATINTimekeepingEntities.Designer.cs">
-      <DependentUpon>ATINTimekeepingEntities.cs</DependentUpon>
+    <Compile Include="Model\ATINTimekeepingEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ATINTimekeepingEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\ATINTimekeepingEntities1.cs">
+    <Compile Include="Model\ATINTimekeepingEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\ATINTimekeepingEntities1.Designer.cs">
+    <Compile Include="Model\ATINTimekeepingEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ATINTimekeepingEntities.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model\BaoCao.cs">
-      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\BaoCaoChiTiet.cs">
+    <Compile Include="Model\CacLoaiVang.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\CaLamViec.cs">
@@ -301,25 +304,28 @@
     <Compile Include="Model\DanToc.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\fn_Split_Result.cs">
-      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\HopDongLaoDong.cs">
-      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\KhaiBaoThoiGian.cs">
-      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\KhuonMat.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\KyHieuCacLoaiVang.cs">
+    <Compile Include="Model\LichSuSuaDuLieuChamCong.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\KyHieuChamCong.cs">
+    <Compile Include="Model\LichTrinh.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\LichTrinhLamViec.cs">
+    <Compile Include="Model\LichTrinhNam.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LichTrinhNangCao.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LichTrinhThang.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LichTrinhTuan.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LoaiChamCong.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\LoaiHopDong.cs">
@@ -328,10 +334,7 @@
     <Compile Include="Model\LoaiNghiPhep.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\LoaiThamSo.cs">
-      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\MATHANG_KHO.cs">
+    <Compile Include="Model\MapLichTrinhNangCao.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\MayNhanDang.cs">
@@ -355,13 +358,61 @@
     <Compile Include="Model\PhongBan.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\PhuCap.cs">
+    <Compile Include="Model\SapXepLichTrinh.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SapXepLichTrinhTam.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\spGetAllCaLamViec_Result.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\spGetAllChucVu_Result.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\spGetAllLichTrinh_Result.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\spGetAllNguoi_Result.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\spGetAllPhongBan_Result.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\spGetAllSapXepLichTrinhTam_Result.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\spGetAllSapXepLichTrinh_Result.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\spGetCaLamViec_Result.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\spGetLichTrinhNamByLichTrinh_Result.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\spGetLichTrinhThangByLichTrinh_Result.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\spGetLichTrinhTuanByLichTrinh_Result.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\spGetLichTrinh_Result.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\spGetMapLichTrinhNangCaoByLichTrinh_Result.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\spGetPhongBan_Result.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\spGetSapXepLichTrinhByNguoi_Result.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\spGetSapXepLichTrinhTamByNguoi_Result.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\spGetViewSapXepLichTrinhByNguoi_Result.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\sp_helpdiagramdefinition_Result.cs">
@@ -370,13 +421,7 @@
     <Compile Include="Model\sp_helpdiagrams_Result.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\SP_Status.cs">
-      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\sysdiagram.cs">
-      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\ThamSo.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\TheTu.cs">
@@ -389,6 +434,12 @@
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\VanTay.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewSapXepLichTrinh.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\XepLoaiChamCong.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -498,6 +549,9 @@
     <EmbeddedResource Include="FormTimeKeepingSetting\SelectTIme.resx">
       <DependentUpon>SelectTIme.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormTimeKeepingSetting\SubDeclareWorkCalendar.resx">
+      <DependentUpon>SubDeclareWorkCalendar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormTimeKeepingSetting\TimeKeepingSymbolcs.resx">
       <DependentUpon>TimeKeepingSymbolcs.cs</DependentUpon>
     </EmbeddedResource>
@@ -540,7 +594,7 @@
     </None>
     <EntityDeploy Include="Model\ATINTimekeepingEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ATINTimekeepingEntities1.Designer.cs</LastGenOutput>
+      <LastGenOutput>ATINTimekeepingEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="Model\ATINTimekeepingEntities.edmx.diagram">
       <DependentUpon>ATINTimekeepingEntities.edmx</DependentUpon>
@@ -608,9 +662,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Model\ATINTimekeepingEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ATINTimekeepingEntities.edmx</DependentUpon>
+      <LastGenOutput>ATINTimekeepingEntities.Context.cs</LastGenOutput>
+    </Content>
     <Content Include="Model\ATINTimekeepingEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ATINTimekeepingEntities1.cs</LastGenOutput>
+      <DependentUpon>ATINTimekeepingEntities.edmx</DependentUpon>
+      <LastGenOutput>ATINTimekeepingEntities.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

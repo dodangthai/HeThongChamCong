@@ -14,7 +14,16 @@ namespace ATINTimekeeping.Model
     
     public partial class CaLamViec
     {
-        public int MaCaLamViec { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public CaLamViec()
+        {
+            this.ChamCongs = new HashSet<ChamCong>();
+            this.LichTrinhNams = new HashSet<LichTrinhNam>();
+            this.LichTrinhThangs = new HashSet<LichTrinhThang>();
+            this.LichTrinhTuans = new HashSet<LichTrinhTuan>();
+        }
+    
+        public string MaCaLamViec { get; set; }
         public string TenCaLamViec { get; set; }
         public System.TimeSpan GioBatDauCa { get; set; }
         public System.TimeSpan GioKetThucCa { get; set; }
@@ -42,7 +51,9 @@ namespace ATINTimekeeping.Model
         public Nullable<int> MucTangCaCuaTangCaCuoiTuan { get; set; }
         public Nullable<bool> SDMucTangCaCuaTangCaNgayLe { get; set; }
         public Nullable<int> MucTangCaCuaTangCaNgayLe { get; set; }
+        public Nullable<bool> SDTangCaTruocGLV { get; set; }
         public Nullable<int> TangCaTruocGLV { get; set; }
+        public Nullable<bool> SDTangCaSauGLV { get; set; }
         public Nullable<int> TangCaSauGLV { get; set; }
         public Nullable<int> TongGLVTinhTangCa { get; set; }
         public Nullable<int> GioiHanTCMucMot { get; set; }
@@ -52,5 +63,15 @@ namespace ATINTimekeeping.Model
         public Nullable<bool> CaQuaDem { get; set; }
         public Nullable<System.TimeSpan> TachGioCaDemTu { get; set; }
         public Nullable<System.TimeSpan> TachGioCaDemDen { get; set; }
+        public Nullable<bool> SDTongGLVTinhTangCa { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ChamCong> ChamCongs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LichTrinhNam> LichTrinhNams { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LichTrinhThang> LichTrinhThangs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LichTrinhTuan> LichTrinhTuans { get; set; }
     }
 }
