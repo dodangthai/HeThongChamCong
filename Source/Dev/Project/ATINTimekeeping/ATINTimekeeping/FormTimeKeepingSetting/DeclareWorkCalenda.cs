@@ -87,8 +87,8 @@ namespace ATINTimekeeping.FormTimeKeepingSetting
         private LichTrinh GetLichTrinh()
         {
             LichTrinh lichTrinh = new LichTrinh();
-            lichTrinh.MaLichTrinh = textEdit1.Text;
-            lichTrinh.TenLichTrinh = textEdit2.Text;
+            lichTrinh.MaLichTrinh = textEdit1.Text.Trim();
+            lichTrinh.TenLichTrinh = textEdit2.Text.Trim();
             if (radioButton1.Checked)
                 lichTrinh.LoaiChuKy = "week";
             if (radioButton2.Checked)
@@ -400,6 +400,14 @@ namespace ATINTimekeeping.FormTimeKeepingSetting
 
         private void barButtonItemAddNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            textEdit1.Text = null;
+            textEdit2.Text = null;
+            radioButton1.Checked = true;
+            checkBox1.Checked = false;
+            checkBox2.Checked = false;
+            checkBox3.Checked = false;
+            checkBox4.Checked = false;
+            checkBox5.Checked = false;
             allowInsert = true;
             barButtonItemAddNew.Enabled = false;
         }

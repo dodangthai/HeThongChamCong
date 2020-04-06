@@ -38,27 +38,28 @@
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("ATI", new System.Windows.Forms.TreeNode[] {
             treeNode2});
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemComboBox2 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
-            this.barEditItem2 = new DevExpress.XtraBars.BarEditItem();
+            this.barEditItemSearchType = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemComboBox3 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.barEditItemSearchValue = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemSearch = new DevExpress.XtraBars.BarButtonItem();
             this.barEditItem3 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemRefresh = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemDeleeAll = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.repositoryItemComboBox2 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.repositoryItemCheckedComboBoxEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
             this.repositoryItemPageNumberEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPageNumberEdit();
             this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.barEditItem4 = new DevExpress.XtraBars.BarEditItem();
-            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.barEditItemSelectLichTrinh = new DevExpress.XtraBars.BarEditItem();
+            this.barButtonItemActive = new DevExpress.XtraBars.BarButtonItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
@@ -68,31 +69,32 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TuNgay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DenNgay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenLichTrinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.dateEditToDate = new DevExpress.XtraEditors.DateEdit();
+            this.buttonDeleteSapXepTam = new System.Windows.Forms.Button();
+            this.buttonAddSapXepTam = new System.Windows.Forms.Button();
+            this.checkBoxUpdateBySelectedEmployee = new System.Windows.Forms.CheckBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox18 = new System.Windows.Forms.TextBox();
-            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            this.dateEditFromDate = new DevExpress.XtraEditors.DateEdit();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.checkBoxCheckAll = new System.Windows.Forms.CheckBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Code = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).BeginInit();
+            this.MaNguoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaChamCong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckedComboBoxEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPageNumberEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
@@ -108,11 +110,10 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditToDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditToDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditFromDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditFromDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -122,62 +123,69 @@
             // 
             this.ribbonStatusBar.BackColor = System.Drawing.SystemColors.Highlight;
             this.ribbonStatusBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ribbonStatusBar.ItemLinks.Add(this.barEditItem1);
-            this.ribbonStatusBar.ItemLinks.Add(this.barEditItem2);
-            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItem1);
+            this.ribbonStatusBar.ItemLinks.Add(this.barEditItemSearchType);
+            this.ribbonStatusBar.ItemLinks.Add(this.barEditItemSearchValue);
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemSearch);
             this.ribbonStatusBar.ItemLinks.Add(this.barEditItem3);
-            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItem2);
-            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItem3);
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemRefresh);
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemDeleeAll);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 0);
             this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonControl1;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1087, 33);
             // 
-            // barEditItem1
+            // barEditItemSearchType
             // 
-            this.barEditItem1.Caption = "Chọn tìm";
-            this.barEditItem1.Edit = this.repositoryItemComboBox2;
-            this.barEditItem1.EditWidth = 150;
-            this.barEditItem1.Id = 7;
-            this.barEditItem1.Name = "barEditItem1";
+            this.barEditItemSearchType.Caption = "Chọn tìm";
+            this.barEditItemSearchType.Edit = this.repositoryItemComboBox3;
+            this.barEditItemSearchType.EditValue = "";
+            this.barEditItemSearchType.EditWidth = 150;
+            this.barEditItemSearchType.Id = 7;
+            this.barEditItemSearchType.Name = "barEditItemSearchType";
             // 
-            // repositoryItemComboBox2
+            // repositoryItemComboBox3
             // 
-            this.repositoryItemComboBox2.AutoHeight = false;
-            this.repositoryItemComboBox2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.repositoryItemComboBox3.AutoHeight = false;
+            this.repositoryItemComboBox3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemComboBox2.Name = "repositoryItemComboBox2";
-            this.repositoryItemComboBox2.Sorted = true;
+            this.repositoryItemComboBox3.Items.AddRange(new object[] {
+            "Theo tên nhân viên",
+            "Theo mã nhân viên",
+            "Theo mã chấm công"});
+            this.repositoryItemComboBox3.Name = "repositoryItemComboBox3";
             // 
-            // barEditItem2
+            // barEditItemSearchValue
             // 
-            this.barEditItem2.Caption = "Nhập";
-            this.barEditItem2.Edit = this.repositoryItemTextEdit1;
-            this.barEditItem2.EditWidth = 100;
-            this.barEditItem2.Id = 14;
-            this.barEditItem2.Name = "barEditItem2";
+            this.barEditItemSearchValue.Caption = "Nhập";
+            this.barEditItemSearchValue.Edit = this.repositoryItemTextEdit1;
+            this.barEditItemSearchValue.EditWidth = 100;
+            this.barEditItemSearchValue.Id = 14;
+            this.barEditItemSearchValue.Name = "barEditItemSearchValue";
             // 
             // repositoryItemTextEdit1
             // 
             this.repositoryItemTextEdit1.AutoHeight = false;
             this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
             // 
-            // barButtonItem1
+            // barButtonItemSearch
             // 
-            this.barButtonItem1.Caption = "Tìm";
-            this.barButtonItem1.Id = 15;
-            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
-            this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            this.barButtonItemSearch.Caption = "Tìm";
+            this.barButtonItemSearch.Id = 15;
+            this.barButtonItemSearch.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemSearch.ImageOptions.Image")));
+            this.barButtonItemSearch.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemSearch.ImageOptions.LargeImage")));
+            this.barButtonItemSearch.Name = "barButtonItemSearch";
+            this.barButtonItemSearch.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            this.barButtonItemSearch.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSearch_ItemClick);
             // 
             // barEditItem3
             // 
             this.barEditItem3.Caption = "Tổng";
             this.barEditItem3.Edit = this.repositoryItemTextEdit2;
+            this.barEditItem3.EditValue = "";
             this.barEditItem3.Id = 16;
             this.barEditItem3.Name = "barEditItem3";
+            this.barEditItem3.SearchTags = "";
             // 
             // repositoryItemTextEdit2
             // 
@@ -186,23 +194,25 @@
             this.repositoryItemTextEdit2.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.repositoryItemTextEdit2.Name = "repositoryItemTextEdit2";
             // 
-            // barButtonItem2
+            // barButtonItemRefresh
             // 
-            this.barButtonItem2.Caption = "Làm tươi";
-            this.barButtonItem2.Id = 17;
-            this.barButtonItem2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
-            this.barButtonItem2.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
-            this.barButtonItem2.Name = "barButtonItem2";
-            this.barButtonItem2.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            this.barButtonItemRefresh.Caption = "Làm tươi";
+            this.barButtonItemRefresh.Id = 17;
+            this.barButtonItemRefresh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemRefresh.ImageOptions.Image")));
+            this.barButtonItemRefresh.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemRefresh.ImageOptions.LargeImage")));
+            this.barButtonItemRefresh.Name = "barButtonItemRefresh";
+            this.barButtonItemRefresh.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            this.barButtonItemRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemRefresh_ItemClick);
             // 
-            // barButtonItem3
+            // barButtonItemDeleeAll
             // 
-            this.barButtonItem3.Caption = "Xóa tất cả các sắp xếp lịch trình tạm";
-            this.barButtonItem3.Id = 18;
-            this.barButtonItem3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.Image")));
-            this.barButtonItem3.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.LargeImage")));
-            this.barButtonItem3.Name = "barButtonItem3";
-            this.barButtonItem3.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            this.barButtonItemDeleeAll.Caption = "Xóa tất cả các sắp xếp lịch trình tạm";
+            this.barButtonItemDeleeAll.Id = 18;
+            this.barButtonItemDeleeAll.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemDeleeAll.ImageOptions.Image")));
+            this.barButtonItemDeleeAll.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemDeleeAll.ImageOptions.LargeImage")));
+            this.barButtonItemDeleeAll.Name = "barButtonItemDeleeAll";
+            this.barButtonItemDeleeAll.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            this.barButtonItemDeleeAll.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemDeleeAll_ItemClick);
             // 
             // ribbonControl1
             // 
@@ -212,12 +222,12 @@
             this.ribbonControl1.ExpandCollapseItem,
             this.ribbonControl1.SearchEditItem,
             this.barStaticItem1,
-            this.barEditItem1,
-            this.barEditItem2,
-            this.barButtonItem1,
+            this.barEditItemSearchType,
+            this.barEditItemSearchValue,
+            this.barButtonItemSearch,
             this.barEditItem3,
-            this.barButtonItem2,
-            this.barButtonItem3});
+            this.barButtonItemRefresh,
+            this.barButtonItemDeleeAll});
             this.ribbonControl1.Location = new System.Drawing.Point(996, 362);
             this.ribbonControl1.MaxItemId = 19;
             this.ribbonControl1.Name = "ribbonControl1";
@@ -231,9 +241,10 @@
             this.repositoryItemButtonEdit1,
             this.repositoryItemCheckEdit1,
             this.repositoryItemTextEdit1,
-            this.repositoryItemTextEdit2});
+            this.repositoryItemTextEdit2,
+            this.repositoryItemComboBox3});
             this.ribbonControl1.Size = new System.Drawing.Size(75, 183);
-            this.ribbonControl1.StatusBar = this.ribbonStatusBar;
+            this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
             this.ribbonControl1.Visible = false;
             // 
             // barStaticItem1
@@ -285,6 +296,14 @@
             this.repositoryItemComboBox1.ContextButtons.Add(simpleContextButton4);
             this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
             // 
+            // repositoryItemComboBox2
+            // 
+            this.repositoryItemComboBox2.AutoHeight = false;
+            this.repositoryItemComboBox2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBox2.Name = "repositoryItemComboBox2";
+            this.repositoryItemComboBox2.Sorted = true;
+            // 
             // repositoryItemCheckedComboBoxEdit1
             // 
             this.repositoryItemCheckedComboBoxEdit1.AutoHeight = false;
@@ -314,30 +333,30 @@
             // 
             this.ribbonStatusBar1.BackColor = System.Drawing.SystemColors.Highlight;
             this.ribbonStatusBar1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ribbonStatusBar1.ItemLinks.Add(this.barEditItem4);
-            this.ribbonStatusBar1.ItemLinks.Add(this.barButtonItem4);
+            this.ribbonStatusBar1.ItemLinks.Add(this.barEditItemSelectLichTrinh);
+            this.ribbonStatusBar1.ItemLinks.Add(this.barButtonItemActive);
             this.ribbonStatusBar1.Location = new System.Drawing.Point(2, 28);
             this.ribbonStatusBar1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
             this.ribbonStatusBar1.Size = new System.Drawing.Size(754, 33);
             // 
-            // barEditItem4
+            // barEditItemSelectLichTrinh
             // 
-            this.barEditItem4.Caption = "Chọn lịch trình";
-            this.barEditItem4.Edit = this.repositoryItemComboBox2;
-            this.barEditItem4.EditWidth = 150;
-            this.barEditItem4.Id = 7;
-            this.barEditItem4.Name = "barEditItem4";
+            this.barEditItemSelectLichTrinh.Caption = "Chọn lịch trình";
+            this.barEditItemSelectLichTrinh.Edit = this.repositoryItemComboBox2;
+            this.barEditItemSelectLichTrinh.EditWidth = 150;
+            this.barEditItemSelectLichTrinh.Id = 7;
+            this.barEditItemSelectLichTrinh.Name = "barEditItemSelectLichTrinh";
             // 
-            // barButtonItem4
+            // barButtonItemActive
             // 
-            this.barButtonItem4.Caption = "Thực hiện";
-            this.barButtonItem4.Id = 15;
-            this.barButtonItem4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
-            this.barButtonItem4.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage")));
-            this.barButtonItem4.Name = "barButtonItem4";
-            this.barButtonItem4.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            this.barButtonItemActive.Caption = "Thực hiện trên nhân viên chọn";
+            this.barButtonItemActive.Id = 15;
+            this.barButtonItemActive.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemActive.ImageOptions.Image")));
+            this.barButtonItemActive.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemActive.ImageOptions.LargeImage")));
+            this.barButtonItemActive.Name = "barButtonItemActive";
+            this.barButtonItemActive.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemActive_ItemClick);
             // 
             // tableLayoutPanel1
             // 
@@ -392,6 +411,7 @@
             treeNode3});
             this.treeView1.Size = new System.Drawing.Size(298, 544);
             this.treeView1.TabIndex = 0;
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // tableLayoutPanel2
             // 
@@ -447,111 +467,128 @@
             // 
             // dataGridView2
             // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
+            this.TuNgay,
+            this.DenNgay,
+            this.TenLichTrinh});
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(448, 246);
             this.dataGridView2.TabIndex = 15;
             // 
-            // dataGridViewTextBoxColumn2
+            // TuNgay
             // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Từ ngày";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 125;
+            this.TuNgay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.TuNgay.DataPropertyName = "TuNgay";
+            this.TuNgay.HeaderText = "Từ ngày";
+            this.TuNgay.MinimumWidth = 6;
+            this.TuNgay.Name = "TuNgay";
+            this.TuNgay.ReadOnly = true;
+            this.TuNgay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.TuNgay.Width = 66;
             // 
-            // dataGridViewTextBoxColumn3
+            // DenNgay
             // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Đến ngày";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 125;
+            this.DenNgay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.DenNgay.DataPropertyName = "DenNgay";
+            this.DenNgay.HeaderText = "Đến ngày";
+            this.DenNgay.MinimumWidth = 6;
+            this.DenNgay.Name = "DenNgay";
+            this.DenNgay.ReadOnly = true;
+            this.DenNgay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.DenNgay.Width = 74;
             // 
-            // dataGridViewTextBoxColumn4
+            // TenLichTrinh
             // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Lịch trình";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 125;
+            this.TenLichTrinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.TenLichTrinh.DataPropertyName = "TenLichTrinh";
+            this.TenLichTrinh.HeaderText = "Lịch Trình";
+            this.TenLichTrinh.MinimumWidth = 6;
+            this.TenLichTrinh.Name = "TenLichTrinh";
+            this.TenLichTrinh.ReadOnly = true;
+            this.TenLichTrinh.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.TenLichTrinh.Width = 73;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dateEdit2);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.comboBoxEdit1);
-            this.panel2.Controls.Add(this.checkBox6);
+            this.panel2.Controls.Add(this.comboBox2);
+            this.panel2.Controls.Add(this.dateEditToDate);
+            this.panel2.Controls.Add(this.buttonDeleteSapXepTam);
+            this.panel2.Controls.Add(this.buttonAddSapXepTam);
+            this.panel2.Controls.Add(this.checkBoxUpdateBySelectedEmployee);
             this.panel2.Controls.Add(this.textBox2);
             this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.textBox18);
-            this.panel2.Controls.Add(this.dateEdit1);
+            this.panel2.Controls.Add(this.dateEditFromDate);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(294, 246);
             this.panel2.TabIndex = 1;
             // 
-            // dateEdit2
+            // comboBox2
             // 
-            this.dateEdit2.EditValue = null;
-            this.dateEdit2.Location = new System.Drawing.Point(118, 50);
-            this.dateEdit2.MenuManager = this.ribbonControl1;
-            this.dateEdit2.Name = "dateEdit2";
-            this.dateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(118, 78);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(169, 24);
+            this.comboBox2.TabIndex = 58;
+            // 
+            // dateEditToDate
+            // 
+            this.dateEditToDate.EditValue = null;
+            this.dateEditToDate.Location = new System.Drawing.Point(118, 50);
+            this.dateEditToDate.MenuManager = this.ribbonControl1;
+            this.dateEditToDate.Name = "dateEditToDate";
+            this.dateEditToDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dateEditToDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit2.Size = new System.Drawing.Size(125, 22);
-            this.dateEdit2.TabIndex = 57;
+            this.dateEditToDate.Size = new System.Drawing.Size(125, 22);
+            this.dateEditToDate.TabIndex = 57;
             // 
-            // button2
+            // buttonDeleteSapXepTam
             // 
-            this.button2.Location = new System.Drawing.Point(169, 154);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(97, 30);
-            this.button2.TabIndex = 56;
-            this.button2.Text = "Xóa bỏ";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonDeleteSapXepTam.Location = new System.Drawing.Point(169, 154);
+            this.buttonDeleteSapXepTam.Name = "buttonDeleteSapXepTam";
+            this.buttonDeleteSapXepTam.Size = new System.Drawing.Size(97, 30);
+            this.buttonDeleteSapXepTam.TabIndex = 56;
+            this.buttonDeleteSapXepTam.Text = "Xóa bỏ";
+            this.buttonDeleteSapXepTam.UseVisualStyleBackColor = true;
+            this.buttonDeleteSapXepTam.Click += new System.EventHandler(this.buttonDeleteSapXepTam_Click);
             // 
-            // button1
+            // buttonAddSapXepTam
             // 
-            this.button1.Location = new System.Drawing.Point(37, 154);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(97, 30);
-            this.button1.TabIndex = 55;
-            this.button1.Text = "Thêm mới";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonAddSapXepTam.Location = new System.Drawing.Point(37, 154);
+            this.buttonAddSapXepTam.Name = "buttonAddSapXepTam";
+            this.buttonAddSapXepTam.Size = new System.Drawing.Size(97, 30);
+            this.buttonAddSapXepTam.TabIndex = 55;
+            this.buttonAddSapXepTam.Text = "Thêm mới";
+            this.buttonAddSapXepTam.UseVisualStyleBackColor = true;
+            this.buttonAddSapXepTam.Click += new System.EventHandler(this.buttonAddSapXepTam_Click);
             // 
-            // comboBoxEdit1
+            // checkBoxUpdateBySelectedEmployee
             // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(118, 78);
-            this.comboBoxEdit1.MenuManager = this.ribbonControl1;
-            this.comboBoxEdit1.Name = "comboBoxEdit1";
-            this.comboBoxEdit1.Properties.Appearance.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.comboBoxEdit1.Properties.Appearance.Options.UseBackColor = true;
-            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Size = new System.Drawing.Size(165, 22);
-            this.comboBoxEdit1.TabIndex = 54;
-            // 
-            // checkBox6
-            // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(16, 117);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(217, 21);
-            this.checkBox6.TabIndex = 53;
-            this.checkBox6.Text = "Cập nhật theo nhân viên chọn";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.checkBoxUpdateBySelectedEmployee.AutoSize = true;
+            this.checkBoxUpdateBySelectedEmployee.Location = new System.Drawing.Point(16, 117);
+            this.checkBoxUpdateBySelectedEmployee.Name = "checkBoxUpdateBySelectedEmployee";
+            this.checkBoxUpdateBySelectedEmployee.Size = new System.Drawing.Size(196, 21);
+            this.checkBoxUpdateBySelectedEmployee.TabIndex = 53;
+            this.checkBoxUpdateBySelectedEmployee.Text = "Thêm theo nhân viên chọn";
+            this.checkBoxUpdateBySelectedEmployee.UseVisualStyleBackColor = true;
             // 
             // textBox2
             // 
@@ -586,21 +623,23 @@
             this.textBox18.TabIndex = 50;
             this.textBox18.Text = "Từ ngày";
             // 
-            // dateEdit1
+            // dateEditFromDate
             // 
-            this.dateEdit1.EditValue = null;
-            this.dateEdit1.Location = new System.Drawing.Point(118, 24);
-            this.dateEdit1.MenuManager = this.ribbonControl1;
-            this.dateEdit1.Name = "dateEdit1";
-            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dateEditFromDate.EditValue = null;
+            this.dateEditFromDate.Location = new System.Drawing.Point(118, 24);
+            this.dateEditFromDate.MenuManager = this.ribbonControl1;
+            this.dateEditFromDate.Name = "dateEditFromDate";
+            this.dateEditFromDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dateEditFromDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Size = new System.Drawing.Size(125, 22);
-            this.dateEdit1.TabIndex = 0;
+            this.dateEditFromDate.Size = new System.Drawing.Size(125, 22);
+            this.dateEditFromDate.TabIndex = 0;
             // 
             // groupControl2
             // 
+            this.groupControl2.Controls.Add(this.comboBox1);
+            this.groupControl2.Controls.Add(this.checkBoxCheckAll);
             this.groupControl2.Controls.Add(this.dataGridView1);
             this.groupControl2.Controls.Add(this.ribbonStatusBar1);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -612,61 +651,81 @@
             this.groupControl2.TabIndex = 14;
             this.groupControl2.Text = "Lịch trình mặc định";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(110, 33);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(216, 24);
+            this.comboBox1.TabIndex = 20;
+            // 
+            // checkBoxCheckAll
+            // 
+            this.checkBoxCheckAll.AutoSize = true;
+            this.checkBoxCheckAll.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.checkBoxCheckAll.Location = new System.Drawing.Point(89, 65);
+            this.checkBoxCheckAll.Name = "checkBoxCheckAll";
+            this.checkBoxCheckAll.Size = new System.Drawing.Size(63, 21);
+            this.checkBoxCheckAll.TabIndex = 16;
+            this.checkBoxCheckAll.Text = "Chọn";
+            this.checkBoxCheckAll.UseVisualStyleBackColor = false;
+            this.checkBoxCheckAll.CheckedChanged += new System.EventHandler(this.checkBoxCheckAll_CheckedChanged);
+            // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Code,
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4});
+            this.MaNguoi,
+            this.MaChamCong,
+            this.HoTen});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(2, 61);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView1.Size = new System.Drawing.Size(754, 219);
             this.dataGridView1.TabIndex = 14;
+            this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
-            // Code
+            // MaNguoi
             // 
-            this.Code.HeaderText = "";
-            this.Code.MinimumWidth = 6;
-            this.Code.Name = "Code";
-            this.Code.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Code.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Code.Width = 30;
+            this.MaNguoi.DataPropertyName = "MaNguoi";
+            this.MaNguoi.HeaderText = "Mã nhân viên";
+            this.MaNguoi.MinimumWidth = 6;
+            this.MaNguoi.Name = "MaNguoi";
+            this.MaNguoi.ReadOnly = true;
+            this.MaNguoi.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.MaNguoi.Width = 95;
             // 
-            // Column1
+            // MaChamCong
             // 
-            this.Column1.HeaderText = "Mã nhân viên";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 125;
+            this.MaChamCong.DataPropertyName = "MaChamCong";
+            this.MaChamCong.HeaderText = "Mã chấm công";
+            this.MaChamCong.MinimumWidth = 6;
+            this.MaChamCong.Name = "MaChamCong";
+            this.MaChamCong.ReadOnly = true;
+            this.MaChamCong.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.MaChamCong.Width = 104;
             // 
-            // Column2
+            // HoTen
             // 
-            this.Column2.HeaderText = "Mã chấm công";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 125;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Tên nhân viên";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 125;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Lịch trình";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 125;
+            this.HoTen.DataPropertyName = "HoTen";
+            this.HoTen.HeaderText = "Tên nhân viên";
+            this.HoTen.MinimumWidth = 6;
+            this.HoTen.Name = "HoTen";
+            this.HoTen.ReadOnly = true;
+            this.HoTen.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.HoTen.Width = 101;
             // 
             // PrepareEmployeeCalenda
             // 
@@ -680,11 +739,12 @@
             this.Name = "PrepareEmployeeCalenda";
             this.Text = "PrepareEmployeeCalenda";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PrepareEmployeeCalenda_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckedComboBoxEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPageNumberEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
@@ -701,13 +761,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditToDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditToDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditFromDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditFromDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
+            this.groupControl2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -722,16 +782,16 @@
         private DevExpress.XtraBars.BarStaticItem barStaticItem1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraBars.BarEditItem barEditItem1;
+        private DevExpress.XtraBars.BarEditItem barEditItemSearchType;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox2;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit repositoryItemCheckedComboBoxEdit1;
-        private DevExpress.XtraBars.BarEditItem barEditItem2;
+        private DevExpress.XtraBars.BarEditItem barEditItemSearchValue;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemSearch;
         private DevExpress.XtraBars.BarEditItem barEditItem3;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit2;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemRefresh;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemDeleeAll;
         private DevExpress.XtraEditors.Repository.RepositoryItemPageNumberEdit repositoryItemPageNumberEdit1;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
@@ -740,32 +800,33 @@
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private System.Windows.Forms.TreeView treeView1;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
-        private DevExpress.XtraBars.BarEditItem barEditItem4;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
+        private DevExpress.XtraBars.BarEditItem barEditItemSelectLichTrinh;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemActive;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private DevExpress.XtraEditors.GroupControl groupControl3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
-        private DevExpress.XtraEditors.DateEdit dateEdit1;
+        private DevExpress.XtraEditors.DateEdit dateEditFromDate;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox18;
-        private System.Windows.Forms.CheckBox checkBox6;
+        private System.Windows.Forms.CheckBox checkBoxUpdateBySelectedEmployee;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private DevExpress.XtraEditors.DateEdit dateEdit2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
+        private DevExpress.XtraEditors.DateEdit dateEditToDate;
+        private System.Windows.Forms.Button buttonDeleteSapXepTam;
+        private System.Windows.Forms.Button buttonAddSapXepTam;
+        private System.Windows.Forms.CheckBox checkBoxCheckAll;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox3;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TuNgay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DenNgay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenLichTrinh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaNguoi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaChamCong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
     }
 }
