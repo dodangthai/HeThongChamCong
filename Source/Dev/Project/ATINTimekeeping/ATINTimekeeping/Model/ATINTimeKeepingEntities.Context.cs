@@ -67,6 +67,8 @@ namespace ATINTimekeeping.Model
         public virtual DbSet<LichTrinhNangCao> LichTrinhNangCaos { get; set; }
         public virtual DbSet<MapLichTrinhNangCao> MapLichTrinhNangCaos { get; set; }
         public virtual DbSet<ViewSapXepLichTrinh> ViewSapXepLichTrinhs { get; set; }
+        public virtual DbSet<KyHieuCacLoaiVang> KyHieuCacLoaiVangs { get; set; }
+        public virtual DbSet<KyHieuChamCong> KyHieuChamCongs { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
@@ -1122,6 +1124,60 @@ namespace ATINTimekeeping.Model
                 new ObjectParameter("MaNguoi", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ViewSapXepLichTrinh>("spGetViewSapXepLichTrinhByNguoi", mergeOption, maNguoiParameter);
+        }
+    
+        public virtual ObjectResult<KyHieuCacLoaiVang> spGetAllKyHieuCacLoaiVang()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<KyHieuCacLoaiVang>("spGetAllKyHieuCacLoaiVang");
+        }
+    
+        public virtual ObjectResult<KyHieuCacLoaiVang> spGetAllKyHieuCacLoaiVang(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<KyHieuCacLoaiVang>("spGetAllKyHieuCacLoaiVang", mergeOption);
+        }
+    
+        public virtual ObjectResult<KyHieuChamCong> spGetAllKyHieuChamCong()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<KyHieuChamCong>("spGetAllKyHieuChamCong");
+        }
+    
+        public virtual ObjectResult<KyHieuChamCong> spGetAllKyHieuChamCong(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<KyHieuChamCong>("spGetAllKyHieuChamCong", mergeOption);
+        }
+    
+        public virtual int spUpdateKyHieuCacLoaiVang(string maKyHieu, Nullable<bool> suDung, Nullable<bool> tinhCong)
+        {
+            var maKyHieuParameter = maKyHieu != null ?
+                new ObjectParameter("MaKyHieu", maKyHieu) :
+                new ObjectParameter("MaKyHieu", typeof(string));
+    
+            var suDungParameter = suDung.HasValue ?
+                new ObjectParameter("SuDung", suDung) :
+                new ObjectParameter("SuDung", typeof(bool));
+    
+            var tinhCongParameter = tinhCong.HasValue ?
+                new ObjectParameter("TinhCong", tinhCong) :
+                new ObjectParameter("TinhCong", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUpdateKyHieuCacLoaiVang", maKyHieuParameter, suDungParameter, tinhCongParameter);
+        }
+    
+        public virtual int spUpdateKyHeuChamCong(Nullable<int> maKyHieu, string tenKyHieu, Nullable<bool> suDung)
+        {
+            var maKyHieuParameter = maKyHieu.HasValue ?
+                new ObjectParameter("MaKyHieu", maKyHieu) :
+                new ObjectParameter("MaKyHieu", typeof(int));
+    
+            var tenKyHieuParameter = tenKyHieu != null ?
+                new ObjectParameter("TenKyHieu", tenKyHieu) :
+                new ObjectParameter("TenKyHieu", typeof(string));
+    
+            var suDungParameter = suDung.HasValue ?
+                new ObjectParameter("SuDung", suDung) :
+                new ObjectParameter("SuDung", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUpdateKyHeuChamCong", maKyHieuParameter, tenKyHieuParameter, suDungParameter);
         }
     }
 }

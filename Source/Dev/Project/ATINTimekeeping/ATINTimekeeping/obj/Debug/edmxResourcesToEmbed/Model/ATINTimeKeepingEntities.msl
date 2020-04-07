@@ -611,5 +611,30 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="KyHieuCacLoaiVangs">
+      <EntityTypeMapping TypeName="ATINChamCongModel.KyHieuCacLoaiVang">
+        <MappingFragment StoreEntitySet="KyHieuCacLoaiVang">
+          <ScalarProperty Name="TinhCong" ColumnName="TinhCong" />
+          <ScalarProperty Name="SuDung" ColumnName="SuDung" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="TenKyHieu" ColumnName="TenKyHieu" />
+          <ScalarProperty Name="MaKyHieu" ColumnName="MaKyHieu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KyHieuChamCongs">
+      <EntityTypeMapping TypeName="ATINChamCongModel.KyHieuChamCong">
+        <MappingFragment StoreEntitySet="KyHieuChamCong">
+          <ScalarProperty Name="SuDung" ColumnName="SuDung" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="TenKyHieu" ColumnName="TenKyHieu" />
+          <ScalarProperty Name="MaKyHieu" ColumnName="MaKyHieu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spGetAllKyHieuCacLoaiVang" FunctionName="ATINChamCongModel.Store.spGetAllKyHieuCacLoaiVang" />
+    <FunctionImportMapping FunctionImportName="spGetAllKyHieuChamCong" FunctionName="ATINChamCongModel.Store.spGetAllKyHieuChamCong" />
+    <FunctionImportMapping FunctionImportName="spUpdateKyHieuCacLoaiVang" FunctionName="ATINChamCongModel.Store.spUpdateKyHieuCacLoaiVang" />
+    <FunctionImportMapping FunctionImportName="spUpdateKyHeuChamCong" FunctionName="ATINChamCongModel.Store.spUpdateKyHeuChamCong" />
   </EntityContainerMapping>
 </Mapping>

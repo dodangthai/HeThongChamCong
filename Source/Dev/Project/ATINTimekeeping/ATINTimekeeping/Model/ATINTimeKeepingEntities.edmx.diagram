@@ -75,6 +75,8 @@
         <AssociationConnector Association="ATINChamCongModel.FK_dbo_MapLichTrinhNangCao_LichTrinh" />
         <AssociationConnector Association="ATINChamCongModel.FK_dbo_MapLichTrinhNangCao_LichTrinhNangCao" />
         <EntityTypeShape EntityType="ATINChamCongModel.ViewSapXepLichTrinh" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ATINChamCongModel.KyHieuCacLoaiVang" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ATINChamCongModel.KyHieuChamCong" Width="1.5" PointX="12.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

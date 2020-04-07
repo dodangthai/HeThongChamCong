@@ -1331,6 +1331,20 @@
       <Parameter Name="MaNguoi" Mode="In" Type="Int32" />
     </FunctionImport>
     <EntitySet Name="ViewSapXepLichTrinhs" EntityType="ATINChamCongModel.ViewSapXepLichTrinh" />
+    <EntitySet Name="KyHieuCacLoaiVangs" EntityType="ATINChamCongModel.KyHieuCacLoaiVang" />
+    <EntitySet Name="KyHieuChamCongs" EntityType="ATINChamCongModel.KyHieuChamCong" />
+    <FunctionImport Name="spGetAllKyHieuCacLoaiVang" EntitySet="KyHieuCacLoaiVangs" ReturnType="Collection(ATINChamCongModel.KyHieuCacLoaiVang)" />
+    <FunctionImport Name="spGetAllKyHieuChamCong" EntitySet="KyHieuChamCongs" ReturnType="Collection(ATINChamCongModel.KyHieuChamCong)" />
+    <FunctionImport Name="spUpdateKyHieuCacLoaiVang">
+      <Parameter Name="MaKyHieu" Mode="In" Type="String" />
+      <Parameter Name="SuDung" Mode="In" Type="Boolean" />
+      <Parameter Name="TinhCong" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="spUpdateKyHeuChamCong">
+      <Parameter Name="MaKyHieu" Mode="In" Type="Int32" />
+      <Parameter Name="TenKyHieu" Mode="In" Type="String" />
+      <Parameter Name="SuDung" Mode="In" Type="Boolean" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -1639,4 +1653,36 @@
     <Property Name="MaLichTrinh" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
     <Property Name="MaSapXep" Type="Int32" />
   </EntityType>
+  <EntityType Name="KyHieuCacLoaiVang">
+    <Key>
+      <PropertyRef Name="MaKyHieu" />
+    </Key>
+    <Property Name="MaKyHieu" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="TenKyHieu" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="MoTa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SuDung" Type="Boolean" Nullable="false" />
+    <Property Name="TinhCong" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KyHieuChamCong">
+    <Key>
+      <PropertyRef Name="MaKyHieu" />
+    </Key>
+    <Property Name="MaKyHieu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenKyHieu" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="MoTa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SuDung" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <ComplexType Name="spGetAllKyHieuCacLoaiVang_Result">
+    <Property Type="String" Name="MaKyHieu" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="TenKyHieu" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="MoTa" Nullable="true" MaxLength="255" />
+    <Property Type="Boolean" Name="SuDung" Nullable="false" />
+    <Property Type="Boolean" Name="TinhCong" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetAllKyHieuChamCong_Result">
+    <Property Type="Int32" Name="MaKyHieu" Nullable="false" />
+    <Property Type="String" Name="TenKyHieu" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="MoTa" Nullable="true" MaxLength="255" />
+    <Property Type="Boolean" Name="SuDung" Nullable="false" />
+  </ComplexType>
 </Schema>

@@ -216,6 +216,25 @@
     <Property Name="ThoiGianDangKy" Type="datetime" Nullable="false" />
     <Property Name="TrangThai" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="KyHieuCacLoaiVang">
+    <Key>
+      <PropertyRef Name="MaKyHieu" />
+    </Key>
+    <Property Name="MaKyHieu" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="TenKyHieu" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="MoTa" Type="nvarchar" MaxLength="255" />
+    <Property Name="SuDung" Type="bit" Nullable="false" />
+    <Property Name="TinhCong" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KyHieuChamCong">
+    <Key>
+      <PropertyRef Name="MaKyHieu" />
+    </Key>
+    <Property Name="MaKyHieu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenKyHieu" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="MoTa" Type="nvarchar" MaxLength="255" />
+    <Property Name="SuDung" Type="bit" Nullable="false" />
+  </EntityType>
   <EntityType Name="LichSuSuaDuLieuChamCong">
     <Key>
       <PropertyRef Name="MaLichSuSuaDLCC" />
@@ -1017,6 +1036,8 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
   </Function>
   <Function Name="spGetAllCaLamViec" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="spGetAllChucVu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetAllKyHieuCacLoaiVang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetAllKyHieuChamCong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="spGetAllLichTrinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="spGetAllNguoi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="spGetAllPhongBan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
@@ -1181,6 +1202,16 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
     <Parameter Name="TachGioCaDemTu" Type="time" Mode="In" />
     <Parameter Name="TachGioCaDemDen" Type="time" Mode="In" />
   </Function>
+  <Function Name="spUpdateKyHeuChamCong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaKyHieu" Type="int" Mode="In" />
+    <Parameter Name="TenKyHieu" Type="varchar" Mode="In" />
+    <Parameter Name="SuDung" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="spUpdateKyHieuCacLoaiVang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaKyHieu" Type="varchar" Mode="In" />
+    <Parameter Name="SuDung" Type="bit" Mode="In" />
+    <Parameter Name="TinhCong" Type="bit" Mode="In" />
+  </Function>
   <Function Name="spUpdateLichTrinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="MaLichTrinhChon" Type="varchar" Mode="In" />
     <Parameter Name="MaLichTrinh" Type="varchar" Mode="In" />
@@ -1219,6 +1250,8 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
     <EntitySet Name="DangKyTangCa" EntityType="Self.DangKyTangCa" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DanToc" EntityType="Self.DanToc" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KhuonMat" EntityType="Self.KhuonMat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KyHieuCacLoaiVang" EntityType="Self.KyHieuCacLoaiVang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KyHieuChamCong" EntityType="Self.KyHieuChamCong" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LichSuSuaDuLieuChamCong" EntityType="Self.LichSuSuaDuLieuChamCong" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LichTrinh" EntityType="Self.LichTrinh" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LichTrinhNam" EntityType="Self.LichTrinhNam" Schema="dbo" store:Type="Tables" />
