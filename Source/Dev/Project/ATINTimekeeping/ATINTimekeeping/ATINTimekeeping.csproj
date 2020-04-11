@@ -113,7 +113,7 @@
       <DependentUpon>DiemDanh.cs</DependentUpon>
     </Compile>
     <Compile Include="Common\ConvertModel.cs" />
-	<Compile Include="ChamCongVaBaoBieu\TimeKeepingByHand.cs">
+    <Compile Include="ChamCongVaBaoBieu\TimeKeepingByHand.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ChamCongVaBaoBieu\TimeKeepingByHand.Designer.cs">
@@ -130,7 +130,9 @@
     </Compile>
     <Compile Include="ChamCongVaBaoBieu\TimekeepingNotInShifts.Designer.cs">
       <DependentUpon>TimekeepingNotInShifts.cs</DependentUpon>
-    </Compile>    <Compile Include="FormServerActivity\CommandLogs.cs">
+    </Compile>
+    <Compile Include="Common\Utils.cs" />
+    <Compile Include="FormServerActivity\CommandLogs.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormServerActivity\CommandLogs.Designer.cs">
@@ -443,15 +445,7 @@
     <Compile Include="Model\spGetAllSapXepLichTrinh_Result.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\spGetAllViewGioChiaHaiCot_Result.cs">
-      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\spGetAllViewGioNguonOrderByNgayGio_Result.cs">
-      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\spGetAllViewThongTinNhanVien1_Result.cs">
-      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
-    </Compile>    <Compile Include="Model\spGetCaLamViec_Result.cs">
+    <Compile Include="Model\spGetCaLamViec_Result.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\spGetLichTrinhNamByLichTrinh_Result.cs">
@@ -478,9 +472,6 @@
     <Compile Include="Model\spGetViewSapXepLichTrinhByNguoi_Result.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\spGetViewThongTinNhanVien1ByPhongBan_Result.cs">
-      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
@@ -505,16 +496,7 @@
     <Compile Include="Model\VanTay.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\ViewGioChiaHaiCot.cs">
-      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\ViewGioNguon.cs">
-      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\ViewSapXepLichTrinh.cs">
-      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\ViewThongTinNhanVien1.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\XepLoaiChamCong.cs">
@@ -759,9 +741,7 @@
       <LastGenOutput>ATINTimekeepingEntities.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
