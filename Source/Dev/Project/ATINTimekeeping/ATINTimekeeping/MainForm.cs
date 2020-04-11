@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
-using DevExpress.XtraReports.Design;
 using ATINTimekeeping.FormTimeKeepingSetting;
 using ATINTimekeeping.ChamCongVaBaoBieu;
+using ATINTimekeeping.FormHeThong;
+using ATINTimekeeping.FormNhanVien;
 
 namespace ATINTimekeeping
 {
@@ -21,27 +15,6 @@ namespace ATINTimekeeping
             InitializeComponent();
         }
 
-        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
-        {
-
-        }
-
-        private void barButtonItem7_ItemClick(object sender, ItemClickEventArgs e)
-        {
-
-        }
-
-        private void barButtonItem13_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            //EmployeeManagementForm form = new EmployeeManagementForm();
-            //form.TopLevel = false;
-            //DevExpress.XtraTab.XtraTabPage tab = new DevExpress.XtraTab.XtraTabPage();
-            //tab.Text = form.Text;
-            //form.Parent = tab;
-            //xtraTabControl1.TabPages.Add(tab);
-            //form.Show();
-
-        }
 
         private void barButtonItem14_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -52,13 +25,6 @@ namespace ATINTimekeeping
                 form.Show();
             }
         }
-
-        //public void themTabPage()
-        //{
-        //    KhaiBaoMayChamCongFrm khaiBaoMayChamCongFrm = new KhaiBaoMayChamCongFrm();
-        //    TabPage tabPage = new TabPage { Text = khaiBaoMayChamCongFrm.Text };
-        //    ribbonPageMayChamCong..Add(tabPage);
-        //}
 
         private void xtraTabKhaiBaoMayChamCong_Paint(object sender, PaintEventArgs e)
         {
@@ -240,7 +206,88 @@ namespace ATINTimekeeping
             DiemDanh form = new DiemDanh();
             form.ShowDialog();
         }
+
+        private void btnTaiKhoan_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void btnPhanQuyen_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void btnDoiMatKhau_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void btnThongTinCongTy_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ThongTinCongTy form = new ThongTinCongTy();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void btnPhongBan_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            KhaiBaoPhongBan form = new KhaiBaoPhongBan();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void btnChucVu_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            KhaiBaoChucVu form = new KhaiBaoChucVu();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void btnDanToc_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            KhaiBaoDanToc form = new KhaiBaoDanToc();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void btnTonGiao_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            KhaiBaoTonGiao form = new KhaiBaoTonGiao();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void btnTrinhDo_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            KhaiBaoTrinhDoHocVan form = new KhaiBaoTrinhDoHocVan();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void btnNgayLe_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            KhaiBaoNgayLe form = new KhaiBaoNgayLe();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void btnQuocTich_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            KhaiBaoQuocTich form = new KhaiBaoQuocTich();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void btnDatabase_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void btnManagerEmployee_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            QuanLyNhanVien form = new QuanLyNhanVien();
+            form.MdiParent = this;
+            form.Show();
+        }
     }
-
-
 }
