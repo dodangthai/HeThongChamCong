@@ -443,7 +443,6 @@
     <Compile Include="Model\spGetAllSapXepLichTrinh_Result.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
-	<Compile Include="Model\spGetAllTrangThai_Result.cs">
     <Compile Include="Model\spGetAllViewGioChiaHaiCot_Result.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
