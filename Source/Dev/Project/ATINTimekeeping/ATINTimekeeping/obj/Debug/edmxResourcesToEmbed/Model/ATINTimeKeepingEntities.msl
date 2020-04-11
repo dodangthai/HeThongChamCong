@@ -218,6 +218,27 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="KyHieuCacLoaiVangs">
+      <EntityTypeMapping TypeName="ATINChamCongModel.KyHieuCacLoaiVang">
+        <MappingFragment StoreEntitySet="KyHieuCacLoaiVang">
+          <ScalarProperty Name="MaKyHieu" ColumnName="MaKyHieu" />
+          <ScalarProperty Name="TenKyHieu" ColumnName="TenKyHieu" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="SuDung" ColumnName="SuDung" />
+          <ScalarProperty Name="TinhCong" ColumnName="TinhCong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KyHieuChamCongs">
+      <EntityTypeMapping TypeName="ATINChamCongModel.KyHieuChamCong">
+        <MappingFragment StoreEntitySet="KyHieuChamCong">
+          <ScalarProperty Name="MaKyHieu" ColumnName="MaKyHieu" />
+          <ScalarProperty Name="TenKyHieu" ColumnName="TenKyHieu" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="SuDung" ColumnName="SuDung" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="LichSuSuaDuLieuChamCongs">
       <EntityTypeMapping TypeName="ATINChamCongModel.LichSuSuaDuLieuChamCong">
         <MappingFragment StoreEntitySet="LichSuSuaDuLieuChamCong">
@@ -248,6 +269,15 @@
           <ScalarProperty Name="MaLichTrinh" ColumnName="MaLichTrinh" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Month" ColumnName="Month" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LichTrinhNangCaos">
+      <EntityTypeMapping TypeName="ATINChamCongModel.LichTrinhNangCao">
+        <MappingFragment StoreEntitySet="LichTrinhNangCao">
+          <ScalarProperty Name="MaLichTrinhNangCao" ColumnName="MaLichTrinhNangCao" />
+          <ScalarProperty Name="TenLichTrinhNangCao" ColumnName="TenLichTrinhNangCao" />
+          <ScalarProperty Name="SuDung" ColumnName="SuDung" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -292,6 +322,15 @@
         <MappingFragment StoreEntitySet="LoaiNghiPhep">
           <ScalarProperty Name="MaLoaiNghiPhep" ColumnName="MaLoaiNghiPhep" />
           <ScalarProperty Name="LoaiNghiPhep1" ColumnName="LoaiNghiPhep" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MapLichTrinhNangCaos">
+      <EntityTypeMapping TypeName="ATINChamCongModel.MapLichTrinhNangCao">
+        <MappingFragment StoreEntitySet="MapLichTrinhNangCao">
+          <ScalarProperty Name="MaLichTrinh" ColumnName="MaLichTrinh" />
+          <ScalarProperty Name="MaLichTrinhNangCao" ColumnName="MaLichTrinhNangCao" />
+          <ScalarProperty Name="EmptyColumn" ColumnName="EmptyColumn" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -506,6 +545,62 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ViewGioChiaHaiCots">
+      <EntityTypeMapping TypeName="ATINChamCongModel.ViewGioChiaHaiCot">
+        <MappingFragment StoreEntitySet="ViewGioChiaHaiCot">
+          <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="MaDinhDanh" ColumnName="MaDinhDanh" />
+          <ScalarProperty Name="NgayChamCong" ColumnName="NgayChamCong" />
+          <ScalarProperty Name="GioChamCong" ColumnName="GioChamCong" />
+          <ScalarProperty Name="MaLoaiChamCong" ColumnName="MaLoaiChamCong" />
+          <ScalarProperty Name="MaChamCong" ColumnName="MaChamCong" />
+          <ScalarProperty Name="TenMay" ColumnName="TenMay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewGioNguons">
+      <EntityTypeMapping TypeName="ATINChamCongModel.ViewGioNguon">
+        <MappingFragment StoreEntitySet="ViewGioNguon">
+          <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="MaDinhDanh" ColumnName="MaDinhDanh" />
+          <ScalarProperty Name="NgayChamCong" ColumnName="NgayChamCong" />
+          <ScalarProperty Name="GioChamCong" ColumnName="GioChamCong" />
+          <ScalarProperty Name="MaLoaiChamCong" ColumnName="MaLoaiChamCong" />
+          <ScalarProperty Name="NguonThucHien" ColumnName="NguonThucHien" />
+          <ScalarProperty Name="MaChamCong" ColumnName="MaChamCong" />
+          <ScalarProperty Name="MaThietBi" ColumnName="MaThietBi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewSapXepLichTrinhs">
+      <EntityTypeMapping TypeName="ATINChamCongModel.ViewSapXepLichTrinh">
+        <MappingFragment StoreEntitySet="ViewSapXepLichTrinh">
+          <ScalarProperty Name="MaNguoi" ColumnName="MaNguoi" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="MaChamCong" ColumnName="MaChamCong" />
+          <ScalarProperty Name="MaLichTrinh" ColumnName="MaLichTrinh" />
+          <ScalarProperty Name="MaSapXep" ColumnName="MaSapXep" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewThongTinNhanVien1">
+      <EntityTypeMapping TypeName="ATINChamCongModel.ViewThongTinNhanVien1">
+        <MappingFragment StoreEntitySet="ViewThongTinNhanVien1">
+          <ScalarProperty Name="MaNguoi" ColumnName="MaNguoi" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="MaChamCong" ColumnName="MaChamCong" />
+          <ScalarProperty Name="MaLichTrinh" ColumnName="MaLichTrinh" />
+          <ScalarProperty Name="TenLichTrinh" ColumnName="TenLichTrinh" />
+          <ScalarProperty Name="MaChucVu" ColumnName="MaChucVu" />
+          <ScalarProperty Name="TenChucVu" ColumnName="TenChucVu" />
+          <ScalarProperty Name="MaPhongBan" ColumnName="MaPhongBan" />
+          <ScalarProperty Name="TenPhongBan" ColumnName="TenPhongBan" />
+          <ScalarProperty Name="NgayNhanViec" ColumnName="NgayNhanViec" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <AssociationSetMapping Name="AspNetUserRoles" TypeName="ATINChamCongModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
       <EndProperty Name="AspNetRoles">
         <ScalarProperty Name="Id" ColumnName="RoleId" />
@@ -547,21 +642,32 @@
     <FunctionImportMapping FunctionImportName="spDeleteLichTrinhThang" FunctionName="ATINChamCongModel.Store.spDeleteLichTrinhThang" />
     <FunctionImportMapping FunctionImportName="spDeleteLichTrinhTuan" FunctionName="ATINChamCongModel.Store.spDeleteLichTrinhTuan" />
     <FunctionImportMapping FunctionImportName="spDeleteMapLichTrinhNangCao" FunctionName="ATINChamCongModel.Store.spDeleteMapLichTrinhNangCao" />
+    <FunctionImportMapping FunctionImportName="spDeletePhongBan" FunctionName="ATINChamCongModel.Store.spDeletePhongBan" />
     <FunctionImportMapping FunctionImportName="spDeleteSapXepLichTrinh" FunctionName="ATINChamCongModel.Store.spDeleteSapXepLichTrinh" />
     <FunctionImportMapping FunctionImportName="spDeleteSapXepLichTrinhTam" FunctionName="ATINChamCongModel.Store.spDeleteSapXepLichTrinhTam" />
     <FunctionImportMapping FunctionImportName="spGetAllCaLamViec" FunctionName="ATINChamCongModel.Store.spGetAllCaLamViec" />
     <FunctionImportMapping FunctionImportName="spGetAllChucVu" FunctionName="ATINChamCongModel.Store.spGetAllChucVu" />
+    <FunctionImportMapping FunctionImportName="spGetAllKyHieuCacLoaiVang" FunctionName="ATINChamCongModel.Store.spGetAllKyHieuCacLoaiVang" />
+    <FunctionImportMapping FunctionImportName="spGetAllKyHieuChamCong" FunctionName="ATINChamCongModel.Store.spGetAllKyHieuChamCong" />
     <FunctionImportMapping FunctionImportName="spGetAllLichTrinh" FunctionName="ATINChamCongModel.Store.spGetAllLichTrinh" />
+    <FunctionImportMapping FunctionImportName="spGetAllNguoi" FunctionName="ATINChamCongModel.Store.spGetAllNguoi" />
+    <FunctionImportMapping FunctionImportName="spGetAllPhongBan" FunctionName="ATINChamCongModel.Store.spGetAllPhongBan" />
     <FunctionImportMapping FunctionImportName="spGetAllSapXepLichTrinh" FunctionName="ATINChamCongModel.Store.spGetAllSapXepLichTrinh" />
     <FunctionImportMapping FunctionImportName="spGetAllSapXepLichTrinhTam" FunctionName="ATINChamCongModel.Store.spGetAllSapXepLichTrinhTam" />
+    <FunctionImportMapping FunctionImportName="spGetAllViewGioChiaHaiCot" FunctionName="ATINChamCongModel.Store.spGetAllViewGioChiaHaiCot" />
+    <FunctionImportMapping FunctionImportName="spGetAllViewGioNguonOrderByNgayGio" FunctionName="ATINChamCongModel.Store.spGetAllViewGioNguonOrderByNgayGio" />
+    <FunctionImportMapping FunctionImportName="spGetAllViewThongTinNhanVien1" FunctionName="ATINChamCongModel.Store.spGetAllViewThongTinNhanVien1" />
     <FunctionImportMapping FunctionImportName="spGetCaLamViec" FunctionName="ATINChamCongModel.Store.spGetCaLamViec" />
     <FunctionImportMapping FunctionImportName="spGetLichTrinh" FunctionName="ATINChamCongModel.Store.spGetLichTrinh" />
     <FunctionImportMapping FunctionImportName="spGetLichTrinhNamByLichTrinh" FunctionName="ATINChamCongModel.Store.spGetLichTrinhNamByLichTrinh" />
     <FunctionImportMapping FunctionImportName="spGetLichTrinhThangByLichTrinh" FunctionName="ATINChamCongModel.Store.spGetLichTrinhThangByLichTrinh" />
     <FunctionImportMapping FunctionImportName="spGetLichTrinhTuanByLichTrinh" FunctionName="ATINChamCongModel.Store.spGetLichTrinhTuanByLichTrinh" />
     <FunctionImportMapping FunctionImportName="spGetMapLichTrinhNangCaoByLichTrinh" FunctionName="ATINChamCongModel.Store.spGetMapLichTrinhNangCaoByLichTrinh" />
+    <FunctionImportMapping FunctionImportName="spGetPhongBan" FunctionName="ATINChamCongModel.Store.spGetPhongBan" />
     <FunctionImportMapping FunctionImportName="spGetSapXepLichTrinhByNguoi" FunctionName="ATINChamCongModel.Store.spGetSapXepLichTrinhByNguoi" />
     <FunctionImportMapping FunctionImportName="spGetSapXepLichTrinhTamByNguoi" FunctionName="ATINChamCongModel.Store.spGetSapXepLichTrinhTamByNguoi" />
+    <FunctionImportMapping FunctionImportName="spGetViewSapXepLichTrinhByNguoi" FunctionName="ATINChamCongModel.Store.spGetViewSapXepLichTrinhByNguoi" />
+    <FunctionImportMapping FunctionImportName="spGetViewThongTinNhanVien1ByPhongBan" FunctionName="ATINChamCongModel.Store.spGetViewThongTinNhanVien1ByPhongBan" />
     <FunctionImportMapping FunctionImportName="spInsertCaLamViec" FunctionName="ATINChamCongModel.Store.spInsertCaLamViec" />
     <FunctionImportMapping FunctionImportName="spInsertChucVu" FunctionName="ATINChamCongModel.Store.spInsertChucVu" />
     <FunctionImportMapping FunctionImportName="spInsertLichTrinh" FunctionName="ATINChamCongModel.Store.spInsertLichTrinh" />
@@ -569,72 +675,15 @@
     <FunctionImportMapping FunctionImportName="spInsertLichTrinhThang" FunctionName="ATINChamCongModel.Store.spInsertLichTrinhThang" />
     <FunctionImportMapping FunctionImportName="spInsertLichTrinhTuan" FunctionName="ATINChamCongModel.Store.spInsertLichTrinhTuan" />
     <FunctionImportMapping FunctionImportName="spInsertMapLichTrinhNangCao" FunctionName="ATINChamCongModel.Store.spInsertMapLichTrinhNangCao" />
+    <FunctionImportMapping FunctionImportName="spInsertPhongBan" FunctionName="ATINChamCongModel.Store.spInsertPhongBan" />
     <FunctionImportMapping FunctionImportName="spInsertSapXepLichTrinh" FunctionName="ATINChamCongModel.Store.spInsertSapXepLichTrinh" />
     <FunctionImportMapping FunctionImportName="spInsertSapxepLichTrinhTam" FunctionName="ATINChamCongModel.Store.spInsertSapxepLichTrinhTam" />
     <FunctionImportMapping FunctionImportName="spUpdateCaLamViec" FunctionName="ATINChamCongModel.Store.spUpdateCaLamViec" />
+    <FunctionImportMapping FunctionImportName="spUpdateKyHeuChamCong" FunctionName="ATINChamCongModel.Store.spUpdateKyHeuChamCong" />
+    <FunctionImportMapping FunctionImportName="spUpdateKyHieuCacLoaiVang" FunctionName="ATINChamCongModel.Store.spUpdateKyHieuCacLoaiVang" />
     <FunctionImportMapping FunctionImportName="spUpdateLichTrinh" FunctionName="ATINChamCongModel.Store.spUpdateLichTrinh" />
+    <FunctionImportMapping FunctionImportName="spUpdatePhongBan" FunctionName="ATINChamCongModel.Store.spUpdatePhongBan" />
     <FunctionImportMapping FunctionImportName="spUpdateSapXepLichTrinh" FunctionName="ATINChamCongModel.Store.spUpdateSapXepLichTrinh" />
     <FunctionImportMapping FunctionImportName="spUpdateSapxepLichTrinhTam" FunctionName="ATINChamCongModel.Store.spUpdateSapxepLichTrinhTam" />
-    <EntitySetMapping Name="LichTrinhNangCaos">
-      <EntityTypeMapping TypeName="ATINChamCongModel.LichTrinhNangCao">
-        <MappingFragment StoreEntitySet="LichTrinhNangCao">
-          <ScalarProperty Name="SuDung" ColumnName="SuDung" />
-          <ScalarProperty Name="TenLichTrinhNangCao" ColumnName="TenLichTrinhNangCao" />
-          <ScalarProperty Name="MaLichTrinhNangCao" ColumnName="MaLichTrinhNangCao" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="MapLichTrinhNangCaos">
-      <EntityTypeMapping TypeName="ATINChamCongModel.MapLichTrinhNangCao">
-        <MappingFragment StoreEntitySet="MapLichTrinhNangCao">
-          <ScalarProperty Name="EmptyColumn" ColumnName="EmptyColumn" />
-          <ScalarProperty Name="MaLichTrinhNangCao" ColumnName="MaLichTrinhNangCao" />
-          <ScalarProperty Name="MaLichTrinh" ColumnName="MaLichTrinh" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="spDeletePhongBan" FunctionName="ATINChamCongModel.Store.spDeletePhongBan" />
-    <FunctionImportMapping FunctionImportName="spGetAllPhongBan" FunctionName="ATINChamCongModel.Store.spGetAllPhongBan" />
-    <FunctionImportMapping FunctionImportName="spGetPhongBan" FunctionName="ATINChamCongModel.Store.spGetPhongBan" />
-    <FunctionImportMapping FunctionImportName="spInsertPhongBan" FunctionName="ATINChamCongModel.Store.spInsertPhongBan" />
-    <FunctionImportMapping FunctionImportName="spUpdatePhongBan" FunctionName="ATINChamCongModel.Store.spUpdatePhongBan" />
-    <FunctionImportMapping FunctionImportName="spGetAllNguoi" FunctionName="ATINChamCongModel.Store.spGetAllNguoi" />
-    <FunctionImportMapping FunctionImportName="spGetViewSapXepLichTrinhByNguoi" FunctionName="ATINChamCongModel.Store.spGetViewSapXepLichTrinhByNguoi" />
-    <EntitySetMapping Name="ViewSapXepLichTrinhs">
-      <EntityTypeMapping TypeName="ATINChamCongModel.ViewSapXepLichTrinh">
-        <MappingFragment StoreEntitySet="ViewSapXepLichTrinh">
-          <ScalarProperty Name="MaSapXep" ColumnName="MaSapXep" />
-          <ScalarProperty Name="MaLichTrinh" ColumnName="MaLichTrinh" />
-          <ScalarProperty Name="MaChamCong" ColumnName="MaChamCong" />
-          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
-          <ScalarProperty Name="MaNguoi" ColumnName="MaNguoi" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="KyHieuCacLoaiVangs">
-      <EntityTypeMapping TypeName="ATINChamCongModel.KyHieuCacLoaiVang">
-        <MappingFragment StoreEntitySet="KyHieuCacLoaiVang">
-          <ScalarProperty Name="TinhCong" ColumnName="TinhCong" />
-          <ScalarProperty Name="SuDung" ColumnName="SuDung" />
-          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
-          <ScalarProperty Name="TenKyHieu" ColumnName="TenKyHieu" />
-          <ScalarProperty Name="MaKyHieu" ColumnName="MaKyHieu" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="KyHieuChamCongs">
-      <EntityTypeMapping TypeName="ATINChamCongModel.KyHieuChamCong">
-        <MappingFragment StoreEntitySet="KyHieuChamCong">
-          <ScalarProperty Name="SuDung" ColumnName="SuDung" />
-          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
-          <ScalarProperty Name="TenKyHieu" ColumnName="TenKyHieu" />
-          <ScalarProperty Name="MaKyHieu" ColumnName="MaKyHieu" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="spGetAllKyHieuCacLoaiVang" FunctionName="ATINChamCongModel.Store.spGetAllKyHieuCacLoaiVang" />
-    <FunctionImportMapping FunctionImportName="spGetAllKyHieuChamCong" FunctionName="ATINChamCongModel.Store.spGetAllKyHieuChamCong" />
-    <FunctionImportMapping FunctionImportName="spUpdateKyHieuCacLoaiVang" FunctionName="ATINChamCongModel.Store.spUpdateKyHieuCacLoaiVang" />
-    <FunctionImportMapping FunctionImportName="spUpdateKyHeuChamCong" FunctionName="ATINChamCongModel.Store.spUpdateKyHeuChamCong" />
   </EntityContainerMapping>
 </Mapping>

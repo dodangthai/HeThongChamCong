@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7d1a7d22b50847599067aea96f0c7cd4" Name="Diagram1" ZoomLevel="49">
+      <Diagram DiagramId="f1d11126184e4c2ba463c31e6414803b" Name="Diagram1" ZoomLevel="57">
         <EntityTypeShape EntityType="ATINChamCongModel.AspNetRole" Width="1.5" PointX="8.75" PointY="6.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ATINChamCongModel.AspNetUserClaim" Width="1.5" PointX="13.25" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ATINChamCongModel.AspNetUserLogin" Width="1.5" PointX="13.25" PointY="7.875" IsExpanded="true" />
@@ -14,34 +14,42 @@
         <EntityTypeShape EntityType="ATINChamCongModel.ChamCong" Width="1.5" PointX="5.25" PointY="16.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ATINChamCongModel.ChamCongChiTiet" Width="1.5" PointX="10.5" PointY="17.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ATINChamCongModel.ChucVu" Width="1.5" PointX="0.75" PointY="21.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ATINChamCongModel.CongTyKhuVuc" Width="1.5" PointX="5.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.CongTyKhuVuc" Width="1.5" PointX="5.75" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ATINChamCongModel.DangKyNghiPhep" Width="1.5" PointX="8.25" PointY="21.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ATINChamCongModel.DangKyTangCa" Width="1.5" PointX="5.25" PointY="23.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ATINChamCongModel.DanToc" Width="1.5" PointX="0.75" PointY="15.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ATINChamCongModel.KhuonMat" Width="1.5" PointX="5.25" PointY="27.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ATINChamCongModel.LichSuSuaDuLieuChamCong" Width="1.5" PointX="12.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.KyHieuCacLoaiVang" Width="1.5" PointX="13.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.KyHieuChamCong" Width="1.5" PointX="12.75" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.LichSuSuaDuLieuChamCong" Width="1.5" PointX="14.75" PointY="18.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ATINChamCongModel.LichTrinh" Width="1.5" PointX="6" PointY="12" IsExpanded="true" />
-        <EntityTypeShape EntityType="ATINChamCongModel.LichTrinhNam" Width="1.5" PointX="8.25" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ATINChamCongModel.LichTrinhThang" Width="1.5" PointX="8.25" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.LichTrinhNam" Width="1.5" PointX="8.25" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.LichTrinhNangCao" Width="1.5" PointX="11" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.LichTrinhThang" Width="1.5" PointX="8.25" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ATINChamCongModel.LichTrinhTuan" Width="1.5" PointX="11.25" PointY="11.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ATINChamCongModel.LoaiChamCong" Width="1.5" PointX="8.25" PointY="15.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ATINChamCongModel.LoaiHopDong" Width="1.5" PointX="13.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.LoaiHopDong" Width="1.5" PointX="15.75" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ATINChamCongModel.LoaiNghiPhep" Width="1.5" PointX="6" PointY="9.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ATINChamCongModel.MayNhanDang" Width="1.5" PointX="14.75" PointY="14.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ATINChamCongModel.NgayNghiLe" Width="1.5" PointX="15.75" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ATINChamCongModel.NgayPhepNhanVien" Width="1.5" PointX="15.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.MapLichTrinhNangCao" Width="1.5" PointX="13.25" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.MayNhanDang" Width="1.5" PointX="15.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.NgayNghiLe" Width="1.5" PointX="15.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.NgayPhepNhanVien" Width="1.5" PointX="16.75" PointY="16.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ATINChamCongModel.Nguoi" Width="1.5" PointX="3" PointY="17.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ATINChamCongModel.NhatKy" Width="1.5" PointX="5.25" PointY="30.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ATINChamCongModel.PhanQuyenNhanDang" Width="1.5" PointX="15.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.PhanQuyenNhanDang" Width="1.5" PointX="16.75" PointY="19.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ATINChamCongModel.PhongBan" Width="1.5" PointX="0.75" PointY="18.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ATINChamCongModel.SapXepLichTrinh" Width="1.5" PointX="8.25" PointY="18.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ATINChamCongModel.SapXepLichTrinhTam" Width="1.5" PointX="8.25" PointY="25.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ATINChamCongModel.sysdiagram" Width="1.5" PointX="16.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.sysdiagram" Width="1.5" PointX="17.75" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ATINChamCongModel.TheTu" Width="1.5" PointX="5.25" PointY="41.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ATINChamCongModel.TonGiao" Width="1.5" PointX="16.75" PointY="16.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ATINChamCongModel.TrinhDoHocVan" Width="1.5" PointX="12.75" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.TonGiao" Width="1.5" PointX="17.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.TrinhDoHocVan" Width="1.5" PointX="17.75" PointY="10.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ATINChamCongModel.VanTay" Width="1.5" PointX="5.25" PointY="44.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ATINChamCongModel.XepLoaiChamCong" Width="1.5" PointX="3" PointY="28.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.ViewGioChiaHaiCot" Width="1.5" PointX="18.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.ViewGioNguon" Width="1.5" PointX="18.75" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.ViewSapXepLichTrinh" Width="1.5" PointX="13.75" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATINChamCongModel.ViewThongTinNhanVien1" Width="1.5" PointX="15.75" PointY="22.125" IsExpanded="true" />
         <AssociationConnector Association="ATINChamCongModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="ATINChamCongModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="ATINChamCongModel.FK_dbo_ChamCong_CacLoaiVang" ManuallyRouted="false" />
@@ -58,11 +66,13 @@
         <AssociationConnector Association="ATINChamCongModel.FK_dbo_DangKyNghiPhep_Nguoi" ManuallyRouted="false" />
         <AssociationConnector Association="ATINChamCongModel.FK_dbo_DangKyTangCa_MaNhanVien" ManuallyRouted="false" />
         <AssociationConnector Association="ATINChamCongModel.FK_dbo_KhuonMat_MaNguoi" ManuallyRouted="false" />
+        <AssociationConnector Association="ATINChamCongModel.FK_dbo_MapLichTrinhNangCao_LichTrinh" ManuallyRouted="false" />
         <AssociationConnector Association="ATINChamCongModel.FK_dbo_SapXepLichTrinh_LichTrinh" ManuallyRouted="false" />
         <AssociationConnector Association="ATINChamCongModel.FK_dbo_SapXepLichTrinhTam_LichTrinh" ManuallyRouted="false" />
         <AssociationConnector Association="ATINChamCongModel.FK_LichTrinhNam_LichTrinh" ManuallyRouted="false" />
         <AssociationConnector Association="ATINChamCongModel.FK_LichTrinhThang_LichTrinh" ManuallyRouted="false" />
         <AssociationConnector Association="ATINChamCongModel.FK_LichTrinhTuan_LichTrinh" ManuallyRouted="false" />
+        <AssociationConnector Association="ATINChamCongModel.FK_dbo_MapLichTrinhNangCao_LichTrinhNangCao" ManuallyRouted="false" />
         <AssociationConnector Association="ATINChamCongModel.FK_dbo_Nguoi_PhongBan" ManuallyRouted="false" />
         <AssociationConnector Association="ATINChamCongModel.FK_dbo_NhatKy_MaNguoi" ManuallyRouted="false" />
         <AssociationConnector Association="ATINChamCongModel.FK_dbo_SapXepLichTrinh_Nguoi" ManuallyRouted="false" />
@@ -70,13 +80,6 @@
         <AssociationConnector Association="ATINChamCongModel.FK_dbo_VanTay_MaNguoi" ManuallyRouted="false" />
         <AssociationConnector Association="ATINChamCongModel.FK_SapXepLichTrinhTam_Nguoi" ManuallyRouted="false" />
         <AssociationConnector Association="ATINChamCongModel.AspNetUserRoles" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="ATINChamCongModel.LichTrinhNangCao" Width="1.5" PointX="15" PointY="23.5" />
-        <EntityTypeShape EntityType="ATINChamCongModel.MapLichTrinhNangCao" Width="1.5" PointX="17.25" PointY="19.375" />
-        <AssociationConnector Association="ATINChamCongModel.FK_dbo_MapLichTrinhNangCao_LichTrinh" />
-        <AssociationConnector Association="ATINChamCongModel.FK_dbo_MapLichTrinhNangCao_LichTrinhNangCao" />
-        <EntityTypeShape EntityType="ATINChamCongModel.ViewSapXepLichTrinh" Width="1.5" PointX="5.375" PointY="0.75" />
-        <EntityTypeShape EntityType="ATINChamCongModel.KyHieuCacLoaiVang" Width="1.5" PointX="10.375" PointY="0.75" />
-        <EntityTypeShape EntityType="ATINChamCongModel.KyHieuChamCong" Width="1.5" PointX="12.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

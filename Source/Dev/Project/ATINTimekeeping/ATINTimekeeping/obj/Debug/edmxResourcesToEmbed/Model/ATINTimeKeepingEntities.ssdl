@@ -521,6 +521,44 @@
     <Property Name="TenKyHieuChamCong" Type="nvarchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
+warning 6002: The table/view 'ATINChamCong.dbo.ViewGioChiaHaiCot' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ViewGioChiaHaiCot">
+    <Key>
+      <PropertyRef Name="NgayChamCong" />
+      <PropertyRef Name="GioChamCong" />
+      <PropertyRef Name="MaLoaiChamCong" />
+      <PropertyRef Name="MaChamCong" />
+    </Key>
+    <Property Name="MaNhanVien" Type="int" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="100" />
+    <Property Name="MaDinhDanh" Type="int" />
+    <Property Name="NgayChamCong" Type="date" Nullable="false" />
+    <Property Name="GioChamCong" Type="datetime" Nullable="false" />
+    <Property Name="MaLoaiChamCong" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="MaChamCong" Type="int" Nullable="false" />
+    <Property Name="TenMay" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ATINChamCong.dbo.ViewGioNguon' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ViewGioNguon">
+    <Key>
+      <PropertyRef Name="NgayChamCong" />
+      <PropertyRef Name="GioChamCong" />
+      <PropertyRef Name="MaLoaiChamCong" />
+      <PropertyRef Name="NguonThucHien" />
+      <PropertyRef Name="MaChamCong" />
+    </Key>
+    <Property Name="MaNhanVien" Type="int" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="100" />
+    <Property Name="MaDinhDanh" Type="int" />
+    <Property Name="NgayChamCong" Type="date" Nullable="false" />
+    <Property Name="GioChamCong" Type="datetime" Nullable="false" />
+    <Property Name="MaLoaiChamCong" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="NguonThucHien" Type="int" Nullable="false" />
+    <Property Name="MaChamCong" Type="int" Nullable="false" />
+    <Property Name="MaThietBi" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
 warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="ViewSapXepLichTrinh">
     <Key>
@@ -531,6 +569,23 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
     <Property Name="MaChamCong" Type="int" />
     <Property Name="MaLichTrinh" Type="varchar" MaxLength="5" />
     <Property Name="MaSapXep" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ATINChamCong.dbo.ViewThongTinNhanVien1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ViewThongTinNhanVien1">
+    <Key>
+      <PropertyRef Name="MaNguoi" />
+    </Key>
+    <Property Name="MaNguoi" Type="int" Nullable="false" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="100" />
+    <Property Name="MaChamCong" Type="int" />
+    <Property Name="MaLichTrinh" Type="varchar" MaxLength="5" />
+    <Property Name="TenLichTrinh" Type="nvarchar" MaxLength="30" />
+    <Property Name="MaChucVu" Type="int" />
+    <Property Name="TenChucVu" Type="nvarchar" MaxLength="100" />
+    <Property Name="MaPhongBan" Type="int" />
+    <Property Name="TenPhongBan" Type="nvarchar" MaxLength="100" />
+    <Property Name="NgayNhanViec" Type="date" />
   </EntityType>
   <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -1043,6 +1098,17 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
   <Function Name="spGetAllPhongBan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="spGetAllSapXepLichTrinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="spGetAllSapXepLichTrinhTam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetAllViewGioChiaHaiCot" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaNhanVien" Type="int" Mode="In" />
+    <Parameter Name="TuNgay" Type="date" Mode="In" />
+    <Parameter Name="DenNgay" Type="date" Mode="In" />
+  </Function>
+  <Function Name="spGetAllViewGioNguonOrderByNgayGio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaNhanVien" Type="int" Mode="In" />
+    <Parameter Name="TuNgay" Type="date" Mode="In" />
+    <Parameter Name="DenNgay" Type="date" Mode="In" />
+  </Function>
+  <Function Name="spGetAllViewThongTinNhanVien1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="spGetCaLamViec" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="MaCaLamViec" Type="varchar" Mode="In" />
   </Function>
@@ -1072,6 +1138,9 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
   </Function>
   <Function Name="spGetViewSapXepLichTrinhByNguoi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="MaNguoi" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetViewThongTinNhanVien1ByPhongBan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaPhongBan" Type="int" Mode="In" />
   </Function>
   <Function Name="spInsertCaLamViec" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="MaCaLamViec" Type="varchar" Mode="In" />
@@ -1277,6 +1346,31 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
     <EntitySet Name="TrinhDoHocVan" EntityType="Self.TrinhDoHocVan" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VanTay" EntityType="Self.VanTay" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="XepLoaiChamCong" EntityType="Self.XepLoaiChamCong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ViewGioChiaHaiCot" EntityType="Self.ViewGioChiaHaiCot" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ViewGioChiaHaiCot].[MaNhanVien] AS [MaNhanVien], 
+    [ViewGioChiaHaiCot].[HoTen] AS [HoTen], 
+    [ViewGioChiaHaiCot].[MaDinhDanh] AS [MaDinhDanh], 
+    [ViewGioChiaHaiCot].[NgayChamCong] AS [NgayChamCong], 
+    [ViewGioChiaHaiCot].[GioChamCong] AS [GioChamCong], 
+    [ViewGioChiaHaiCot].[MaLoaiChamCong] AS [MaLoaiChamCong], 
+    [ViewGioChiaHaiCot].[MaChamCong] AS [MaChamCong], 
+    [ViewGioChiaHaiCot].[TenMay] AS [TenMay]
+    FROM [dbo].[ViewGioChiaHaiCot] AS [ViewGioChiaHaiCot]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ViewGioNguon" EntityType="Self.ViewGioNguon" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ViewGioNguon].[MaNhanVien] AS [MaNhanVien], 
+    [ViewGioNguon].[HoTen] AS [HoTen], 
+    [ViewGioNguon].[MaDinhDanh] AS [MaDinhDanh], 
+    [ViewGioNguon].[NgayChamCong] AS [NgayChamCong], 
+    [ViewGioNguon].[GioChamCong] AS [GioChamCong], 
+    [ViewGioNguon].[MaLoaiChamCong] AS [MaLoaiChamCong], 
+    [ViewGioNguon].[NguonThucHien] AS [NguonThucHien], 
+    [ViewGioNguon].[MaChamCong] AS [MaChamCong], 
+    [ViewGioNguon].[MaThietBi] AS [MaThietBi]
+    FROM [dbo].[ViewGioNguon] AS [ViewGioNguon]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="ViewSapXepLichTrinh" EntityType="Self.ViewSapXepLichTrinh" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [ViewSapXepLichTrinh].[MaNguoi] AS [MaNguoi], 
@@ -1285,6 +1379,20 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
     [ViewSapXepLichTrinh].[MaLichTrinh] AS [MaLichTrinh], 
     [ViewSapXepLichTrinh].[MaSapXep] AS [MaSapXep]
     FROM [dbo].[ViewSapXepLichTrinh] AS [ViewSapXepLichTrinh]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ViewThongTinNhanVien1" EntityType="Self.ViewThongTinNhanVien1" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ViewThongTinNhanVien1].[MaNguoi] AS [MaNguoi], 
+    [ViewThongTinNhanVien1].[HoTen] AS [HoTen], 
+    [ViewThongTinNhanVien1].[MaChamCong] AS [MaChamCong], 
+    [ViewThongTinNhanVien1].[MaLichTrinh] AS [MaLichTrinh], 
+    [ViewThongTinNhanVien1].[TenLichTrinh] AS [TenLichTrinh], 
+    [ViewThongTinNhanVien1].[MaChucVu] AS [MaChucVu], 
+    [ViewThongTinNhanVien1].[TenChucVu] AS [TenChucVu], 
+    [ViewThongTinNhanVien1].[MaPhongBan] AS [MaPhongBan], 
+    [ViewThongTinNhanVien1].[TenPhongBan] AS [TenPhongBan], 
+    [ViewThongTinNhanVien1].[NgayNhanViec] AS [NgayNhanViec]
+    FROM [dbo].[ViewThongTinNhanVien1] AS [ViewThongTinNhanVien1]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />

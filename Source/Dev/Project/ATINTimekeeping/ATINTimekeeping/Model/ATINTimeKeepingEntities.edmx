@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ATINChamCongModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="ATINChamCongModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AspNetRoles">
           <Key>
             <PropertyRef Name="Id" />
@@ -526,6 +526,44 @@
           <Property Name="TenKyHieuChamCong" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'ATINChamCong.dbo.ViewGioChiaHaiCot' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ViewGioChiaHaiCot">
+          <Key>
+            <PropertyRef Name="NgayChamCong" />
+            <PropertyRef Name="GioChamCong" />
+            <PropertyRef Name="MaLoaiChamCong" />
+            <PropertyRef Name="MaChamCong" />
+          </Key>
+          <Property Name="MaNhanVien" Type="int" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="100" />
+          <Property Name="MaDinhDanh" Type="int" />
+          <Property Name="NgayChamCong" Type="date" Nullable="false" />
+          <Property Name="GioChamCong" Type="datetime" Nullable="false" />
+          <Property Name="MaLoaiChamCong" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="MaChamCong" Type="int" Nullable="false" />
+          <Property Name="TenMay" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ATINChamCong.dbo.ViewGioNguon' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ViewGioNguon">
+          <Key>
+            <PropertyRef Name="NgayChamCong" />
+            <PropertyRef Name="GioChamCong" />
+            <PropertyRef Name="MaLoaiChamCong" />
+            <PropertyRef Name="NguonThucHien" />
+            <PropertyRef Name="MaChamCong" />
+          </Key>
+          <Property Name="MaNhanVien" Type="int" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="100" />
+          <Property Name="MaDinhDanh" Type="int" />
+          <Property Name="NgayChamCong" Type="date" Nullable="false" />
+          <Property Name="GioChamCong" Type="datetime" Nullable="false" />
+          <Property Name="MaLoaiChamCong" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="NguonThucHien" Type="int" Nullable="false" />
+          <Property Name="MaChamCong" Type="int" Nullable="false" />
+          <Property Name="MaThietBi" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ViewSapXepLichTrinh">
           <Key>
@@ -536,6 +574,23 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
           <Property Name="MaChamCong" Type="int" />
           <Property Name="MaLichTrinh" Type="varchar" MaxLength="5" />
           <Property Name="MaSapXep" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ATINChamCong.dbo.ViewThongTinNhanVien1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ViewThongTinNhanVien1">
+          <Key>
+            <PropertyRef Name="MaNguoi" />
+          </Key>
+          <Property Name="MaNguoi" Type="int" Nullable="false" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="100" />
+          <Property Name="MaChamCong" Type="int" />
+          <Property Name="MaLichTrinh" Type="varchar" MaxLength="5" />
+          <Property Name="TenLichTrinh" Type="nvarchar" MaxLength="30" />
+          <Property Name="MaChucVu" Type="int" />
+          <Property Name="TenChucVu" Type="nvarchar" MaxLength="100" />
+          <Property Name="MaPhongBan" Type="int" />
+          <Property Name="TenPhongBan" Type="nvarchar" MaxLength="100" />
+          <Property Name="NgayNhanViec" Type="date" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -1048,6 +1103,17 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
         <Function Name="spGetAllPhongBan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="spGetAllSapXepLichTrinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="spGetAllSapXepLichTrinhTam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spGetAllViewGioChiaHaiCot" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaNhanVien" Type="int" Mode="In" />
+          <Parameter Name="TuNgay" Type="date" Mode="In" />
+          <Parameter Name="DenNgay" Type="date" Mode="In" />
+        </Function>
+        <Function Name="spGetAllViewGioNguonOrderByNgayGio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaNhanVien" Type="int" Mode="In" />
+          <Parameter Name="TuNgay" Type="date" Mode="In" />
+          <Parameter Name="DenNgay" Type="date" Mode="In" />
+        </Function>
+        <Function Name="spGetAllViewThongTinNhanVien1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="spGetCaLamViec" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="MaCaLamViec" Type="varchar" Mode="In" />
         </Function>
@@ -1077,6 +1143,9 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
         </Function>
         <Function Name="spGetViewSapXepLichTrinhByNguoi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="MaNguoi" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spGetViewThongTinNhanVien1ByPhongBan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaPhongBan" Type="int" Mode="In" />
         </Function>
         <Function Name="spInsertCaLamViec" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="MaCaLamViec" Type="varchar" Mode="In" />
@@ -1282,6 +1351,31 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
           <EntitySet Name="TrinhDoHocVan" EntityType="Self.TrinhDoHocVan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VanTay" EntityType="Self.VanTay" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="XepLoaiChamCong" EntityType="Self.XepLoaiChamCong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ViewGioChiaHaiCot" EntityType="Self.ViewGioChiaHaiCot" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewGioChiaHaiCot].[MaNhanVien] AS [MaNhanVien], 
+    [ViewGioChiaHaiCot].[HoTen] AS [HoTen], 
+    [ViewGioChiaHaiCot].[MaDinhDanh] AS [MaDinhDanh], 
+    [ViewGioChiaHaiCot].[NgayChamCong] AS [NgayChamCong], 
+    [ViewGioChiaHaiCot].[GioChamCong] AS [GioChamCong], 
+    [ViewGioChiaHaiCot].[MaLoaiChamCong] AS [MaLoaiChamCong], 
+    [ViewGioChiaHaiCot].[MaChamCong] AS [MaChamCong], 
+    [ViewGioChiaHaiCot].[TenMay] AS [TenMay]
+    FROM [dbo].[ViewGioChiaHaiCot] AS [ViewGioChiaHaiCot]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewGioNguon" EntityType="Self.ViewGioNguon" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewGioNguon].[MaNhanVien] AS [MaNhanVien], 
+    [ViewGioNguon].[HoTen] AS [HoTen], 
+    [ViewGioNguon].[MaDinhDanh] AS [MaDinhDanh], 
+    [ViewGioNguon].[NgayChamCong] AS [NgayChamCong], 
+    [ViewGioNguon].[GioChamCong] AS [GioChamCong], 
+    [ViewGioNguon].[MaLoaiChamCong] AS [MaLoaiChamCong], 
+    [ViewGioNguon].[NguonThucHien] AS [NguonThucHien], 
+    [ViewGioNguon].[MaChamCong] AS [MaChamCong], 
+    [ViewGioNguon].[MaThietBi] AS [MaThietBi]
+    FROM [dbo].[ViewGioNguon] AS [ViewGioNguon]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="ViewSapXepLichTrinh" EntityType="Self.ViewSapXepLichTrinh" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [ViewSapXepLichTrinh].[MaNguoi] AS [MaNguoi], 
@@ -1290,6 +1384,20 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
     [ViewSapXepLichTrinh].[MaLichTrinh] AS [MaLichTrinh], 
     [ViewSapXepLichTrinh].[MaSapXep] AS [MaSapXep]
     FROM [dbo].[ViewSapXepLichTrinh] AS [ViewSapXepLichTrinh]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewThongTinNhanVien1" EntityType="Self.ViewThongTinNhanVien1" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewThongTinNhanVien1].[MaNguoi] AS [MaNguoi], 
+    [ViewThongTinNhanVien1].[HoTen] AS [HoTen], 
+    [ViewThongTinNhanVien1].[MaChamCong] AS [MaChamCong], 
+    [ViewThongTinNhanVien1].[MaLichTrinh] AS [MaLichTrinh], 
+    [ViewThongTinNhanVien1].[TenLichTrinh] AS [TenLichTrinh], 
+    [ViewThongTinNhanVien1].[MaChucVu] AS [MaChucVu], 
+    [ViewThongTinNhanVien1].[TenChucVu] AS [TenChucVu], 
+    [ViewThongTinNhanVien1].[MaPhongBan] AS [MaPhongBan], 
+    [ViewThongTinNhanVien1].[TenPhongBan] AS [TenPhongBan], 
+    [ViewThongTinNhanVien1].[NgayNhanViec] AS [NgayNhanViec]
+    FROM [dbo].[ViewThongTinNhanVien1] AS [ViewThongTinNhanVien1]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -1416,7 +1524,8 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
             <End Role="SapXepLichTrinhTam" EntitySet="SapXepLichTrinhTam" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ATINChamCongModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1651,6 +1760,25 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
           <Property Name="TrangThai" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Nguoi" Relationship="Self.FK_dbo_KhuonMat_MaNguoi" FromRole="KhuonMat" ToRole="Nguoi" />
         </EntityType>
+        <EntityType Name="KyHieuCacLoaiVang">
+          <Key>
+            <PropertyRef Name="MaKyHieu" />
+          </Key>
+          <Property Name="MaKyHieu" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TenKyHieu" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MoTa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SuDung" Type="Boolean" Nullable="false" />
+          <Property Name="TinhCong" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KyHieuChamCong">
+          <Key>
+            <PropertyRef Name="MaKyHieu" />
+          </Key>
+          <Property Name="MaKyHieu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenKyHieu" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MoTa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SuDung" Type="Boolean" Nullable="false" />
+        </EntityType>
         <EntityType Name="LichSuSuaDuLieuChamCong">
           <Key>
             <PropertyRef Name="MaLichSuSuaDLCC" />
@@ -1670,12 +1798,12 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
           <Property Name="MaLichTrinh" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenLichTrinh" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LoaiChuKy" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MapLichTrinhNangCaos" Relationship="Self.FK_dbo_MapLichTrinhNangCao_LichTrinh" FromRole="LichTrinh" ToRole="MapLichTrinhNangCao" />
           <NavigationProperty Name="SapXepLichTrinhs" Relationship="Self.FK_dbo_SapXepLichTrinh_LichTrinh" FromRole="LichTrinh" ToRole="SapXepLichTrinh" />
           <NavigationProperty Name="SapXepLichTrinhTams" Relationship="Self.FK_dbo_SapXepLichTrinhTam_LichTrinh" FromRole="LichTrinh" ToRole="SapXepLichTrinhTam" />
           <NavigationProperty Name="LichTrinhNams" Relationship="Self.FK_LichTrinhNam_LichTrinh" FromRole="LichTrinh" ToRole="LichTrinhNam" />
           <NavigationProperty Name="LichTrinhThangs" Relationship="Self.FK_LichTrinhThang_LichTrinh" FromRole="LichTrinh" ToRole="LichTrinhThang" />
           <NavigationProperty Name="LichTrinhTuans" Relationship="Self.FK_LichTrinhTuan_LichTrinh" FromRole="LichTrinh" ToRole="LichTrinhTuan" />
-          <NavigationProperty Name="MapLichTrinhNangCaos" Relationship="ATINChamCongModel.FK_dbo_MapLichTrinhNangCao_LichTrinh" FromRole="LichTrinh" ToRole="MapLichTrinhNangCao" />
         </EntityType>
         <EntityType Name="LichTrinhNam">
           <Key>
@@ -1688,6 +1816,15 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
           <Property Name="Month" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CaLamViec" Relationship="Self.FK_dbo_LichTrinhNam_CaLamViec" FromRole="LichTrinhNam" ToRole="CaLamViec" />
           <NavigationProperty Name="LichTrinh" Relationship="Self.FK_LichTrinhNam_LichTrinh" FromRole="LichTrinhNam" ToRole="LichTrinh" />
+        </EntityType>
+        <EntityType Name="LichTrinhNangCao">
+          <Key>
+            <PropertyRef Name="MaLichTrinhNangCao" />
+          </Key>
+          <Property Name="MaLichTrinhNangCao" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TenLichTrinhNangCao" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SuDung" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="MapLichTrinhNangCaos" Relationship="Self.FK_dbo_MapLichTrinhNangCao_LichTrinhNangCao" FromRole="LichTrinhNangCao" ToRole="MapLichTrinhNangCao" />
         </EntityType>
         <EntityType Name="LichTrinhThang">
           <Key>
@@ -1733,6 +1870,17 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
           <Property Name="MaLoaiNghiPhep" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LoaiNghiPhep1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="DangKyNghiPheps" Relationship="Self.FK_dbo_DangKyNghiPhep_LoaiNghiPhep" FromRole="LoaiNghiPhep" ToRole="DangKyNghiPhep" />
+        </EntityType>
+        <EntityType Name="MapLichTrinhNangCao">
+          <Key>
+            <PropertyRef Name="MaLichTrinh" />
+            <PropertyRef Name="MaLichTrinhNangCao" />
+          </Key>
+          <Property Name="MaLichTrinh" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaLichTrinhNangCao" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmptyColumn" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="LichTrinh" Relationship="Self.FK_dbo_MapLichTrinhNangCao_LichTrinh" FromRole="MapLichTrinhNangCao" ToRole="LichTrinh" />
+          <NavigationProperty Name="LichTrinhNangCao" Relationship="Self.FK_dbo_MapLichTrinhNangCao_LichTrinhNangCao" FromRole="MapLichTrinhNangCao" ToRole="LichTrinhNangCao" />
         </EntityType>
         <EntityType Name="MayNhanDang">
           <Key>
@@ -1952,6 +2100,65 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
           <Property Name="MaXepLoaiChamCong" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenKyHieuChamCong" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="ChamCongs" Relationship="Self.FK_dbo_ChamCong_XepLoaiChamCong" FromRole="XepLoaiChamCong" ToRole="ChamCong" />
+        </EntityType>
+        <EntityType Name="ViewGioChiaHaiCot">
+          <Key>
+            <PropertyRef Name="NgayChamCong" />
+            <PropertyRef Name="GioChamCong" />
+            <PropertyRef Name="MaLoaiChamCong" />
+            <PropertyRef Name="MaChamCong" />
+          </Key>
+          <Property Name="MaNhanVien" Type="Int32" />
+          <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MaDinhDanh" Type="Int32" />
+          <Property Name="NgayChamCong" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="GioChamCong" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MaLoaiChamCong" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaChamCong" Type="Int32" Nullable="false" />
+          <Property Name="TenMay" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ViewGioNguon">
+          <Key>
+            <PropertyRef Name="NgayChamCong" />
+            <PropertyRef Name="GioChamCong" />
+            <PropertyRef Name="MaLoaiChamCong" />
+            <PropertyRef Name="NguonThucHien" />
+            <PropertyRef Name="MaChamCong" />
+          </Key>
+          <Property Name="MaNhanVien" Type="Int32" />
+          <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MaDinhDanh" Type="Int32" />
+          <Property Name="NgayChamCong" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="GioChamCong" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MaLoaiChamCong" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NguonThucHien" Type="Int32" Nullable="false" />
+          <Property Name="MaChamCong" Type="Int32" Nullable="false" />
+          <Property Name="MaThietBi" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ViewSapXepLichTrinh">
+          <Key>
+            <PropertyRef Name="MaNguoi" />
+          </Key>
+          <Property Name="MaNguoi" Type="Int32" Nullable="false" />
+          <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MaChamCong" Type="Int32" />
+          <Property Name="MaLichTrinh" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="MaSapXep" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ViewThongTinNhanVien1">
+          <Key>
+            <PropertyRef Name="MaNguoi" />
+          </Key>
+          <Property Name="MaNguoi" Type="Int32" Nullable="false" />
+          <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MaChamCong" Type="Int32" />
+          <Property Name="MaLichTrinh" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="TenLichTrinh" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="MaChucVu" Type="Int32" />
+          <Property Name="TenChucVu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MaPhongBan" Type="Int32" />
+          <Property Name="TenPhongBan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NgayNhanViec" Type="DateTime" Precision="0" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
@@ -2177,6 +2384,20 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_dbo_MapLichTrinhNangCao_LichTrinh">
+          <End Role="LichTrinh" Type="Self.LichTrinh" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MapLichTrinhNangCao" Type="Self.MapLichTrinhNangCao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LichTrinh">
+              <PropertyRef Name="MaLichTrinh" />
+            </Principal>
+            <Dependent Role="MapLichTrinhNangCao">
+              <PropertyRef Name="MaLichTrinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_dbo_SapXepLichTrinh_LichTrinh">
           <End Role="LichTrinh" Type="Self.LichTrinh" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -2238,6 +2459,20 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
             </Principal>
             <Dependent Role="LichTrinhTuan">
               <PropertyRef Name="MaLichTrinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MapLichTrinhNangCao_LichTrinhNangCao">
+          <End Role="LichTrinhNangCao" Type="Self.LichTrinhNangCao" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MapLichTrinhNangCao" Type="Self.MapLichTrinhNangCao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LichTrinhNangCao">
+              <PropertyRef Name="MaLichTrinhNangCao" />
+            </Principal>
+            <Dependent Role="MapLichTrinhNangCao">
+              <PropertyRef Name="MaLichTrinhNangCao" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2342,14 +2577,18 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
           <EntitySet Name="DangKyTangCas" EntityType="Self.DangKyTangCa" />
           <EntitySet Name="DanTocs" EntityType="Self.DanToc" />
           <EntitySet Name="KhuonMats" EntityType="Self.KhuonMat" />
+          <EntitySet Name="KyHieuCacLoaiVangs" EntityType="Self.KyHieuCacLoaiVang" />
+          <EntitySet Name="KyHieuChamCongs" EntityType="Self.KyHieuChamCong" />
           <EntitySet Name="LichSuSuaDuLieuChamCongs" EntityType="Self.LichSuSuaDuLieuChamCong" />
           <EntitySet Name="LichTrinhs" EntityType="Self.LichTrinh" />
           <EntitySet Name="LichTrinhNams" EntityType="Self.LichTrinhNam" />
+          <EntitySet Name="LichTrinhNangCaos" EntityType="Self.LichTrinhNangCao" />
           <EntitySet Name="LichTrinhThangs" EntityType="Self.LichTrinhThang" />
           <EntitySet Name="LichTrinhTuans" EntityType="Self.LichTrinhTuan" />
           <EntitySet Name="LoaiChamCongs" EntityType="Self.LoaiChamCong" />
           <EntitySet Name="LoaiHopDongs" EntityType="Self.LoaiHopDong" />
           <EntitySet Name="LoaiNghiPheps" EntityType="Self.LoaiNghiPhep" />
+          <EntitySet Name="MapLichTrinhNangCaos" EntityType="Self.MapLichTrinhNangCao" />
           <EntitySet Name="MayNhanDangs" EntityType="Self.MayNhanDang" />
           <EntitySet Name="NgayNghiLes" EntityType="Self.NgayNghiLe" />
           <EntitySet Name="NgayPhepNhanViens" EntityType="Self.NgayPhepNhanVien" />
@@ -2365,6 +2604,10 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
           <EntitySet Name="TrinhDoHocVans" EntityType="Self.TrinhDoHocVan" />
           <EntitySet Name="VanTays" EntityType="Self.VanTay" />
           <EntitySet Name="XepLoaiChamCongs" EntityType="Self.XepLoaiChamCong" />
+          <EntitySet Name="ViewGioChiaHaiCots" EntityType="Self.ViewGioChiaHaiCot" />
+          <EntitySet Name="ViewGioNguons" EntityType="Self.ViewGioNguon" />
+          <EntitySet Name="ViewSapXepLichTrinhs" EntityType="Self.ViewSapXepLichTrinh" />
+          <EntitySet Name="ViewThongTinNhanVien1" EntityType="Self.ViewThongTinNhanVien1" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -2429,6 +2672,10 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
             <End Role="Nguoi" EntitySet="Nguois" />
             <End Role="KhuonMat" EntitySet="KhuonMats" />
           </AssociationSet>
+          <AssociationSet Name="FK_dbo_MapLichTrinhNangCao_LichTrinh" Association="Self.FK_dbo_MapLichTrinhNangCao_LichTrinh">
+            <End Role="LichTrinh" EntitySet="LichTrinhs" />
+            <End Role="MapLichTrinhNangCao" EntitySet="MapLichTrinhNangCaos" />
+          </AssociationSet>
           <AssociationSet Name="FK_dbo_SapXepLichTrinh_LichTrinh" Association="Self.FK_dbo_SapXepLichTrinh_LichTrinh">
             <End Role="LichTrinh" EntitySet="LichTrinhs" />
             <End Role="SapXepLichTrinh" EntitySet="SapXepLichTrinhs" />
@@ -2448,6 +2695,10 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
           <AssociationSet Name="FK_LichTrinhTuan_LichTrinh" Association="Self.FK_LichTrinhTuan_LichTrinh">
             <End Role="LichTrinh" EntitySet="LichTrinhs" />
             <End Role="LichTrinhTuan" EntitySet="LichTrinhTuans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MapLichTrinhNangCao_LichTrinhNangCao" Association="Self.FK_dbo_MapLichTrinhNangCao_LichTrinhNangCao">
+            <End Role="LichTrinhNangCao" EntitySet="LichTrinhNangCaos" />
+            <End Role="MapLichTrinhNangCao" EntitySet="MapLichTrinhNangCaos" />
           </AssociationSet>
           <AssociationSet Name="FK_dbo_Nguoi_PhongBan" Association="Self.FK_dbo_Nguoi_PhongBan">
             <End Role="PhongBan" EntitySet="PhongBans" />
@@ -2512,16 +2763,16 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
             <Parameter Name="Month" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spDeleteAllLichTrinhThangByLichTrinh">
-          <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+            <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spDeleteAllLichTrinhTuanByLichTrinh">
-          <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+            <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spDeleteCaLamViec">
-          <Parameter Name="MaCaLamViec" Mode="In" Type="String" />
+            <Parameter Name="MaCaLamViec" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spDeleteLichTrinh">
-          <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+            <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spDeleteLichTrinhNam">
             <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
@@ -2543,40 +2794,67 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
             <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
             <Parameter Name="MaLichTrinhNangCao" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="spDeletePhongBan">
+            <Parameter Name="MaPhongBan" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="spDeleteSapXepLichTrinh">
-          <Parameter Name="MaSapXep" Mode="In" Type="Int32" />
+            <Parameter Name="MaSapXep" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spDeleteSapXepLichTrinhTam">
-          <Parameter Name="MaLichTrinhTam" Mode="In" Type="Int32" />
+            <Parameter Name="MaLichTrinhTam" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spGetAllCaLamViec" EntitySet="CaLamViecs" ReturnType="Collection(ATINChamCongModel.CaLamViec)" />
           <FunctionImport Name="spGetAllChucVu" EntitySet="ChucVus" ReturnType="Collection(ATINChamCongModel.ChucVu)" />
+          <FunctionImport Name="spGetAllKyHieuCacLoaiVang" EntitySet="KyHieuCacLoaiVangs" ReturnType="Collection(ATINChamCongModel.KyHieuCacLoaiVang)" />
+          <FunctionImport Name="spGetAllKyHieuChamCong" EntitySet="KyHieuChamCongs" ReturnType="Collection(ATINChamCongModel.KyHieuChamCong)" />
           <FunctionImport Name="spGetAllLichTrinh" EntitySet="LichTrinhs" ReturnType="Collection(ATINChamCongModel.LichTrinh)" />
+          <FunctionImport Name="spGetAllNguoi" EntitySet="Nguois" ReturnType="Collection(ATINChamCongModel.Nguoi)" />
+          <FunctionImport Name="spGetAllPhongBan" EntitySet="PhongBans" ReturnType="Collection(ATINChamCongModel.PhongBan)" />
           <FunctionImport Name="spGetAllSapXepLichTrinh" EntitySet="SapXepLichTrinhs" ReturnType="Collection(ATINChamCongModel.SapXepLichTrinh)" />
           <FunctionImport Name="spGetAllSapXepLichTrinhTam" EntitySet="SapXepLichTrinhTams" ReturnType="Collection(ATINChamCongModel.SapXepLichTrinhTam)" />
+          <FunctionImport Name="spGetAllViewGioChiaHaiCot" EntitySet="ViewGioChiaHaiCots" ReturnType="Collection(ATINChamCongModel.ViewGioChiaHaiCot)">
+            <Parameter Name="MaNhanVien" Mode="In" Type="Int32" />
+            <Parameter Name="TuNgay" Mode="In" Type="DateTime" />
+            <Parameter Name="DenNgay" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spGetAllViewGioNguonOrderByNgayGio" EntitySet="ViewGioNguons" ReturnType="Collection(ATINChamCongModel.ViewGioNguon)">
+            <Parameter Name="MaNhanVien" Mode="In" Type="Int32" />
+            <Parameter Name="TuNgay" Mode="In" Type="DateTime" />
+            <Parameter Name="DenNgay" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spGetAllViewThongTinNhanVien1" EntitySet="ViewThongTinNhanVien1" ReturnType="Collection(ATINChamCongModel.ViewThongTinNhanVien1)" />
           <FunctionImport Name="spGetCaLamViec" EntitySet="CaLamViecs" ReturnType="Collection(ATINChamCongModel.CaLamViec)">
-          <Parameter Name="MaCaLamViec" Mode="In" Type="String" />
+            <Parameter Name="MaCaLamViec" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spGetLichTrinh" EntitySet="LichTrinhs" ReturnType="Collection(ATINChamCongModel.LichTrinh)">
-          <Parameter Name="MaCaLamViec" Mode="In" Type="String" />
+            <Parameter Name="MaCaLamViec" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spGetLichTrinhNamByLichTrinh" EntitySet="LichTrinhNams" ReturnType="Collection(ATINChamCongModel.LichTrinhNam)">
-          <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+            <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spGetLichTrinhThangByLichTrinh" EntitySet="LichTrinhThangs" ReturnType="Collection(ATINChamCongModel.LichTrinhThang)">
-          <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+            <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spGetLichTrinhTuanByLichTrinh" EntitySet="LichTrinhTuans" ReturnType="Collection(ATINChamCongModel.LichTrinhTuan)">
-          <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+            <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="spGetMapLichTrinhNangCaoByLichTrinh" EntitySet="MapLichTrinhNangCaos" ReturnType="Collection(ATINChamCongModel.MapLichTrinhNangCao)">
-          <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+          <FunctionImport Name="spGetMapLichTrinhNangCaoByLichTrinh" EntitySet="LichTrinhNangCaos" ReturnType="Collection(ATINChamCongModel.LichTrinhNangCao)">
+            <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spGetPhongBan" EntitySet="PhongBans" ReturnType="Collection(ATINChamCongModel.PhongBan)">
+            <Parameter Name="MaPhongBan" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spGetSapXepLichTrinhByNguoi" EntitySet="SapXepLichTrinhs" ReturnType="Collection(ATINChamCongModel.SapXepLichTrinh)">
-          <Parameter Name="MaNguoi" Mode="In" Type="Int32" />
+            <Parameter Name="MaNguoi" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spGetSapXepLichTrinhTamByNguoi" EntitySet="SapXepLichTrinhTams" ReturnType="Collection(ATINChamCongModel.SapXepLichTrinhTam)">
-          <Parameter Name="MaNguoi" Mode="In" Type="Int32" />
+            <Parameter Name="MaNguoi" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spGetViewSapXepLichTrinhByNguoi" EntitySet="ViewSapXepLichTrinhs" ReturnType="Collection(ATINChamCongModel.ViewSapXepLichTrinh)">
+            <Parameter Name="MaNguoi" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spGetViewThongTinNhanVien1ByPhongBan" EntitySet="ViewThongTinNhanVien1" ReturnType="Collection(ATINChamCongModel.ViewThongTinNhanVien1)">
+            <Parameter Name="MaPhongBan" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spInsertCaLamViec">
             <Parameter Name="MaCaLamViec" Mode="In" Type="String" />
@@ -2622,7 +2900,7 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
             <Parameter Name="TachGioCaDemDen" Mode="In" Type="Time" />
           </FunctionImport>
           <FunctionImport Name="spInsertChucVu">
-          <Parameter Name="TenChucVu" Mode="In" Type="String" />
+            <Parameter Name="TenChucVu" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spInsertLichTrinh">
             <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
@@ -2648,6 +2926,10 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
           <FunctionImport Name="spInsertMapLichTrinhNangCao">
             <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
             <Parameter Name="MaLichTrinhNangCao" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spInsertPhongBan">
+            <Parameter Name="MaPhongBan" Mode="In" Type="Int32" />
+            <Parameter Name="TenPhongBan" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spInsertSapXepLichTrinh">
             <Parameter Name="MaNguoi" Mode="In" Type="Int32" />
@@ -2703,11 +2985,25 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
             <Parameter Name="TachGioCaDemTu" Mode="In" Type="Time" />
             <Parameter Name="TachGioCaDemDen" Mode="In" Type="Time" />
           </FunctionImport>
+          <FunctionImport Name="spUpdateKyHeuChamCong">
+            <Parameter Name="MaKyHieu" Mode="In" Type="Int32" />
+            <Parameter Name="TenKyHieu" Mode="In" Type="String" />
+            <Parameter Name="SuDung" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="spUpdateKyHieuCacLoaiVang">
+            <Parameter Name="MaKyHieu" Mode="In" Type="String" />
+            <Parameter Name="SuDung" Mode="In" Type="Boolean" />
+            <Parameter Name="TinhCong" Mode="In" Type="Boolean" />
+          </FunctionImport>
           <FunctionImport Name="spUpdateLichTrinh">
             <Parameter Name="MaLichTrinhChon" Mode="In" Type="String" />
             <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
             <Parameter Name="TenLichTrinh" Mode="In" Type="String" />
             <Parameter Name="LoaiChuKy" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spUpdatePhongBan">
+            <Parameter Name="MaPhongBan" Mode="In" Type="Int32" />
+            <Parameter Name="TenPhongBan" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spUpdateSapXepLichTrinh">
             <Parameter Name="MaSapXep" Mode="In" Type="Int32" />
@@ -2720,50 +3016,6 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
             <Parameter Name="DenNgay" Mode="In" Type="DateTime" />
             <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
             <Parameter Name="MaNguoi" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <EntitySet Name="LichTrinhNangCaos" EntityType="ATINChamCongModel.LichTrinhNangCao" />
-          <EntitySet Name="MapLichTrinhNangCaos" EntityType="ATINChamCongModel.MapLichTrinhNangCao" />
-          <AssociationSet Name="FK_dbo_MapLichTrinhNangCao_LichTrinh" Association="ATINChamCongModel.FK_dbo_MapLichTrinhNangCao_LichTrinh">
-            <End Role="LichTrinh" EntitySet="LichTrinhs" />
-            <End Role="MapLichTrinhNangCao" EntitySet="MapLichTrinhNangCaos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_MapLichTrinhNangCao_LichTrinhNangCao" Association="ATINChamCongModel.FK_dbo_MapLichTrinhNangCao_LichTrinhNangCao">
-            <End Role="LichTrinhNangCao" EntitySet="LichTrinhNangCaos" />
-            <End Role="MapLichTrinhNangCao" EntitySet="MapLichTrinhNangCaos" />
-          </AssociationSet>
-          <FunctionImport Name="spDeletePhongBan">
-          <Parameter Name="MaPhongBan" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="spGetAllPhongBan" EntitySet="PhongBans" ReturnType="Collection(ATINChamCongModel.PhongBan)" />
-          <FunctionImport Name="spGetPhongBan" EntitySet="PhongBans" ReturnType="Collection(ATINChamCongModel.PhongBan)">
-          <Parameter Name="MaPhongBan" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="spInsertPhongBan">
-            <Parameter Name="MaPhongBan" Mode="In" Type="Int32" />
-            <Parameter Name="TenPhongBan" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="spUpdatePhongBan">
-            <Parameter Name="MaPhongBan" Mode="In" Type="Int32" />
-            <Parameter Name="TenPhongBan" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="spGetAllNguoi" EntitySet="Nguois" ReturnType="Collection(ATINChamCongModel.Nguoi)" />
-          <FunctionImport Name="spGetViewSapXepLichTrinhByNguoi" EntitySet="ViewSapXepLichTrinhs" ReturnType="Collection(ATINChamCongModel.ViewSapXepLichTrinh)">
-          <Parameter Name="MaNguoi" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <EntitySet Name="ViewSapXepLichTrinhs" EntityType="ATINChamCongModel.ViewSapXepLichTrinh" />
-          <EntitySet Name="KyHieuCacLoaiVangs" EntityType="ATINChamCongModel.KyHieuCacLoaiVang" />
-          <EntitySet Name="KyHieuChamCongs" EntityType="ATINChamCongModel.KyHieuChamCong" />
-          <FunctionImport Name="spGetAllKyHieuCacLoaiVang" EntitySet="KyHieuCacLoaiVangs" ReturnType="Collection(ATINChamCongModel.KyHieuCacLoaiVang)" />
-          <FunctionImport Name="spGetAllKyHieuChamCong" EntitySet="KyHieuChamCongs" ReturnType="Collection(ATINChamCongModel.KyHieuChamCong)" />
-          <FunctionImport Name="spUpdateKyHieuCacLoaiVang">
-            <Parameter Name="MaKyHieu" Mode="In" Type="String" />
-            <Parameter Name="SuDung" Mode="In" Type="Boolean" />
-            <Parameter Name="TinhCong" Mode="In" Type="Boolean" />
-          </FunctionImport>
-          <FunctionImport Name="spUpdateKyHeuChamCong">
-            <Parameter Name="MaKyHieu" Mode="In" Type="Int32" />
-            <Parameter Name="TenKyHieu" Mode="In" Type="String" />
-            <Parameter Name="SuDung" Mode="In" Type="Boolean" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
@@ -2824,10 +3076,65 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
           <Property Type="Int32" Name="MaChucVu" Nullable="false" />
           <Property Type="String" Name="TenChucVu" Nullable="false" MaxLength="100" />
         </ComplexType>
+        <ComplexType Name="spGetAllKyHieuCacLoaiVang_Result">
+          <Property Type="String" Name="MaKyHieu" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="TenKyHieu" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="MoTa" Nullable="true" MaxLength="255" />
+          <Property Type="Boolean" Name="SuDung" Nullable="false" />
+          <Property Type="Boolean" Name="TinhCong" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="spGetAllKyHieuChamCong_Result">
+          <Property Type="Int32" Name="MaKyHieu" Nullable="false" />
+          <Property Type="String" Name="TenKyHieu" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="MoTa" Nullable="true" MaxLength="255" />
+          <Property Type="Boolean" Name="SuDung" Nullable="false" />
+        </ComplexType>
         <ComplexType Name="spGetAllLichTrinh_Result">
           <Property Type="String" Name="MaLichTrinh" Nullable="false" MaxLength="5" />
           <Property Type="String" Name="TenLichTrinh" Nullable="false" MaxLength="30" />
           <Property Type="String" Name="LoaiChuKy" Nullable="false" MaxLength="5" />
+        </ComplexType>
+        <ComplexType Name="spGetAllNguoi_Result">
+          <Property Type="Int32" Name="MaNguoi" Nullable="false" />
+          <Property Type="String" Name="MaDinhDanh" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="HoTen" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="PhongBan" Nullable="true" />
+          <Property Type="Int32" Name="ChucVu" Nullable="true" />
+          <Property Type="Int32" Name="KhuVuc" Nullable="true" />
+          <Property Type="DateTime" Name="NgaySinh" Nullable="true" />
+          <Property Type="Int32" Name="GioiTinh" Nullable="false" />
+          <Property Type="String" Name="SoDienThoai" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="AnhDaiDien" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="TrinhDo" Nullable="true" />
+          <Property Type="String" Name="SoTheCanCuoc" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="NgayCapTCC" Nullable="true" />
+          <Property Type="String" Name="NoiCapTCC" Nullable="true" MaxLength="150" />
+          <Property Type="Int32" Name="DanToc" Nullable="true" />
+          <Property Type="Int32" Name="TonGiao" Nullable="true" />
+          <Property Type="Int32" Name="QuocTich" Nullable="true" />
+          <Property Type="Int32" Name="TinhTrangHonNhan" Nullable="true" />
+          <Property Type="String" Name="SoBangLaiXeMay" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="NgayCapBLXM" Nullable="true" />
+          <Property Type="String" Name="NoiCapBLXM" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="SoBangLaiOto" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="NgayCapBLXO" Nullable="true" />
+          <Property Type="String" Name="NoiCapBLXO" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="DiaChiThuongTru" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="DiaChiTamTru" Nullable="true" MaxLength="20" />
+          <Property Type="DateTime" Name="NgayNhanViec" Nullable="true" />
+          <Property Type="DateTime" Name="NgayThoiViec" Nullable="true" />
+          <Property Type="Boolean" Name="SuDungVanTay" Nullable="true" />
+          <Property Type="Boolean" Name="SuDungTheTu" Nullable="true" />
+          <Property Type="Boolean" Name="SuDungKhuonMat" Nullable="true" />
+          <Property Type="DateTime" Name="ThoiGianDangKy" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="ThoiGianCapNhat" Nullable="true" Precision="23" />
+          <Property Type="String" Name="GhiChu" Nullable="true" MaxLength="150" />
+          <Property Type="Int32" Name="TrangThaiHoatDong" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spGetAllPhongBan_Result">
+          <Property Type="Int32" Name="MaPhongBan" Nullable="false" />
+          <Property Type="String" Name="TenPhongBan" Nullable="false" MaxLength="100" />
         </ComplexType>
         <ComplexType Name="spGetAllSapXepLichTrinh_Result">
           <Property Type="Int32" Name="MaSapXep" Nullable="false" />
@@ -2840,6 +3147,39 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
           <Property Type="DateTime" Name="DenNgay" Nullable="false" />
           <Property Type="String" Name="MaLichTrinh" Nullable="true" MaxLength="5" />
           <Property Type="Int32" Name="MaNguoi" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="spGetAllViewGioChiaHaiCot_Result">
+          <Property Type="Int32" Name="MaNhanVien" Nullable="true" />
+          <Property Type="String" Name="HoTen" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="MaDinhDanh" Nullable="true" />
+          <Property Type="DateTime" Name="NgayChamCong" Nullable="false" />
+          <Property Type="DateTime" Name="GioChamCong" Nullable="false" Precision="23" />
+          <Property Type="String" Name="MaLoaiChamCong" Nullable="false" MaxLength="3" />
+          <Property Type="Int32" Name="MaChamCong" Nullable="false" />
+          <Property Type="String" Name="TenMay" Nullable="true" MaxLength="150" />
+        </ComplexType>
+        <ComplexType Name="spGetAllViewGioNguonOrderByNgayGio_Result">
+          <Property Type="Int32" Name="MaNhanVien" Nullable="true" />
+          <Property Type="String" Name="HoTen" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="MaDinhDanh" Nullable="true" />
+          <Property Type="DateTime" Name="NgayChamCong" Nullable="false" />
+          <Property Type="DateTime" Name="GioChamCong" Nullable="false" Precision="23" />
+          <Property Type="String" Name="MaLoaiChamCong" Nullable="false" MaxLength="3" />
+          <Property Type="Int32" Name="NguonThucHien" Nullable="false" />
+          <Property Type="Int32" Name="MaChamCong" Nullable="false" />
+          <Property Type="Int32" Name="MaThietBi" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spGetAllViewThongTinNhanVien1_Result">
+          <Property Type="Int32" Name="MaNguoi" Nullable="false" />
+          <Property Type="String" Name="HoTen" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="MaChamCong" Nullable="true" />
+          <Property Type="String" Name="MaLichTrinh" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="TenLichTrinh" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="MaChucVu" Nullable="true" />
+          <Property Type="String" Name="TenChucVu" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="MaPhongBan" Nullable="true" />
+          <Property Type="String" Name="TenPhongBan" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="NgayNhanViec" Nullable="true" />
         </ComplexType>
         <ComplexType Name="spGetCaLamViec_Result">
           <Property Type="String" Name="MaCaLamViec" Nullable="false" MaxLength="5" />
@@ -2949,6 +3289,11 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
         <ComplexType Name="spGetMapLichTrinhNangCaoByLichTrinh_Result">
           <Property Type="String" Name="MaLichTrinh" Nullable="false" MaxLength="5" />
           <Property Type="String" Name="MaLichTrinhNangCao" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="EmptyColumn" Nullable="true" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="spGetPhongBan_Result">
+          <Property Type="Int32" Name="MaPhongBan" Nullable="false" />
+          <Property Type="String" Name="TenPhongBan" Nullable="false" MaxLength="100" />
         </ComplexType>
         <ComplexType Name="spGetSapXepLichTrinhByNguoi_Result">
           <Property Type="Int32" Name="MaSapXep" Nullable="false" />
@@ -2962,100 +3307,6 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
           <Property Type="String" Name="MaLichTrinh" Nullable="true" MaxLength="5" />
           <Property Type="Int32" Name="MaNguoi" Nullable="false" />
         </ComplexType>
-        <EntityType Name="LichTrinhNangCao">
-          <Key>
-            <PropertyRef Name="MaLichTrinhNangCao" />
-          </Key>
-          <Property Name="MaLichTrinhNangCao" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="TenLichTrinhNangCao" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="SuDung" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="MapLichTrinhNangCaos" Relationship="ATINChamCongModel.FK_dbo_MapLichTrinhNangCao_LichTrinhNangCao" FromRole="LichTrinhNangCao" ToRole="MapLichTrinhNangCao" />
-        </EntityType>
-        <EntityType Name="MapLichTrinhNangCao">
-          <Key>
-            <PropertyRef Name="MaLichTrinh" />
-            <PropertyRef Name="MaLichTrinhNangCao" />
-          </Key>
-          <Property Name="MaLichTrinh" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="MaLichTrinhNangCao" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="EmptyColumn" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="LichTrinh" Relationship="ATINChamCongModel.FK_dbo_MapLichTrinhNangCao_LichTrinh" FromRole="MapLichTrinhNangCao" ToRole="LichTrinh" />
-          <NavigationProperty Name="LichTrinhNangCao" Relationship="ATINChamCongModel.FK_dbo_MapLichTrinhNangCao_LichTrinhNangCao" FromRole="MapLichTrinhNangCao" ToRole="LichTrinhNangCao" />
-        </EntityType>
-        <Association Name="FK_dbo_MapLichTrinhNangCao_LichTrinh">
-          <End Type="ATINChamCongModel.LichTrinh" Role="LichTrinh" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="ATINChamCongModel.MapLichTrinhNangCao" Role="MapLichTrinhNangCao" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LichTrinh">
-              <PropertyRef Name="MaLichTrinh" />
-            </Principal>
-            <Dependent Role="MapLichTrinhNangCao">
-              <PropertyRef Name="MaLichTrinh" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_MapLichTrinhNangCao_LichTrinhNangCao">
-          <End Type="ATINChamCongModel.LichTrinhNangCao" Role="LichTrinhNangCao" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="ATINChamCongModel.MapLichTrinhNangCao" Role="MapLichTrinhNangCao" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LichTrinhNangCao">
-              <PropertyRef Name="MaLichTrinhNangCao" />
-            </Principal>
-            <Dependent Role="MapLichTrinhNangCao">
-              <PropertyRef Name="MaLichTrinhNangCao" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <ComplexType Name="spGetAllPhongBan_Result">
-          <Property Type="Int32" Name="MaPhongBan" Nullable="false" />
-          <Property Type="String" Name="TenPhongBan" Nullable="false" MaxLength="100" />
-        </ComplexType>
-        <ComplexType Name="spGetPhongBan_Result">
-          <Property Type="Int32" Name="MaPhongBan" Nullable="false" />
-          <Property Type="String" Name="TenPhongBan" Nullable="false" MaxLength="100" />
-        </ComplexType>
-        <ComplexType Name="spGetAllNguoi_Result">
-          <Property Type="Int32" Name="MaNguoi" Nullable="false" />
-          <Property Type="String" Name="MaDinhDanh" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="HoTen" Nullable="true" MaxLength="100" />
-          <Property Type="Int32" Name="PhongBan" Nullable="true" />
-          <Property Type="Int32" Name="ChucVu" Nullable="true" />
-          <Property Type="Int32" Name="KhuVuc" Nullable="true" />
-          <Property Type="DateTime" Name="NgaySinh" Nullable="true" />
-          <Property Type="Int32" Name="GioiTinh" Nullable="false" />
-          <Property Type="String" Name="SoDienThoai" Nullable="true" MaxLength="20" />
-          <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="AnhDaiDien" Nullable="true" MaxLength="200" />
-          <Property Type="Int32" Name="TrinhDo" Nullable="true" />
-          <Property Type="String" Name="SoTheCanCuoc" Nullable="true" MaxLength="50" />
-          <Property Type="DateTime" Name="NgayCapTCC" Nullable="true" />
-          <Property Type="String" Name="NoiCapTCC" Nullable="true" MaxLength="150" />
-          <Property Type="Int32" Name="DanToc" Nullable="true" />
-          <Property Type="Int32" Name="TonGiao" Nullable="true" />
-          <Property Type="Int32" Name="QuocTich" Nullable="true" />
-          <Property Type="Int32" Name="TinhTrangHonNhan" Nullable="true" />
-          <Property Type="String" Name="SoBangLaiXeMay" Nullable="true" MaxLength="50" />
-          <Property Type="DateTime" Name="NgayCapBLXM" Nullable="true" />
-          <Property Type="String" Name="NoiCapBLXM" Nullable="true" MaxLength="150" />
-          <Property Type="String" Name="SoBangLaiOto" Nullable="true" MaxLength="50" />
-          <Property Type="DateTime" Name="NgayCapBLXO" Nullable="true" />
-          <Property Type="String" Name="NoiCapBLXO" Nullable="true" MaxLength="150" />
-          <Property Type="String" Name="DiaChiThuongTru" Nullable="true" MaxLength="150" />
-          <Property Type="String" Name="DiaChiTamTru" Nullable="true" MaxLength="20" />
-          <Property Type="DateTime" Name="NgayNhanViec" Nullable="true" />
-          <Property Type="DateTime" Name="NgayThoiViec" Nullable="true" />
-          <Property Type="Boolean" Name="SuDungVanTay" Nullable="true" />
-          <Property Type="Boolean" Name="SuDungTheTu" Nullable="true" />
-          <Property Type="Boolean" Name="SuDungKhuonMat" Nullable="true" />
-          <Property Type="DateTime" Name="ThoiGianDangKy" Nullable="true" Precision="23" />
-          <Property Type="DateTime" Name="ThoiGianCapNhat" Nullable="true" Precision="23" />
-          <Property Type="String" Name="GhiChu" Nullable="true" MaxLength="150" />
-          <Property Type="Int32" Name="TrangThaiHoatDong" Nullable="true" />
-        </ComplexType>
         <ComplexType Name="spGetViewSapXepLichTrinhByNguoi_Result">
           <Property Type="Int32" Name="MaNguoi" Nullable="false" />
           <Property Type="String" Name="HoTen" Nullable="true" MaxLength="100" />
@@ -3063,47 +3314,17 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
           <Property Type="String" Name="MaLichTrinh" Nullable="true" MaxLength="5" />
           <Property Type="Int32" Name="MaSapXep" Nullable="true" />
         </ComplexType>
-        <EntityType Name="ViewSapXepLichTrinh">
-          <Key>
-            <PropertyRef Name="MaNguoi" />
-          </Key>
-          <Property Name="MaNguoi" Type="Int32" Nullable="false" />
-          <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="MaChamCong" Type="Int32" />
-          <Property Name="MaLichTrinh" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="MaSapXep" Type="Int32" />
-        </EntityType>
-        <EntityType Name="KyHieuCacLoaiVang">
-          <Key>
-            <PropertyRef Name="MaKyHieu" />
-          </Key>
-          <Property Name="MaKyHieu" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="TenKyHieu" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="MoTa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="SuDung" Type="Boolean" Nullable="false" />
-          <Property Name="TinhCong" Type="Boolean" Nullable="false" />
-        </EntityType>
-        <EntityType Name="KyHieuChamCong">
-          <Key>
-            <PropertyRef Name="MaKyHieu" />
-          </Key>
-          <Property Name="MaKyHieu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenKyHieu" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="MoTa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="SuDung" Type="Boolean" Nullable="false" />
-        </EntityType>
-        <ComplexType Name="spGetAllKyHieuCacLoaiVang_Result">
-          <Property Type="String" Name="MaKyHieu" Nullable="false" MaxLength="5" />
-          <Property Type="String" Name="TenKyHieu" Nullable="false" MaxLength="5" />
-          <Property Type="String" Name="MoTa" Nullable="true" MaxLength="255" />
-          <Property Type="Boolean" Name="SuDung" Nullable="false" />
-          <Property Type="Boolean" Name="TinhCong" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="spGetAllKyHieuChamCong_Result">
-          <Property Type="Int32" Name="MaKyHieu" Nullable="false" />
-          <Property Type="String" Name="TenKyHieu" Nullable="false" MaxLength="5" />
-          <Property Type="String" Name="MoTa" Nullable="true" MaxLength="255" />
-          <Property Type="Boolean" Name="SuDung" Nullable="false" />
+        <ComplexType Name="spGetViewThongTinNhanVien1ByPhongBan_Result">
+          <Property Type="Int32" Name="MaNguoi" Nullable="false" />
+          <Property Type="String" Name="HoTen" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="MaChamCong" Nullable="true" />
+          <Property Type="String" Name="MaLichTrinh" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="TenLichTrinh" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="MaChucVu" Nullable="true" />
+          <Property Type="String" Name="TenChucVu" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="MaPhongBan" Nullable="true" />
+          <Property Type="String" Name="TenPhongBan" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="NgayNhanViec" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3328,6 +3549,27 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="KyHieuCacLoaiVangs">
+            <EntityTypeMapping TypeName="ATINChamCongModel.KyHieuCacLoaiVang">
+              <MappingFragment StoreEntitySet="KyHieuCacLoaiVang">
+                <ScalarProperty Name="MaKyHieu" ColumnName="MaKyHieu" />
+                <ScalarProperty Name="TenKyHieu" ColumnName="TenKyHieu" />
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+                <ScalarProperty Name="SuDung" ColumnName="SuDung" />
+                <ScalarProperty Name="TinhCong" ColumnName="TinhCong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KyHieuChamCongs">
+            <EntityTypeMapping TypeName="ATINChamCongModel.KyHieuChamCong">
+              <MappingFragment StoreEntitySet="KyHieuChamCong">
+                <ScalarProperty Name="MaKyHieu" ColumnName="MaKyHieu" />
+                <ScalarProperty Name="TenKyHieu" ColumnName="TenKyHieu" />
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+                <ScalarProperty Name="SuDung" ColumnName="SuDung" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="LichSuSuaDuLieuChamCongs">
             <EntityTypeMapping TypeName="ATINChamCongModel.LichSuSuaDuLieuChamCong">
               <MappingFragment StoreEntitySet="LichSuSuaDuLieuChamCong">
@@ -3358,6 +3600,15 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
                 <ScalarProperty Name="MaLichTrinh" ColumnName="MaLichTrinh" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Month" ColumnName="Month" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LichTrinhNangCaos">
+            <EntityTypeMapping TypeName="ATINChamCongModel.LichTrinhNangCao">
+              <MappingFragment StoreEntitySet="LichTrinhNangCao">
+                <ScalarProperty Name="MaLichTrinhNangCao" ColumnName="MaLichTrinhNangCao" />
+                <ScalarProperty Name="TenLichTrinhNangCao" ColumnName="TenLichTrinhNangCao" />
+                <ScalarProperty Name="SuDung" ColumnName="SuDung" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3402,6 +3653,15 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
               <MappingFragment StoreEntitySet="LoaiNghiPhep">
                 <ScalarProperty Name="MaLoaiNghiPhep" ColumnName="MaLoaiNghiPhep" />
                 <ScalarProperty Name="LoaiNghiPhep1" ColumnName="LoaiNghiPhep" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MapLichTrinhNangCaos">
+            <EntityTypeMapping TypeName="ATINChamCongModel.MapLichTrinhNangCao">
+              <MappingFragment StoreEntitySet="MapLichTrinhNangCao">
+                <ScalarProperty Name="MaLichTrinh" ColumnName="MaLichTrinh" />
+                <ScalarProperty Name="MaLichTrinhNangCao" ColumnName="MaLichTrinhNangCao" />
+                <ScalarProperty Name="EmptyColumn" ColumnName="EmptyColumn" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3616,6 +3876,62 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ViewGioChiaHaiCots">
+            <EntityTypeMapping TypeName="ATINChamCongModel.ViewGioChiaHaiCot">
+              <MappingFragment StoreEntitySet="ViewGioChiaHaiCot">
+                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="MaDinhDanh" ColumnName="MaDinhDanh" />
+                <ScalarProperty Name="NgayChamCong" ColumnName="NgayChamCong" />
+                <ScalarProperty Name="GioChamCong" ColumnName="GioChamCong" />
+                <ScalarProperty Name="MaLoaiChamCong" ColumnName="MaLoaiChamCong" />
+                <ScalarProperty Name="MaChamCong" ColumnName="MaChamCong" />
+                <ScalarProperty Name="TenMay" ColumnName="TenMay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewGioNguons">
+            <EntityTypeMapping TypeName="ATINChamCongModel.ViewGioNguon">
+              <MappingFragment StoreEntitySet="ViewGioNguon">
+                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="MaDinhDanh" ColumnName="MaDinhDanh" />
+                <ScalarProperty Name="NgayChamCong" ColumnName="NgayChamCong" />
+                <ScalarProperty Name="GioChamCong" ColumnName="GioChamCong" />
+                <ScalarProperty Name="MaLoaiChamCong" ColumnName="MaLoaiChamCong" />
+                <ScalarProperty Name="NguonThucHien" ColumnName="NguonThucHien" />
+                <ScalarProperty Name="MaChamCong" ColumnName="MaChamCong" />
+                <ScalarProperty Name="MaThietBi" ColumnName="MaThietBi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewSapXepLichTrinhs">
+            <EntityTypeMapping TypeName="ATINChamCongModel.ViewSapXepLichTrinh">
+              <MappingFragment StoreEntitySet="ViewSapXepLichTrinh">
+                <ScalarProperty Name="MaNguoi" ColumnName="MaNguoi" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="MaChamCong" ColumnName="MaChamCong" />
+                <ScalarProperty Name="MaLichTrinh" ColumnName="MaLichTrinh" />
+                <ScalarProperty Name="MaSapXep" ColumnName="MaSapXep" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewThongTinNhanVien1">
+            <EntityTypeMapping TypeName="ATINChamCongModel.ViewThongTinNhanVien1">
+              <MappingFragment StoreEntitySet="ViewThongTinNhanVien1">
+                <ScalarProperty Name="MaNguoi" ColumnName="MaNguoi" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="MaChamCong" ColumnName="MaChamCong" />
+                <ScalarProperty Name="MaLichTrinh" ColumnName="MaLichTrinh" />
+                <ScalarProperty Name="TenLichTrinh" ColumnName="TenLichTrinh" />
+                <ScalarProperty Name="MaChucVu" ColumnName="MaChucVu" />
+                <ScalarProperty Name="TenChucVu" ColumnName="TenChucVu" />
+                <ScalarProperty Name="MaPhongBan" ColumnName="MaPhongBan" />
+                <ScalarProperty Name="TenPhongBan" ColumnName="TenPhongBan" />
+                <ScalarProperty Name="NgayNhanViec" ColumnName="NgayNhanViec" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <AssociationSetMapping Name="AspNetUserRoles" TypeName="ATINChamCongModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
             <EndProperty Name="AspNetRoles">
               <ScalarProperty Name="Id" ColumnName="RoleId" />
@@ -3657,17 +3973,32 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
           <FunctionImportMapping FunctionImportName="spDeleteLichTrinhThang" FunctionName="ATINChamCongModel.Store.spDeleteLichTrinhThang" />
           <FunctionImportMapping FunctionImportName="spDeleteLichTrinhTuan" FunctionName="ATINChamCongModel.Store.spDeleteLichTrinhTuan" />
           <FunctionImportMapping FunctionImportName="spDeleteMapLichTrinhNangCao" FunctionName="ATINChamCongModel.Store.spDeleteMapLichTrinhNangCao" />
+          <FunctionImportMapping FunctionImportName="spDeletePhongBan" FunctionName="ATINChamCongModel.Store.spDeletePhongBan" />
           <FunctionImportMapping FunctionImportName="spDeleteSapXepLichTrinh" FunctionName="ATINChamCongModel.Store.spDeleteSapXepLichTrinh" />
           <FunctionImportMapping FunctionImportName="spDeleteSapXepLichTrinhTam" FunctionName="ATINChamCongModel.Store.spDeleteSapXepLichTrinhTam" />
           <FunctionImportMapping FunctionImportName="spGetAllCaLamViec" FunctionName="ATINChamCongModel.Store.spGetAllCaLamViec">
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="spGetAllChucVu" FunctionName="ATINChamCongModel.Store.spGetAllChucVu">
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetAllKyHieuCacLoaiVang" FunctionName="ATINChamCongModel.Store.spGetAllKyHieuCacLoaiVang">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetAllKyHieuChamCong" FunctionName="ATINChamCongModel.Store.spGetAllKyHieuChamCong">
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="spGetAllLichTrinh" FunctionName="ATINChamCongModel.Store.spGetAllLichTrinh">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetAllNguoi" FunctionName="ATINChamCongModel.Store.spGetAllNguoi">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetAllPhongBan" FunctionName="ATINChamCongModel.Store.spGetAllPhongBan">
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="spGetAllSapXepLichTrinh" FunctionName="ATINChamCongModel.Store.spGetAllSapXepLichTrinh">
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="spGetAllSapXepLichTrinhTam" FunctionName="ATINChamCongModel.Store.spGetAllSapXepLichTrinhTam">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetAllViewGioChiaHaiCot" FunctionName="ATINChamCongModel.Store.spGetAllViewGioChiaHaiCot">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetAllViewGioNguonOrderByNgayGio" FunctionName="ATINChamCongModel.Store.spGetAllViewGioNguonOrderByNgayGio">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetAllViewThongTinNhanVien1" FunctionName="ATINChamCongModel.Store.spGetAllViewThongTinNhanVien1">
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="spGetCaLamViec" FunctionName="ATINChamCongModel.Store.spGetCaLamViec">
           </FunctionImportMapping>
@@ -3681,9 +4012,15 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="spGetMapLichTrinhNangCaoByLichTrinh" FunctionName="ATINChamCongModel.Store.spGetMapLichTrinhNangCaoByLichTrinh">
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetPhongBan" FunctionName="ATINChamCongModel.Store.spGetPhongBan">
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="spGetSapXepLichTrinhByNguoi" FunctionName="ATINChamCongModel.Store.spGetSapXepLichTrinhByNguoi">
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="spGetSapXepLichTrinhTamByNguoi" FunctionName="ATINChamCongModel.Store.spGetSapXepLichTrinhTamByNguoi">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetViewSapXepLichTrinhByNguoi" FunctionName="ATINChamCongModel.Store.spGetViewSapXepLichTrinhByNguoi">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetViewThongTinNhanVien1ByPhongBan" FunctionName="ATINChamCongModel.Store.spGetViewThongTinNhanVien1ByPhongBan">
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="spInsertCaLamViec" FunctionName="ATINChamCongModel.Store.spInsertCaLamViec" />
           <FunctionImportMapping FunctionImportName="spInsertChucVu" FunctionName="ATINChamCongModel.Store.spInsertChucVu" />
@@ -3692,79 +4029,16 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
           <FunctionImportMapping FunctionImportName="spInsertLichTrinhThang" FunctionName="ATINChamCongModel.Store.spInsertLichTrinhThang" />
           <FunctionImportMapping FunctionImportName="spInsertLichTrinhTuan" FunctionName="ATINChamCongModel.Store.spInsertLichTrinhTuan" />
           <FunctionImportMapping FunctionImportName="spInsertMapLichTrinhNangCao" FunctionName="ATINChamCongModel.Store.spInsertMapLichTrinhNangCao" />
+          <FunctionImportMapping FunctionImportName="spInsertPhongBan" FunctionName="ATINChamCongModel.Store.spInsertPhongBan" />
           <FunctionImportMapping FunctionImportName="spInsertSapXepLichTrinh" FunctionName="ATINChamCongModel.Store.spInsertSapXepLichTrinh" />
           <FunctionImportMapping FunctionImportName="spInsertSapxepLichTrinhTam" FunctionName="ATINChamCongModel.Store.spInsertSapxepLichTrinhTam" />
           <FunctionImportMapping FunctionImportName="spUpdateCaLamViec" FunctionName="ATINChamCongModel.Store.spUpdateCaLamViec" />
+          <FunctionImportMapping FunctionImportName="spUpdateKyHeuChamCong" FunctionName="ATINChamCongModel.Store.spUpdateKyHeuChamCong" />
+          <FunctionImportMapping FunctionImportName="spUpdateKyHieuCacLoaiVang" FunctionName="ATINChamCongModel.Store.spUpdateKyHieuCacLoaiVang" />
           <FunctionImportMapping FunctionImportName="spUpdateLichTrinh" FunctionName="ATINChamCongModel.Store.spUpdateLichTrinh" />
+          <FunctionImportMapping FunctionImportName="spUpdatePhongBan" FunctionName="ATINChamCongModel.Store.spUpdatePhongBan" />
           <FunctionImportMapping FunctionImportName="spUpdateSapXepLichTrinh" FunctionName="ATINChamCongModel.Store.spUpdateSapXepLichTrinh" />
           <FunctionImportMapping FunctionImportName="spUpdateSapxepLichTrinhTam" FunctionName="ATINChamCongModel.Store.spUpdateSapxepLichTrinhTam" />
-          <EntitySetMapping Name="LichTrinhNangCaos">
-            <EntityTypeMapping TypeName="ATINChamCongModel.LichTrinhNangCao">
-              <MappingFragment StoreEntitySet="LichTrinhNangCao">
-                <ScalarProperty Name="SuDung" ColumnName="SuDung" />
-                <ScalarProperty Name="TenLichTrinhNangCao" ColumnName="TenLichTrinhNangCao" />
-                <ScalarProperty Name="MaLichTrinhNangCao" ColumnName="MaLichTrinhNangCao" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="MapLichTrinhNangCaos">
-            <EntityTypeMapping TypeName="ATINChamCongModel.MapLichTrinhNangCao">
-              <MappingFragment StoreEntitySet="MapLichTrinhNangCao">
-                <ScalarProperty Name="EmptyColumn" ColumnName="EmptyColumn" />
-                <ScalarProperty Name="MaLichTrinhNangCao" ColumnName="MaLichTrinhNangCao" />
-                <ScalarProperty Name="MaLichTrinh" ColumnName="MaLichTrinh" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="spDeletePhongBan" FunctionName="ATINChamCongModel.Store.spDeletePhongBan" />
-          <FunctionImportMapping FunctionImportName="spGetAllPhongBan" FunctionName="ATINChamCongModel.Store.spGetAllPhongBan">
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="spGetPhongBan" FunctionName="ATINChamCongModel.Store.spGetPhongBan">
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="spInsertPhongBan" FunctionName="ATINChamCongModel.Store.spInsertPhongBan" />
-          <FunctionImportMapping FunctionImportName="spUpdatePhongBan" FunctionName="ATINChamCongModel.Store.spUpdatePhongBan" />
-          <FunctionImportMapping FunctionImportName="spGetAllNguoi" FunctionName="ATINChamCongModel.Store.spGetAllNguoi">
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="spGetViewSapXepLichTrinhByNguoi" FunctionName="ATINChamCongModel.Store.spGetViewSapXepLichTrinhByNguoi">
-          </FunctionImportMapping>
-          <EntitySetMapping Name="ViewSapXepLichTrinhs">
-            <EntityTypeMapping TypeName="ATINChamCongModel.ViewSapXepLichTrinh">
-              <MappingFragment StoreEntitySet="ViewSapXepLichTrinh">
-                <ScalarProperty Name="MaSapXep" ColumnName="MaSapXep" />
-                <ScalarProperty Name="MaLichTrinh" ColumnName="MaLichTrinh" />
-                <ScalarProperty Name="MaChamCong" ColumnName="MaChamCong" />
-                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
-                <ScalarProperty Name="MaNguoi" ColumnName="MaNguoi" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="KyHieuCacLoaiVangs">
-            <EntityTypeMapping TypeName="ATINChamCongModel.KyHieuCacLoaiVang">
-              <MappingFragment StoreEntitySet="KyHieuCacLoaiVang">
-                <ScalarProperty Name="TinhCong" ColumnName="TinhCong" />
-                <ScalarProperty Name="SuDung" ColumnName="SuDung" />
-                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
-                <ScalarProperty Name="TenKyHieu" ColumnName="TenKyHieu" />
-                <ScalarProperty Name="MaKyHieu" ColumnName="MaKyHieu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="KyHieuChamCongs">
-            <EntityTypeMapping TypeName="ATINChamCongModel.KyHieuChamCong">
-              <MappingFragment StoreEntitySet="KyHieuChamCong">
-                <ScalarProperty Name="SuDung" ColumnName="SuDung" />
-                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
-                <ScalarProperty Name="TenKyHieu" ColumnName="TenKyHieu" />
-                <ScalarProperty Name="MaKyHieu" ColumnName="MaKyHieu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="spGetAllKyHieuCacLoaiVang" FunctionName="ATINChamCongModel.Store.spGetAllKyHieuCacLoaiVang">
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="spGetAllKyHieuChamCong" FunctionName="ATINChamCongModel.Store.spGetAllKyHieuChamCong">
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="spUpdateKyHieuCacLoaiVang" FunctionName="ATINChamCongModel.Store.spUpdateKyHieuCacLoaiVang" />
-          <FunctionImportMapping FunctionImportName="spUpdateKyHeuChamCong" FunctionName="ATINChamCongModel.Store.spUpdateKyHeuChamCong" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

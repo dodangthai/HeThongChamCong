@@ -41,14 +41,18 @@ namespace ATINTimekeeping.Model
         public virtual DbSet<DangKyTangCa> DangKyTangCas { get; set; }
         public virtual DbSet<DanToc> DanTocs { get; set; }
         public virtual DbSet<KhuonMat> KhuonMats { get; set; }
+        public virtual DbSet<KyHieuCacLoaiVang> KyHieuCacLoaiVangs { get; set; }
+        public virtual DbSet<KyHieuChamCong> KyHieuChamCongs { get; set; }
         public virtual DbSet<LichSuSuaDuLieuChamCong> LichSuSuaDuLieuChamCongs { get; set; }
         public virtual DbSet<LichTrinh> LichTrinhs { get; set; }
         public virtual DbSet<LichTrinhNam> LichTrinhNams { get; set; }
+        public virtual DbSet<LichTrinhNangCao> LichTrinhNangCaos { get; set; }
         public virtual DbSet<LichTrinhThang> LichTrinhThangs { get; set; }
         public virtual DbSet<LichTrinhTuan> LichTrinhTuans { get; set; }
         public virtual DbSet<LoaiChamCong> LoaiChamCongs { get; set; }
         public virtual DbSet<LoaiHopDong> LoaiHopDongs { get; set; }
         public virtual DbSet<LoaiNghiPhep> LoaiNghiPheps { get; set; }
+        public virtual DbSet<MapLichTrinhNangCao> MapLichTrinhNangCaos { get; set; }
         public virtual DbSet<MayNhanDang> MayNhanDangs { get; set; }
         public virtual DbSet<NgayNghiLe> NgayNghiLes { get; set; }
         public virtual DbSet<NgayPhepNhanVien> NgayPhepNhanViens { get; set; }
@@ -64,11 +68,10 @@ namespace ATINTimekeeping.Model
         public virtual DbSet<TrinhDoHocVan> TrinhDoHocVans { get; set; }
         public virtual DbSet<VanTay> VanTays { get; set; }
         public virtual DbSet<XepLoaiChamCong> XepLoaiChamCongs { get; set; }
-        public virtual DbSet<LichTrinhNangCao> LichTrinhNangCaos { get; set; }
-        public virtual DbSet<MapLichTrinhNangCao> MapLichTrinhNangCaos { get; set; }
+        public virtual DbSet<ViewGioChiaHaiCot> ViewGioChiaHaiCots { get; set; }
+        public virtual DbSet<ViewGioNguon> ViewGioNguons { get; set; }
         public virtual DbSet<ViewSapXepLichTrinh> ViewSapXepLichTrinhs { get; set; }
-        public virtual DbSet<KyHieuCacLoaiVang> KyHieuCacLoaiVangs { get; set; }
-        public virtual DbSet<KyHieuChamCong> KyHieuChamCongs { get; set; }
+        public virtual DbSet<ViewThongTinNhanVien1> ViewThongTinNhanVien1 { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
@@ -290,6 +293,15 @@ namespace ATINTimekeeping.Model
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spDeleteMapLichTrinhNangCao", maLichTrinhParameter, maLichTrinhNangCaoParameter);
         }
     
+        public virtual int spDeletePhongBan(Nullable<int> maPhongBan)
+        {
+            var maPhongBanParameter = maPhongBan.HasValue ?
+                new ObjectParameter("MaPhongBan", maPhongBan) :
+                new ObjectParameter("MaPhongBan", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spDeletePhongBan", maPhongBanParameter);
+        }
+    
         public virtual int spDeleteSapXepLichTrinh(Nullable<int> maSapXep)
         {
             var maSapXepParameter = maSapXep.HasValue ?
@@ -328,6 +340,26 @@ namespace ATINTimekeeping.Model
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ChucVu>("spGetAllChucVu", mergeOption);
         }
     
+        public virtual ObjectResult<KyHieuCacLoaiVang> spGetAllKyHieuCacLoaiVang()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<KyHieuCacLoaiVang>("spGetAllKyHieuCacLoaiVang");
+        }
+    
+        public virtual ObjectResult<KyHieuCacLoaiVang> spGetAllKyHieuCacLoaiVang(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<KyHieuCacLoaiVang>("spGetAllKyHieuCacLoaiVang", mergeOption);
+        }
+    
+        public virtual ObjectResult<KyHieuChamCong> spGetAllKyHieuChamCong()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<KyHieuChamCong>("spGetAllKyHieuChamCong");
+        }
+    
+        public virtual ObjectResult<KyHieuChamCong> spGetAllKyHieuChamCong(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<KyHieuChamCong>("spGetAllKyHieuChamCong", mergeOption);
+        }
+    
         public virtual ObjectResult<LichTrinh> spGetAllLichTrinh()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LichTrinh>("spGetAllLichTrinh");
@@ -336,6 +368,26 @@ namespace ATINTimekeeping.Model
         public virtual ObjectResult<LichTrinh> spGetAllLichTrinh(MergeOption mergeOption)
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LichTrinh>("spGetAllLichTrinh", mergeOption);
+        }
+    
+        public virtual ObjectResult<Nguoi> spGetAllNguoi()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nguoi>("spGetAllNguoi");
+        }
+    
+        public virtual ObjectResult<Nguoi> spGetAllNguoi(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nguoi>("spGetAllNguoi", mergeOption);
+        }
+    
+        public virtual ObjectResult<PhongBan> spGetAllPhongBan()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PhongBan>("spGetAllPhongBan");
+        }
+    
+        public virtual ObjectResult<PhongBan> spGetAllPhongBan(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PhongBan>("spGetAllPhongBan", mergeOption);
         }
     
         public virtual ObjectResult<SapXepLichTrinh> spGetAllSapXepLichTrinh()
@@ -356,6 +408,84 @@ namespace ATINTimekeeping.Model
         public virtual ObjectResult<SapXepLichTrinhTam> spGetAllSapXepLichTrinhTam(MergeOption mergeOption)
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SapXepLichTrinhTam>("spGetAllSapXepLichTrinhTam", mergeOption);
+        }
+    
+        public virtual ObjectResult<ViewGioChiaHaiCot> spGetAllViewGioChiaHaiCot(Nullable<int> maNhanVien, Nullable<System.DateTime> tuNgay, Nullable<System.DateTime> denNgay)
+        {
+            var maNhanVienParameter = maNhanVien.HasValue ?
+                new ObjectParameter("MaNhanVien", maNhanVien) :
+                new ObjectParameter("MaNhanVien", typeof(int));
+    
+            var tuNgayParameter = tuNgay.HasValue ?
+                new ObjectParameter("TuNgay", tuNgay) :
+                new ObjectParameter("TuNgay", typeof(System.DateTime));
+    
+            var denNgayParameter = denNgay.HasValue ?
+                new ObjectParameter("DenNgay", denNgay) :
+                new ObjectParameter("DenNgay", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ViewGioChiaHaiCot>("spGetAllViewGioChiaHaiCot", maNhanVienParameter, tuNgayParameter, denNgayParameter);
+        }
+    
+        public virtual ObjectResult<ViewGioChiaHaiCot> spGetAllViewGioChiaHaiCot(Nullable<int> maNhanVien, Nullable<System.DateTime> tuNgay, Nullable<System.DateTime> denNgay, MergeOption mergeOption)
+        {
+            var maNhanVienParameter = maNhanVien.HasValue ?
+                new ObjectParameter("MaNhanVien", maNhanVien) :
+                new ObjectParameter("MaNhanVien", typeof(int));
+    
+            var tuNgayParameter = tuNgay.HasValue ?
+                new ObjectParameter("TuNgay", tuNgay) :
+                new ObjectParameter("TuNgay", typeof(System.DateTime));
+    
+            var denNgayParameter = denNgay.HasValue ?
+                new ObjectParameter("DenNgay", denNgay) :
+                new ObjectParameter("DenNgay", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ViewGioChiaHaiCot>("spGetAllViewGioChiaHaiCot", mergeOption, maNhanVienParameter, tuNgayParameter, denNgayParameter);
+        }
+    
+        public virtual ObjectResult<ViewGioNguon> spGetAllViewGioNguonOrderByNgayGio(Nullable<int> maNhanVien, Nullable<System.DateTime> tuNgay, Nullable<System.DateTime> denNgay)
+        {
+            var maNhanVienParameter = maNhanVien.HasValue ?
+                new ObjectParameter("MaNhanVien", maNhanVien) :
+                new ObjectParameter("MaNhanVien", typeof(int));
+    
+            var tuNgayParameter = tuNgay.HasValue ?
+                new ObjectParameter("TuNgay", tuNgay) :
+                new ObjectParameter("TuNgay", typeof(System.DateTime));
+    
+            var denNgayParameter = denNgay.HasValue ?
+                new ObjectParameter("DenNgay", denNgay) :
+                new ObjectParameter("DenNgay", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ViewGioNguon>("spGetAllViewGioNguonOrderByNgayGio", maNhanVienParameter, tuNgayParameter, denNgayParameter);
+        }
+    
+        public virtual ObjectResult<ViewGioNguon> spGetAllViewGioNguonOrderByNgayGio(Nullable<int> maNhanVien, Nullable<System.DateTime> tuNgay, Nullable<System.DateTime> denNgay, MergeOption mergeOption)
+        {
+            var maNhanVienParameter = maNhanVien.HasValue ?
+                new ObjectParameter("MaNhanVien", maNhanVien) :
+                new ObjectParameter("MaNhanVien", typeof(int));
+    
+            var tuNgayParameter = tuNgay.HasValue ?
+                new ObjectParameter("TuNgay", tuNgay) :
+                new ObjectParameter("TuNgay", typeof(System.DateTime));
+    
+            var denNgayParameter = denNgay.HasValue ?
+                new ObjectParameter("DenNgay", denNgay) :
+                new ObjectParameter("DenNgay", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ViewGioNguon>("spGetAllViewGioNguonOrderByNgayGio", mergeOption, maNhanVienParameter, tuNgayParameter, denNgayParameter);
+        }
+    
+        public virtual ObjectResult<ViewThongTinNhanVien1> spGetAllViewThongTinNhanVien1()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ViewThongTinNhanVien1>("spGetAllViewThongTinNhanVien1");
+        }
+    
+        public virtual ObjectResult<ViewThongTinNhanVien1> spGetAllViewThongTinNhanVien1(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ViewThongTinNhanVien1>("spGetAllViewThongTinNhanVien1", mergeOption);
         }
     
         public virtual ObjectResult<CaLamViec> spGetCaLamViec(string maCaLamViec)
@@ -448,22 +578,40 @@ namespace ATINTimekeeping.Model
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LichTrinhTuan>("spGetLichTrinhTuanByLichTrinh", mergeOption, maLichTrinhParameter);
         }
     
-        public virtual ObjectResult<MapLichTrinhNangCao> spGetMapLichTrinhNangCaoByLichTrinh(string maLichTrinh)
+        public virtual ObjectResult<LichTrinhNangCao> spGetMapLichTrinhNangCaoByLichTrinh(string maLichTrinh)
         {
             var maLichTrinhParameter = maLichTrinh != null ?
                 new ObjectParameter("MaLichTrinh", maLichTrinh) :
                 new ObjectParameter("MaLichTrinh", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<MapLichTrinhNangCao>("spGetMapLichTrinhNangCaoByLichTrinh", maLichTrinhParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LichTrinhNangCao>("spGetMapLichTrinhNangCaoByLichTrinh", maLichTrinhParameter);
         }
     
-        public virtual ObjectResult<MapLichTrinhNangCao> spGetMapLichTrinhNangCaoByLichTrinh(string maLichTrinh, MergeOption mergeOption)
+        public virtual ObjectResult<LichTrinhNangCao> spGetMapLichTrinhNangCaoByLichTrinh(string maLichTrinh, MergeOption mergeOption)
         {
             var maLichTrinhParameter = maLichTrinh != null ?
                 new ObjectParameter("MaLichTrinh", maLichTrinh) :
                 new ObjectParameter("MaLichTrinh", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<MapLichTrinhNangCao>("spGetMapLichTrinhNangCaoByLichTrinh", mergeOption, maLichTrinhParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LichTrinhNangCao>("spGetMapLichTrinhNangCaoByLichTrinh", mergeOption, maLichTrinhParameter);
+        }
+    
+        public virtual ObjectResult<PhongBan> spGetPhongBan(Nullable<int> maPhongBan)
+        {
+            var maPhongBanParameter = maPhongBan.HasValue ?
+                new ObjectParameter("MaPhongBan", maPhongBan) :
+                new ObjectParameter("MaPhongBan", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PhongBan>("spGetPhongBan", maPhongBanParameter);
+        }
+    
+        public virtual ObjectResult<PhongBan> spGetPhongBan(Nullable<int> maPhongBan, MergeOption mergeOption)
+        {
+            var maPhongBanParameter = maPhongBan.HasValue ?
+                new ObjectParameter("MaPhongBan", maPhongBan) :
+                new ObjectParameter("MaPhongBan", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PhongBan>("spGetPhongBan", mergeOption, maPhongBanParameter);
         }
     
         public virtual ObjectResult<SapXepLichTrinh> spGetSapXepLichTrinhByNguoi(Nullable<int> maNguoi)
@@ -500,6 +648,42 @@ namespace ATINTimekeeping.Model
                 new ObjectParameter("MaNguoi", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SapXepLichTrinhTam>("spGetSapXepLichTrinhTamByNguoi", mergeOption, maNguoiParameter);
+        }
+    
+        public virtual ObjectResult<ViewSapXepLichTrinh> spGetViewSapXepLichTrinhByNguoi(Nullable<int> maNguoi)
+        {
+            var maNguoiParameter = maNguoi.HasValue ?
+                new ObjectParameter("MaNguoi", maNguoi) :
+                new ObjectParameter("MaNguoi", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ViewSapXepLichTrinh>("spGetViewSapXepLichTrinhByNguoi", maNguoiParameter);
+        }
+    
+        public virtual ObjectResult<ViewSapXepLichTrinh> spGetViewSapXepLichTrinhByNguoi(Nullable<int> maNguoi, MergeOption mergeOption)
+        {
+            var maNguoiParameter = maNguoi.HasValue ?
+                new ObjectParameter("MaNguoi", maNguoi) :
+                new ObjectParameter("MaNguoi", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ViewSapXepLichTrinh>("spGetViewSapXepLichTrinhByNguoi", mergeOption, maNguoiParameter);
+        }
+    
+        public virtual ObjectResult<ViewThongTinNhanVien1> spGetViewThongTinNhanVien1ByPhongBan(Nullable<int> maPhongBan)
+        {
+            var maPhongBanParameter = maPhongBan.HasValue ?
+                new ObjectParameter("MaPhongBan", maPhongBan) :
+                new ObjectParameter("MaPhongBan", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ViewThongTinNhanVien1>("spGetViewThongTinNhanVien1ByPhongBan", maPhongBanParameter);
+        }
+    
+        public virtual ObjectResult<ViewThongTinNhanVien1> spGetViewThongTinNhanVien1ByPhongBan(Nullable<int> maPhongBan, MergeOption mergeOption)
+        {
+            var maPhongBanParameter = maPhongBan.HasValue ?
+                new ObjectParameter("MaPhongBan", maPhongBan) :
+                new ObjectParameter("MaPhongBan", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ViewThongTinNhanVien1>("spGetViewThongTinNhanVien1ByPhongBan", mergeOption, maPhongBanParameter);
         }
     
         public virtual int spInsertCaLamViec(string maCaLamViec, string tenCaLamViec, Nullable<System.TimeSpan> gioBatDauCa, Nullable<System.TimeSpan> gioKetThucCa, Nullable<System.TimeSpan> gioBatDauGiaiLao, Nullable<System.TimeSpan> gioKetThucGiaiLao, Nullable<int> tongGio, Nullable<int> diemCong, Nullable<System.TimeSpan> gioVaoSomNhatDuocTinhCa, Nullable<System.TimeSpan> gioVaoMuonNhatDuocTinhCa, Nullable<System.TimeSpan> gioRaMuonNhatDuocTinhCa, Nullable<System.TimeSpan> gioRaSomNhatDuocTinhCa, Nullable<int> khongCoGioRa, Nullable<int> khongCoGioVao, Nullable<bool> truGioDiTre, Nullable<int> thoiGianDiTreChoPhep, Nullable<bool> truGioVeSom, Nullable<int> thoiGianVeSomChoPhep, Nullable<bool> sDMucTangCaHienTai, Nullable<int> mucTangCaHienTai, Nullable<bool> sDMucTangCaCuoiTuan, Nullable<int> mucTangCaCuoiTuan, Nullable<bool> sDMucTangCaNgayLe, Nullable<int> mucTangCaNgayLe, Nullable<bool> sDTangCaTruocGLV, Nullable<int> tangCaTruocGLV, Nullable<bool> sDTangCaSauGLV, Nullable<int> tangCaSauGLV, Nullable<bool> sDTongGLVTinhTangCa, Nullable<int> tongGLVTinhTangCa, Nullable<int> gioiHanTCMucMot, Nullable<int> gioiHanTCMucHai, Nullable<bool> sDMucTangCaCuaTangCaCuoiTuan, Nullable<int> mucTangCaCuaTangCaCuoiTuan, Nullable<bool> sDMucTangCaCuaTangCaNgayLe, Nullable<int> mucTangCaCuaTangCaNgayLe, Nullable<int> gioiHanTCTruocGLV, Nullable<int> gioiHanTCSauGLV, Nullable<bool> caQuaDem, Nullable<System.TimeSpan> tachGioCaDemTu, Nullable<System.TimeSpan> tachGioCaDemDen)
@@ -765,6 +949,19 @@ namespace ATINTimekeeping.Model
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertMapLichTrinhNangCao", maLichTrinhParameter, maLichTrinhNangCaoParameter);
         }
     
+        public virtual int spInsertPhongBan(Nullable<int> maPhongBan, string tenPhongBan)
+        {
+            var maPhongBanParameter = maPhongBan.HasValue ?
+                new ObjectParameter("MaPhongBan", maPhongBan) :
+                new ObjectParameter("MaPhongBan", typeof(int));
+    
+            var tenPhongBanParameter = tenPhongBan != null ?
+                new ObjectParameter("TenPhongBan", tenPhongBan) :
+                new ObjectParameter("TenPhongBan", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertPhongBan", maPhongBanParameter, tenPhongBanParameter);
+        }
+    
         public virtual int spInsertSapXepLichTrinh(Nullable<int> maNguoi, string maLichTrinh)
         {
             var maNguoiParameter = maNguoi.HasValue ?
@@ -972,6 +1169,40 @@ namespace ATINTimekeeping.Model
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUpdateCaLamViec", maCaLamViecChonParameter, maCaLamViecParameter, tenCaLamViecParameter, gioBatDauCaParameter, gioKetThucCaParameter, gioBatDauGiaiLaoParameter, gioKetThucGiaiLaoParameter, tongGioParameter, diemCongParameter, gioVaoSomNhatDuocTinhCaParameter, gioVaoMuonNhatDuocTinhCaParameter, gioRaMuonNhatDuocTinhCaParameter, gioRaSomNhatDuocTinhCaParameter, khongCoGioRaParameter, khongCoGioVaoParameter, truGioDiTreParameter, thoiGianDiTreChoPhepParameter, truGioVeSomParameter, thoiGianVeSomChoPhepParameter, sDMucTangCaHienTaiParameter, mucTangCaHienTaiParameter, sDMucTangCaCuoiTuanParameter, mucTangCaCuoiTuanParameter, sDMucTangCaNgayLeParameter, mucTangCaNgayLeParameter, sDTangCaTruocGLVParameter, tangCaTruocGLVParameter, sDTangCaSauGLVParameter, tangCaSauGLVParameter, sDTongGLVTinhTangCaParameter, tongGLVTinhTangCaParameter, gioiHanTCMucMotParameter, gioiHanTCMucHaiParameter, sDMucTangCaCuaTangCaCuoiTuanParameter, mucTangCaCuaTangCaCuoiTuanParameter, sDMucTangCaCuaTangCaNgayLeParameter, mucTangCaCuaTangCaNgayLeParameter, gioiHanTCTruocGLVParameter, gioiHanTCSauGLVParameter, caQuaDemParameter, tachGioCaDemTuParameter, tachGioCaDemDenParameter);
         }
     
+        public virtual int spUpdateKyHeuChamCong(Nullable<int> maKyHieu, string tenKyHieu, Nullable<bool> suDung)
+        {
+            var maKyHieuParameter = maKyHieu.HasValue ?
+                new ObjectParameter("MaKyHieu", maKyHieu) :
+                new ObjectParameter("MaKyHieu", typeof(int));
+    
+            var tenKyHieuParameter = tenKyHieu != null ?
+                new ObjectParameter("TenKyHieu", tenKyHieu) :
+                new ObjectParameter("TenKyHieu", typeof(string));
+    
+            var suDungParameter = suDung.HasValue ?
+                new ObjectParameter("SuDung", suDung) :
+                new ObjectParameter("SuDung", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUpdateKyHeuChamCong", maKyHieuParameter, tenKyHieuParameter, suDungParameter);
+        }
+    
+        public virtual int spUpdateKyHieuCacLoaiVang(string maKyHieu, Nullable<bool> suDung, Nullable<bool> tinhCong)
+        {
+            var maKyHieuParameter = maKyHieu != null ?
+                new ObjectParameter("MaKyHieu", maKyHieu) :
+                new ObjectParameter("MaKyHieu", typeof(string));
+    
+            var suDungParameter = suDung.HasValue ?
+                new ObjectParameter("SuDung", suDung) :
+                new ObjectParameter("SuDung", typeof(bool));
+    
+            var tinhCongParameter = tinhCong.HasValue ?
+                new ObjectParameter("TinhCong", tinhCong) :
+                new ObjectParameter("TinhCong", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUpdateKyHieuCacLoaiVang", maKyHieuParameter, suDungParameter, tinhCongParameter);
+        }
+    
         public virtual int spUpdateLichTrinh(string maLichTrinhChon, string maLichTrinh, string tenLichTrinh, string loaiChuKy)
         {
             var maLichTrinhChonParameter = maLichTrinhChon != null ?
@@ -991,6 +1222,19 @@ namespace ATINTimekeeping.Model
                 new ObjectParameter("LoaiChuKy", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUpdateLichTrinh", maLichTrinhChonParameter, maLichTrinhParameter, tenLichTrinhParameter, loaiChuKyParameter);
+        }
+    
+        public virtual int spUpdatePhongBan(Nullable<int> maPhongBan, string tenPhongBan)
+        {
+            var maPhongBanParameter = maPhongBan.HasValue ?
+                new ObjectParameter("MaPhongBan", maPhongBan) :
+                new ObjectParameter("MaPhongBan", typeof(int));
+    
+            var tenPhongBanParameter = tenPhongBan != null ?
+                new ObjectParameter("TenPhongBan", tenPhongBan) :
+                new ObjectParameter("TenPhongBan", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUpdatePhongBan", maPhongBanParameter, tenPhongBanParameter);
         }
     
         public virtual int spUpdateSapXepLichTrinh(Nullable<int> maSapXep, Nullable<int> maNguoi, string maLichTrinh)
@@ -1033,151 +1277,6 @@ namespace ATINTimekeeping.Model
                 new ObjectParameter("MaNguoi", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUpdateSapxepLichTrinhTam", maLichTrinhTamParameter, tuNgayParameter, denNgayParameter, maLichTrinhParameter, maNguoiParameter);
-        }
-    
-        public virtual int spDeletePhongBan(Nullable<int> maPhongBan)
-        {
-            var maPhongBanParameter = maPhongBan.HasValue ?
-                new ObjectParameter("MaPhongBan", maPhongBan) :
-                new ObjectParameter("MaPhongBan", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spDeletePhongBan", maPhongBanParameter);
-        }
-    
-        public virtual ObjectResult<PhongBan> spGetAllPhongBan()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PhongBan>("spGetAllPhongBan");
-        }
-    
-        public virtual ObjectResult<PhongBan> spGetAllPhongBan(MergeOption mergeOption)
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PhongBan>("spGetAllPhongBan", mergeOption);
-        }
-    
-        public virtual ObjectResult<PhongBan> spGetPhongBan(Nullable<int> maPhongBan)
-        {
-            var maPhongBanParameter = maPhongBan.HasValue ?
-                new ObjectParameter("MaPhongBan", maPhongBan) :
-                new ObjectParameter("MaPhongBan", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PhongBan>("spGetPhongBan", maPhongBanParameter);
-        }
-    
-        public virtual ObjectResult<PhongBan> spGetPhongBan(Nullable<int> maPhongBan, MergeOption mergeOption)
-        {
-            var maPhongBanParameter = maPhongBan.HasValue ?
-                new ObjectParameter("MaPhongBan", maPhongBan) :
-                new ObjectParameter("MaPhongBan", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PhongBan>("spGetPhongBan", mergeOption, maPhongBanParameter);
-        }
-    
-        public virtual int spInsertPhongBan(Nullable<int> maPhongBan, string tenPhongBan)
-        {
-            var maPhongBanParameter = maPhongBan.HasValue ?
-                new ObjectParameter("MaPhongBan", maPhongBan) :
-                new ObjectParameter("MaPhongBan", typeof(int));
-    
-            var tenPhongBanParameter = tenPhongBan != null ?
-                new ObjectParameter("TenPhongBan", tenPhongBan) :
-                new ObjectParameter("TenPhongBan", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertPhongBan", maPhongBanParameter, tenPhongBanParameter);
-        }
-    
-        public virtual int spUpdatePhongBan(Nullable<int> maPhongBan, string tenPhongBan)
-        {
-            var maPhongBanParameter = maPhongBan.HasValue ?
-                new ObjectParameter("MaPhongBan", maPhongBan) :
-                new ObjectParameter("MaPhongBan", typeof(int));
-    
-            var tenPhongBanParameter = tenPhongBan != null ?
-                new ObjectParameter("TenPhongBan", tenPhongBan) :
-                new ObjectParameter("TenPhongBan", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUpdatePhongBan", maPhongBanParameter, tenPhongBanParameter);
-        }
-    
-        public virtual ObjectResult<Nguoi> spGetAllNguoi()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nguoi>("spGetAllNguoi");
-        }
-    
-        public virtual ObjectResult<Nguoi> spGetAllNguoi(MergeOption mergeOption)
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nguoi>("spGetAllNguoi", mergeOption);
-        }
-    
-        public virtual ObjectResult<ViewSapXepLichTrinh> spGetViewSapXepLichTrinhByNguoi(Nullable<int> maNguoi)
-        {
-            var maNguoiParameter = maNguoi.HasValue ?
-                new ObjectParameter("MaNguoi", maNguoi) :
-                new ObjectParameter("MaNguoi", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ViewSapXepLichTrinh>("spGetViewSapXepLichTrinhByNguoi", maNguoiParameter);
-        }
-    
-        public virtual ObjectResult<ViewSapXepLichTrinh> spGetViewSapXepLichTrinhByNguoi(Nullable<int> maNguoi, MergeOption mergeOption)
-        {
-            var maNguoiParameter = maNguoi.HasValue ?
-                new ObjectParameter("MaNguoi", maNguoi) :
-                new ObjectParameter("MaNguoi", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ViewSapXepLichTrinh>("spGetViewSapXepLichTrinhByNguoi", mergeOption, maNguoiParameter);
-        }
-    
-        public virtual ObjectResult<KyHieuCacLoaiVang> spGetAllKyHieuCacLoaiVang()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<KyHieuCacLoaiVang>("spGetAllKyHieuCacLoaiVang");
-        }
-    
-        public virtual ObjectResult<KyHieuCacLoaiVang> spGetAllKyHieuCacLoaiVang(MergeOption mergeOption)
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<KyHieuCacLoaiVang>("spGetAllKyHieuCacLoaiVang", mergeOption);
-        }
-    
-        public virtual ObjectResult<KyHieuChamCong> spGetAllKyHieuChamCong()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<KyHieuChamCong>("spGetAllKyHieuChamCong");
-        }
-    
-        public virtual ObjectResult<KyHieuChamCong> spGetAllKyHieuChamCong(MergeOption mergeOption)
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<KyHieuChamCong>("spGetAllKyHieuChamCong", mergeOption);
-        }
-    
-        public virtual int spUpdateKyHieuCacLoaiVang(string maKyHieu, Nullable<bool> suDung, Nullable<bool> tinhCong)
-        {
-            var maKyHieuParameter = maKyHieu != null ?
-                new ObjectParameter("MaKyHieu", maKyHieu) :
-                new ObjectParameter("MaKyHieu", typeof(string));
-    
-            var suDungParameter = suDung.HasValue ?
-                new ObjectParameter("SuDung", suDung) :
-                new ObjectParameter("SuDung", typeof(bool));
-    
-            var tinhCongParameter = tinhCong.HasValue ?
-                new ObjectParameter("TinhCong", tinhCong) :
-                new ObjectParameter("TinhCong", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUpdateKyHieuCacLoaiVang", maKyHieuParameter, suDungParameter, tinhCongParameter);
-        }
-    
-        public virtual int spUpdateKyHeuChamCong(Nullable<int> maKyHieu, string tenKyHieu, Nullable<bool> suDung)
-        {
-            var maKyHieuParameter = maKyHieu.HasValue ?
-                new ObjectParameter("MaKyHieu", maKyHieu) :
-                new ObjectParameter("MaKyHieu", typeof(int));
-    
-            var tenKyHieuParameter = tenKyHieu != null ?
-                new ObjectParameter("TenKyHieu", tenKyHieu) :
-                new ObjectParameter("TenKyHieu", typeof(string));
-    
-            var suDungParameter = suDung.HasValue ?
-                new ObjectParameter("SuDung", suDung) :
-                new ObjectParameter("SuDung", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUpdateKyHeuChamCong", maKyHieuParameter, tenKyHieuParameter, suDungParameter);
         }
     }
 }

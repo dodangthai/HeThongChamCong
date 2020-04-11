@@ -250,3 +250,7 @@ D:\AT-Git\HeThongChamCong\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj
 D:\AT-Git\HeThongChamCong\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.FormSystem.ManagerAccount.resources
 D:\AT-Git\HeThongChamCong\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.FormSystem.ManagerEmployee.resources
 D:\AT-Git\HeThongChamCong\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.FormTimeKeepingSetting.SubDeclareWorkCalendar.resources
+D:\AT-Git\HeThongChamCong\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.ChamCongVaBaoBieu.TimeKeepingByHand.resources
+D:\AT-Git\HeThongChamCong\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.ChamCongVaBaoBieu.TimekeepingCorrection.resources
+D:\AT-Git\HeThongChamCong\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.ChamCongVaBaoBieu.TimekeepingNotInShifts.resources
+D:\AT-Git\HeThongChamCong\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.csproj.ResolveComReference.cache
