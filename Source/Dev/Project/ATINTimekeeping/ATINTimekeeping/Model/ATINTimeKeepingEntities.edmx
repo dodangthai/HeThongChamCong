@@ -2838,7 +2838,7 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewThongTinNhanVien1' does not h
           <FunctionImport Name="spGetLichTrinhTuanByLichTrinh" EntitySet="LichTrinhTuans" ReturnType="Collection(ATINChamCongModel.LichTrinhTuan)">
             <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="spGetMapLichTrinhNangCaoByLichTrinh" EntitySet="LichTrinhNangCaos" ReturnType="Collection(ATINChamCongModel.LichTrinhNangCao)">
+          <FunctionImport Name="spGetMapLichTrinhNangCaoByLichTrinh" EntitySet="MapLichTrinhNangCaos" ReturnType="Collection(ATINChamCongModel.MapLichTrinhNangCao)">
             <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spGetPhongBan" EntitySet="PhongBans" ReturnType="Collection(ATINChamCongModel.PhongBan)">

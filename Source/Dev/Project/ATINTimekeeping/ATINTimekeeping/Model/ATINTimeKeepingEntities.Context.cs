@@ -578,22 +578,22 @@ namespace ATINTimekeeping.Model
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LichTrinhTuan>("spGetLichTrinhTuanByLichTrinh", mergeOption, maLichTrinhParameter);
         }
     
-        public virtual ObjectResult<LichTrinhNangCao> spGetMapLichTrinhNangCaoByLichTrinh(string maLichTrinh)
+        public virtual ObjectResult<MapLichTrinhNangCao> spGetMapLichTrinhNangCaoByLichTrinh(string maLichTrinh)
         {
             var maLichTrinhParameter = maLichTrinh != null ?
                 new ObjectParameter("MaLichTrinh", maLichTrinh) :
                 new ObjectParameter("MaLichTrinh", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LichTrinhNangCao>("spGetMapLichTrinhNangCaoByLichTrinh", maLichTrinhParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<MapLichTrinhNangCao>("spGetMapLichTrinhNangCaoByLichTrinh", maLichTrinhParameter);
         }
     
-        public virtual ObjectResult<LichTrinhNangCao> spGetMapLichTrinhNangCaoByLichTrinh(string maLichTrinh, MergeOption mergeOption)
+        public virtual ObjectResult<MapLichTrinhNangCao> spGetMapLichTrinhNangCaoByLichTrinh(string maLichTrinh, MergeOption mergeOption)
         {
             var maLichTrinhParameter = maLichTrinh != null ?
                 new ObjectParameter("MaLichTrinh", maLichTrinh) :
                 new ObjectParameter("MaLichTrinh", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LichTrinhNangCao>("spGetMapLichTrinhNangCaoByLichTrinh", mergeOption, maLichTrinhParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<MapLichTrinhNangCao>("spGetMapLichTrinhNangCaoByLichTrinh", mergeOption, maLichTrinhParameter);
         }
     
         public virtual ObjectResult<PhongBan> spGetPhongBan(Nullable<int> maPhongBan)
