@@ -113,8 +113,24 @@
       <DependentUpon>DiemDanh.cs</DependentUpon>
     </Compile>
     <Compile Include="Common\ConvertModel.cs" />
-    <Compile Include="Common\Utils.cs" />
-    <Compile Include="FormServerActivity\CommandLogs.cs">
+	<Compile Include="ChamCongVaBaoBieu\TimeKeepingByHand.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChamCongVaBaoBieu\TimeKeepingByHand.Designer.cs">
+      <DependentUpon>TimeKeepingByHand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChamCongVaBaoBieu\TimekeepingCorrection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChamCongVaBaoBieu\TimekeepingCorrection.Designer.cs">
+      <DependentUpon>TimekeepingCorrection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChamCongVaBaoBieu\TimekeepingNotInShifts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChamCongVaBaoBieu\TimekeepingNotInShifts.Designer.cs">
+      <DependentUpon>TimekeepingNotInShifts.cs</DependentUpon>
+    </Compile>    <Compile Include="FormServerActivity\CommandLogs.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormServerActivity\CommandLogs.Designer.cs">
@@ -427,10 +443,16 @@
     <Compile Include="Model\spGetAllSapXepLichTrinh_Result.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\spGetAllTrangThai_Result.cs">
+	<Compile Include="Model\spGetAllTrangThai_Result.cs">
+    <Compile Include="Model\spGetAllViewGioChiaHaiCot_Result.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\spGetCaLamViec_Result.cs">
+    <Compile Include="Model\spGetAllViewGioNguonOrderByNgayGio_Result.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\spGetAllViewThongTinNhanVien1_Result.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>    <Compile Include="Model\spGetCaLamViec_Result.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\spGetLichTrinhNamByLichTrinh_Result.cs">
@@ -457,6 +479,9 @@
     <Compile Include="Model\spGetViewSapXepLichTrinhByNguoi_Result.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\spGetViewThongTinNhanVien1ByPhongBan_Result.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
@@ -481,7 +506,16 @@
     <Compile Include="Model\VanTay.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\ViewGioChiaHaiCot.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewGioNguon.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\ViewSapXepLichTrinh.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewThongTinNhanVien1.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\XepLoaiChamCong.cs">
@@ -541,6 +575,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChamCongVaBaoBieu\DiemDanh.resx">
       <DependentUpon>DiemDanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChamCongVaBaoBieu\TimeKeepingByHand.resx">
+      <DependentUpon>TimeKeepingByHand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChamCongVaBaoBieu\TimekeepingCorrection.resx">
+      <DependentUpon>TimekeepingCorrection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChamCongVaBaoBieu\TimekeepingNotInShifts.resx">
+      <DependentUpon>TimekeepingNotInShifts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormServerActivity\CommandLogs.resx">
       <DependentUpon>CommandLogs.cs</DependentUpon>
@@ -672,6 +715,38 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Model\ATINTimekeepingEntities.Context.tt">
