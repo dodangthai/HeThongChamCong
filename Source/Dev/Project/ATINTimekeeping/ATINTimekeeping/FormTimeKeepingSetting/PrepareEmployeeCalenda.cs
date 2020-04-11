@@ -122,6 +122,8 @@ namespace ATINTimekeeping.FormTimeKeepingSetting
                     viewSapXepLichTrinhs.Add(context.spGetViewSapXepLichTrinhByNguoi(nguoi.MaNguoi).FirstOrDefault());
                 }
                 dataGridView1.DataSource = viewSapXepLichTrinhs;
+                if (viewSapXepLichTrinhs.Count < 1)
+                    return;
                 barEditItem3.EditValue = viewSapXepLichTrinhs.Count.ToString();
             }
 
@@ -134,6 +136,8 @@ namespace ATINTimekeeping.FormTimeKeepingSetting
                     viewSapXepLichTrinhs.Add(context.spGetViewSapXepLichTrinhByNguoi(nguoi.MaNguoi).FirstOrDefault());
                 }
                 dataGridView1.DataSource = viewSapXepLichTrinhs;
+                if (viewSapXepLichTrinhs.Count < 1)
+                    return;
                 barEditItem3.EditValue = viewSapXepLichTrinhs.Count.ToString();
             }
 
@@ -146,6 +150,8 @@ namespace ATINTimekeeping.FormTimeKeepingSetting
                     viewSapXepLichTrinhs.Add(context.spGetViewSapXepLichTrinhByNguoi(nguoi.MaNguoi).FirstOrDefault());
                 }
                 dataGridView1.DataSource = viewSapXepLichTrinhs;
+                if (viewSapXepLichTrinhs.Count < 1)
+                    return;
                 barEditItem3.EditValue = viewSapXepLichTrinhs.Count.ToString();
             }
 
@@ -158,6 +164,8 @@ namespace ATINTimekeeping.FormTimeKeepingSetting
                     viewSapXepLichTrinhs.Add(context.spGetViewSapXepLichTrinhByNguoi(nguoi.MaNguoi).FirstOrDefault());
                 }
                 dataGridView1.DataSource = viewSapXepLichTrinhs;
+                if (viewSapXepLichTrinhs.Count < 1)
+                    return;
                 barEditItem3.EditValue = viewSapXepLichTrinhs.Count.ToString();
             }
             dataGridView1.Columns["MaSapXep"].Visible = false;
@@ -167,7 +175,6 @@ namespace ATINTimekeeping.FormTimeKeepingSetting
             dataGridView1.Columns["HoTen"].DisplayIndex = 3;
             //dataGridView1.Columns["MaLichTrinh"].Visible = false;
             dataGridView1.Columns["col"].DisplayIndex = 4;
-
             dataGridView1.Refresh();
         }
         private void DataGridView2Config(ViewSapXepLichTrinh viewSapXepLichTrinh)
@@ -177,6 +184,8 @@ namespace ATINTimekeeping.FormTimeKeepingSetting
             var lstSapXepLTT = context.spGetSapXepLichTrinhTamByNguoi(viewSapXepLichTrinh.MaNguoi).ToList();
             var lstLichTrinh = context.spGetAllLichTrinh().ToList();
             dataGridView2.DataSource = lstSapXepLTT;
+            if (lstSapXepLTT.Count < 1)
+                return;
             dataGridView2.Columns["TuNgay"].DisplayIndex = 0;
             dataGridView2.Columns["DenNgay"].DisplayIndex = 1;
             dataGridView2.Columns["TenLichTrinh"].DisplayIndex = 2;
@@ -310,6 +319,8 @@ namespace ATINTimekeeping.FormTimeKeepingSetting
             {
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
+                    if (row.Cells[0].Value == null)
+                        continue;
                     if ((bool)row.Cells[0].Value == true)
                     {
                         context.spInsertSapxepLichTrinhTam(
@@ -376,21 +387,22 @@ namespace ATINTimekeeping.FormTimeKeepingSetting
             {
                 if (row.Cells.Count > 0)
                 {
-
-                }
-                if ((bool)row.Cells[0].Value == true)
-                {
-                    var viewsapxeplichtrinh = row.DataBoundItem as ViewSapXepLichTrinh;
-                    if (comboBox1.SelectedValue == null)
+                    if (row.Cells[0].Value == null)
+                        continue;
+                    if ((bool)row.Cells[0].Value == true)
                     {
-                        context.spDeleteSapXepLichTrinh(viewsapxeplichtrinh.MaSapXep);
-                    }
-                    else
-                    {
-                        context.spDeleteSapXepLichTrinh(viewsapxeplichtrinh.MaSapXep);
-                        context.spInsertSapXepLichTrinh(viewsapxeplichtrinh.MaNguoi, comboBox1.SelectedValue.ToString().Trim());
-                    }
+                        var viewsapxeplichtrinh = row.DataBoundItem as ViewSapXepLichTrinh;
+                        if (comboBox1.SelectedValue == null)
+                        {
+                            context.spDeleteSapXepLichTrinh(viewsapxeplichtrinh.MaSapXep);
+                        }
+                        else
+                        {
+                            context.spDeleteSapXepLichTrinh(viewsapxeplichtrinh.MaSapXep);
+                            context.spInsertSapXepLichTrinh(viewsapxeplichtrinh.MaNguoi, comboBox1.SelectedValue.ToString().Trim());
+                        }
 
+                    }
                 }
             }
             DataGridView1Config(treeView1.SelectedNode);
