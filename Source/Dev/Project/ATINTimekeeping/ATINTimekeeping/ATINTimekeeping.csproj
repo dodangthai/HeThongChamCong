@@ -112,6 +112,8 @@
     <Compile Include="ChamCongVaBaoBieu\DiemDanh.Designer.cs">
       <DependentUpon>DiemDanh.cs</DependentUpon>
     </Compile>
+    <Compile Include="Common\ConvertModel.cs" />
+    <Compile Include="Common\Utils.cs" />
     <Compile Include="FormServerActivity\CommandLogs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,66 +137,6 @@
     </Compile>
     <Compile Include="FormServerActivity\ServerEvent.Designer.cs">
       <DependentUpon>ServerEvent.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSystem\ChangePassword.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSystem\ChangePassword.Designer.cs">
-      <DependentUpon>ChangePassword.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSystem\CompanyInformation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSystem\CompanyInformation.Designer.cs">
-      <DependentUpon>CompanyInformation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSystem\DeclareDepartment.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSystem\DeclareDepartment.Designer.cs">
-      <DependentUpon>DeclareDepartment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSystem\DeclareHoliday.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSystem\DeclareHoliday.Designer.cs">
-      <DependentUpon>DeclareHoliday.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSystem\DeclareLiteracy.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSystem\DeclareLiteracy.Designer.cs">
-      <DependentUpon>DeclareLiteracy.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSystem\DeclareNation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSystem\DeclareNation.Designer.cs">
-      <DependentUpon>DeclareNation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSystem\DeclarePosition.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSystem\DeclarePosition.Designer.cs">
-      <DependentUpon>DeclarePosition.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSystem\DeclareReligion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSystem\DeclareReligion.Designer.cs">
-      <DependentUpon>DeclareReligion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSystem\ManagerAccount.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSystem\ManagerAccount.Designer.cs">
-      <DependentUpon>ManagerAccount.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSystem\ManagerEmployee.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSystem\ManagerEmployee.Designer.cs">
-      <DependentUpon>ManagerEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="FormTimeKeepingSetting\ChooseWeekends.cs">
       <SubType>Form</SubType>
@@ -250,6 +192,88 @@
     <Compile Include="FormTimeKeepingSetting\TimeKeepingSymbolcs.Designer.cs">
       <DependentUpon>TimeKeepingSymbolcs.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormHeThong\CauHinhDatabase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHeThong\CauHinhDatabase.Designer.cs">
+      <DependentUpon>CauHinhDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHeThong\DoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHeThong\DoiMatKhau.Designer.cs">
+      <DependentUpon>DoiMatKhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHeThong\KhaiBaoChucVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHeThong\KhaiBaoChucVu.Designer.cs">
+      <DependentUpon>KhaiBaoChucVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHeThong\KhaiBaoDanToc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHeThong\KhaiBaoDanToc.Designer.cs">
+      <DependentUpon>KhaiBaoDanToc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHeThong\KhaiBaoNgayLe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHeThong\KhaiBaoNgayLe.Designer.cs">
+      <DependentUpon>KhaiBaoNgayLe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHeThong\KhaiBaoPhongBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHeThong\KhaiBaoPhongBan.Designer.cs">
+      <DependentUpon>KhaiBaoPhongBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHeThong\KhaiBaoPhongBanAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHeThong\KhaiBaoPhongBanAdd.Designer.cs">
+      <DependentUpon>KhaiBaoPhongBanAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHeThong\KhaiBaoQuocTich.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHeThong\KhaiBaoQuocTich.Designer.cs">
+      <DependentUpon>KhaiBaoQuocTich.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHeThong\KhaiBaoTonGiao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHeThong\KhaiBaoTonGiao.Designer.cs">
+      <DependentUpon>KhaiBaoTonGiao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHeThong\KhaiBaoTrinhDoHocVan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHeThong\KhaiBaoTrinhDoHocVan.Designer.cs">
+      <DependentUpon>KhaiBaoTrinhDoHocVan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHeThong\QuanLyTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHeThong\QuanLyTaiKhoan.Designer.cs">
+      <DependentUpon>QuanLyTaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHeThong\ThongTinCongTy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHeThong\ThongTinCongTy.Designer.cs">
+      <DependentUpon>ThongTinCongTy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\ChucVuManager.cs" />
+    <Compile Include="Manager\DanTocManager.cs" />
+    <Compile Include="Manager\GioiTinhManager.cs" />
+    <Compile Include="Manager\NgayNghiLeManager.cs" />
+    <Compile Include="Manager\NguoiManager.cs" />
+    <Compile Include="Manager\PhongBanManager.cs" />
+    <Compile Include="Manager\QuocTichManager.cs" />
+    <Compile Include="Manager\TonGiaoManager.cs" />
+    <Compile Include="Manager\TrangThaiManager.cs" />
+    <Compile Include="Manager\TrinhDoHocVanManager.cs" />
     <Compile Include="Model\AspNetRole.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
@@ -283,6 +307,9 @@
     <Compile Include="Model\CaLamViec.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\CauHinhRabbitMQ.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\ChamCong.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
@@ -302,6 +329,9 @@
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DanToc.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\GioiTinh.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\KhuonMat.cs">
@@ -364,6 +394,9 @@
     <Compile Include="Model\PhongBan.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\QuocTich.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\SapXepLichTrinh.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
@@ -371,9 +404,6 @@
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\spGetAllCaLamViec_Result.cs">
-      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\spGetAllChucVu_Result.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\spGetAllKyHieuCacLoaiVang_Result.cs">
@@ -397,6 +427,9 @@
     <Compile Include="Model\spGetAllSapXepLichTrinh_Result.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\spGetAllTrangThai_Result.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\spGetCaLamViec_Result.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
@@ -413,9 +446,6 @@
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\spGetMapLichTrinhNangCaoByLichTrinh_Result.cs">
-      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\spGetPhongBan_Result.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\spGetSapXepLichTrinhByNguoi_Result.cs">
@@ -442,6 +472,9 @@
     <Compile Include="Model\TonGiao.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\TrangThai.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\TrinhDoHocVan.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
@@ -461,6 +494,11 @@
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="QuanlymaychamcongFrm\KhaiBaoMayChamCongFrm.cs">
       <SubType>Form</SubType>
@@ -492,6 +530,12 @@
     <Compile Include="QuanlymaychamcongFrm\Temp.Designer.cs">
       <DependentUpon>Temp.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNhanVien\QuanLyNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNhanVien\QuanLyNhanVien.Designer.cs">
+      <DependentUpon>QuanLyNhanVien.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ChamCongVaBaoBieu\ChamCongTheoCa.resx">
       <DependentUpon>ChamCongTheoCa.cs</DependentUpon>
     </EmbeddedResource>
@@ -509,36 +553,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormServerActivity\ServerEvent.resx">
       <DependentUpon>ServerEvent.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSystem\ChangePassword.resx">
-      <DependentUpon>ChangePassword.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSystem\CompanyInformation.resx">
-      <DependentUpon>CompanyInformation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSystem\DeclareDepartment.resx">
-      <DependentUpon>DeclareDepartment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSystem\DeclareHoliday.resx">
-      <DependentUpon>DeclareHoliday.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSystem\DeclareLiteracy.resx">
-      <DependentUpon>DeclareLiteracy.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSystem\DeclareNation.resx">
-      <DependentUpon>DeclareNation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSystem\DeclarePosition.resx">
-      <DependentUpon>DeclarePosition.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSystem\DeclareReligion.resx">
-      <DependentUpon>DeclareReligion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSystem\ManagerAccount.resx">
-      <DependentUpon>ManagerAccount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSystem\ManagerEmployee.resx">
-      <DependentUpon>ManagerEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTimeKeepingSetting\ChooseWeekends.resx">
       <DependentUpon>ChooseWeekends.cs</DependentUpon>
@@ -567,17 +581,48 @@
     <EmbeddedResource Include="FormTimeKeepingSetting\TimeKeepingSymbolcs.resx">
       <DependentUpon>TimeKeepingSymbolcs.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormHeThong\CauHinhDatabase.resx">
+      <DependentUpon>CauHinhDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHeThong\DoiMatKhau.resx">
+      <DependentUpon>DoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHeThong\KhaiBaoChucVu.resx">
+      <DependentUpon>KhaiBaoChucVu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHeThong\KhaiBaoDanToc.resx">
+      <DependentUpon>KhaiBaoDanToc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHeThong\KhaiBaoNgayLe.resx">
+      <DependentUpon>KhaiBaoNgayLe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHeThong\KhaiBaoPhongBan.resx">
+      <DependentUpon>KhaiBaoPhongBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHeThong\KhaiBaoPhongBanAdd.resx">
+      <DependentUpon>KhaiBaoPhongBanAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHeThong\KhaiBaoQuocTich.resx">
+      <DependentUpon>KhaiBaoQuocTich.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHeThong\KhaiBaoTonGiao.resx">
+      <DependentUpon>KhaiBaoTonGiao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHeThong\KhaiBaoTrinhDoHocVan.resx">
+      <DependentUpon>KhaiBaoTrinhDoHocVan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHeThong\QuanLyTaiKhoan.resx">
+      <DependentUpon>QuanLyTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHeThong\ThongTinCongTy.resx">
+      <DependentUpon>ThongTinCongTy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -595,6 +640,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QuanlymaychamcongFrm\Temp.resx">
       <DependentUpon>Temp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNhanVien\QuanLyNhanVien.resx">
+      <DependentUpon>QuanLyNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="ATINChamCongDataSet.xsc">
@@ -623,54 +671,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\home_32x32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\home_16x16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\usergroup_32x32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\usergroup_16x16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\reviewprotectworkbook_32x32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\reviewprotectworkbook_16x16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\encryptdocument_32x32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\encryptdocument_16x16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bouser_32x32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bouser_16x16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\home_32x321.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\home_16x161.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\reviewers_32x32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\reviewers_16x16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\zoom_32x32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\zoom_32x321.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
@@ -684,6 +684,9 @@
       <DependentUpon>ATINTimekeepingEntities.edmx</DependentUpon>
       <LastGenOutput>ATINTimekeepingEntities.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
