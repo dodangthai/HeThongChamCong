@@ -25,7 +25,7 @@ namespace ATINTimekeeping.ChamCongVaBaoBieu
             SetDoubleBuffer(dataGridView0, true);
             SetDoubleBuffer(dataGridView1, true);
             SetDoubleBuffer(dataGridView2, true);
-            SetDoubleBuffer(dataGridView3, true);
+            //SetDoubleBuffer(dataGridView3, true);
             DataGridViewCheckBoxColumn checkCol = new DataGridViewCheckBoxColumn();
             checkCol.Name = "Checkbox";
             checkCol.DataPropertyName = "Checkbox";
@@ -97,6 +97,7 @@ namespace ATINTimekeeping.ChamCongVaBaoBieu
                 if (view.NgayNhanViec == null)
                     view.NgayNhanViec = DateTime.MaxValue;
             }
+            barEditItem8.EditValue = viewThongTinNhanVien1s.Count.ToString();
             dataGridViewNhanVien.DataSource = viewThongTinNhanVien1s;
             dataGridViewNhanVien.Columns["MaLichTrinh"].Visible = false;
             dataGridViewNhanVien.Columns["MaChucVu"].Visible = false;
@@ -198,32 +199,32 @@ namespace ATINTimekeeping.ChamCongVaBaoBieu
                                 {
                                     if (i + 1 == lstGioNguon1Cot.Count)
                                     {
-                                        addTable(lstGioNguon1Cot[i], null, ref table);
+                                        addTableGrid1(lstGioNguon1Cot[i], null, ref table);
                                     }
                                     if (i + 1 < lstGioNguon1Cot.Count && lstGioNguon1Cot[i + 1].NgayChamCong == tmp)
                                     {
                                         if (lstGioNguon1Cot[i + 1].MaLoaiChamCong == "IN")
 
                                         {
-                                            addTable(lstGioNguon1Cot[i], null, ref table);
+                                            addTableGrid1(lstGioNguon1Cot[i], null, ref table);
                                         }
                                         else if (lstGioNguon1Cot[i + 1].MaLoaiChamCong == "OUT")
                                         {
-                                            addTable(lstGioNguon1Cot[i], lstGioNguon1Cot[i + 1], ref table);
+                                            addTableGrid1(lstGioNguon1Cot[i], lstGioNguon1Cot[i + 1], ref table);
                                             i += 1;
                                             continue;
                                         }
                                     }
                                     if (i + 1 < lstGioNguon1Cot.Count && lstGioNguon1Cot[i + 1].NgayChamCong != tmp)
                                     {
-                                        addTable(lstGioNguon1Cot[i], null, ref table);
+                                        addTableGrid1(lstGioNguon1Cot[i], null, ref table);
                                     }
 
                                 }
 
                                 else if (lstGioNguon1Cot[i].MaLoaiChamCong == "OUT")
                                 {
-                                    addTable(null, lstGioNguon1Cot[i], ref table);
+                                    addTableGrid1(null, lstGioNguon1Cot[i], ref table);
                                 }
                                 continue;
                             }
@@ -231,22 +232,22 @@ namespace ATINTimekeeping.ChamCongVaBaoBieu
                             {
                                 if (i + 1 == lstGioNguon1Cot.Count)
                                 {
-                                    addTable(lstGioNguon1Cot[i], null, ref table);
+                                    addTableGrid1(lstGioNguon1Cot[i], null, ref table);
                                 }
 
                                 else if (i + 1 < lstGioNguon1Cot.Count && lstGioNguon1Cot[i + 1].NgayChamCong != tmp)
                                 {
-                                    addTable(lstGioNguon1Cot[i], null, ref table);
+                                    addTableGrid1(lstGioNguon1Cot[i], null, ref table);
                                 }
                                 else if (i + 1 < lstGioNguon1Cot.Count && lstGioNguon1Cot[i + 1].NgayChamCong == tmp)
                                 {
                                     if (lstGioNguon1Cot[i + 1].MaLoaiChamCong == "IN")
                                     {
-                                        addTable(lstGioNguon1Cot[i], null, ref table);
+                                        addTableGrid1(lstGioNguon1Cot[i], null, ref table);
                                     }
                                     else if (lstGioNguon1Cot[i + 1].MaLoaiChamCong == "OUT")
                                     {
-                                        addTable(lstGioNguon1Cot[i], lstGioNguon1Cot[i + 1], ref table);
+                                        addTableGrid1(lstGioNguon1Cot[i], lstGioNguon1Cot[i + 1], ref table);
                                         i += 1;
                                         continue;
                                     }
@@ -258,7 +259,7 @@ namespace ATINTimekeeping.ChamCongVaBaoBieu
                                 {
                                     if (lstGioNguon1Cot[i - 1].MaLoaiChamCong == "OUT")
                                     {
-                                        addTable(null, lstGioNguon1Cot[i], ref table);
+                                        addTableGrid1(null, lstGioNguon1Cot[i], ref table);
                                     }
                                 }
                             }
@@ -283,7 +284,7 @@ namespace ATINTimekeeping.ChamCongVaBaoBieu
             dataGridView1.Columns["TenMayGrid1"].DisplayIndex = 6;
 
         }
-        private void addTable(ViewGioChiaHaiCot viewGioChiaHaiCotIN, ViewGioChiaHaiCot viewGioChiaHaiCotOUT, ref System.Data.DataTable Table)
+        private void addTableGrid1(ViewGioChiaHaiCot viewGioChiaHaiCotIN, ViewGioChiaHaiCot viewGioChiaHaiCotOUT, ref System.Data.DataTable Table)
         {
             if (viewGioChiaHaiCotIN == null && viewGioChiaHaiCotOUT != null)
             {
@@ -326,9 +327,110 @@ namespace ATINTimekeeping.ChamCongVaBaoBieu
                        viewGioChiaHaiCotIN.TenMay
                        );
         }
+        private void addTableGrid2(ViewGioChiaHaiCot viewGioChiaHaiCotIN, ViewGioChiaHaiCot viewGioChiaHaiCotOUT, ref System.Data.DataTable Table)
+        {
+            if (viewGioChiaHaiCotIN == null && viewGioChiaHaiCotOUT != null)
+            {
+                Table.Rows.Add(
+                    viewGioChiaHaiCotOUT.MaNhanVien.GetValueOrDefault(0),
+                    viewGioChiaHaiCotOUT.MaChamCong,
+                    viewGioChiaHaiCotOUT.HoTen,
+                    viewGioChiaHaiCotOUT.NgayChamCong,
+                    DateTime.MinValue,
+                    viewGioChiaHaiCotOUT.GioChamCong
+                    );
+            }
+            else if (viewGioChiaHaiCotIN != null && viewGioChiaHaiCotOUT == null)
+            {
+                Table.Rows.Add(
+                    viewGioChiaHaiCotIN.MaNhanVien.GetValueOrDefault(0),
+                    viewGioChiaHaiCotIN.MaChamCong,
+                    viewGioChiaHaiCotIN.HoTen,
+                    viewGioChiaHaiCotIN.NgayChamCong,
+                    viewGioChiaHaiCotIN.GioChamCong,
+                    DateTime.MinValue
+                    );
+            }
+            else
+                Table.Rows.Add(
+                    viewGioChiaHaiCotIN.MaNhanVien.GetValueOrDefault(0),
+                    viewGioChiaHaiCotIN.MaChamCong,
+                    viewGioChiaHaiCotIN.HoTen,
+                    viewGioChiaHaiCotIN.NgayChamCong,
+                    viewGioChiaHaiCotIN.GioChamCong,
+                    viewGioChiaHaiCotOUT.GioChamCong
+                    );
+        }
         private void DataGridView2Config()
         {
+            ATINChamCongEntities context = new ATINChamCongEntities();
 
+            System.Data.DataTable table = new System.Data.DataTable("ViewGioChia2Cot");
+            table.Columns.Add(new DataColumn("MaNhanVienGrid2", typeof(int)));
+            table.Columns.Add(new DataColumn("MaChamCongGrid2", typeof(int)));
+            table.Columns.Add(new DataColumn("HoTenGrid2", typeof(string)));
+            table.Columns.Add(new DataColumn("NgayChamCongGrid2", typeof(DateTime)));
+            table.Columns.Add(new DataColumn("GioVaoGrid2", typeof(DateTime)));
+            table.Columns.Add(new DataColumn("GioRaGrid2", typeof(DateTime)));
+
+
+            if (dataGridViewNhanVien.Rows.Count < 1)
+                return;
+
+            else
+            {
+                //int count = 0;
+                DateTime tmp;
+                ViewGioChiaHaiCot GioVaoSomNhat;
+                foreach (DataGridViewRow row in dataGridViewNhanVien.Rows)
+                {
+                    if (row.Cells[0].Value == null)
+                        continue;
+                    if ((bool)row.Cells[0].Value == true)
+                    {
+                        var lstGioNguon1Cot = context.spGetAllViewGioChiaHaiCot((row.DataBoundItem as ViewThongTinNhanVien1).MaNguoi, dateTuNgay.Value, dateDenNgay.Value).ToList();
+                        tmp = DateTime.MinValue;
+                        GioVaoSomNhat = null;
+                        for (int i = 0; i < lstGioNguon1Cot.Count; i++)
+                        {
+                            // Kiểm tra chuyển ngày
+                            if (tmp != lstGioNguon1Cot[i].NgayChamCong)
+                            {
+                                tmp = lstGioNguon1Cot[i].NgayChamCong;
+                                GioVaoSomNhat = lstGioNguon1Cot[i];
+                                if (i + 1 >= lstGioNguon1Cot.Count)
+                                {
+                                    addTableGrid2(GioVaoSomNhat, null, ref table);
+                                }
+                                else if(i+1<lstGioNguon1Cot.Count && lstGioNguon1Cot[i+1].NgayChamCong != tmp)
+                                    addTableGrid2(GioVaoSomNhat, null, ref table);
+                                continue;
+                            }
+                            if (i + 1 >= lstGioNguon1Cot.Count)
+                            {
+                                addTableGrid2(GioVaoSomNhat, lstGioNguon1Cot[i], ref table);
+                            }
+                            else if (i + 1 < lstGioNguon1Cot.Count && lstGioNguon1Cot[i + 1].NgayChamCong != tmp)
+                            {
+                                addTableGrid2(GioVaoSomNhat, lstGioNguon1Cot[i], ref table);
+                            }
+
+                        }
+                    }
+                }
+            }
+
+            dataGridView2.DataSource = table;
+            dataGridView2.Columns["NgayChamCongGrid2"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            //dataGridView0.Columns["GioVaoGrid1"].DefaultCellStyle.Format = "hh:mm:ss";
+            //dataGridView0.Columns["GioRaGrid1"].DefaultCellStyle.Format = "hh:mm:ss";
+                ;
+            dataGridView2.Columns["MaNhanVienGrid2"].DisplayIndex = 0;
+            dataGridView2.Columns["MaChamCongGrid2"].DisplayIndex = 1;
+            dataGridView2.Columns["HoTenGrid2"].DisplayIndex = 2;
+            dataGridView2.Columns["NgayChamCongGrid2"].DisplayIndex = 3;
+            dataGridView2.Columns["GioVaoGrid2"].DisplayIndex = 4;
+            dataGridView2.Columns["GioRaGrid2"].DisplayIndex = 5;
         }
         private void DataGridView3Config()
         {
@@ -359,8 +461,14 @@ namespace ATINTimekeeping.ChamCongVaBaoBieu
 
         private void btnXemCong_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
+            btnXemCong.Enabled = false;
             DataGridView0Config();
             DataGridView1Config();
+            DataGridView2Config();
+
+            Cursor.Current = Cursors.Default;
+            btnXemCong.Enabled = true;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -401,6 +509,8 @@ namespace ATINTimekeeping.ChamCongVaBaoBieu
 
         private void barButtonItem12_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            barButtonItem16.Enabled = false;
+            Cursor.Current = Cursors.WaitCursor;
             try
             {
                 string saveExcelFile = @"C:\GioNguon_report.xlsx";
@@ -557,10 +667,14 @@ namespace ATINTimekeeping.ChamCongVaBaoBieu
             {
                 MessageBox.Show(ex.Message);
             }
+            barButtonItem16.Enabled = true;
+            Cursor.Current = Cursors.Default;
         }
 
         private void barButtonItem16_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            barButtonItem16.Enabled = false;
+            Cursor.Current = Cursors.WaitCursor;
             try
             {
                 string saveExcelFile = @"C:\GioNguonHaiCot_report.xlsx";
@@ -730,8 +844,14 @@ namespace ATINTimekeeping.ChamCongVaBaoBieu
             {
                 MessageBox.Show(ex.Message);
             }
+            barButtonItem16.Enabled = true;
+            Cursor.Current = Cursors.Default;
         }
 
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 
 
