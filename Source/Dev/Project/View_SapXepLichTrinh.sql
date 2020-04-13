@@ -8,5 +8,16 @@ FROM
 (Nguoi as N
 left join ChamCong as C On  N.MaNguoi = c.MaNhanVien)
 left join SapXepLichTrinh as SX on N.MaNguoi = SX.MaNguoi
+go
+Create or ALTER   proc [spGetViewSapXepLichTrinhByNguoi]
+@MaNguoi int 
+as
+begin
+select *
+From ViewSapXepLichTrinh
+where MaNguoi = @MaNguoi
+end
+go
+
 
 
