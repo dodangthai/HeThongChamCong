@@ -55,7 +55,13 @@ namespace ATINTimekeeping.FormTimeKeepingSetting
             var lstMap = context.spGetMapLichTrinhNangCaoByLichTrinh(lichTrinh.MaLichTrinh).ToList();
             textEdit1.Text = lichTrinh.MaLichTrinh;
             textEdit2.Text = lichTrinh.TenLichTrinh;
-            foreach(var map in lstMap)
+
+            checkBox1.Checked = false;
+            checkBox2.Checked = false;
+            checkBox3.Checked = false;
+            checkBox4.Checked = false;
+            checkBox5.Checked = false;
+            foreach (var map in lstMap)
             {
                 switch (map.MaLichTrinhNangCao)
                 {
