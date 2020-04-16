@@ -1,4 +1,4 @@
-use ATINChamCong
+use ATINChamCong1
 go
 
 --Create proc spInsertPhongBan
@@ -40,12 +40,12 @@ from PhongBan
 end
 go
 
---Create proc spGetPhongBan
---@MaPhongBan int
---as
---begin
---select *
---from PhongBan
---where MaPhongBan = @MaPhongBan
---end
---go
+Create proc spGetPhongBan
+@MaPhongBan int
+as
+begin
+select *
+from PhongBan
+where MaPhongBan = @MaPhongBan
+end
+go
