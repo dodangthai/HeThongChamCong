@@ -116,6 +116,22 @@
     <Property Name="TachGioCaDemDen" Type="time" Precision="7" />
     <Property Name="SDTongGLVTinhTangCa" Type="bit" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ATINChamCong.dbo.CauHinhRabbitMQ' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CauHinhRabbitMQ">
+    <Key>
+      <PropertyRef Name="DiaChiIp" />
+      <PropertyRef Name="Port" />
+      <PropertyRef Name="TenDangNhap" />
+      <PropertyRef Name="MatKhauDangNhap" />
+      <PropertyRef Name="ThongBaoLoi" />
+    </Key>
+    <Property Name="DiaChiIp" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Port" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="TenDangNhap" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="MatKhauDangNhap" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="ThongBaoLoi" Type="bit" Nullable="false" />
+  </EntityType>
   <EntityType Name="ChamCong">
     <Key>
       <PropertyRef Name="MaChamCong" />
@@ -167,15 +183,14 @@
     </Key>
     <Property Name="MaKhuVuc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="KhuVuc" Type="nvarchar" MaxLength="200" Nullable="false" />
-    <Property Name="TrangThai" Type="int" />
   </EntityType>
   <EntityType Name="DangKyNghiPhep">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="MaDangKyNghiPhep" />
       <PropertyRef Name="MaNhanVien" />
       <PropertyRef Name="MaLoaiNghiPhep" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="MaDangKyNghiPhep" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MaNhanVien" Type="int" Nullable="false" />
     <Property Name="MaDinhDanh" Type="varchar" MaxLength="50" />
     <Property Name="MaLoaiNghiPhep" Type="int" Nullable="false" />
@@ -184,9 +199,9 @@
   </EntityType>
   <EntityType Name="DangKyTangCa">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="MaDangKyTangCa" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaDangKyTangCa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MaNhanVien" Type="int" Nullable="false" />
     <Property Name="MaDinhDanh" Type="varchar" MaxLength="50" />
     <Property Name="NgayDangKy" Type="date" Nullable="false" />
@@ -204,17 +219,25 @@
     <Property Name="MaDanToc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TenDanToc" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="GioiTinh">
+    <Key>
+      <PropertyRef Name="MaGioiTinh" />
+    </Key>
+    <Property Name="MaGioiTinh" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenGioiTinh" Type="nvarchar" MaxLength="10" />
+  </EntityType>
   <EntityType Name="KhuonMat">
     <Key>
       <PropertyRef Name="MaKhuonMat" />
       <PropertyRef Name="MaNguoi" />
     </Key>
-    <Property Name="MaKhuonMat" Type="int" Nullable="false" />
+    <Property Name="MaKhuonMat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MaNguoi" Type="int" Nullable="false" />
-    <Property Name="AnhKhuonMat" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="AnhKhuonMat" Type="varbinary(max)" />
     <Property Name="ThuocTinhKhuonMat" Type="varbinary(max)" />
     <Property Name="ThoiGianDangKy" Type="datetime" Nullable="false" />
-    <Property Name="TrangThai" Type="int" Nullable="false" />
+    <Property Name="ViTri" Type="int" Nullable="false" />
+    <Property Name="TrangThai" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="KyHieuCacLoaiVang">
     <Key>
@@ -328,33 +351,30 @@
     <Property Name="MaMay" Type="int" Nullable="false" />
     <Property Name="TenMay" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="SoSerial" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="LoaiMay" Type="int" Nullable="false" />
-    <Property Name="DiaChiIP" Type="nvarchar" MaxLength="50" />
     <Property Name="DiaChiMac" Type="nvarchar" MaxLength="50" />
-    <Property Name="NhaSanXuat" Type="nvarchar" MaxLength="100" />
-    <Property Name="AnhThietBi" Type="nvarchar" MaxLength="200" />
     <Property Name="TongBoNho" Type="float" />
-    <Property Name="BoNhoHienTai" Type="float" />
-    <Property Name="SoLuongDangKy" Type="int" />
-    <Property Name="ThoiGianKichHoat" Type="datetime" />
+    <Property Name="BoNhoTrong" Type="float" />
+    <Property Name="SoLuongKhuonMat" Type="int" />
+    <Property Name="SoLuongTheTu" Type="int" />
+    <Property Name="SoLuongVanTay" Type="int" />
+    <Property Name="NgayKichHoat" Type="datetime" />
     <Property Name="ThoiGianCapNhat" Type="datetime" />
-    <Property Name="TuDongDongBo" Type="int" />
-    <Property Name="ThoiGianDongBo" Type="int" />
-    <Property Name="LuuAnhNhanDang" Type="int" />
-    <Property Name="TaiKhoanDangNhap" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="MatKhauDangNhap" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="MaKichHoat" Type="varchar" MaxLength="150" Nullable="false" />
-    <Property Name="TrangThaiKetNoi" Type="int" />
-    <Property Name="TrangThaiHoatDong" Type="int" Nullable="false" />
+    <Property Name="ChuKyDongBo" Type="int" />
+    <Property Name="TenDangNhap" Type="varchar" MaxLength="50" />
+    <Property Name="MatKhauDangNhap" Type="varchar" MaxLength="50" />
+    <Property Name="MaKichHoat" Type="varchar" MaxLength="150" />
+    <Property Name="KichHoatOnline" Type="bit" />
+    <Property Name="TrangThaiKichHoat" Type="bit" />
+    <Property Name="TrangThaiKetNoi" Type="bit" />
   </EntityType>
   <EntityType Name="NgayNghiLe">
     <Key>
       <PropertyRef Name="MaNgayNghiLe" />
     </Key>
     <Property Name="MaNgayNghiLe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="NgayNghiLe" Type="date" Nullable="false" />
-    <Property Name="MoTa" Type="nvarchar" MaxLength="150" />
-    <Property Name="status" Type="int" />
+    <Property Name="TenNgayNghiLe" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="NgayLe" Type="date" Nullable="false" />
+    <Property Name="MoTa" Type="nvarchar" MaxLength="250" />
   </EntityType>
   <EntityType Name="NgayPhepNhanVien">
     <Key>
@@ -369,31 +389,25 @@
     <Key>
       <PropertyRef Name="MaNguoi" />
     </Key>
-    <Property Name="MaNguoi" Type="int" Nullable="false" />
+    <Property Name="MaNguoi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MaDinhDanh" Type="varchar" MaxLength="50" />
-    <Property Name="HoTen" Type="nvarchar" MaxLength="100" />
-    <Property Name="PhongBan" Type="int" />
-    <Property Name="ChucVu" Type="int" />
-    <Property Name="KhuVuc" Type="int" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="MaPhongBan" Type="int" />
+    <Property Name="MaChucVu" Type="int" />
+    <Property Name="MaKhuVuc" Type="int" />
     <Property Name="NgaySinh" Type="date" />
-    <Property Name="GioiTinh" Type="int" Nullable="false" />
+    <Property Name="MaGioiTinh" Type="int" Nullable="false" />
     <Property Name="SoDienThoai" Type="varchar" MaxLength="20" />
     <Property Name="Email" Type="varchar" MaxLength="50" />
-    <Property Name="AnhDaiDien" Type="varchar" MaxLength="200" />
-    <Property Name="TrinhDo" Type="int" />
+    <Property Name="AnhDaiDien" Type="varbinary(max)" />
+    <Property Name="MaTrinhDo" Type="int" />
     <Property Name="SoTheCanCuoc" Type="varchar" MaxLength="50" />
     <Property Name="NgayCapTCC" Type="date" />
     <Property Name="NoiCapTCC" Type="nvarchar" MaxLength="150" />
-    <Property Name="DanToc" Type="int" />
-    <Property Name="TonGiao" Type="int" />
-    <Property Name="QuocTich" Type="int" />
+    <Property Name="MaDanToc" Type="int" />
+    <Property Name="MaTonGiao" Type="int" />
+    <Property Name="MaQuocTich" Type="int" />
     <Property Name="TinhTrangHonNhan" Type="int" />
-    <Property Name="SoBangLaiXeMay" Type="varchar" MaxLength="50" />
-    <Property Name="NgayCapBLXM" Type="date" />
-    <Property Name="NoiCapBLXM" Type="nvarchar" MaxLength="150" />
-    <Property Name="SoBangLaiOto" Type="varchar" MaxLength="50" />
-    <Property Name="NgayCapBLXO" Type="date" />
-    <Property Name="NoiCapBLXO" Type="nvarchar" MaxLength="150" />
     <Property Name="DiaChiThuongTru" Type="nvarchar" MaxLength="150" />
     <Property Name="DiaChiTamTru" Type="varchar" MaxLength="20" />
     <Property Name="NgayNhanViec" Type="date" />
@@ -404,19 +418,19 @@
     <Property Name="ThoiGianDangKy" Type="datetime" />
     <Property Name="ThoiGianCapNhat" Type="datetime" />
     <Property Name="GhiChu" Type="nvarchar" MaxLength="150" />
-    <Property Name="TrangThaiHoatDong" Type="int" />
+    <Property Name="TrangThaiHoatDong" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="NhatKy">
     <Key>
       <PropertyRef Name="MaNhatKy" />
       <PropertyRef Name="MaNguoi" />
     </Key>
-    <Property Name="MaNhatKy" Type="int" Nullable="false" />
+    <Property Name="MaNhatKy" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MaNguoi" Type="int" Nullable="false" />
     <Property Name="MaKhuonMat" Type="int" Nullable="false" />
     <Property Name="MaTheTu" Type="int" Nullable="false" />
     <Property Name="MaVanTay" Type="int" Nullable="false" />
-    <Property Name="AnhKhuonMat" Type="nvarchar" MaxLength="200" />
+    <Property Name="DuongDanAnhKhuonMat" Type="nvarchar" MaxLength="200" />
     <Property Name="ThuocTinhKhuonMat" Type="varbinary(max)" />
     <Property Name="DiemSoSanh" Type="float" />
     <Property Name="Tuoi" Type="int" />
@@ -444,6 +458,14 @@
     </Key>
     <Property Name="MaPhongBan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TenPhongBan" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Cha" Type="int" />
+  </EntityType>
+  <EntityType Name="QuocTich">
+    <Key>
+      <PropertyRef Name="MaQuocTich" />
+    </Key>
+    <Property Name="MaQuocTich" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenQuocTich" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="SapXepLichTrinh">
     <Key>
@@ -458,10 +480,10 @@
       <PropertyRef Name="MaLichTrinhTam" />
     </Key>
     <Property Name="MaLichTrinhTam" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaNguoi" Type="int" Nullable="false" />
     <Property Name="TuNgay" Type="date" Nullable="false" />
     <Property Name="DenNgay" Type="date" Nullable="false" />
     <Property Name="MaLichTrinh" Type="varchar" MaxLength="5" />
-    <Property Name="MaNguoi" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -478,12 +500,12 @@
       <PropertyRef Name="MaTheTu" />
       <PropertyRef Name="MaNguoi" />
     </Key>
-    <Property Name="MaTheTu" Type="int" Nullable="false" />
+    <Property Name="MaTheTu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MaNguoi" Type="int" Nullable="false" />
     <Property Name="LoaiTheTu" Type="int" />
-    <Property Name="ThuocTinhThe" Type="varbinary(max)" />
+    <Property Name="NoiDungThe" Type="varchar" MaxLength="200" />
     <Property Name="ThoiGianDangKy" Type="datetime" Nullable="false" />
-    <Property Name="TrangThai" Type="int" Nullable="false" />
+    <Property Name="TrangThai" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="TonGiao">
     <Key>
@@ -491,7 +513,17 @@
     </Key>
     <Property Name="MaTonGiao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TenTonGiao" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="TrangThai" Type="int" />
+  </EntityType>
+  <EntityType Name="TrangThai">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="GiaTri" />
+      <PropertyRef Name="TenNhom" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenTrangThai" Type="nvarchar" MaxLength="30" />
+    <Property Name="GiaTri" Type="int" Nullable="false" />
+    <Property Name="TenNhom" Type="varchar" MaxLength="30" Nullable="false" />
   </EntityType>
   <EntityType Name="TrinhDoHocVan">
     <Key>
@@ -499,19 +531,18 @@
     </Key>
     <Property Name="MaTrinhDoHocVan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TenTrinhDoHocVan" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="TrangThai" Type="int" />
   </EntityType>
   <EntityType Name="VanTay">
     <Key>
       <PropertyRef Name="MaVanTay" />
       <PropertyRef Name="MaNguoi" />
     </Key>
-    <Property Name="MaVanTay" Type="int" Nullable="false" />
+    <Property Name="MaVanTay" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MaNguoi" Type="int" Nullable="false" />
     <Property Name="NgonTay" Type="int" />
     <Property Name="ThuocTinhVanTay" Type="varbinary(max)" />
-    <Property Name="ThoiGianDangKy" Type="datetime" />
-    <Property Name="TrangThai" Type="int" Nullable="false" />
+    <Property Name="ThoiGianDangKy" Type="datetime" Nullable="false" />
+    <Property Name="TrangThai" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="XepLoaiChamCong">
     <Key>
@@ -563,9 +594,10 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewSapXepLichTrinh' does not hav
   <EntityType Name="ViewSapXepLichTrinh">
     <Key>
       <PropertyRef Name="MaNguoi" />
+      <PropertyRef Name="HoTen" />
     </Key>
     <Property Name="MaNguoi" Type="int" Nullable="false" />
-    <Property Name="HoTen" Type="nvarchar" MaxLength="100" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="MaChamCong" Type="int" />
     <Property Name="MaLichTrinh" Type="varchar" MaxLength="5" />
     <Property Name="MaSapXep" Type="int" />
@@ -575,9 +607,10 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewThongTinNhanVien1' does not h
   <EntityType Name="ViewThongTinNhanVien1">
     <Key>
       <PropertyRef Name="MaNguoi" />
+      <PropertyRef Name="HoTen" />
     </Key>
     <Property Name="MaNguoi" Type="int" Nullable="false" />
-    <Property Name="HoTen" Type="nvarchar" MaxLength="100" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="MaChamCong" Type="int" />
     <Property Name="MaLichTrinh" Type="varchar" MaxLength="5" />
     <Property Name="TenLichTrinh" Type="nvarchar" MaxLength="30" />
@@ -586,6 +619,24 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewThongTinNhanVien1' does not h
     <Property Name="MaPhongBan" Type="int" />
     <Property Name="TenPhongBan" Type="nvarchar" MaxLength="100" />
     <Property Name="NgayNhanViec" Type="date" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ATINChamCong.dbo.ViewXemHinhChamCong' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ViewXemHinhChamCong">
+    <Key>
+      <PropertyRef Name="MaChamCongChiTiet" />
+      <PropertyRef Name="GioChamCong" />
+      <PropertyRef Name="MaChamCong" />
+      <PropertyRef Name="MaNguoi" />
+      <PropertyRef Name="HoTen" />
+    </Key>
+    <Property Name="MaChamCongChiTiet" Type="int" Nullable="false" />
+    <Property Name="GioChamCong" Type="datetime" Nullable="false" />
+    <Property Name="HinhChamCong" Type="varbinary(max)" />
+    <Property Name="MaThietBi" Type="int" />
+    <Property Name="MaChamCong" Type="int" Nullable="false" />
+    <Property Name="MaNguoi" Type="int" Nullable="false" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -863,7 +914,7 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewThongTinNhanVien1' does not h
         <PropertyRef Name="MaChucVu" />
       </Principal>
       <Dependent Role="Nguoi">
-        <PropertyRef Name="ChucVu" />
+        <PropertyRef Name="MaChucVu" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -877,7 +928,7 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewThongTinNhanVien1' does not h
         <PropertyRef Name="MaPhongBan" />
       </Principal>
       <Dependent Role="Nguoi">
-        <PropertyRef Name="PhongBan" />
+        <PropertyRef Name="MaPhongBan" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -920,20 +971,6 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewThongTinNhanVien1' does not h
       </Principal>
       <Dependent Role="SapXepLichTrinh">
         <PropertyRef Name="MaNguoi" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_dbo_SapXepLichTrinhTam_LichTrinh">
-    <End Role="LichTrinh" Type="Self.LichTrinh" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="SapXepLichTrinhTam" Type="Self.SapXepLichTrinhTam" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="LichTrinh">
-        <PropertyRef Name="MaLichTrinh" />
-      </Principal>
-      <Dependent Role="SapXepLichTrinhTam">
-        <PropertyRef Name="MaLichTrinh" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -997,6 +1034,18 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewThongTinNhanVien1' does not h
         <PropertyRef Name="MaLichTrinh" />
       </Principal>
       <Dependent Role="LichTrinhTuan">
+        <PropertyRef Name="MaLichTrinh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SapXepLichTrinhTam_LichTrinh">
+    <End Role="LichTrinh" Type="Self.LichTrinh" Multiplicity="0..1" />
+    <End Role="SapXepLichTrinhTam" Type="Self.SapXepLichTrinhTam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LichTrinh">
+        <PropertyRef Name="MaLichTrinh" />
+      </Principal>
+      <Dependent Role="SapXepLichTrinhTam">
         <PropertyRef Name="MaLichTrinh" />
       </Dependent>
     </ReferentialConstraint>
@@ -1080,9 +1129,6 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewThongTinNhanVien1' does not h
     <Parameter Name="MaLichTrinh" Type="varchar" Mode="In" />
     <Parameter Name="MaLichTrinhNangCao" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="spDeletePhongBan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="MaPhongBan" Type="int" Mode="In" />
-  </Function>
   <Function Name="spDeleteSapXepLichTrinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="MaSapXep" Type="int" Mode="In" />
   </Function>
@@ -1090,7 +1136,6 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewThongTinNhanVien1' does not h
     <Parameter Name="MaLichTrinhTam" Type="int" Mode="In" />
   </Function>
   <Function Name="spGetAllCaLamViec" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <Function Name="spGetAllChucVu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="spGetAllKyHieuCacLoaiVang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="spGetAllKyHieuChamCong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="spGetAllLichTrinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
@@ -1142,6 +1187,11 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewThongTinNhanVien1' does not h
   <Function Name="spGetViewThongTinNhanVien1ByPhongBan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="MaPhongBan" Type="int" Mode="In" />
   </Function>
+  <Function Name="spGetViewXemHinhChamCongByTimeByMachine" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Time" Type="datetime" Mode="In" />
+    <Parameter Name="MaThietBi" Type="int" Mode="In" />
+    <Parameter Name="TimeType" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="spInsertCaLamViec" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="MaCaLamViec" Type="varchar" Mode="In" />
     <Parameter Name="TenCaLamViec" Type="nvarchar" Mode="In" />
@@ -1185,9 +1235,6 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewThongTinNhanVien1' does not h
     <Parameter Name="TachGioCaDemTu" Type="time" Mode="In" />
     <Parameter Name="TachGioCaDemDen" Type="time" Mode="In" />
   </Function>
-  <Function Name="spInsertChucVu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="TenChucVu" Type="nvarchar" Mode="In" />
-  </Function>
   <Function Name="spInsertLichTrinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="MaLichTrinh" Type="varchar" Mode="In" />
     <Parameter Name="TenLichTrinh" Type="nvarchar" Mode="In" />
@@ -1213,9 +1260,37 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewThongTinNhanVien1' does not h
     <Parameter Name="MaLichTrinh" Type="varchar" Mode="In" />
     <Parameter Name="MaLichTrinhNangCao" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="spInsertPhongBan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+  <Function Name="spInsertNguoi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaDinhDanh" Type="varchar" Mode="In" />
+    <Parameter Name="HoTen" Type="nvarchar" Mode="In" />
     <Parameter Name="MaPhongBan" Type="int" Mode="In" />
-    <Parameter Name="TenPhongBan" Type="nvarchar" Mode="In" />
+    <Parameter Name="MaChucVu" Type="int" Mode="In" />
+    <Parameter Name="MaKhuVuc" Type="int" Mode="In" />
+    <Parameter Name="NgaySinh" Type="date" Mode="In" />
+    <Parameter Name="MaGioiTinh" Type="int" Mode="In" />
+    <Parameter Name="SoDienThoai" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="AnhDaiDien" Type="varbinary(max)" Mode="In" />
+    <Parameter Name="MaTrinhDo" Type="int" Mode="In" />
+    <Parameter Name="SoTheCanCuoc" Type="varchar" Mode="In" />
+    <Parameter Name="NgayCapTCC" Type="date" Mode="In" />
+    <Parameter Name="NoiCapTCC" Type="nvarchar" Mode="In" />
+    <Parameter Name="MaDanToc" Type="int" Mode="In" />
+    <Parameter Name="MaTonGiao" Type="bit" Mode="In" />
+    <Parameter Name="MaQuocTich" Type="int" Mode="In" />
+    <Parameter Name="TinhTrangHonNhan" Type="bit" Mode="In" />
+    <Parameter Name="DiaChiThuongTru" Type="nvarchar" Mode="In" />
+    <Parameter Name="DiaChiTamTru" Type="nvarchar" Mode="In" />
+    <Parameter Name="NgayNhanViec" Type="date" Mode="In" />
+    <Parameter Name="NgayThoiViec" Type="date" Mode="In" />
+    <Parameter Name="SuDungVanTay" Type="bit" Mode="In" />
+    <Parameter Name="SuDungTheTu" Type="bit" Mode="In" />
+    <Parameter Name="SuDungKhuonMat" Type="bit" Mode="In" />
+    <Parameter Name="ThoiGianDangKy" Type="datetime" Mode="In" />
+    <Parameter Name="ThoiGianCapNhat" Type="datetime" Mode="In" />
+    <Parameter Name="GhiChu" Type="nvarchar" Mode="In" />
+    <Parameter Name="TrangThaiHoatDong" Type="int" Mode="In" />
+    <Parameter Name="IdentityId" Type="int" Mode="InOut" />
   </Function>
   <Function Name="spInsertSapXepLichTrinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="MaNguoi" Type="int" Mode="In" />
@@ -1287,10 +1362,6 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewThongTinNhanVien1' does not h
     <Parameter Name="TenLichTrinh" Type="nvarchar" Mode="In" />
     <Parameter Name="LoaiChuKy" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="spUpdatePhongBan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="MaPhongBan" Type="int" Mode="In" />
-    <Parameter Name="TenPhongBan" Type="nvarchar" Mode="In" />
-  </Function>
   <Function Name="spUpdateSapXepLichTrinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="MaSapXep" Type="int" Mode="In" />
     <Parameter Name="MaNguoi" Type="int" Mode="In" />
@@ -1318,6 +1389,7 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewThongTinNhanVien1' does not h
     <EntitySet Name="DangKyNghiPhep" EntityType="Self.DangKyNghiPhep" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DangKyTangCa" EntityType="Self.DangKyTangCa" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DanToc" EntityType="Self.DanToc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GioiTinh" EntityType="Self.GioiTinh" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KhuonMat" EntityType="Self.KhuonMat" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KyHieuCacLoaiVang" EntityType="Self.KyHieuCacLoaiVang" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KyHieuChamCong" EntityType="Self.KyHieuChamCong" Schema="dbo" store:Type="Tables" />
@@ -1338,14 +1410,25 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewThongTinNhanVien1' does not h
     <EntitySet Name="NhatKy" EntityType="Self.NhatKy" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PhanQuyenNhanDang" EntityType="Self.PhanQuyenNhanDang" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PhongBan" EntityType="Self.PhongBan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QuocTich" EntityType="Self.QuocTich" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SapXepLichTrinh" EntityType="Self.SapXepLichTrinh" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SapXepLichTrinhTam" EntityType="Self.SapXepLichTrinhTam" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TheTu" EntityType="Self.TheTu" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TonGiao" EntityType="Self.TonGiao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TrangThai" EntityType="Self.TrangThai" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TrinhDoHocVan" EntityType="Self.TrinhDoHocVan" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VanTay" EntityType="Self.VanTay" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="XepLoaiChamCong" EntityType="Self.XepLoaiChamCong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CauHinhRabbitMQ" EntityType="Self.CauHinhRabbitMQ" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CauHinhRabbitMQ].[DiaChiIp] AS [DiaChiIp], 
+    [CauHinhRabbitMQ].[Port] AS [Port], 
+    [CauHinhRabbitMQ].[TenDangNhap] AS [TenDangNhap], 
+    [CauHinhRabbitMQ].[MatKhauDangNhap] AS [MatKhauDangNhap], 
+    [CauHinhRabbitMQ].[ThongBaoLoi] AS [ThongBaoLoi]
+    FROM [dbo].[CauHinhRabbitMQ] AS [CauHinhRabbitMQ]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="ViewGioChiaHaiCot" EntityType="Self.ViewGioChiaHaiCot" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [ViewGioChiaHaiCot].[MaNhanVien] AS [MaNhanVien], 
@@ -1393,6 +1476,17 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewThongTinNhanVien1' does not h
     [ViewThongTinNhanVien1].[TenPhongBan] AS [TenPhongBan], 
     [ViewThongTinNhanVien1].[NgayNhanViec] AS [NgayNhanViec]
     FROM [dbo].[ViewThongTinNhanVien1] AS [ViewThongTinNhanVien1]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ViewXemHinhChamCong" EntityType="Self.ViewXemHinhChamCong" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ViewXemHinhChamCong].[MaChamCongChiTiet] AS [MaChamCongChiTiet], 
+    [ViewXemHinhChamCong].[GioChamCong] AS [GioChamCong], 
+    [ViewXemHinhChamCong].[HinhChamCong] AS [HinhChamCong], 
+    [ViewXemHinhChamCong].[MaThietBi] AS [MaThietBi], 
+    [ViewXemHinhChamCong].[MaChamCong] AS [MaChamCong], 
+    [ViewXemHinhChamCong].[MaNguoi] AS [MaNguoi], 
+    [ViewXemHinhChamCong].[HoTen] AS [HoTen]
+    FROM [dbo].[ViewXemHinhChamCong] AS [ViewXemHinhChamCong]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -1490,10 +1584,6 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewThongTinNhanVien1' does not h
       <End Role="Nguoi" EntitySet="Nguoi" />
       <End Role="SapXepLichTrinh" EntitySet="SapXepLichTrinh" />
     </AssociationSet>
-    <AssociationSet Name="FK_dbo_SapXepLichTrinhTam_LichTrinh" Association="Self.FK_dbo_SapXepLichTrinhTam_LichTrinh">
-      <End Role="LichTrinh" EntitySet="LichTrinh" />
-      <End Role="SapXepLichTrinhTam" EntitySet="SapXepLichTrinhTam" />
-    </AssociationSet>
     <AssociationSet Name="FK_dbo_TheTu_MaNguoi" Association="Self.FK_dbo_TheTu_MaNguoi">
       <End Role="Nguoi" EntitySet="Nguoi" />
       <End Role="TheTu" EntitySet="TheTu" />
@@ -1513,6 +1603,10 @@ warning 6002: The table/view 'ATINChamCong.dbo.ViewThongTinNhanVien1' does not h
     <AssociationSet Name="FK_LichTrinhTuan_LichTrinh" Association="Self.FK_LichTrinhTuan_LichTrinh">
       <End Role="LichTrinh" EntitySet="LichTrinh" />
       <End Role="LichTrinhTuan" EntitySet="LichTrinhTuan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SapXepLichTrinhTam_LichTrinh" Association="Self.FK_SapXepLichTrinhTam_LichTrinh">
+      <End Role="LichTrinh" EntitySet="LichTrinh" />
+      <End Role="SapXepLichTrinhTam" EntitySet="SapXepLichTrinhTam" />
     </AssociationSet>
     <AssociationSet Name="FK_SapXepLichTrinhTam_Nguoi" Association="Self.FK_SapXepLichTrinhTam_Nguoi">
       <End Role="Nguoi" EntitySet="Nguoi" />

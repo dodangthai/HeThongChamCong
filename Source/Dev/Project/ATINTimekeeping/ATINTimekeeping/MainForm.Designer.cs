@@ -345,9 +345,10 @@
             // 
             // barButtonItem16
             // 
-            this.barButtonItem16.Caption = "barButtonItem16";
+            this.barButtonItem16.Caption = "Xem hình chấm công";
             this.barButtonItem16.Id = 254;
             this.barButtonItem16.Name = "barButtonItem16";
+            this.barButtonItem16.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem16_ItemClick);
             // 
             // btnSelectTIme
             // 

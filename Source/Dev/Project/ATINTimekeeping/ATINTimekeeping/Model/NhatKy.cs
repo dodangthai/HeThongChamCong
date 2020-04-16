@@ -19,7 +19,7 @@ namespace ATINTimekeeping.Model
         public int MaKhuonMat { get; set; }
         public int MaTheTu { get; set; }
         public int MaVanTay { get; set; }
-        public string AnhKhuonMat { get; set; }
+        public string DuongDanAnhKhuonMat { get; set; }
         public byte[] ThuocTinhKhuonMat { get; set; }
         public Nullable<double> DiemSoSanh { get; set; }
         public Nullable<int> Tuoi { get; set; }

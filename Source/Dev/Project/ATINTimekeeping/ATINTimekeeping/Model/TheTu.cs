@@ -17,9 +17,9 @@ namespace ATINTimekeeping.Model
         public int MaTheTu { get; set; }
         public int MaNguoi { get; set; }
         public Nullable<int> LoaiTheTu { get; set; }
-        public byte[] ThuocTinhThe { get; set; }
+        public string NoiDungThe { get; set; }
         public System.DateTime ThoiGianDangKy { get; set; }
-        public int TrangThai { get; set; }
+        public bool TrangThai { get; set; }
     
         public virtual Nguoi Nguoi { get; set; }
     }

@@ -17,23 +17,20 @@ namespace ATINTimekeeping.Model
         public int MaMay { get; set; }
         public string TenMay { get; set; }
         public string SoSerial { get; set; }
-        public int LoaiMay { get; set; }
-        public string DiaChiIP { get; set; }
         public string DiaChiMac { get; set; }
-        public string NhaSanXuat { get; set; }
-        public string AnhThietBi { get; set; }
         public Nullable<double> TongBoNho { get; set; }
-        public Nullable<double> BoNhoHienTai { get; set; }
-        public Nullable<int> SoLuongDangKy { get; set; }
-        public Nullable<System.DateTime> ThoiGianKichHoat { get; set; }
+        public Nullable<double> BoNhoTrong { get; set; }
+        public Nullable<int> SoLuongKhuonMat { get; set; }
+        public Nullable<int> SoLuongTheTu { get; set; }
+        public Nullable<int> SoLuongVanTay { get; set; }
+        public Nullable<System.DateTime> NgayKichHoat { get; set; }
         public Nullable<System.DateTime> ThoiGianCapNhat { get; set; }
-        public Nullable<int> TuDongDongBo { get; set; }
-        public Nullable<int> ThoiGianDongBo { get; set; }
-        public Nullable<int> LuuAnhNhanDang { get; set; }
-        public string TaiKhoanDangNhap { get; set; }
+        public Nullable<int> ChuKyDongBo { get; set; }
+        public string TenDangNhap { get; set; }
         public string MatKhauDangNhap { get; set; }
         public string MaKichHoat { get; set; }
-        public Nullable<int> TrangThaiKetNoi { get; set; }
-        public int TrangThaiHoatDong { get; set; }
+        public Nullable<bool> KichHoatOnline { get; set; }
+        public Nullable<bool> TrangThaiKichHoat { get; set; }
+        public Nullable<bool> TrangThaiKetNoi { get; set; }
     }
 }

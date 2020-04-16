@@ -14,7 +14,7 @@ namespace ATINTimekeeping.Model
     
     public partial class DangKyTangCa
     {
-        public int Id { get; set; }
+        public int MaDangKyTangCa { get; set; }
         public int MaNhanVien { get; set; }
         public string MaDinhDanh { get; set; }
         public System.DateTime NgayDangKy { get; set; }

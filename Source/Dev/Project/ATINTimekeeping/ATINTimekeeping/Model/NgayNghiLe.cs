@@ -15,8 +15,8 @@ namespace ATINTimekeeping.Model
     public partial class NgayNghiLe
     {
         public int MaNgayNghiLe { get; set; }
-        public System.DateTime NgayNghiLe1 { get; set; }
+        public string TenNgayNghiLe { get; set; }
+        public System.DateTime NgayLe { get; set; }
         public string MoTa { get; set; }
-        public Nullable<int> status { get; set; }
     }
 }

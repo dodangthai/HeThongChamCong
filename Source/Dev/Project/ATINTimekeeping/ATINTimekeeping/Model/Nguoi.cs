@@ -31,28 +31,22 @@ namespace ATINTimekeeping.Model
         public int MaNguoi { get; set; }
         public string MaDinhDanh { get; set; }
         public string HoTen { get; set; }
-        public Nullable<int> PhongBan { get; set; }
-        public Nullable<int> ChucVu { get; set; }
-        public Nullable<int> KhuVuc { get; set; }
+        public Nullable<int> MaPhongBan { get; set; }
+        public Nullable<int> MaChucVu { get; set; }
+        public Nullable<int> MaKhuVuc { get; set; }
         public Nullable<System.DateTime> NgaySinh { get; set; }
-        public int GioiTinh { get; set; }
+        public int MaGioiTinh { get; set; }
         public string SoDienThoai { get; set; }
         public string Email { get; set; }
-        public string AnhDaiDien { get; set; }
-        public Nullable<int> TrinhDo { get; set; }
+        public byte[] AnhDaiDien { get; set; }
+        public Nullable<int> MaTrinhDo { get; set; }
         public string SoTheCanCuoc { get; set; }
         public Nullable<System.DateTime> NgayCapTCC { get; set; }
         public string NoiCapTCC { get; set; }
-        public Nullable<int> DanToc { get; set; }
-        public Nullable<int> TonGiao { get; set; }
-        public Nullable<int> QuocTich { get; set; }
+        public Nullable<int> MaDanToc { get; set; }
+        public Nullable<int> MaTonGiao { get; set; }
+        public Nullable<int> MaQuocTich { get; set; }
         public Nullable<int> TinhTrangHonNhan { get; set; }
-        public string SoBangLaiXeMay { get; set; }
-        public Nullable<System.DateTime> NgayCapBLXM { get; set; }
-        public string NoiCapBLXM { get; set; }
-        public string SoBangLaiOto { get; set; }
-        public Nullable<System.DateTime> NgayCapBLXO { get; set; }
-        public string NoiCapBLXO { get; set; }
         public string DiaChiThuongTru { get; set; }
         public string DiaChiTamTru { get; set; }
         public Nullable<System.DateTime> NgayNhanViec { get; set; }
@@ -63,18 +57,18 @@ namespace ATINTimekeeping.Model
         public Nullable<System.DateTime> ThoiGianDangKy { get; set; }
         public Nullable<System.DateTime> ThoiGianCapNhat { get; set; }
         public string GhiChu { get; set; }
-        public Nullable<int> TrangThaiHoatDong { get; set; }
+        public int TrangThaiHoatDong { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChamCong> ChamCongs { get; set; }
-        public virtual ChucVu ChucVu1 { get; set; }
+        public virtual ChucVu ChucVu { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DangKyNghiPhep> DangKyNghiPheps { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DangKyTangCa> DangKyTangCas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KhuonMat> KhuonMats { get; set; }
-        public virtual PhongBan PhongBan1 { get; set; }
+        public virtual PhongBan PhongBan { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NhatKy> NhatKies { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -16,10 +16,11 @@ namespace ATINTimekeeping.Model
     {
         public int MaKhuonMat { get; set; }
         public int MaNguoi { get; set; }
-        public string AnhKhuonMat { get; set; }
+        public byte[] AnhKhuonMat { get; set; }
         public byte[] ThuocTinhKhuonMat { get; set; }
         public System.DateTime ThoiGianDangKy { get; set; }
-        public int TrangThai { get; set; }
+        public int ViTri { get; set; }
+        public bool TrangThai { get; set; }
     
         public virtual Nguoi Nguoi { get; set; }
     }

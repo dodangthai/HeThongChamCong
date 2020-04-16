@@ -130,6 +130,12 @@
     <Compile Include="ChamCongVaBaoBieu\TimekeepingNotInShifts.Designer.cs">
       <DependentUpon>TimekeepingNotInShifts.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChamCongVaBaoBieu\ViewImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChamCongVaBaoBieu\ViewImage.Designer.cs">
+      <DependentUpon>ViewImage.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormServerActivity\CommandLogs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -301,6 +307,9 @@
     <Compile Include="Model\CaLamViec.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\CauHinhRabbitMQ.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\ChamCong.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
@@ -320,6 +329,9 @@
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DanToc.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\GioiTinh.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\KhuonMat.cs">
@@ -382,6 +394,9 @@
     <Compile Include="Model\PhongBan.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\QuocTich.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\SapXepLichTrinh.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
@@ -389,9 +404,6 @@
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\spGetAllCaLamViec_Result.cs">
-      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\spGetAllChucVu_Result.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\spGetAllKyHieuCacLoaiVang_Result.cs">
@@ -457,6 +469,9 @@
     <Compile Include="Model\spGetViewThongTinNhanVien1ByPhongBan_Result.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\spGetViewXemHinhChamCongByTimeByMachine_Result.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
@@ -470,6 +485,9 @@
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\TonGiao.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TrangThai.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\TrinhDoHocVan.cs">
@@ -488,6 +506,9 @@
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ViewThongTinNhanVien1.cs">
+      <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewXemHinhChamCong.cs">
       <DependentUpon>ATINTimekeepingEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\XepLoaiChamCong.cs">
@@ -545,6 +566,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChamCongVaBaoBieu\TimekeepingNotInShifts.resx">
       <DependentUpon>TimekeepingNotInShifts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChamCongVaBaoBieu\ViewImage.resx">
+      <DependentUpon>ViewImage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormServerActivity\CommandLogs.resx">
       <DependentUpon>CommandLogs.cs</DependentUpon>

@@ -16,6 +16,5 @@ namespace ATINTimekeeping.Model
     {
         public int MaTonGiao { get; set; }
         public string TenTonGiao { get; set; }
-        public Nullable<int> TrangThai { get; set; }
     }
 }

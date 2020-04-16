@@ -240,6 +240,16 @@ namespace ATINTimekeeping
             DiemDanh form = new DiemDanh();
             form.ShowDialog();
         }
+
+        private void barButtonItem16_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (!CheckExistForm("ViewImage"))
+            {
+                ViewImage form = new ViewImage();
+                form.MdiParent = this;
+                form.Show();
+            }
+        }
     }
 
 

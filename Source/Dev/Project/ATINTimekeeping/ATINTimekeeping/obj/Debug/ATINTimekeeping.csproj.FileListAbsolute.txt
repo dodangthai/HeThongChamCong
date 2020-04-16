@@ -254,3 +254,4 @@ D:\AT-Git\HeThongChamCong\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj
 D:\AT-Git\HeThongChamCong\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.ChamCongVaBaoBieu.TimekeepingCorrection.resources
 D:\AT-Git\HeThongChamCong\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.ChamCongVaBaoBieu.TimekeepingNotInShifts.resources
 D:\AT-Git\HeThongChamCong\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.csproj.ResolveComReference.cache
+D:\AT-Git\HeThongChamCong\Source\Dev\Project\ATINTimekeeping\ATINTimekeeping\obj\Debug\ATINTimekeeping.ChamCongVaBaoBieu.ViewImage.resources

@@ -22,6 +22,7 @@ namespace ATINTimekeeping.Model
     
         public int MaPhongBan { get; set; }
         public string TenPhongBan { get; set; }
+        public Nullable<int> Cha { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Nguoi> Nguois { get; set; }

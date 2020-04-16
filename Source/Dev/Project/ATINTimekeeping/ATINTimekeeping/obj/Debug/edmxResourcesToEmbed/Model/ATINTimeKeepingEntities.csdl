@@ -178,15 +178,14 @@
     </Key>
     <Property Name="MaKhuVuc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="KhuVuc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="TrangThai" Type="Int32" />
   </EntityType>
   <EntityType Name="DangKyNghiPhep">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="MaDangKyNghiPhep" />
       <PropertyRef Name="MaNhanVien" />
       <PropertyRef Name="MaLoaiNghiPhep" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="MaDangKyNghiPhep" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="MaNhanVien" Type="Int32" Nullable="false" />
     <Property Name="MaDinhDanh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="MaLoaiNghiPhep" Type="Int32" Nullable="false" />
@@ -197,9 +196,9 @@
   </EntityType>
   <EntityType Name="DangKyTangCa">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="MaDangKyTangCa" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaDangKyTangCa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="MaNhanVien" Type="Int32" Nullable="false" />
     <Property Name="MaDinhDanh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="NgayDangKy" Type="DateTime" Nullable="false" Precision="0" />
@@ -218,17 +217,25 @@
     <Property Name="MaDanToc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TenDanToc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
+  <EntityType Name="GioiTinh">
+    <Key>
+      <PropertyRef Name="MaGioiTinh" />
+    </Key>
+    <Property Name="MaGioiTinh" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenGioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
   <EntityType Name="KhuonMat">
     <Key>
       <PropertyRef Name="MaKhuonMat" />
       <PropertyRef Name="MaNguoi" />
     </Key>
-    <Property Name="MaKhuonMat" Type="Int32" Nullable="false" />
+    <Property Name="MaKhuonMat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="MaNguoi" Type="Int32" Nullable="false" />
-    <Property Name="AnhKhuonMat" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AnhKhuonMat" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="ThuocTinhKhuonMat" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="ThoiGianDangKy" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="TrangThai" Type="Int32" Nullable="false" />
+    <Property Name="ViTri" Type="Int32" Nullable="false" />
+    <Property Name="TrangThai" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Nguoi" Relationship="Self.FK_dbo_KhuonMat_MaNguoi" FromRole="KhuonMat" ToRole="Nguoi" />
   </EntityType>
   <EntityType Name="KyHieuCacLoaiVang">
@@ -271,10 +278,10 @@
     <Property Name="LoaiChuKy" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="MapLichTrinhNangCaos" Relationship="Self.FK_dbo_MapLichTrinhNangCao_LichTrinh" FromRole="LichTrinh" ToRole="MapLichTrinhNangCao" />
     <NavigationProperty Name="SapXepLichTrinhs" Relationship="Self.FK_dbo_SapXepLichTrinh_LichTrinh" FromRole="LichTrinh" ToRole="SapXepLichTrinh" />
-    <NavigationProperty Name="SapXepLichTrinhTams" Relationship="Self.FK_dbo_SapXepLichTrinhTam_LichTrinh" FromRole="LichTrinh" ToRole="SapXepLichTrinhTam" />
     <NavigationProperty Name="LichTrinhNams" Relationship="Self.FK_LichTrinhNam_LichTrinh" FromRole="LichTrinh" ToRole="LichTrinhNam" />
     <NavigationProperty Name="LichTrinhThangs" Relationship="Self.FK_LichTrinhThang_LichTrinh" FromRole="LichTrinh" ToRole="LichTrinhThang" />
     <NavigationProperty Name="LichTrinhTuans" Relationship="Self.FK_LichTrinhTuan_LichTrinh" FromRole="LichTrinh" ToRole="LichTrinhTuan" />
+    <NavigationProperty Name="SapXepLichTrinhTams" Relationship="Self.FK_SapXepLichTrinhTam_LichTrinh" FromRole="LichTrinh" ToRole="SapXepLichTrinhTam" />
   </EntityType>
   <EntityType Name="LichTrinhNam">
     <Key>
@@ -360,33 +367,30 @@
     <Property Name="MaMay" Type="Int32" Nullable="false" />
     <Property Name="TenMay" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="SoSerial" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="LoaiMay" Type="Int32" Nullable="false" />
-    <Property Name="DiaChiIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="DiaChiMac" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="NhaSanXuat" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="AnhThietBi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="TongBoNho" Type="Double" />
-    <Property Name="BoNhoHienTai" Type="Double" />
-    <Property Name="SoLuongDangKy" Type="Int32" />
-    <Property Name="ThoiGianKichHoat" Type="DateTime" Precision="3" />
+    <Property Name="BoNhoTrong" Type="Double" />
+    <Property Name="SoLuongKhuonMat" Type="Int32" />
+    <Property Name="SoLuongTheTu" Type="Int32" />
+    <Property Name="SoLuongVanTay" Type="Int32" />
+    <Property Name="NgayKichHoat" Type="DateTime" Precision="3" />
     <Property Name="ThoiGianCapNhat" Type="DateTime" Precision="3" />
-    <Property Name="TuDongDongBo" Type="Int32" />
-    <Property Name="ThoiGianDongBo" Type="Int32" />
-    <Property Name="LuuAnhNhanDang" Type="Int32" />
-    <Property Name="TaiKhoanDangNhap" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="MatKhauDangNhap" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="MaKichHoat" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="TrangThaiKetNoi" Type="Int32" />
-    <Property Name="TrangThaiHoatDong" Type="Int32" Nullable="false" />
+    <Property Name="ChuKyDongBo" Type="Int32" />
+    <Property Name="TenDangNhap" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MatKhauDangNhap" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MaKichHoat" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="KichHoatOnline" Type="Boolean" />
+    <Property Name="TrangThaiKichHoat" Type="Boolean" />
+    <Property Name="TrangThaiKetNoi" Type="Boolean" />
   </EntityType>
   <EntityType Name="NgayNghiLe">
     <Key>
       <PropertyRef Name="MaNgayNghiLe" />
     </Key>
     <Property Name="MaNgayNghiLe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="NgayNghiLe1" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="MoTa" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="status" Type="Int32" />
+    <Property Name="TenNgayNghiLe" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NgayLe" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="MoTa" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="NgayPhepNhanVien">
     <Key>
@@ -401,31 +405,25 @@
     <Key>
       <PropertyRef Name="MaNguoi" />
     </Key>
-    <Property Name="MaNguoi" Type="Int32" Nullable="false" />
+    <Property Name="MaNguoi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="MaDinhDanh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="PhongBan" Type="Int32" />
-    <Property Name="ChucVu" Type="Int32" />
-    <Property Name="KhuVuc" Type="Int32" />
+    <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaPhongBan" Type="Int32" />
+    <Property Name="MaChucVu" Type="Int32" />
+    <Property Name="MaKhuVuc" Type="Int32" />
     <Property Name="NgaySinh" Type="DateTime" Precision="0" />
-    <Property Name="GioiTinh" Type="Int32" Nullable="false" />
+    <Property Name="MaGioiTinh" Type="Int32" Nullable="false" />
     <Property Name="SoDienThoai" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="AnhDaiDien" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="TrinhDo" Type="Int32" />
+    <Property Name="AnhDaiDien" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="MaTrinhDo" Type="Int32" />
     <Property Name="SoTheCanCuoc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="NgayCapTCC" Type="DateTime" Precision="0" />
     <Property Name="NoiCapTCC" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="DanToc" Type="Int32" />
-    <Property Name="TonGiao" Type="Int32" />
-    <Property Name="QuocTich" Type="Int32" />
+    <Property Name="MaDanToc" Type="Int32" />
+    <Property Name="MaTonGiao" Type="Int32" />
+    <Property Name="MaQuocTich" Type="Int32" />
     <Property Name="TinhTrangHonNhan" Type="Int32" />
-    <Property Name="SoBangLaiXeMay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="NgayCapBLXM" Type="DateTime" Precision="0" />
-    <Property Name="NoiCapBLXM" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="SoBangLaiOto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="NgayCapBLXO" Type="DateTime" Precision="0" />
-    <Property Name="NoiCapBLXO" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="DiaChiThuongTru" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="DiaChiTamTru" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="NgayNhanViec" Type="DateTime" Precision="0" />
@@ -436,13 +434,13 @@
     <Property Name="ThoiGianDangKy" Type="DateTime" Precision="3" />
     <Property Name="ThoiGianCapNhat" Type="DateTime" Precision="3" />
     <Property Name="GhiChu" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="TrangThaiHoatDong" Type="Int32" />
+    <Property Name="TrangThaiHoatDong" Type="Int32" Nullable="false" />
     <NavigationProperty Name="ChamCongs" Relationship="Self.FK_dbo_ChamCong_Nguoi" FromRole="Nguoi" ToRole="ChamCong" />
-    <NavigationProperty Name="ChucVu1" Relationship="Self.FK_dbo_Nguoi_ChucVu" FromRole="Nguoi" ToRole="ChucVu" />
+    <NavigationProperty Name="ChucVu" Relationship="Self.FK_dbo_Nguoi_ChucVu" FromRole="Nguoi" ToRole="ChucVu" />
     <NavigationProperty Name="DangKyNghiPheps" Relationship="Self.FK_dbo_DangKyNghiPhep_Nguoi" FromRole="Nguoi" ToRole="DangKyNghiPhep" />
     <NavigationProperty Name="DangKyTangCas" Relationship="Self.FK_dbo_DangKyTangCa_MaNhanVien" FromRole="Nguoi" ToRole="DangKyTangCa" />
     <NavigationProperty Name="KhuonMats" Relationship="Self.FK_dbo_KhuonMat_MaNguoi" FromRole="Nguoi" ToRole="KhuonMat" />
-    <NavigationProperty Name="PhongBan1" Relationship="Self.FK_dbo_Nguoi_PhongBan" FromRole="Nguoi" ToRole="PhongBan" />
+    <NavigationProperty Name="PhongBan" Relationship="Self.FK_dbo_Nguoi_PhongBan" FromRole="Nguoi" ToRole="PhongBan" />
     <NavigationProperty Name="NhatKies" Relationship="Self.FK_dbo_NhatKy_MaNguoi" FromRole="Nguoi" ToRole="NhatKy" />
     <NavigationProperty Name="SapXepLichTrinhs" Relationship="Self.FK_dbo_SapXepLichTrinh_Nguoi" FromRole="Nguoi" ToRole="SapXepLichTrinh" />
     <NavigationProperty Name="TheTus" Relationship="Self.FK_dbo_TheTu_MaNguoi" FromRole="Nguoi" ToRole="TheTu" />
@@ -454,12 +452,12 @@
       <PropertyRef Name="MaNhatKy" />
       <PropertyRef Name="MaNguoi" />
     </Key>
-    <Property Name="MaNhatKy" Type="Int32" Nullable="false" />
+    <Property Name="MaNhatKy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="MaNguoi" Type="Int32" Nullable="false" />
     <Property Name="MaKhuonMat" Type="Int32" Nullable="false" />
     <Property Name="MaTheTu" Type="Int32" Nullable="false" />
     <Property Name="MaVanTay" Type="Int32" Nullable="false" />
-    <Property Name="AnhKhuonMat" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DuongDanAnhKhuonMat" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="ThuocTinhKhuonMat" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="DiemSoSanh" Type="Double" />
     <Property Name="Tuoi" Type="Int32" />
@@ -488,7 +486,15 @@
     </Key>
     <Property Name="MaPhongBan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TenPhongBan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Cha" Type="Int32" />
     <NavigationProperty Name="Nguois" Relationship="Self.FK_dbo_Nguoi_PhongBan" FromRole="PhongBan" ToRole="Nguoi" />
+  </EntityType>
+  <EntityType Name="QuocTich">
+    <Key>
+      <PropertyRef Name="MaQuocTich" />
+    </Key>
+    <Property Name="MaQuocTich" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenQuocTich" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="SapXepLichTrinh">
     <Key>
@@ -505,11 +511,11 @@
       <PropertyRef Name="MaLichTrinhTam" />
     </Key>
     <Property Name="MaLichTrinhTam" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaNguoi" Type="Int32" Nullable="false" />
     <Property Name="TuNgay" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="DenNgay" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="MaLichTrinh" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-    <Property Name="MaNguoi" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="LichTrinh" Relationship="Self.FK_dbo_SapXepLichTrinhTam_LichTrinh" FromRole="SapXepLichTrinhTam" ToRole="LichTrinh" />
+    <NavigationProperty Name="LichTrinh" Relationship="Self.FK_SapXepLichTrinhTam_LichTrinh" FromRole="SapXepLichTrinhTam" ToRole="LichTrinh" />
     <NavigationProperty Name="Nguoi" Relationship="Self.FK_SapXepLichTrinhTam_Nguoi" FromRole="SapXepLichTrinhTam" ToRole="Nguoi" />
   </EntityType>
   <EntityType Name="sysdiagram">
@@ -527,12 +533,12 @@
       <PropertyRef Name="MaTheTu" />
       <PropertyRef Name="MaNguoi" />
     </Key>
-    <Property Name="MaTheTu" Type="Int32" Nullable="false" />
+    <Property Name="MaTheTu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="MaNguoi" Type="Int32" Nullable="false" />
     <Property Name="LoaiTheTu" Type="Int32" />
-    <Property Name="ThuocTinhThe" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="NoiDungThe" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="ThoiGianDangKy" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="TrangThai" Type="Int32" Nullable="false" />
+    <Property Name="TrangThai" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Nguoi" Relationship="Self.FK_dbo_TheTu_MaNguoi" FromRole="TheTu" ToRole="Nguoi" />
   </EntityType>
   <EntityType Name="TonGiao">
@@ -541,7 +547,17 @@
     </Key>
     <Property Name="MaTonGiao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TenTonGiao" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="TrangThai" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TrangThai">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="GiaTri" />
+      <PropertyRef Name="TenNhom" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenTrangThai" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="GiaTri" Type="Int32" Nullable="false" />
+    <Property Name="TenNhom" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
   <EntityType Name="TrinhDoHocVan">
     <Key>
@@ -549,19 +565,18 @@
     </Key>
     <Property Name="MaTrinhDoHocVan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TenTrinhDoHocVan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="TrangThai" Type="Int32" />
   </EntityType>
   <EntityType Name="VanTay">
     <Key>
       <PropertyRef Name="MaVanTay" />
       <PropertyRef Name="MaNguoi" />
     </Key>
-    <Property Name="MaVanTay" Type="Int32" Nullable="false" />
+    <Property Name="MaVanTay" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="MaNguoi" Type="Int32" Nullable="false" />
     <Property Name="NgonTay" Type="Int32" />
     <Property Name="ThuocTinhVanTay" Type="Binary" MaxLength="Max" FixedLength="false" />
-    <Property Name="ThoiGianDangKy" Type="DateTime" Precision="3" />
-    <Property Name="TrangThai" Type="Int32" Nullable="false" />
+    <Property Name="ThoiGianDangKy" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TrangThai" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Nguoi" Relationship="Self.FK_dbo_VanTay_MaNguoi" FromRole="VanTay" ToRole="Nguoi" />
   </EntityType>
   <EntityType Name="XepLoaiChamCong">
@@ -571,6 +586,20 @@
     <Property Name="MaXepLoaiChamCong" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="TenKyHieuChamCong" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="ChamCongs" Relationship="Self.FK_dbo_ChamCong_XepLoaiChamCong" FromRole="XepLoaiChamCong" ToRole="ChamCong" />
+  </EntityType>
+  <EntityType Name="CauHinhRabbitMQ">
+    <Key>
+      <PropertyRef Name="DiaChiIp" />
+      <PropertyRef Name="Port" />
+      <PropertyRef Name="TenDangNhap" />
+      <PropertyRef Name="MatKhauDangNhap" />
+      <PropertyRef Name="ThongBaoLoi" />
+    </Key>
+    <Property Name="DiaChiIp" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Port" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TenDangNhap" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MatKhauDangNhap" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ThongBaoLoi" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="ViewGioChiaHaiCot">
     <Key>
@@ -609,9 +638,10 @@
   <EntityType Name="ViewSapXepLichTrinh">
     <Key>
       <PropertyRef Name="MaNguoi" />
+      <PropertyRef Name="HoTen" />
     </Key>
     <Property Name="MaNguoi" Type="Int32" Nullable="false" />
-    <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="MaChamCong" Type="Int32" />
     <Property Name="MaLichTrinh" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
     <Property Name="MaSapXep" Type="Int32" />
@@ -619,9 +649,10 @@
   <EntityType Name="ViewThongTinNhanVien1">
     <Key>
       <PropertyRef Name="MaNguoi" />
+      <PropertyRef Name="HoTen" />
     </Key>
     <Property Name="MaNguoi" Type="Int32" Nullable="false" />
-    <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="MaChamCong" Type="Int32" />
     <Property Name="MaLichTrinh" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
     <Property Name="TenLichTrinh" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
@@ -795,7 +826,7 @@
         <PropertyRef Name="MaChucVu" />
       </Principal>
       <Dependent Role="Nguoi">
-        <PropertyRef Name="ChucVu" />
+        <PropertyRef Name="MaChucVu" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -883,20 +914,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_dbo_SapXepLichTrinhTam_LichTrinh">
-    <End Role="LichTrinh" Type="Self.LichTrinh" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="SapXepLichTrinhTam" Type="Self.SapXepLichTrinhTam" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="LichTrinh">
-        <PropertyRef Name="MaLichTrinh" />
-      </Principal>
-      <Dependent Role="SapXepLichTrinhTam">
-        <PropertyRef Name="MaLichTrinh" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_LichTrinhNam_LichTrinh">
     <End Role="LichTrinh" Type="Self.LichTrinh" Multiplicity="1" />
     <End Role="LichTrinhNam" Type="Self.LichTrinhNam" Multiplicity="*" />
@@ -933,6 +950,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_SapXepLichTrinhTam_LichTrinh">
+    <End Role="LichTrinh" Type="Self.LichTrinh" Multiplicity="0..1" />
+    <End Role="SapXepLichTrinhTam" Type="Self.SapXepLichTrinhTam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LichTrinh">
+        <PropertyRef Name="MaLichTrinh" />
+      </Principal>
+      <Dependent Role="SapXepLichTrinhTam">
+        <PropertyRef Name="MaLichTrinh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_dbo_MapLichTrinhNangCao_LichTrinhNangCao">
     <End Role="LichTrinhNangCao" Type="Self.LichTrinhNangCao" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -957,7 +986,7 @@
         <PropertyRef Name="MaPhongBan" />
       </Principal>
       <Dependent Role="Nguoi">
-        <PropertyRef Name="PhongBan" />
+        <PropertyRef Name="MaPhongBan" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1047,6 +1076,7 @@
     <EntitySet Name="DangKyNghiPheps" EntityType="Self.DangKyNghiPhep" />
     <EntitySet Name="DangKyTangCas" EntityType="Self.DangKyTangCa" />
     <EntitySet Name="DanTocs" EntityType="Self.DanToc" />
+    <EntitySet Name="GioiTinhs" EntityType="Self.GioiTinh" />
     <EntitySet Name="KhuonMats" EntityType="Self.KhuonMat" />
     <EntitySet Name="KyHieuCacLoaiVangs" EntityType="Self.KyHieuCacLoaiVang" />
     <EntitySet Name="KyHieuChamCongs" EntityType="Self.KyHieuChamCong" />
@@ -1067,14 +1097,17 @@
     <EntitySet Name="NhatKies" EntityType="Self.NhatKy" />
     <EntitySet Name="PhanQuyenNhanDangs" EntityType="Self.PhanQuyenNhanDang" />
     <EntitySet Name="PhongBans" EntityType="Self.PhongBan" />
+    <EntitySet Name="QuocTiches" EntityType="Self.QuocTich" />
     <EntitySet Name="SapXepLichTrinhs" EntityType="Self.SapXepLichTrinh" />
     <EntitySet Name="SapXepLichTrinhTams" EntityType="Self.SapXepLichTrinhTam" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="TheTus" EntityType="Self.TheTu" />
     <EntitySet Name="TonGiaos" EntityType="Self.TonGiao" />
+    <EntitySet Name="TrangThais" EntityType="Self.TrangThai" />
     <EntitySet Name="TrinhDoHocVans" EntityType="Self.TrinhDoHocVan" />
     <EntitySet Name="VanTays" EntityType="Self.VanTay" />
     <EntitySet Name="XepLoaiChamCongs" EntityType="Self.XepLoaiChamCong" />
+    <EntitySet Name="CauHinhRabbitMQs" EntityType="Self.CauHinhRabbitMQ" />
     <EntitySet Name="ViewGioChiaHaiCots" EntityType="Self.ViewGioChiaHaiCot" />
     <EntitySet Name="ViewGioNguons" EntityType="Self.ViewGioNguon" />
     <EntitySet Name="ViewSapXepLichTrinhs" EntityType="Self.ViewSapXepLichTrinh" />
@@ -1151,10 +1184,6 @@
       <End Role="LichTrinh" EntitySet="LichTrinhs" />
       <End Role="SapXepLichTrinh" EntitySet="SapXepLichTrinhs" />
     </AssociationSet>
-    <AssociationSet Name="FK_dbo_SapXepLichTrinhTam_LichTrinh" Association="Self.FK_dbo_SapXepLichTrinhTam_LichTrinh">
-      <End Role="LichTrinh" EntitySet="LichTrinhs" />
-      <End Role="SapXepLichTrinhTam" EntitySet="SapXepLichTrinhTams" />
-    </AssociationSet>
     <AssociationSet Name="FK_LichTrinhNam_LichTrinh" Association="Self.FK_LichTrinhNam_LichTrinh">
       <End Role="LichTrinh" EntitySet="LichTrinhs" />
       <End Role="LichTrinhNam" EntitySet="LichTrinhNams" />
@@ -1166,6 +1195,10 @@
     <AssociationSet Name="FK_LichTrinhTuan_LichTrinh" Association="Self.FK_LichTrinhTuan_LichTrinh">
       <End Role="LichTrinh" EntitySet="LichTrinhs" />
       <End Role="LichTrinhTuan" EntitySet="LichTrinhTuans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SapXepLichTrinhTam_LichTrinh" Association="Self.FK_SapXepLichTrinhTam_LichTrinh">
+      <End Role="LichTrinh" EntitySet="LichTrinhs" />
+      <End Role="SapXepLichTrinhTam" EntitySet="SapXepLichTrinhTams" />
     </AssociationSet>
     <AssociationSet Name="FK_dbo_MapLichTrinhNangCao_LichTrinhNangCao" Association="Self.FK_dbo_MapLichTrinhNangCao_LichTrinhNangCao">
       <End Role="LichTrinhNangCao" EntitySet="LichTrinhNangCaos" />
@@ -1265,9 +1298,6 @@
       <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
       <Parameter Name="MaLichTrinhNangCao" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="spDeletePhongBan">
-      <Parameter Name="MaPhongBan" Mode="In" Type="Int32" />
-    </FunctionImport>
     <FunctionImport Name="spDeleteSapXepLichTrinh">
       <Parameter Name="MaSapXep" Mode="In" Type="Int32" />
     </FunctionImport>
@@ -1275,7 +1305,6 @@
       <Parameter Name="MaLichTrinhTam" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="spGetAllCaLamViec" EntitySet="CaLamViecs" ReturnType="Collection(ATINChamCongModel.CaLamViec)" />
-    <FunctionImport Name="spGetAllChucVu" EntitySet="ChucVus" ReturnType="Collection(ATINChamCongModel.ChucVu)" />
     <FunctionImport Name="spGetAllKyHieuCacLoaiVang" EntitySet="KyHieuCacLoaiVangs" ReturnType="Collection(ATINChamCongModel.KyHieuCacLoaiVang)" />
     <FunctionImport Name="spGetAllKyHieuChamCong" EntitySet="KyHieuChamCongs" ReturnType="Collection(ATINChamCongModel.KyHieuChamCong)" />
     <FunctionImport Name="spGetAllLichTrinh" EntitySet="LichTrinhs" ReturnType="Collection(ATINChamCongModel.LichTrinh)" />
@@ -1370,9 +1399,6 @@
       <Parameter Name="TachGioCaDemTu" Mode="In" Type="Time" />
       <Parameter Name="TachGioCaDemDen" Mode="In" Type="Time" />
     </FunctionImport>
-    <FunctionImport Name="spInsertChucVu">
-      <Parameter Name="TenChucVu" Mode="In" Type="String" />
-    </FunctionImport>
     <FunctionImport Name="spInsertLichTrinh">
       <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
       <Parameter Name="TenLichTrinh" Mode="In" Type="String" />
@@ -1398,9 +1424,37 @@
       <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
       <Parameter Name="MaLichTrinhNangCao" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="spInsertPhongBan">
+    <FunctionImport Name="spInsertNguoi" ReturnType="Collection(Int32)">
+      <Parameter Name="MaDinhDanh" Mode="In" Type="String" />
+      <Parameter Name="HoTen" Mode="In" Type="String" />
       <Parameter Name="MaPhongBan" Mode="In" Type="Int32" />
-      <Parameter Name="TenPhongBan" Mode="In" Type="String" />
+      <Parameter Name="MaChucVu" Mode="In" Type="Int32" />
+      <Parameter Name="MaKhuVuc" Mode="In" Type="Int32" />
+      <Parameter Name="NgaySinh" Mode="In" Type="DateTime" />
+      <Parameter Name="MaGioiTinh" Mode="In" Type="Int32" />
+      <Parameter Name="SoDienThoai" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="AnhDaiDien" Mode="In" Type="Binary" />
+      <Parameter Name="MaTrinhDo" Mode="In" Type="Int32" />
+      <Parameter Name="SoTheCanCuoc" Mode="In" Type="String" />
+      <Parameter Name="NgayCapTCC" Mode="In" Type="DateTime" />
+      <Parameter Name="NoiCapTCC" Mode="In" Type="String" />
+      <Parameter Name="MaDanToc" Mode="In" Type="Int32" />
+      <Parameter Name="MaTonGiao" Mode="In" Type="Boolean" />
+      <Parameter Name="MaQuocTich" Mode="In" Type="Int32" />
+      <Parameter Name="TinhTrangHonNhan" Mode="In" Type="Boolean" />
+      <Parameter Name="DiaChiThuongTru" Mode="In" Type="String" />
+      <Parameter Name="DiaChiTamTru" Mode="In" Type="String" />
+      <Parameter Name="NgayNhanViec" Mode="In" Type="DateTime" />
+      <Parameter Name="NgayThoiViec" Mode="In" Type="DateTime" />
+      <Parameter Name="SuDungVanTay" Mode="In" Type="Boolean" />
+      <Parameter Name="SuDungTheTu" Mode="In" Type="Boolean" />
+      <Parameter Name="SuDungKhuonMat" Mode="In" Type="Boolean" />
+      <Parameter Name="ThoiGianDangKy" Mode="In" Type="DateTime" />
+      <Parameter Name="ThoiGianCapNhat" Mode="In" Type="DateTime" />
+      <Parameter Name="GhiChu" Mode="In" Type="String" />
+      <Parameter Name="TrangThaiHoatDong" Mode="In" Type="Int32" />
+      <Parameter Name="IdentityId" Mode="InOut" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="spInsertSapXepLichTrinh">
       <Parameter Name="MaNguoi" Mode="In" Type="Int32" />
@@ -1472,10 +1526,6 @@
       <Parameter Name="TenLichTrinh" Mode="In" Type="String" />
       <Parameter Name="LoaiChuKy" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="spUpdatePhongBan">
-      <Parameter Name="MaPhongBan" Mode="In" Type="Int32" />
-      <Parameter Name="TenPhongBan" Mode="In" Type="String" />
-    </FunctionImport>
     <FunctionImport Name="spUpdateSapXepLichTrinh">
       <Parameter Name="MaSapXep" Mode="In" Type="Int32" />
       <Parameter Name="MaNguoi" Mode="In" Type="Int32" />
@@ -1487,6 +1537,12 @@
       <Parameter Name="DenNgay" Mode="In" Type="DateTime" />
       <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
       <Parameter Name="MaNguoi" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="ViewXemHinhChamCongs" EntityType="ATINChamCongModel.ViewXemHinhChamCong" />
+    <FunctionImport Name="spGetViewXemHinhChamCongByTimeByMachine" EntitySet="ViewXemHinhChamCongs" ReturnType="Collection(ATINChamCongModel.ViewXemHinhChamCong)">
+      <Parameter Name="Time" Mode="In" Type="DateTime" />
+      <Parameter Name="MaThietBi" Mode="In" Type="Int32" />
+      <Parameter Name="TimeType" Mode="In" Type="String" />
     </FunctionImport>
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
@@ -1543,10 +1599,6 @@
     <Property Type="Time" Name="TachGioCaDemDen" Nullable="true" />
     <Property Type="Boolean" Name="SDTongGLVTinhTangCa" Nullable="true" />
   </ComplexType>
-  <ComplexType Name="spGetAllChucVu_Result">
-    <Property Type="Int32" Name="MaChucVu" Nullable="false" />
-    <Property Type="String" Name="TenChucVu" Nullable="false" MaxLength="100" />
-  </ComplexType>
   <ComplexType Name="spGetAllKyHieuCacLoaiVang_Result">
     <Property Type="String" Name="MaKyHieu" Nullable="false" MaxLength="5" />
     <Property Type="String" Name="TenKyHieu" Nullable="false" MaxLength="5" />
@@ -1568,29 +1620,23 @@
   <ComplexType Name="spGetAllNguoi_Result">
     <Property Type="Int32" Name="MaNguoi" Nullable="false" />
     <Property Type="String" Name="MaDinhDanh" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="HoTen" Nullable="true" MaxLength="100" />
-    <Property Type="Int32" Name="PhongBan" Nullable="true" />
-    <Property Type="Int32" Name="ChucVu" Nullable="true" />
-    <Property Type="Int32" Name="KhuVuc" Nullable="true" />
+    <Property Type="String" Name="HoTen" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="MaPhongBan" Nullable="true" />
+    <Property Type="Int32" Name="MaChucVu" Nullable="true" />
+    <Property Type="Int32" Name="MaKhuVuc" Nullable="true" />
     <Property Type="DateTime" Name="NgaySinh" Nullable="true" />
-    <Property Type="Int32" Name="GioiTinh" Nullable="false" />
+    <Property Type="Int32" Name="MaGioiTinh" Nullable="false" />
     <Property Type="String" Name="SoDienThoai" Nullable="true" MaxLength="20" />
     <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="AnhDaiDien" Nullable="true" MaxLength="200" />
-    <Property Type="Int32" Name="TrinhDo" Nullable="true" />
+    <Property Type="Binary" Name="AnhDaiDien" Nullable="true" />
+    <Property Type="Int32" Name="MaTrinhDo" Nullable="true" />
     <Property Type="String" Name="SoTheCanCuoc" Nullable="true" MaxLength="50" />
     <Property Type="DateTime" Name="NgayCapTCC" Nullable="true" />
     <Property Type="String" Name="NoiCapTCC" Nullable="true" MaxLength="150" />
-    <Property Type="Int32" Name="DanToc" Nullable="true" />
-    <Property Type="Int32" Name="TonGiao" Nullable="true" />
-    <Property Type="Int32" Name="QuocTich" Nullable="true" />
+    <Property Type="Int32" Name="MaDanToc" Nullable="true" />
+    <Property Type="Int32" Name="MaTonGiao" Nullable="true" />
+    <Property Type="Int32" Name="MaQuocTich" Nullable="true" />
     <Property Type="Int32" Name="TinhTrangHonNhan" Nullable="true" />
-    <Property Type="String" Name="SoBangLaiXeMay" Nullable="true" MaxLength="50" />
-    <Property Type="DateTime" Name="NgayCapBLXM" Nullable="true" />
-    <Property Type="String" Name="NoiCapBLXM" Nullable="true" MaxLength="150" />
-    <Property Type="String" Name="SoBangLaiOto" Nullable="true" MaxLength="50" />
-    <Property Type="DateTime" Name="NgayCapBLXO" Nullable="true" />
-    <Property Type="String" Name="NoiCapBLXO" Nullable="true" MaxLength="150" />
     <Property Type="String" Name="DiaChiThuongTru" Nullable="true" MaxLength="150" />
     <Property Type="String" Name="DiaChiTamTru" Nullable="true" MaxLength="20" />
     <Property Type="DateTime" Name="NgayNhanViec" Nullable="true" />
@@ -1601,11 +1647,12 @@
     <Property Type="DateTime" Name="ThoiGianDangKy" Nullable="true" Precision="23" />
     <Property Type="DateTime" Name="ThoiGianCapNhat" Nullable="true" Precision="23" />
     <Property Type="String" Name="GhiChu" Nullable="true" MaxLength="150" />
-    <Property Type="Int32" Name="TrangThaiHoatDong" Nullable="true" />
+    <Property Type="Int32" Name="TrangThaiHoatDong" Nullable="false" />
   </ComplexType>
   <ComplexType Name="spGetAllPhongBan_Result">
     <Property Type="Int32" Name="MaPhongBan" Nullable="false" />
     <Property Type="String" Name="TenPhongBan" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="Cha" Nullable="true" />
   </ComplexType>
   <ComplexType Name="spGetAllSapXepLichTrinh_Result">
     <Property Type="Int32" Name="MaSapXep" Nullable="false" />
@@ -1614,10 +1661,10 @@
   </ComplexType>
   <ComplexType Name="spGetAllSapXepLichTrinhTam_Result">
     <Property Type="Int32" Name="MaLichTrinhTam" Nullable="false" />
+    <Property Type="Int32" Name="MaNguoi" Nullable="false" />
     <Property Type="DateTime" Name="TuNgay" Nullable="false" />
     <Property Type="DateTime" Name="DenNgay" Nullable="false" />
     <Property Type="String" Name="MaLichTrinh" Nullable="true" MaxLength="5" />
-    <Property Type="Int32" Name="MaNguoi" Nullable="false" />
   </ComplexType>
   <ComplexType Name="spGetAllViewGioChiaHaiCot_Result">
     <Property Type="Int32" Name="MaNhanVien" Nullable="true" />
@@ -1642,7 +1689,7 @@
   </ComplexType>
   <ComplexType Name="spGetAllViewThongTinNhanVien1_Result">
     <Property Type="Int32" Name="MaNguoi" Nullable="false" />
-    <Property Type="String" Name="HoTen" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="HoTen" Nullable="false" MaxLength="100" />
     <Property Type="Int32" Name="MaChamCong" Nullable="true" />
     <Property Type="String" Name="MaLichTrinh" Nullable="true" MaxLength="5" />
     <Property Type="String" Name="TenLichTrinh" Nullable="true" MaxLength="30" />
@@ -1765,6 +1812,7 @@
   <ComplexType Name="spGetPhongBan_Result">
     <Property Type="Int32" Name="MaPhongBan" Nullable="false" />
     <Property Type="String" Name="TenPhongBan" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="Cha" Nullable="true" />
   </ComplexType>
   <ComplexType Name="spGetSapXepLichTrinhByNguoi_Result">
     <Property Type="Int32" Name="MaSapXep" Nullable="false" />
@@ -1773,21 +1821,21 @@
   </ComplexType>
   <ComplexType Name="spGetSapXepLichTrinhTamByNguoi_Result">
     <Property Type="Int32" Name="MaLichTrinhTam" Nullable="false" />
+    <Property Type="Int32" Name="MaNguoi" Nullable="false" />
     <Property Type="DateTime" Name="TuNgay" Nullable="false" />
     <Property Type="DateTime" Name="DenNgay" Nullable="false" />
     <Property Type="String" Name="MaLichTrinh" Nullable="true" MaxLength="5" />
-    <Property Type="Int32" Name="MaNguoi" Nullable="false" />
   </ComplexType>
   <ComplexType Name="spGetViewSapXepLichTrinhByNguoi_Result">
     <Property Type="Int32" Name="MaNguoi" Nullable="false" />
-    <Property Type="String" Name="HoTen" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="HoTen" Nullable="false" MaxLength="100" />
     <Property Type="Int32" Name="MaChamCong" Nullable="true" />
     <Property Type="String" Name="MaLichTrinh" Nullable="true" MaxLength="5" />
     <Property Type="Int32" Name="MaSapXep" Nullable="true" />
   </ComplexType>
   <ComplexType Name="spGetViewThongTinNhanVien1ByPhongBan_Result">
     <Property Type="Int32" Name="MaNguoi" Nullable="false" />
-    <Property Type="String" Name="HoTen" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="HoTen" Nullable="false" MaxLength="100" />
     <Property Type="Int32" Name="MaChamCong" Nullable="true" />
     <Property Type="String" Name="MaLichTrinh" Nullable="true" MaxLength="5" />
     <Property Type="String" Name="TenLichTrinh" Nullable="true" MaxLength="30" />
@@ -1796,5 +1844,30 @@
     <Property Type="Int32" Name="MaPhongBan" Nullable="true" />
     <Property Type="String" Name="TenPhongBan" Nullable="true" MaxLength="100" />
     <Property Type="DateTime" Name="NgayNhanViec" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="ViewXemHinhChamCong">
+    <Key>
+      <PropertyRef Name="MaChamCongChiTiet" />
+      <PropertyRef Name="GioChamCong" />
+      <PropertyRef Name="MaChamCong" />
+      <PropertyRef Name="MaNguoi" />
+      <PropertyRef Name="HoTen" />
+    </Key>
+    <Property Name="MaChamCongChiTiet" Type="Int32" Nullable="false" />
+    <Property Name="GioChamCong" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="HinhChamCong" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="MaThietBi" Type="Int32" />
+    <Property Name="MaChamCong" Type="Int32" Nullable="false" />
+    <Property Name="MaNguoi" Type="Int32" Nullable="false" />
+    <Property Name="HoTen" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="spGetViewXemHinhChamCongByTimeByMachine_Result">
+    <Property Type="Int32" Name="MaChamCongChiTiet" Nullable="false" />
+    <Property Type="DateTime" Name="GioChamCong" Nullable="false" Precision="23" />
+    <Property Type="Binary" Name="HinhChamCong" Nullable="true" />
+    <Property Type="Int32" Name="MaThietBi" Nullable="true" />
+    <Property Type="Int32" Name="MaChamCong" Nullable="false" />
+    <Property Type="Int32" Name="MaNguoi" Nullable="false" />
+    <Property Type="String" Name="HoTen" Nullable="false" MaxLength="100" />
   </ComplexType>
 </Schema>
