@@ -38,7 +38,7 @@ namespace ATINTimekeeping.ChamCongVaBaoBieu
             dataGridViewNhanVien.Columns.Add(checkCol);
             Set();
             ATINChamCongEntities context = new ATINChamCongEntities();
-            GridViewNhanVienConfig(context.spGetPhongBan(1).ToList()[0]);
+            GridViewNhanVienConfig(context.spGetPhongBan(10).ToList()[0]);
         }
 
 
@@ -83,7 +83,7 @@ namespace ATINTimekeeping.ChamCongVaBaoBieu
         private void GridViewNhanVienConfig(PhongBan phongban)
         {
             ATINChamCongEntities context = new ATINChamCongEntities();
-            List<ViewThongTinNhanVien1> viewThongTinNhanVien1s = context.spGetViewThongTinNhanVien1ByPhongBan(phongban.MaPhongBan).ToList();
+            List<ViewThongTinNhanVien1> viewThongTinNhanVien1s = context.spGetViewThongTinNhanVien1ByPhongBan(phongban.MaPhongBan).Distinct().ToList();
             if (viewThongTinNhanVien1s.Count < 1)
                 return;
             foreach (var view in viewThongTinNhanVien1s)
@@ -102,6 +102,8 @@ namespace ATINTimekeeping.ChamCongVaBaoBieu
             dataGridViewNhanVien.Columns["MaLichTrinh"].Visible = false;
             dataGridViewNhanVien.Columns["MaChucVu"].Visible = false;
             dataGridViewNhanVien.Columns["MaPhongBan"].Visible = false;
+            //dataGridViewNhanVien.Columns["MaChamCong"].Visible = false;
+
 
             dataGridViewNhanVien.Columns["Checkbox"].DisplayIndex = 0;
             dataGridViewNhanVien.Columns["MaLichTrinh"].DisplayIndex = 1;
