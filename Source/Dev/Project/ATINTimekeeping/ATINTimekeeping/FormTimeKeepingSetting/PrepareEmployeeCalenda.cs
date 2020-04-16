@@ -157,7 +157,7 @@ namespace ATINTimekeeping.FormTimeKeepingSetting
 
             else if ((node.Tag as PhongBan).MaPhongBan != 0)
             {
-                var lstNguoi = context.spGetAllNguoi().Where(x => (x.TrangThaiHoatDong == 1) && (x.PhongBan == (node.Tag as PhongBan).MaPhongBan)).ToList();
+                var lstNguoi = context.spGetAllNguoi().Where(x => (x.TrangThaiHoatDong == 1) && (x.MaPhongBan == (node.Tag as PhongBan).MaPhongBan)).ToList();
                 List<ViewSapXepLichTrinh> viewSapXepLichTrinhs = new List<ViewSapXepLichTrinh>();
                 foreach (var nguoi in lstNguoi)
                 {
