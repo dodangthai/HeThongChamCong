@@ -22,6 +22,8 @@ namespace ATINTimekeeping.ChamCongVaBaoBieu
             comboBox3.SelectedIndex = 0;
             timeEdit1.Time = DateTime.Now;
             timeEdit2.Time = DateTime.Now;
+            timeEdit1.Enabled = false;
+            timeEdit2.Enabled = false;
             DataGridViewCheckBoxColumn checkCol = new DataGridViewCheckBoxColumn();
             checkCol.Name = "Checkbox";
             checkCol.DataPropertyName = "Checkbox";
@@ -229,7 +231,58 @@ namespace ATINTimekeeping.ChamCongVaBaoBieu
         // add time
         private void button2_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.Rows.Count < 1)
+                return;
+            if (timeEdit2.Enabled == false && timeEdit1.Enabled == false)
+                return;
+            Cursor.Current = Cursors.WaitCursor;
+            button2.Enabled = false;
+            ATINChamCongEntities context = new ATINChamCongEntities();
 
+            DateTime datetmp = DateTime.MinValue;
+            try
+            {
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+
+                    if ((bool)row.Cells[0].Value == true)
+                    {
+                        // them gio vao nguon thuc hien = 3 => PC
+                        if (timeEdit1.Enabled == true)
+                        {
+                            foreach (ListViewItem lvItem in listView1.Items)
+                            {
+                                if(lvItem.Checked == true)
+                                {
+                                    string s = (lvItem.Tag as int?).ToString() + "/" + (comboBox3.SelectedIndex + 1).ToString() + "/" + (2020 + comboBox2.SelectedIndex).ToString() +" "+ timeEdit1.TimeSpan.ToString();
+                                    datetmp = Convert.ToDateTime(s, System.Globalization.CultureInfo.GetCultureInfo("hi-IN").DateTimeFormat);
+                                    context.spInsertChamCongChiTiet((row.DataBoundItem as Nguoi).MaNguoi, datetmp, "IN", 3);
+                                }
+                            }
+                        }
+                        // them gio ra
+                        if (timeEdit2.Enabled == true)
+                        {
+                            foreach (ListViewItem lvItem in listView1.Items)
+                            {
+                                if (lvItem.Checked == true)
+                                {
+                                    string s = (lvItem.Tag as int?).ToString() + "/" + (comboBox3.SelectedIndex + 1).ToString() + "/" + (2020 + comboBox2.SelectedIndex).ToString() + " " + timeEdit2.TimeSpan.ToString();
+                                    datetmp = Convert.ToDateTime(s, System.Globalization.CultureInfo.GetCultureInfo("hi-IN").DateTimeFormat);
+                                    context.spInsertChamCongChiTiet((row.DataBoundItem as Nguoi).MaNguoi, datetmp, "OUT", 3);
+                                }
+                            }
+                        }
+                    }
+                }
+                MessageBox.Show("Thêm giờ chấm công thành công!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            Cursor.Current = Cursors.Default;
+            button2.Enabled = true;
         }
     }
 }

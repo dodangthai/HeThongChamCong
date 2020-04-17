@@ -58,9 +58,9 @@
             this.barButtonItem44 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonStatusBar2 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonStatusBar3 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonStatusBar4 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.ribbonStatusBar2 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barEditItem2 = new DevExpress.XtraBars.BarEditItem();
@@ -153,16 +153,16 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.repositoryItemTreeListLookUpEdit1TreeList = new DevExpress.XtraTreeList.TreeList();
-            this.repositoryItemTreeListLookUpEdit2TreeList = new DevExpress.XtraTreeList.TreeList();
-            this.barEditItem16 = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemTreeListLookUpEdit3TreeList = new DevExpress.XtraTreeList.TreeList();
             this.MaNhanVienGrid2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaChamCongGrid2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoTenGrid2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayChamCongGrid2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GioVaoGrid2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GioRaGrid2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.repositoryItemTreeListLookUpEdit1TreeList = new DevExpress.XtraTreeList.TreeList();
+            this.repositoryItemTreeListLookUpEdit2TreeList = new DevExpress.XtraTreeList.TreeList();
+            this.barEditItem16 = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemTreeListLookUpEdit3TreeList = new DevExpress.XtraTreeList.TreeList();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl2)).BeginInit();
@@ -283,7 +283,7 @@
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
             this.ribbonControl1.Size = new System.Drawing.Size(75, 183);
-            this.ribbonControl1.StatusBar = this.ribbonStatusBar2;
+            this.ribbonControl1.StatusBar = this.ribbonStatusBar4;
             this.ribbonControl1.Visible = false;
             // 
             // barButtonItem12
@@ -418,6 +418,15 @@
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "ribbonPageGroup1";
             // 
+            // ribbonStatusBar2
+            // 
+            this.ribbonStatusBar2.ItemLinks.Add(this.barButtonItem12);
+            this.ribbonStatusBar2.Location = new System.Drawing.Point(0, 2);
+            this.ribbonStatusBar2.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonStatusBar2.Name = "ribbonStatusBar2";
+            this.ribbonStatusBar2.Ribbon = this.ribbonControl1;
+            this.ribbonStatusBar2.Size = new System.Drawing.Size(1244, 33);
+            // 
             // ribbonStatusBar3
             // 
             this.ribbonStatusBar3.ItemLinks.Add(this.barButtonItem16);
@@ -435,15 +444,6 @@
             this.ribbonStatusBar4.Name = "ribbonStatusBar4";
             this.ribbonStatusBar4.Ribbon = this.ribbonControl1;
             this.ribbonStatusBar4.Size = new System.Drawing.Size(1246, 33);
-            // 
-            // ribbonStatusBar2
-            // 
-            this.ribbonStatusBar2.ItemLinks.Add(this.barButtonItem12);
-            this.ribbonStatusBar2.Location = new System.Drawing.Point(0, 2);
-            this.ribbonStatusBar2.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonStatusBar2.Name = "ribbonStatusBar2";
-            this.ribbonStatusBar2.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar2.Size = new System.Drawing.Size(1244, 33);
             // 
             // barEditItem1
             // 
@@ -836,6 +836,7 @@
             this.labelControl1.Size = new System.Drawing.Size(161, 17);
             this.labelControl1.TabIndex = 13;
             this.labelControl1.Text = "Ngày đầu tháng tính công";
+            this.labelControl1.Visible = false;
             // 
             // numericUpDown1
             // 
@@ -848,6 +849,7 @@
             0,
             0,
             0});
+            this.numericUpDown1.Visible = false;
             // 
             // dateDenNgay
             // 
@@ -927,6 +929,7 @@
             this.dataGridViewNhanVien.AllowUserToAddRows = false;
             this.dataGridViewNhanVien.AllowUserToDeleteRows = false;
             this.dataGridViewNhanVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGridViewNhanVien.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridViewNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewNhanVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaNguoi,
@@ -1082,6 +1085,7 @@
             this.dataGridView0.AllowUserToAddRows = false;
             this.dataGridView0.AllowUserToDeleteRows = false;
             this.dataGridView0.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGridView0.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView0.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView0.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaNhanVien,
@@ -1388,37 +1392,6 @@
             this.dataGridView2.TabIndex = 4;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
-            // repositoryItemTreeListLookUpEdit1TreeList
-            // 
-            this.repositoryItemTreeListLookUpEdit1TreeList.Location = new System.Drawing.Point(0, 0);
-            this.repositoryItemTreeListLookUpEdit1TreeList.Name = "repositoryItemTreeListLookUpEdit1TreeList";
-            this.repositoryItemTreeListLookUpEdit1TreeList.OptionsView.ShowIndentAsRowStyle = true;
-            this.repositoryItemTreeListLookUpEdit1TreeList.Size = new System.Drawing.Size(400, 200);
-            this.repositoryItemTreeListLookUpEdit1TreeList.TabIndex = 0;
-            // 
-            // repositoryItemTreeListLookUpEdit2TreeList
-            // 
-            this.repositoryItemTreeListLookUpEdit2TreeList.Location = new System.Drawing.Point(0, 0);
-            this.repositoryItemTreeListLookUpEdit2TreeList.Name = "repositoryItemTreeListLookUpEdit2TreeList";
-            this.repositoryItemTreeListLookUpEdit2TreeList.OptionsView.ShowIndentAsRowStyle = true;
-            this.repositoryItemTreeListLookUpEdit2TreeList.Size = new System.Drawing.Size(400, 200);
-            this.repositoryItemTreeListLookUpEdit2TreeList.TabIndex = 0;
-            // 
-            // barEditItem16
-            // 
-            this.barEditItem16.Caption = "barEditItem16";
-            this.barEditItem16.Edit = this.repositoryItemTreeListLookUpEdit3;
-            this.barEditItem16.Id = 14;
-            this.barEditItem16.Name = "barEditItem16";
-            // 
-            // repositoryItemTreeListLookUpEdit3TreeList
-            // 
-            this.repositoryItemTreeListLookUpEdit3TreeList.Location = new System.Drawing.Point(0, 0);
-            this.repositoryItemTreeListLookUpEdit3TreeList.Name = "repositoryItemTreeListLookUpEdit3TreeList";
-            this.repositoryItemTreeListLookUpEdit3TreeList.OptionsView.ShowIndentAsRowStyle = true;
-            this.repositoryItemTreeListLookUpEdit3TreeList.Size = new System.Drawing.Size(400, 200);
-            this.repositoryItemTreeListLookUpEdit3TreeList.TabIndex = 0;
-            // 
             // MaNhanVienGrid2
             // 
             this.MaNhanVienGrid2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -1478,6 +1451,37 @@
             this.GioRaGrid2.Name = "GioRaGrid2";
             this.GioRaGrid2.ReadOnly = true;
             this.GioRaGrid2.Width = 88;
+            // 
+            // repositoryItemTreeListLookUpEdit1TreeList
+            // 
+            this.repositoryItemTreeListLookUpEdit1TreeList.Location = new System.Drawing.Point(0, 0);
+            this.repositoryItemTreeListLookUpEdit1TreeList.Name = "repositoryItemTreeListLookUpEdit1TreeList";
+            this.repositoryItemTreeListLookUpEdit1TreeList.OptionsView.ShowIndentAsRowStyle = true;
+            this.repositoryItemTreeListLookUpEdit1TreeList.Size = new System.Drawing.Size(400, 200);
+            this.repositoryItemTreeListLookUpEdit1TreeList.TabIndex = 0;
+            // 
+            // repositoryItemTreeListLookUpEdit2TreeList
+            // 
+            this.repositoryItemTreeListLookUpEdit2TreeList.Location = new System.Drawing.Point(0, 0);
+            this.repositoryItemTreeListLookUpEdit2TreeList.Name = "repositoryItemTreeListLookUpEdit2TreeList";
+            this.repositoryItemTreeListLookUpEdit2TreeList.OptionsView.ShowIndentAsRowStyle = true;
+            this.repositoryItemTreeListLookUpEdit2TreeList.Size = new System.Drawing.Size(400, 200);
+            this.repositoryItemTreeListLookUpEdit2TreeList.TabIndex = 0;
+            // 
+            // barEditItem16
+            // 
+            this.barEditItem16.Caption = "barEditItem16";
+            this.barEditItem16.Edit = this.repositoryItemTreeListLookUpEdit3;
+            this.barEditItem16.Id = 14;
+            this.barEditItem16.Name = "barEditItem16";
+            // 
+            // repositoryItemTreeListLookUpEdit3TreeList
+            // 
+            this.repositoryItemTreeListLookUpEdit3TreeList.Location = new System.Drawing.Point(0, 0);
+            this.repositoryItemTreeListLookUpEdit3TreeList.Name = "repositoryItemTreeListLookUpEdit3TreeList";
+            this.repositoryItemTreeListLookUpEdit3TreeList.OptionsView.ShowIndentAsRowStyle = true;
+            this.repositoryItemTreeListLookUpEdit3TreeList.Size = new System.Drawing.Size(400, 200);
+            this.repositoryItemTreeListLookUpEdit3TreeList.TabIndex = 0;
             // 
             // ChamCongTheoCa
             // 

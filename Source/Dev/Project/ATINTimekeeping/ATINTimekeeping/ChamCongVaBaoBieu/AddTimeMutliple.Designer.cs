@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Nhân viên mới");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Văn phòng");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("ATI", new System.Windows.Forms.TreeNode[] {
-            treeNode14});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Nhân viên mới");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Văn phòng");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("ATI", new System.Windows.Forms.TreeNode[] {
+            treeNode2});
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.checkBoxCheckAll = new System.Windows.Forms.CheckBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.MaNguoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -48,8 +49,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
             this.button2 = new System.Windows.Forms.Button();
-            this.timeEdit2 = new DevExpress.XtraEditors.TimeEdit();
-            this.timeEdit1 = new DevExpress.XtraEditors.TimeEdit();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
@@ -59,16 +58,14 @@
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
-            this.MaNguoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timeEdit1 = new DevExpress.XtraEditors.TimeSpanEdit();
+            this.timeEdit2 = new DevExpress.XtraEditors.TimeSpanEdit();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.timeEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeEdit2.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -137,19 +134,39 @@
             this.dataGridView1.Size = new System.Drawing.Size(443, 529);
             this.dataGridView1.TabIndex = 8;
             // 
+            // MaNguoi
+            // 
+            this.MaNguoi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.MaNguoi.DataPropertyName = "MaNguoi";
+            this.MaNguoi.HeaderText = "Mã nhân viên";
+            this.MaNguoi.MinimumWidth = 6;
+            this.MaNguoi.Name = "MaNguoi";
+            this.MaNguoi.ReadOnly = true;
+            this.MaNguoi.Width = 122;
+            // 
+            // HoTen
+            // 
+            this.HoTen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.HoTen.DataPropertyName = "HoTen";
+            this.HoTen.HeaderText = "Tên nhân viên";
+            this.HoTen.MinimumWidth = 6;
+            this.HoTen.Name = "HoTen";
+            this.HoTen.ReadOnly = true;
+            this.HoTen.Width = 128;
+            // 
             // treeView1
             // 
             this.treeView1.Location = new System.Drawing.Point(10, 49);
             this.treeView1.Name = "treeView1";
-            treeNode13.Name = "Node0";
-            treeNode13.Text = "Nhân viên mới";
-            treeNode14.Name = "Node3";
-            treeNode14.Text = "Văn phòng";
-            treeNode15.Name = "Node1";
-            treeNode15.Text = "ATI";
+            treeNode1.Name = "Node0";
+            treeNode1.Text = "Nhân viên mới";
+            treeNode2.Name = "Node3";
+            treeNode2.Text = "Văn phòng";
+            treeNode3.Name = "Node1";
+            treeNode3.Text = "ATI";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode13,
-            treeNode15});
+            treeNode1,
+            treeNode3});
             this.treeView1.Size = new System.Drawing.Size(329, 529);
             this.treeView1.TabIndex = 7;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -221,10 +238,10 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.listView1);
-            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.timeEdit2);
             this.panel1.Controls.Add(this.timeEdit1);
+            this.panel1.Controls.Add(this.listView1);
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.textBox13);
             this.panel1.Controls.Add(this.textBox12);
             this.panel1.Controls.Add(this.checkBox3);
@@ -261,28 +278,6 @@
             this.button2.Text = "Thực hiện";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // timeEdit2
-            // 
-            this.timeEdit2.EditValue = new System.DateTime(2020, 3, 30, 0, 0, 0, 0);
-            this.timeEdit2.Enabled = false;
-            this.timeEdit2.Location = new System.Drawing.Point(305, 457);
-            this.timeEdit2.Name = "timeEdit2";
-            this.timeEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeEdit2.Size = new System.Drawing.Size(112, 24);
-            this.timeEdit2.TabIndex = 17;
-            // 
-            // timeEdit1
-            // 
-            this.timeEdit1.EditValue = new System.DateTime(2020, 3, 30, 0, 0, 0, 0);
-            this.timeEdit1.Enabled = false;
-            this.timeEdit1.Location = new System.Drawing.Point(107, 457);
-            this.timeEdit1.Name = "timeEdit1";
-            this.timeEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeEdit1.Size = new System.Drawing.Size(106, 24);
-            this.timeEdit1.TabIndex = 16;
             // 
             // textBox13
             // 
@@ -395,25 +390,25 @@
             this.textBox6.TabIndex = 2;
             this.textBox6.Text = "Chọn năm:";
             // 
-            // MaNguoi
+            // timeEdit1
             // 
-            this.MaNguoi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.MaNguoi.DataPropertyName = "MaNguoi";
-            this.MaNguoi.HeaderText = "Mã nhân viên";
-            this.MaNguoi.MinimumWidth = 6;
-            this.MaNguoi.Name = "MaNguoi";
-            this.MaNguoi.ReadOnly = true;
-            this.MaNguoi.Width = 122;
+            this.timeEdit1.EditValue = System.TimeSpan.Parse("00:00:00");
+            this.timeEdit1.Location = new System.Drawing.Point(107, 458);
+            this.timeEdit1.Name = "timeEdit1";
+            this.timeEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.timeEdit1.Size = new System.Drawing.Size(114, 22);
+            this.timeEdit1.TabIndex = 10;
             // 
-            // HoTen
+            // timeEdit2
             // 
-            this.HoTen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.HoTen.DataPropertyName = "HoTen";
-            this.HoTen.HeaderText = "Tên nhân viên";
-            this.HoTen.MinimumWidth = 6;
-            this.HoTen.Name = "HoTen";
-            this.HoTen.ReadOnly = true;
-            this.HoTen.Width = 128;
+            this.timeEdit2.EditValue = System.TimeSpan.Parse("00:00:00");
+            this.timeEdit2.Location = new System.Drawing.Point(305, 458);
+            this.timeEdit2.Name = "timeEdit2";
+            this.timeEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.timeEdit2.Size = new System.Drawing.Size(112, 22);
+            this.timeEdit2.TabIndex = 21;
             // 
             // AddTimeMutliple
             // 
@@ -431,9 +426,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.timeEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeEdit2.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -457,9 +451,6 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.CheckBox checkBox1;
-        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
-        private DevExpress.XtraEditors.TimeEdit timeEdit2;
-        private DevExpress.XtraEditors.TimeEdit timeEdit1;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.CheckBox checkBox3;
@@ -469,5 +460,7 @@
         private System.Windows.Forms.CheckBox checkBoxCheckAll;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaNguoi;
         private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
+        private DevExpress.XtraEditors.TimeSpanEdit timeEdit2;
+        private DevExpress.XtraEditors.TimeSpanEdit timeEdit1;
     }
 }
