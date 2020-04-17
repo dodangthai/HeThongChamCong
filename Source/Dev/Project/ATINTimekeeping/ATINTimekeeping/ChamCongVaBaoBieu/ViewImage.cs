@@ -60,13 +60,16 @@ namespace ATINTimekeeping.ChamCongVaBaoBieu
             List<ListViewItem> lstLv = new List<ListViewItem>();
             foreach (var view in lstViewXemHinhChamCong)
             {
-                imageList1.Images.Add(byteArrayToImage(view.HinhChamCong));
+                if (view.HinhChamCong == null)
+                    imageList1.Images.Add(Properties.Resources.bouser_32x32);
+                else
+                    imageList1.Images.Add(byteArrayToImage(view.HinhChamCong));
             }
             imageList1.ImageSize = new Size(100, 100);
             listView1.View = View.LargeIcon;
             for (int j = 0; j < this.imageList1.Images.Count; j++)
             {
-                ListViewItem item = new ListViewItem(lstViewXemHinhChamCong[j].HoTen +" " +lstViewXemHinhChamCong[j].GioChamCong.ToString());
+                ListViewItem item = new ListViewItem(lstViewXemHinhChamCong[j].HoTen + " " + lstViewXemHinhChamCong[j].GioChamCong.ToString());
                 item.ImageIndex = j;
                 this.listView1.Items.Add(item);
             }
