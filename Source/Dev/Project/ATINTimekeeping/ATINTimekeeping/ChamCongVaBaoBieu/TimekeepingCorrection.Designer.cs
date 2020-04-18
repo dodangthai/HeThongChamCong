@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TimekeepingCorrection));
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Nhân viên mới");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Văn phòng");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("ATI", new System.Windows.Forms.TreeNode[] {
-            treeNode5});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Nhân viên mới");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Văn phòng");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("ATI", new System.Windows.Forms.TreeNode[] {
+            treeNode2});
             this.repositoryItemTimeEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
@@ -191,7 +191,7 @@
             this.repositoryItemDateEdit1,
             this.repositoryItemDateEdit2});
             this.ribbonControl1.Size = new System.Drawing.Size(67, 183);
-            this.ribbonControl1.StatusBar = this.ribbonStatusBar2;
+            this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
             this.ribbonControl1.Visible = false;
             // 
             // barButtonItem3
@@ -354,15 +354,15 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(3, 3);
             this.treeView1.Name = "treeView1";
-            treeNode4.Name = "Node0";
-            treeNode4.Text = "Nhân viên mới";
-            treeNode5.Name = "Node3";
-            treeNode5.Text = "Văn phòng";
-            treeNode6.Name = "Node1";
-            treeNode6.Text = "ATI";
+            treeNode1.Name = "Node0";
+            treeNode1.Text = "Nhân viên mới";
+            treeNode2.Name = "Node3";
+            treeNode2.Text = "Văn phòng";
+            treeNode3.Name = "Node1";
+            treeNode3.Text = "ATI";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4,
-            treeNode6});
+            treeNode1,
+            treeNode3});
             this.treeView1.Size = new System.Drawing.Size(294, 203);
             this.treeView1.TabIndex = 1;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);

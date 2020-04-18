@@ -244,7 +244,8 @@ namespace ATINTimekeeping.ChamCongVaBaoBieu
             {
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
-
+                    if (row.Cells[0].Value == null)
+                        continue;
                     if ((bool)row.Cells[0].Value == true)
                     {
                         // them gio vao nguon thuc hien = 3 => PC

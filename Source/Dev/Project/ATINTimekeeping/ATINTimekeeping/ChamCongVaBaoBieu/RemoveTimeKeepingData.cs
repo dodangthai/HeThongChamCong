@@ -159,6 +159,8 @@ namespace ATINTimekeeping.ChamCongVaBaoBieu
             {
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
+                    if (row.Cells[0].Value == null)
+                        continue;
                     if ((bool)row.Cells[0].Value == true)
                         context.spDeleteChamCongChiTietByNguoi((row.DataBoundItem as Nguoi).MaNguoi, dateEdit1.DateTime, dateEdit2.DateTime, checkBox1.Checked);
                 }
