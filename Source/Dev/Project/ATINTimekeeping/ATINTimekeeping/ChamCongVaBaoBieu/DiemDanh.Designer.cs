@@ -43,7 +43,8 @@
             // 
             // dateChonNgay
             // 
-            this.dateChonNgay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateChonNgay.CustomFormat = "dd/MM/yyyy";
+            this.dateChonNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateChonNgay.Location = new System.Drawing.Point(152, 56);
             this.dateChonNgay.Name = "dateChonNgay";
             this.dateChonNgay.Size = new System.Drawing.Size(200, 23);
@@ -57,6 +58,7 @@
             this.btnThucHien.TabIndex = 2;
             this.btnThucHien.Text = "Thực hiện";
             this.btnThucHien.UseVisualStyleBackColor = true;
+            this.btnThucHien.Click += new System.EventHandler(this.btnThucHien_Click);
             // 
             // DiemDanh
             // 
