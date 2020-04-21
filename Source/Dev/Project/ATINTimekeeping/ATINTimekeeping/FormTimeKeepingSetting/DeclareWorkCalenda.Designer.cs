@@ -137,7 +137,7 @@
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
             this.ribbonControl1.Size = new System.Drawing.Size(148, 183);
-            this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
+            this.ribbonControl1.StatusBar = this.ribbonStatusBar;
             this.ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Above;
             this.ribbonControl1.Visible = false;
             // 
@@ -307,6 +307,7 @@
             this.textBox1.TabIndex = 57;
             this.textBox1.Text = "Khi không xếp ca vào các ngày trong tuần hoặc ngày lễ, có đi làm thì mặc định tín" +
     "h tăng ca mức 1";
+            this.textBox1.Visible = false;
             // 
             // radioButton3
             // 
@@ -382,6 +383,7 @@
             this.checkBox5.TabIndex = 31;
             this.checkBox5.Text = "Ngày là ngày của giờ ra";
             this.checkBox5.UseVisualStyleBackColor = true;
+            this.checkBox5.Visible = false;
             // 
             // checkBox4
             // 
@@ -392,6 +394,7 @@
             this.checkBox4.TabIndex = 30;
             this.checkBox4.Text = "Ngày lễ được tính 1 công (ngày làm việc) làm việc  cho trường hợp không đi làm";
             this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.Visible = false;
             this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
             // 
             // checkBox3
@@ -403,6 +406,7 @@
             this.checkBox3.TabIndex = 29;
             this.checkBox3.Text = "Không xếp vắng Ngày Lễ khi có xếp ca";
             this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.Visible = false;
             this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
             // checkBox2
@@ -414,6 +418,7 @@
             this.checkBox2.TabIndex = 28;
             this.checkBox2.Text = "Không xếp vắng ngày Chủ Nhật khi có xếp ca";
             this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.Visible = false;
             // 
             // checkBox1
             // 
@@ -424,6 +429,7 @@
             this.checkBox1.TabIndex = 27;
             this.checkBox1.Text = "Không xếp vắng ngày Thứ Bảy khi có xếp ca";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.Visible = false;
             // 
             // DeclareWorkCalenda
             // 
