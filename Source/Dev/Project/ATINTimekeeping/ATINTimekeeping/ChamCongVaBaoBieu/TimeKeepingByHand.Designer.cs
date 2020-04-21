@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Nhân viên mới");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Văn phòng");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("ATI", new System.Windows.Forms.TreeNode[] {
-            treeNode5});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Nhân viên mới");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Văn phòng");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("ATI", new System.Windows.Forms.TreeNode[] {
+            treeNode2});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TimeKeepingByHand));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -141,15 +141,15 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(3, 3);
             this.treeView1.Name = "treeView1";
-            treeNode4.Name = "Node0";
-            treeNode4.Text = "Nhân viên mới";
-            treeNode5.Name = "Node2";
-            treeNode5.Text = "Văn phòng";
-            treeNode6.Name = "Node1";
-            treeNode6.Text = "ATI";
+            treeNode1.Name = "Node0";
+            treeNode1.Text = "Nhân viên mới";
+            treeNode2.Name = "Node2";
+            treeNode2.Text = "Văn phòng";
+            treeNode3.Name = "Node1";
+            treeNode3.Text = "ATI";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4,
-            treeNode6});
+            treeNode1,
+            treeNode3});
             this.treeView1.Size = new System.Drawing.Size(388, 244);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -531,6 +531,7 @@
             this.button4.Text = "Xuất vắng";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Visible = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button2
             // 

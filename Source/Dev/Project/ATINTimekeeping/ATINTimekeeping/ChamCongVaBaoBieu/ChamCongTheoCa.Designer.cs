@@ -106,6 +106,7 @@
             this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnTinhCong = new System.Windows.Forms.Button();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.dateDenNgay = new System.Windows.Forms.DateTimePicker();
@@ -308,6 +309,7 @@
             this.barButtonItem17.Id = 6;
             this.barButtonItem17.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem17.ImageOptions.Image")));
             this.barButtonItem17.Name = "barButtonItem17";
+            this.barButtonItem17.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem17_ItemClick);
             // 
             // barButtonItem25
             // 
@@ -814,6 +816,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnTinhCong);
             this.panel1.Controls.Add(this.labelControl1);
             this.panel1.Controls.Add(this.numericUpDown1);
             this.panel1.Controls.Add(this.dateDenNgay);
@@ -828,9 +831,21 @@
             this.panel1.Size = new System.Drawing.Size(1260, 50);
             this.panel1.TabIndex = 0;
             // 
+            // btnTinhCong
+            // 
+            this.btnTinhCong.Location = new System.Drawing.Point(764, 6);
+            this.btnTinhCong.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTinhCong.Name = "btnTinhCong";
+            this.btnTinhCong.Size = new System.Drawing.Size(98, 40);
+            this.btnTinhCong.TabIndex = 14;
+            this.btnTinhCong.Text = "Tính công";
+            this.btnTinhCong.UseVisualStyleBackColor = true;
+            this.btnTinhCong.Visible = false;
+            this.btnTinhCong.Click += new System.EventHandler(this.btnTinhCong_Click);
+            // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(860, 20);
+            this.labelControl1.Location = new System.Drawing.Point(1015, 15);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(161, 17);
@@ -840,7 +855,7 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(1028, 18);
+            this.numericUpDown1.Location = new System.Drawing.Point(1183, 13);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(63, 23);
             this.numericUpDown1.TabIndex = 12;
@@ -874,10 +889,10 @@
             // 
             // btnXemCong
             // 
-            this.btnXemCong.Location = new System.Drawing.Point(658, 8);
+            this.btnXemCong.Location = new System.Drawing.Point(658, 6);
             this.btnXemCong.Margin = new System.Windows.Forms.Padding(4);
             this.btnXemCong.Name = "btnXemCong";
-            this.btnXemCong.Size = new System.Drawing.Size(149, 40);
+            this.btnXemCong.Size = new System.Drawing.Size(98, 40);
             this.btnXemCong.TabIndex = 9;
             this.btnXemCong.Text = "Xem công";
             this.btnXemCong.UseVisualStyleBackColor = true;
@@ -948,6 +963,7 @@
             this.dataGridViewNhanVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewNhanVien.Size = new System.Drawing.Size(1260, 206);
             this.dataGridViewNhanVien.TabIndex = 1;
+            this.dataGridViewNhanVien.SelectionChanged += new System.EventHandler(this.dataGridViewNhanVien_SelectionChanged);
             // 
             // MaNguoi
             // 
@@ -1204,7 +1220,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(3, 19);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(208, 210);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -1240,6 +1256,7 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaNhanVienGrid1,
@@ -1259,7 +1276,6 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1238, 232);
             this.dataGridView1.TabIndex = 6;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // MaNhanVienGrid1
             // 
@@ -1373,6 +1389,7 @@
             // 
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaNhanVienGrid2,
@@ -1390,7 +1407,6 @@
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.Size = new System.Drawing.Size(1238, 232);
             this.dataGridView2.TabIndex = 4;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // MaNhanVienGrid2
             // 
@@ -1608,8 +1624,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar2;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar3;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar4;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView dataGridView2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem12;
         private DevExpress.XtraBars.BarButtonItem barButtonItem16;
@@ -1673,5 +1687,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayChamCongGrid2;
         private System.Windows.Forms.DataGridViewTextBoxColumn GioVaoGrid2;
         private System.Windows.Forms.DataGridViewTextBoxColumn GioRaGrid2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnTinhCong;
     }
 }

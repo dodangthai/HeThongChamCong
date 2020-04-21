@@ -320,5 +320,10 @@ namespace ATINTimekeeping.ChamCongVaBaoBieu
             if (dataGridView1.SelectedRows.Count > 0)
                 DataGridView2Config(dataGridView1.SelectedRows[0].DataBoundItem as Nguoi);
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

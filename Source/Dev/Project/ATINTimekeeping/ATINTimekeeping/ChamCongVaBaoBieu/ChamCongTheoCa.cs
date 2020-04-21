@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
+using System.IO;
 using ATINTimekeeping.Model;
 using Excel = Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Interop.Excel;
@@ -369,6 +370,7 @@ namespace ATINTimekeeping.ChamCongVaBaoBieu
 
             System.Data.DataTable table = new System.Data.DataTable("ViewGioChia2Cot");
             table.Columns.Add(new DataColumn("MaNhanVienGrid2", typeof(int)));
+
             table.Columns.Add(new DataColumn("MaChamCongGrid2", typeof(int)));
             table.Columns.Add(new DataColumn("HoTenGrid2", typeof(string)));
             table.Columns.Add(new DataColumn("NgayChamCongGrid2", typeof(DateTime)));
@@ -404,7 +406,7 @@ namespace ATINTimekeeping.ChamCongVaBaoBieu
                                 {
                                     addTableGrid2(GioVaoSomNhat, null, ref table);
                                 }
-                                else if(i+1<lstGioNguon1Cot.Count && lstGioNguon1Cot[i+1].NgayChamCong != tmp)
+                                else if (i + 1 < lstGioNguon1Cot.Count && lstGioNguon1Cot[i + 1].NgayChamCong != tmp)
                                     addTableGrid2(GioVaoSomNhat, null, ref table);
                                 continue;
                             }
@@ -426,7 +428,7 @@ namespace ATINTimekeeping.ChamCongVaBaoBieu
             dataGridView2.Columns["NgayChamCongGrid2"].DefaultCellStyle.Format = "dd/MM/yyyy";
             //dataGridView0.Columns["GioVaoGrid1"].DefaultCellStyle.Format = "hh:mm:ss";
             //dataGridView0.Columns["GioRaGrid1"].DefaultCellStyle.Format = "hh:mm:ss";
-                ;
+            ;
             dataGridView2.Columns["MaNhanVienGrid2"].DisplayIndex = 0;
             dataGridView2.Columns["MaChamCongGrid2"].DisplayIndex = 1;
             dataGridView2.Columns["HoTenGrid2"].DisplayIndex = 2;
@@ -473,11 +475,6 @@ namespace ATINTimekeeping.ChamCongVaBaoBieu
             btnXemCong.Enabled = true;
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         //Hàm kẻ khung cho Excel
         private void BorderAround(Range range)
         {
@@ -509,6 +506,397 @@ namespace ATINTimekeeping.ChamCongVaBaoBieu
             { GC.Collect(); }
         }
 
+        private void btnTinhCong_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewNhanVien.Rows.Count < 1 || dataGridViewNhanVien.SelectedRows.Count < 1)
+                return;
+            Cursor.Current = Cursors.WaitCursor;
+            btnTinhCong.Enabled = false;
+            foreach (DataGridViewRow row in dataGridViewNhanVien.Rows)
+            {
+                if (row.Cells["Checkbox"].Value == null)
+                    continue;
+                if ((bool)row.Cells["Checkbox"].Value == true)
+                {
+                    TinhCong(row.Cells["MaNguoi"].Value.ToString(), dateTuNgay.Value, dateDenNgay.Value);
+                }
+            }
+
+            Cursor.Current = Cursors.Default;
+            btnTinhCong.Enabled = true;
+        }
+        private void TinhCong(string MaNguoi, DateTime fromDate, DateTime toDate)
+        {
+            ATINChamCongEntities context = new ATINChamCongEntities();
+            var nguoi = context.Nguois.Where(x => x.MaNguoi.ToString().Trim() == MaNguoi).FirstOrDefault();
+            var sapXepLichTrinh = context.spGetSapXepLichTrinhByNguoi(nguoi.MaNguoi).FirstOrDefault();
+            var LichTrinhDefault = context.LichTrinhs.Where(x => x.MaLichTrinh == sapXepLichTrinh.MaLichTrinh).FirstOrDefault();
+            var sapXepLichTrinhTams = context.spGetSapXepLichTrinhTamByNguoi(nguoi.MaNguoi).ToList();
+
+            for (DateTime datetmp = fromDate; datetmp <= toDate; datetmp.AddDays(1.0))
+            {
+                //Nếu tồn tại lịch trình tạm của ngày này thì sẽ không áp dụng lịch trình default cho ngày này
+                //khong tinh cong cho ngay chua co'
+                if (datetmp.Date > DateTime.Now.Date)
+                    continue;
+                List<LichTrinh> lichtrinhTams = new List<LichTrinh>();
+                int TongGio = 0;
+                int TongCong = 0;
+
+                foreach (var sapxeplictrinhtam in sapXepLichTrinhTams)
+                {
+                    if (datetmp < sapxeplictrinhtam.TuNgay || datetmp > sapxeplictrinhtam.DenNgay)
+                        continue;
+                    else
+                    {
+                        lichtrinhTams.Add(context.LichTrinhs.Where(x => x.MaLichTrinh == sapxeplictrinhtam.MaLichTrinh).FirstOrDefault());
+                    }
+                }
+                //Nếu tồn tại lịch trình tạm của ngày này thì sẽ không áp dụng lịch trình default của ngày này để tính công
+                if (lichtrinhTams.Count > 0)
+                {
+                    foreach (var lichtrinh in lichtrinhTams)
+                    {
+                        switch (lichtrinh.LoaiChuKy)
+                        {
+                            case "week":
+                                int dayofweek = (int)datetmp.DayOfWeek;
+                                var lstlichtrinhngay = context.spGetLichTrinhTuanByLichTrinh(lichtrinh.MaLichTrinh).Where(x => x.DateInWeek == (dayofweek + 1)).ToList();
+                                //List Chấm công chi tiết của người đó trong ngày này
+                                var lstGioNguonByDayByNguoi = context.spGetAllViewGioNguonOrderByNgayGio(nguoi.MaNguoi, datetmp, datetmp).ToList();
+                                if (lstlichtrinhngay.Count < 1 || lstGioNguonByDayByNguoi.Count < 1)
+                                    break;
+                                //Cộng giờ công trong ngày phút
+                                foreach (var LichTrinhToCaLamViec in lstlichtrinhngay) //lấy từng dòng trong lichtrinhngay ra để lấy ca
+                                {
+                                    var calamviec = context.spGetCaLamViec(LichTrinhToCaLamViec.MaCaLamViec).FirstOrDefault();
+                                    foreach(var gionguon in lstGioNguonByDayByNguoi)
+                                    {
+                                        //Nếu chấm công trong phạm vi giờ cho phép tính công thì cộng công, giờ (Chưa xét đi muộn, về sớm, nghỉ lễ,vvv)
+                                        if (gionguon.GioChamCong.TimeOfDay > calamviec.GioVaoSomNhatDuocTinhCa && gionguon.GioChamCong.TimeOfDay < calamviec.GioRaMuonNhatDuocTinhCa)
+                                        {
+                                            TongGio += calamviec.TongGio;
+                                            TongCong += calamviec.DiemCong;
+                                            break; 
+                                        }
+                                    }
+                                }
+                                break;
+                            case "month":
+                                int dayofmonth = (int)datetmp.Day;
+                                var lstlichtrinhthang = context.spGetLichTrinhThangByLichTrinh(lichtrinh.MaLichTrinh).Where(x => x.Date == dayofmonth).ToList();
+                                //List Chấm công chi tiết của người đó trong ngày này
+                                var lstGioNguonByDayByNguoi1 = context.spGetAllViewGioNguonOrderByNgayGio(nguoi.MaNguoi, datetmp, datetmp).ToList();
+                                if (lstlichtrinhthang.Count < 1 || lstGioNguonByDayByNguoi1.Count < 1)
+                                    break;
+                                //Cộng giờ công trong ngày phút
+                                foreach (var LichTrinhToCaLamViec in lstlichtrinhthang) //lấy từng dòng trong lichtrinhngay ra để lấy ca
+                                {
+                                    var calamviec = context.spGetCaLamViec(LichTrinhToCaLamViec.MaCaLamViec).FirstOrDefault();
+                                    foreach (var gionguon in lstGioNguonByDayByNguoi1)
+                                    {
+                                        //Nếu chấm công trong phạm vi giờ cho phép tính công thì cộng công, giờ (Chưa xét đi muộn, về sớm, nghỉ lễ,vvv)
+                                        if (gionguon.GioChamCong.TimeOfDay > calamviec.GioVaoSomNhatDuocTinhCa && gionguon.GioChamCong.TimeOfDay < calamviec.GioRaMuonNhatDuocTinhCa)
+                                        {
+                                            TongGio += calamviec.TongGio;
+                                            TongCong += calamviec.DiemCong;
+                                            break;
+                                        }
+                                    }
+                                }
+                                break;
+                            case "year":
+                                int monthofyear = datetmp.Month;
+                                int dayofmonth1 = datetmp.Day;
+                                var lstlichtrinhnam = context.spGetLichTrinhNamByLichTrinh(lichtrinh.MaLichTrinh).Where(x => x.Date == dayofmonth1 && x.Month == monthofyear).ToList();
+                                //List Chấm công chi tiết của người đó trong ngày này
+                                var lstGioNguonByDayByNguoi2 = context.spGetAllViewGioNguonOrderByNgayGio(nguoi.MaNguoi, datetmp, datetmp).ToList();
+                                if (lstlichtrinhnam.Count < 1 || lstGioNguonByDayByNguoi2.Count < 1)
+                                    break;
+                                //Cộng giờ công trong ngày phút
+                                foreach (var LichTrinhToCaLamViec in lstlichtrinhnam) //lấy từng dòng trong lichtrinhngay ra để lấy ca
+                                {
+                                    var calamviec = context.spGetCaLamViec(LichTrinhToCaLamViec.MaCaLamViec).FirstOrDefault();
+                                    foreach (var gionguon in lstGioNguonByDayByNguoi2)
+                                    {
+                                        //Nếu chấm công trong phạm vi giờ cho phép tính công thì cộng công, giờ (Chưa xét đi muộn, về sớm, nghỉ lễ,vvv)
+                                        if (gionguon.GioChamCong.TimeOfDay > calamviec.GioVaoSomNhatDuocTinhCa && gionguon.GioChamCong.TimeOfDay < calamviec.GioRaMuonNhatDuocTinhCa)
+                                        {
+                                            TongGio += calamviec.TongGio;
+                                            TongCong += calamviec.DiemCong;
+                                            break;
+                                        }
+                                    }
+                                }
+                                break;
+                        }
+                    }
+                }
+                //Nếu không có lịch trình tạm nào đang được áp dụng thì mặc định dùng lịch trình default nếu nó được sắp xếp trước đó
+                else if (LichTrinhDefault != null)
+                {
+                    switch (LichTrinhDefault.LoaiChuKy)
+                    {
+                        case "week":
+                            int dayofweek = (int)datetmp.DayOfWeek;
+                            //Lấy lịch trình của 1 ngày trong tuần
+                            var lstlichtrinhngay = context.spGetLichTrinhTuanByLichTrinh(LichTrinhDefault.MaLichTrinh).Where(x => x.DateInWeek == (dayofweek + 1)).ToList();
+                            //List Chấm công chi tiết của người đó trong ngày này
+                            var lstGioNguonByDayByNguoi = context.spGetAllViewGioNguonOrderByNgayGio(nguoi.MaNguoi, datetmp, datetmp).ToList();
+                            if (lstlichtrinhngay.Count < 1 || lstGioNguonByDayByNguoi.Count < 1)
+                                break;
+                            //Cộng giờ công trong ngày phút
+                            foreach (var LichTrinhToCaLamViec in lstlichtrinhngay) //lấy từng dòng trong lichtrinhngay ra để lấy ca
+                            {
+                                var calamviec = context.spGetCaLamViec(LichTrinhToCaLamViec.MaCaLamViec).FirstOrDefault();
+                                foreach (var gionguon in lstGioNguonByDayByNguoi)
+                                {
+                                    //Nếu chấm công trong phạm vi giờ cho phép tính công thì cộng công, giờ (Chưa xét đi muộn, về sớm, nghỉ lễ,vvv)
+                                    if (gionguon.GioChamCong.TimeOfDay > calamviec.GioVaoSomNhatDuocTinhCa && gionguon.GioChamCong.TimeOfDay < calamviec.GioRaMuonNhatDuocTinhCa)
+                                    {
+                                        TongGio += calamviec.TongGio;
+                                        TongCong += calamviec.DiemCong;
+                                        break;
+                                    }
+                                }
+                            }
+                            break;
+                        case "month":
+                            int dayofmonth = (int)datetmp.Day;
+                            //Lấy lịch trình của 1 ngày trong tháng
+                            var lstlichtrinhthang = context.spGetLichTrinhThangByLichTrinh(LichTrinhDefault.MaLichTrinh).Where(x => x.Date == dayofmonth).ToList();
+                            //List Chấm công chi tiết của người đó trong ngày này
+                            var lstGioNguonByDayByNguoi1 = context.spGetAllViewGioNguonOrderByNgayGio(nguoi.MaNguoi, datetmp, datetmp).ToList();
+                            if (lstlichtrinhthang.Count < 1 || lstGioNguonByDayByNguoi1.Count < 1)
+                                break;
+                            //Cộng giờ công trong ngày phút
+                            foreach (var LichTrinhToCaLamViec in lstlichtrinhthang) //lấy từng dòng trong lichtrinhngay ra để lấy ca
+                            {
+                                var calamviec = context.spGetCaLamViec(LichTrinhToCaLamViec.MaCaLamViec).FirstOrDefault();
+                                foreach (var gionguon in lstGioNguonByDayByNguoi1)
+                                {
+                                    //Nếu chấm công trong phạm vi giờ cho phép tính công thì cộng công, giờ (Chưa xét đi muộn, về sớm, nghỉ lễ,vvv)
+                                    if (gionguon.GioChamCong.TimeOfDay > calamviec.GioVaoSomNhatDuocTinhCa && gionguon.GioChamCong.TimeOfDay < calamviec.GioRaMuonNhatDuocTinhCa)
+                                    {
+                                        TongGio += calamviec.TongGio;
+                                        TongCong += calamviec.DiemCong;
+                                        break;
+                                    }
+                                }
+                            }
+                            break;
+                        case "year":
+                            int monthofyear = datetmp.Month;
+                            int dayofmonth1 = datetmp.Day;
+                            //Lấy lịch trình của 1 ngày trong năm
+                            var lstlichtrinhnam = context.spGetLichTrinhNamByLichTrinh(LichTrinhDefault.MaLichTrinh).Where(x => x.Date == dayofmonth1 && x.Month == monthofyear).ToList();
+                            //List Chấm công chi tiết của người đó trong ngày này
+                            var lstGioNguonByDayByNguoi2 = context.spGetAllViewGioNguonOrderByNgayGio(nguoi.MaNguoi, datetmp, datetmp).ToList();
+                            if (lstlichtrinhnam.Count < 1 || lstGioNguonByDayByNguoi2.Count < 1)
+                                break;
+                            //Cộng giờ công trong ngày phút
+                            foreach (var LichTrinhToCaLamViec in lstlichtrinhnam) //lấy từng dòng trong lichtrinhngay ra để lấy ca
+                            {
+                                var calamviec = context.spGetCaLamViec(LichTrinhToCaLamViec.MaCaLamViec).FirstOrDefault();
+                                foreach (var gionguon in lstGioNguonByDayByNguoi2)
+                                {
+                                    //Nếu chấm công trong phạm vi giờ cho phép tính công thì cộng công, giờ (Chưa xét đi muộn, về sớm, nghỉ lễ,vvv)
+                                    if (gionguon.GioChamCong.TimeOfDay > calamviec.GioVaoSomNhatDuocTinhCa && gionguon.GioChamCong.TimeOfDay < calamviec.GioRaMuonNhatDuocTinhCa)
+                                    {
+                                        TongGio += calamviec.TongGio;
+                                        TongCong += calamviec.DiemCong;
+                                        break;
+                                    }
+                                }
+                            }
+                            break;
+
+                    }
+                }
+                //Nếu Không xếp bất cứ lịch trình nào
+                else
+                    continue;
+            }
+        }
+
+        public Image byteArrayToImage(byte[] byteArrayIn)
+        {
+            MemoryStream ms = new MemoryStream(byteArrayIn);
+            Image returnImage = Image.FromStream(ms);
+            return returnImage;
+
+        }
+
+        private void dataGridViewNhanVien_SelectionChanged(object sender, EventArgs e)
+        {
+            ATINChamCongEntities context = new ATINChamCongEntities();
+            if (dataGridViewNhanVien.SelectedRows.Count < 1)
+            {
+                pictureBox1.Image = Properties.Resources.bouser_32x32;
+            }
+            else
+            {
+                int manguoi = (dataGridViewNhanVien.SelectedRows[0].DataBoundItem as ViewThongTinNhanVien1).MaNguoi;
+                var nguoi = context.Nguois.Where(x => x.MaNguoi == manguoi).FirstOrDefault();
+                if (nguoi.AnhDaiDien == null)
+                    pictureBox1.Image = Properties.Resources.bouser_32x32;
+                else
+                    pictureBox1.Image = byteArrayToImage(nguoi.AnhDaiDien);
+            }
+        }
+        private void barButtonItem17_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            barButtonItem17.Enabled = false;
+            Cursor.Current = Cursors.WaitCursor;
+            try
+            {
+                string saveExcelFile = @"C:\GioNguondaucuoi_report.xlsx";
+
+                Excel.Application xlApp = new Excel.Application();
+
+                if (xlApp == null)
+                {
+                    MessageBox.Show("Lỗi không thể sử dụng được thư viện EXCEL");
+                    return;
+                }
+                xlApp.Visible = false;
+
+                object misValue = System.Reflection.Missing.Value;
+
+                Workbook wb = xlApp.Workbooks.Add(misValue);
+
+                Worksheet ws = (Worksheet)wb.Worksheets[1];
+
+                if (ws == null)
+                {
+                    MessageBox.Show("Không thể tạo được WorkSheet");
+                    return;
+                }
+                int row = 1;
+                string fontName = "Times New Roman";
+                int fontSizeTieuDe = 18;
+                int fontSizeTenTruong = 14;
+                int fontSizeNoiDung = 12;
+                //Xuất dòng Tiêu đề của File báo cáo: Lưu ý
+                Range row1_TieuDe_ThongKeSanPham = ws.get_Range("A1", "G1");
+                row1_TieuDe_ThongKeSanPham.Merge();
+                row1_TieuDe_ThongKeSanPham.Font.Size = fontSizeTieuDe;
+                row1_TieuDe_ThongKeSanPham.Font.Name = fontName;
+                row1_TieuDe_ThongKeSanPham.Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                row1_TieuDe_ThongKeSanPham.Value2 = "Giờ Nguồn Đầu Cuối";
+
+                //Tạo Ô Số Thứ Tự (STT)
+                Range row23_STT = ws.get_Range("A2", "A2");//Cột A dòng 2 và dòng 3
+                row23_STT.Merge();
+                row23_STT.Font.Size = fontSizeTenTruong;
+                row23_STT.Font.Name = fontName;
+                row23_STT.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                row23_STT.Value2 = "STT";
+
+                //Tạo Ô Mã Sản phẩm :
+                Range row23_MaNhanVien = ws.get_Range("B2", "B2");//Cột B dòng 2 và dòng 3
+                row23_MaNhanVien.Merge();
+
+                row23_MaNhanVien.Font.Name = fontName;
+                row23_MaNhanVien.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                row23_MaNhanVien.Value2 = "Mã Nhân Viên";
+                row23_MaNhanVien.ColumnWidth = 20;
+                row23_MaNhanVien.Font.Size = fontSizeTenTruong;
+                //Tạo Ô Tên Sản phẩm :
+                Range row23_MaDinhDanh = ws.get_Range("C2", "C2");//Cột C dòng 2 và dòng 3
+                row23_MaDinhDanh.Merge();
+                row23_MaDinhDanh.Font.Size = fontSizeTenTruong;
+                row23_MaDinhDanh.Font.Name = fontName;
+                row23_MaDinhDanh.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                row23_MaDinhDanh.ColumnWidth = 20;
+                row23_MaDinhDanh.Value2 = "Mã Chấm Công";
+
+                Range row23_HoTen = ws.get_Range("D2", "D2");//Cột C dòng 2 và dòng 3
+                row23_HoTen.Merge();
+                row23_HoTen.Font.Size = fontSizeTenTruong;
+                row23_HoTen.Font.Name = fontName;
+                row23_HoTen.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                row23_HoTen.ColumnWidth = 20;
+                row23_HoTen.Value2 = "Họ Tên";
+
+                //Tạo Ô Giá Sản phẩm :
+                Range row2_NgayChamCong = ws.get_Range("E2", "E2");//Cột D->E của dòng 2
+                row2_NgayChamCong.Merge();
+                row2_NgayChamCong.Font.Size = fontSizeTenTruong;
+                row2_NgayChamCong.Font.Name = fontName;
+                row2_NgayChamCong.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                row2_NgayChamCong.ColumnWidth = 20;
+                row2_NgayChamCong.Value2 = "Ngày Chấm Công";
+
+                //Tạo Ô Giá Nhập:
+                Range row3_GioChamCong = ws.get_Range("F2", "F2");//Ô D3
+                row3_GioChamCong.Font.Size = fontSizeTenTruong;
+                row3_GioChamCong.Font.Name = fontName;
+                row3_GioChamCong.Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                row3_GioChamCong.Value2 = "Giờ Vào Đầu";
+                row3_GioChamCong.ColumnWidth = 20;
+
+                Range row3_LoaiChamCong = ws.get_Range("G2", "G2");//Ô E3
+                row3_LoaiChamCong.Font.Size = fontSizeTenTruong;
+                row3_LoaiChamCong.Font.Name = fontName;
+                row3_LoaiChamCong.Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                row3_LoaiChamCong.Value2 = "Giờ Ra Cuối";
+                row3_LoaiChamCong.ColumnWidth = 20;
+
+                //Tô nền vàng các cột tiêu đề:
+                Range row23_CotTieuDe = ws.get_Range("A2", "G2");
+                //nền vàng
+                row23_CotTieuDe.Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Yellow);
+                //in đậm
+                row23_CotTieuDe.Font.Bold = true;
+                //chữ đen
+                row23_CotTieuDe.Font.Color = ColorTranslator.ToOle(System.Drawing.Color.Black);
+
+                int stt = 0;
+                row = 2;//dữ liệu xuất bắt đầu từ dòng số 4 trong file Excel (khai báo 2 để vào vòng lặp nó ++ thành 3)
+                System.Data.DataTable tCxC = (System.Data.DataTable)dataGridView2.DataSource;
+                foreach (DataRow sp in tCxC.Rows)
+                {
+                    stt++;
+                    row++;
+                    dynamic[] arr =
+    {
+                        stt, sp.Field<int>("MaNhanVienGrid2"),
+                        sp.Field<int>("MaChamCongGrid2"),
+                        sp.Field<string>("HoTenGrid2"),
+                        sp.Field<DateTime>("NgayChamCongGrid2").ToShortDateString() ,
+                        sp.Field<DateTime>("GioVaoGrid2").ToShortTimeString(),
+                        sp.Field<DateTime>("GioRaGrid2").ToShortTimeString()
+                    }; 
+                    Range rowData = ws.get_Range("A" + row, "G" + row);//Lấy dòng thứ row ra để đổ dữ liệu
+                    rowData.Font.Size = fontSizeNoiDung;
+                    rowData.Font.Name = fontName;
+                    rowData.Value2 = arr;
+                }
+                //Kẻ khung toàn bộ
+                BorderAround(ws.get_Range("A2", "G" + row));
+
+                //Lưu file excel xuống Ổ cứng
+                wb.SaveAs(saveExcelFile);
+
+                //đóng file để hoàn tất quá trình lưu trữ
+                wb.Close(true, misValue, misValue);
+                //thoát và thu hồi bộ nhớ cho COM
+                xlApp.Quit();
+                releaseObject(ws);
+                releaseObject(wb);
+                releaseObject(xlApp);
+
+                //Mở File excel sau khi Xuất thành công
+                System.Diagnostics.Process.Start(saveExcelFile);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            barButtonItem17.Enabled = true;
+            Cursor.Current = Cursors.Default;
+        }
         private void barButtonItem12_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             barButtonItem16.Enabled = false;
@@ -642,7 +1030,7 @@ namespace ATINTimekeeping.ChamCongVaBaoBieu
                 {
                     stt++;
                     row++;
-                    dynamic[] arr = { stt, sp.MaNhanVien,sp.MaDinhDanh, sp.HoTen, sp.NgayChamCong.ToShortDateString(), sp.GioChamCong.ToShortTimeString(), sp.MaLoaiChamCong, sp.MaThietBi, sp.NguonThucHien, sp.MaChamCong };
+                    dynamic[] arr = { stt, sp.MaNhanVien, sp.MaDinhDanh, sp.HoTen, sp.NgayChamCong.ToShortDateString(), sp.GioChamCong.ToShortTimeString(), sp.MaLoaiChamCong, sp.MaThietBi, sp.NguonThucHien, sp.MaChamCong };
                     Range rowData = ws.get_Range("A" + row, "J" + row);//Lấy dòng thứ row ra để đổ dữ liệu
                     rowData.Font.Size = fontSizeNoiDung;
                     rowData.Font.Name = fontName;
@@ -790,7 +1178,7 @@ namespace ATINTimekeeping.ChamCongVaBaoBieu
                 row3_MaChamCong.Font.Name = fontName;
                 row3_MaChamCong.Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
                 row3_MaChamCong.Value2 = "Tên Máy Chấm Công";
-                row3_MaChamCong.ColumnWidth = 20;
+                row3_MaChamCong.ColumnWidth = 23;
                 //Tô nền vàng các cột tiêu đề:
                 Range row23_CotTieuDe = ws.get_Range("A2", "J2");
                 //nền vàng
@@ -808,17 +1196,17 @@ namespace ATINTimekeeping.ChamCongVaBaoBieu
                 {
                     stt++;
                     row++;
-                    dynamic[] arr = 
-                        { 
-                        stt, sp.Field<int>("MaNhanVienGrid1"), 
-                        sp.Field<int>("MaDinhDanhGrid1"), 
-                        sp.Field<string>("HoTen"), 
-                        sp.Field<DateTime>("NgayChamCongGrid1").ToShortDateString() , 
-                        sp.Field<DateTime>("GioVaoGrid1").ToShortTimeString(), 
-                        sp.Field<DateTime>("GioRaGrid1").ToShortTimeString(), 
-                        sp.Field<string>("QuaDem"), 
-                        sp.Field<int>("MaChamCongGrid1"), 
-                        sp.Field<string>("TenMayGrid1") 
+                    dynamic[] arr =
+                        {
+                        stt, sp.Field<int>("MaNhanVienGrid1"),
+                        sp.Field<int>("MaDinhDanhGrid1"),
+                        sp.Field<string>("HoTen"),
+                        sp.Field<DateTime>("NgayChamCongGrid1").ToShortDateString() ,
+                        sp.Field<DateTime>("GioVaoGrid1").ToShortTimeString(),
+                        sp.Field<DateTime>("GioRaGrid1").ToShortTimeString(),
+                        sp.Field<string>("QuaDem"),
+                        sp.Field<int>("MaChamCongGrid1"),
+                        sp.Field<string>("TenMayGrid1")
                     };
                     Range rowData = ws.get_Range("A" + row, "J" + row);//Lấy dòng thứ row ra để đổ dữ liệu
                     rowData.Font.Size = fontSizeNoiDung;
@@ -850,10 +1238,7 @@ namespace ATINTimekeeping.ChamCongVaBaoBieu
             Cursor.Current = Cursors.Default;
         }
 
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
     }
 
 
